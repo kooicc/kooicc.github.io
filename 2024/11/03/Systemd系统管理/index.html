@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="秋雨夜眠">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="systemctl是 Systemd 的主命令，用于管理系统。#查看启动耗时systemd-analyze#查看每个服务的启动耗时systemd-analyze blame#显示瀑布状的启动过程流systemd-analyze critical-chain#显示指定服务的启动流systemd-analyze critical-chain atd.service#显示当前主机的信息hostnamec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Systemd系统管理">
+<meta property="og:url" content="http://example.com/2024/11/03/Systemd%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="秋雨夜眠">
+<meta property="og:description" content="systemctl是 Systemd 的主命令，用于管理系统。#查看启动耗时systemd-analyze#查看每个服务的启动耗时systemd-analyze blame#显示瀑布状的启动过程流systemd-analyze critical-chain#显示指定服务的启动流systemd-analyze critical-chain atd.service#显示当前主机的信息hostnamec">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/systemd.png">
+<meta property="article:published_time" content="2024-11-04T07:46:18.173Z">
+<meta property="article:modified_time" content="2024-11-02T10:11:22.000Z">
+<meta property="article:author" content="秋雨夜眠">
+<meta property="article:tag" content="system">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/systemd.png">
+  
+  
+  
+  <title>Systemd系统管理 - 秋雨夜眠</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"shell"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>秋雨夜眠的Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/fj2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Systemd系统管理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-04 15:46" pubdate>
+          2024年11月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Systemd系统管理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="systemctl是-Systemd-的主命令，用于管理系统。"><a href="#systemctl是-Systemd-的主命令，用于管理系统。" class="headerlink" title="systemctl是 Systemd 的主命令，用于管理系统。"></a>systemctl是 Systemd 的主命令，用于管理系统。</h2><p>#查看启动耗时<br>systemd-analyze<br>#查看每个服务的启动耗时<br>systemd-analyze blame<br>#显示瀑布状的启动过程流<br>systemd-analyze critical-chain<br>#显示指定服务的启动流<br>systemd-analyze critical-chain atd.service<br>#显示当前主机的信息<br>hostnamectl<br>#设置主机名。<br>hostnamectl set-hostname rhel7</p>
+<p>1.4 localectl<br>localectl命令用于查看本地化设置。</p>
+<h2 id="查看本地化设置"><a href="#查看本地化设置" class="headerlink" title="查看本地化设置"></a>查看本地化设置</h2><p>localectl<br>#查看当前时区设置<br>timedatectl<br>#查看当前登录的用户。<br>loginctl<br>#列出显示指定用户的信息<br>loginctl show-user ruanyf</p>
+<h2 id="列出所有配置文件"><a href="#列出所有配置文件" class="headerlink" title="列出所有配置文件"></a>列出所有配置文件</h2><p><code>systemctl list-unit-files</code><br>#列出指定类型的配置文件<br><code>systemctl list-unit-files --type=service</code><br>这个列表显示每个配置文件的状态，一共有四种。<br>enabled：已建立启动链接<br>disabled：没建立启动链接<br>static：该配置文件没有[Install]部分（无法执行），只能作为其他配置文件的依赖<br>masked：该配置文件被禁止建立启动链接</p>
+<h2 id="更改查看Unit-的状态"><a href="#更改查看Unit-的状态" class="headerlink" title="更改查看Unit 的状态"></a>更改查看Unit 的状态</h2><p><code>sysystemctl status transmission-daemon.service</code></p>
+<ul>
+<li>重载所有修改过的配置文件<br><code>systemctl daemon-reload</code></li>
+<li>开始 | 停止 | 重启服务<br><code>systemctl start|stop|restart httpd.service</code></li>
+<li>开机自启并运行<br><code>systemctl enable httpd.service --now</code></li>
+<li>禁止开机自启<br><code>systemctl disable httpd.service --now</code></li>
+<li>查看配置文件<br><code>systemctl cat atd.service</code></li>
+<li>杀死一个服务的所有子进程<br><code>systemctl kill apache.service</code></li>
+<li>列出正在运行的 Unit<br><code>systemctl list-units</code></li>
+<li>列出所有Unit，包括没有找到配置文件的或者启动失败的<br><code>systemctl list-units --all</code></li>
+<li>列出所有没有运行的 Unit<br><code>systemctl list-units --all --state=inactive</code></li>
+<li>列出所有加载失败的 Unit<br><code>systemctl list-units --failed</code></li>
+<li>列出所有正在运行的、类型为 service 的 Unit<br><code>systemctl list-units --type=service</code></li>
+<li>显示某个 Unit 服务是否建立了启动链接<br><code>systemctl is-enabled transmission-daemon.service</code></li>
+</ul>
+<h2 id="日志管理"><a href="#日志管理" class="headerlink" title="日志管理"></a>日志管理</h2><p>Systemd 统一管理所有 Unit 的启动日志。带来的好处就是，可以只用journalctl一个命令，查看所有日志（内核日志和应用日志）。日志的配置文件是&#x2F;etc&#x2F;systemd&#x2F;journald.conf。</p>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-8f7bdefe" role="button" aria-expanded="false" aria-controls="collapse-8f7bdefe">
+        <div class="fold-arrow">▶</div>title
+      </div>
+      <div class="fold-collapse collapse" id="collapse-8f7bdefe">
+        <div class="fold-content">
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">查看所有日志（默认情况下 ，只保存本次启动的日志）</span><br>sudo journalctl<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看内核日志（不显示应用日志）</span><br>sudo journalctl -k<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看系统本次启动的日志</span><br>sudo journalctl -b<br>sudo journalctl -b -0<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看上一次启动的日志（需更改设置）</span><br>sudo journalctl -b -1<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定时间的日志</span><br>sudo journalctl --since=&quot;2012-10-30 18:17:16&quot;<br>sudo journalctl --since &quot;20 min ago&quot;<br>sudo journalctl --since yesterday<br>sudo journalctl --since &quot;2015-01-10&quot; --until &quot;2015-01-11 03:00&quot;<br>sudo journalctl --since 09:00 --until &quot;1 hour ago&quot;<br><span class="hljs-meta prompt_">#</span><span class="language-bash">显示尾部的最新10行日志</span><br>sudo journalctl -n<br><span class="hljs-meta prompt_">#</span><span class="language-bash">显示尾部指定行数的日志</span><br>sudo journalctl -n 20<br><span class="hljs-meta prompt_">#</span><span class="language-bash">实时滚动显示最新日志</span><br>sudo journalctl -f<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定服务的日志</span><br>sudo journalctl /usr/lib/systemd/systemd<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定进程的日志</span><br>sudo journalctl _PID=1<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看某个路径的脚本的日志</span><br>sudo journalctl /usr/bin/bash<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定用户的日志</span><br>sudo journalctl _UID=33 --since today<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看某个 Unit 的日志</span><br>sudo journalctl -u nginx.service&gt;<br>sudo journalctl -u nginx.service --since today<br><span class="hljs-meta prompt_">#</span><span class="language-bash">实时滚动显示某个 Unit 的最新日志</span><br>sudo journalctl -u nginx.service -f<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定优先级（及其以上级别）的日志，共有8级</span><br>sudo journalctl -p err -b<br>0: emerg | 1: alert | 2: crit | 3: err | 4: warning | 5: notice | 6: info | 7: debug<br>日志默认分页输出，--no-pager 改为正常的标准输出<br>sudo journalctl --no-pager<br><span class="hljs-meta prompt_">#</span><span class="language-bash">以 JSON 格式（单行）输出</span><br>sudo journalctl -b -u nginx.service -o json<br><span class="hljs-meta prompt_">#</span><span class="language-bash">显示日志占据的硬盘空间</span><br>sudo journalctl --disk-usage<br><span class="hljs-meta prompt_">#</span><span class="language-bash">指定日志文件占据的最大空间</span><br>sudo journalctl --vacuum-size=1G<br><span class="hljs-meta prompt_">#</span><span class="language-bash">指定日志文件保存多久</span><br>sudo journalctl --vacuum-time=1years<br><span class="hljs-meta prompt_">#</span><span class="language-bash">删除重置日志</span><br>rm -rf  /var/log/journal/*<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#重启服务</span></span><br>systemctl restart systemd-journald<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+
+<h2 id="Linux使用timedatectl设置时区与同步时间"><a href="#Linux使用timedatectl设置时区与同步时间" class="headerlink" title="Linux使用timedatectl设置时区与同步时间"></a>Linux使用timedatectl设置时区与同步时间</h2><p><img src="https://s3.bmp.ovh/imgs/2024/02/04/c79499f6bd2e26e6.png" srcset="/img/loading.gif" lazyload alt="Systemd"></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><code>timedatectl</code>是一个新工具，它作为 <code>systemd</code> 系统和服务管理器的一部分，代替旧的传统的用在基于 Linux 分布式系统的 <code>sysvinit</code> 守护进程的 <code>date</code> 命令。<code>timedatectl</code> 命令可以查询和更改系统时钟和设置，可以使用此命令来设置或更改当前的日期、时间和时区，或实现与远程 NTP 服务器的自动系统时钟同步。</p>
+<ul>
+<li>查看所有可用的时区</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">timedatectl list-timezones</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>设置当前系统的时区为上海</li>
+</ul>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">sudo</span> <span class="hljs-string">timedatectl</span> <span class="hljs-built_in">set-timezone</span> <span class="hljs-string">&quot;Asia/Shanghai&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看当前系统的时区</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">timedatectl status</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="同步时间"><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h2><p>一般重新设置系统时区后，现实时间会与系统时间之间会有误差，这时候建议使用 <code>systemd-timesyncd</code> 相关工具来解决时间差异的问题。<strong>特别注意：<code>timedatectl</code> 并不兼容 <code>ntpd</code> 等组件，请不要安装 <code>ntpd</code> 等组件，以免时间同步失效。</strong></p>
+<ul>
+<li>安装 <code>systemd-timesyncd</code> 服务</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install systemd-timesyncd<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>更改配置文件，添加 NTP 服务器（添加一行 NTP 服务器地址）</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sudo vim /etc/systemd/timesyncd<span class="hljs-selector-class">.conf</span><br><span class="hljs-selector-attr">[Time]</span><br>NTP=pool<span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span> <span class="hljs-number">0</span><span class="hljs-selector-class">.asia</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span> <span class="hljs-number">1</span><span class="hljs-selector-class">.asia</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span> <span class="hljs-number">2</span><span class="hljs-selector-class">.asia</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span><br>#RootDistanceMaxSec=<span class="hljs-number">5</span><br>#PollIntervalMinSec=<span class="hljs-number">32</span><br>#PollIntervalMaxSec=<span class="hljs-number">2048</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>重启 <code>systemd-timesyncd</code> 服务</li>
+</ul>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nsis">sudo <span class="hljs-params">system</span>ctl restart <span class="hljs-params">system</span>d-timesyncd<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看 <code>systemd-timesyncd</code> 服务的运行状态</li>
+</ul>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nsis">sudo <span class="hljs-params">system</span>ctl status <span class="hljs-params">system</span>d-timesyncd<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>启用时间自动同步</li>
+</ul>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">sudo</span> <span class="hljs-string">timedatectl</span> <span class="hljs-built_in">set-ntp</span> <span class="hljs-string">true</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看时间同步状态</li>
+</ul>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs fortran">timedatectl <span class="hljs-keyword">status</span><br><br>timedatectl timesync-<span class="hljs-keyword">status</span><br><br>timedatectl show-timesync --<span class="hljs-built_in">all</span><br><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/system/" class="print-no-link">#system</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Systemd系统管理</div>
+      <div>http://example.com/2024/11/03/Systemd系统管理/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>秋雨夜眠</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年11月2日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/03/Synology%E7%BE%A4%E6%99%96/" title="群晖Synology Inc.">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">群晖Synology Inc.</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/03/Tailscale%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" title="Tailscale远程访问">
+                        <span class="hidden-mobile">Tailscale远程访问</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      Copyright © 1996-2024
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>秋雨夜眠的Blog</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

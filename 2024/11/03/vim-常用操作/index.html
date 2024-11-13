@@ -1,0 +1,801 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="秋雨夜眠">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="编辑模式通过 i 命令进入编辑模式  i 在当前光标所在位置进入编辑模式  I 在当前行的第一个字符进入编辑模式  a 在当前光标所在位置的下一个字符进入编辑模式  A 在当前行的最后一个字符进入编辑模式  o 在当前行的下一行插入一个新行，并进入编辑模式  O 在当前行的上一行插入一个新行，并进入编辑模式    也可通过 A 命令进入仅添加编辑模式，此时光标在当前字符的后面，无法进行删除操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim 常用操作">
+<meta property="og:url" content="http://example.com/2024/11/03/vim-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="秋雨夜眠">
+<meta property="og:description" content="编辑模式通过 i 命令进入编辑模式  i 在当前光标所在位置进入编辑模式  I 在当前行的第一个字符进入编辑模式  a 在当前光标所在位置的下一个字符进入编辑模式  A 在当前行的最后一个字符进入编辑模式  o 在当前行的下一行插入一个新行，并进入编辑模式  O 在当前行的上一行插入一个新行，并进入编辑模式    也可通过 A 命令进入仅添加编辑模式，此时光标在当前字符的后面，无法进行删除操作。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Linux.png">
+<meta property="article:published_time" content="2024-11-04T07:46:18.173Z">
+<meta property="article:modified_time" content="2024-08-27T09:08:21.000Z">
+<meta property="article:author" content="秋雨夜眠">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Linux.png">
+  
+  
+  
+  <title>vim 常用操作 - 秋雨夜眠</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"shell"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>秋雨夜眠的Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/fj2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="vim 常用操作"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-04 15:46" pubdate>
+          2024年11月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">vim 常用操作</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><p><em>通过 <code>i</code> 命令进入编辑模式</em></p>
+<ul>
+<li><p><code>i</code> 在当前光标所在位置进入编辑模式</p>
+</li>
+<li><p><code>I</code> 在当前行的第一个字符进入编辑模式</p>
+</li>
+<li><p><code>a</code> 在当前光标所在位置的下一个字符进入编辑模式</p>
+</li>
+<li><p><code>A</code> 在当前行的最后一个字符进入编辑模式</p>
+</li>
+<li><p><code>o</code> 在当前行的下一行插入一个新行，并进入编辑模式</p>
+</li>
+<li><p><code>O</code> 在当前行的上一行插入一个新行，并进入编辑模式</p>
+</li>
+</ul>
+<blockquote>
+<p>也可通过 <code>A</code> 命令进入仅添加编辑模式，此时光标在当前字符的后面，无法进行删除操作。</p>
+</blockquote>
+<h2 id="命令模式模式"><a href="#命令模式模式" class="headerlink" title="命令模式模式"></a>命令模式模式</h2><p><em>按<code>ESC</code> 键退出编辑模式，这时是命令模式。</em></p>
+<h3 id="保存退出"><a href="#保存退出" class="headerlink" title="保存退出"></a>保存退出</h3><ul>
+<li><code>:q</code> 退出 vim</li>
+<li><code>:q!</code> 强制退出 vim 不保存</li>
+<li><code>:w</code> 保存修改</li>
+<li><code>:wq</code> 保存修改并退出</li>
+</ul>
+<h3 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h3><p><em>通过 <code>h</code> <code>j</code> <code>k</code> <code>l</code> 键移动光标，分别对应左、下、上、右</em></p>
+<ul>
+<li><code>0</code> 移动光标到行首</li>
+<li><code>$</code> 移动光标到行尾</li>
+<li><code>gg</code> 移动光标到文件首</li>
+<li><code>G</code> 移动光标到文件尾</li>
+<li><code>nG</code> 移动光标到第 n 行, 如 <code>10G</code> 移动光标到第 10 行</li>
+<li><code>n+</code> 光标<strong>向下</strong>移动 n 行, 如 <code>10+</code> 光标向下移动 10 行</li>
+<li><code>n-</code> 光标<strong>向上</strong>移动 n 行, 如 <code>10-</code> 光标向上移动 10 行</li>
+<li><code>n&lt;space&gt;</code> 光标<strong>向右</strong>移动 n 个字符, 如 <code>10&lt;space&gt;</code> 光标向右移动 10 个字符</li>
+<li><code>n&lt;enter&gt;</code> 光标<strong>向下</strong>移动 n 行, 如 <code>10&lt;enter&gt;</code> 光标向下移动 10 行</li>
+<li><code>w</code> 光标<strong>向右</strong>移动一个单词，注记：<code>word</code></li>
+<li><code>b</code> 光标<strong>向左</strong>移动一个单词，注记：<code>back</code></li>
+<li><code>e</code> 光标<strong>向右</strong>移动到单词结尾，注记：<code>end</code></li>
+</ul>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><h4 id="字符删除"><a href="#字符删除" class="headerlink" title="字符删除"></a>字符删除</h4><ul>
+<li><code>x</code> 删除光标所在位置的字符</li>
+<li><code>X</code> 删除光标所在位置的前一个字符</li>
+</ul>
+<h4 id="单词删除"><a href="#单词删除" class="headerlink" title="单词删除"></a>单词删除</h4><ul>
+<li><code>dw</code> 删除光标所在位置到<strong>下</strong>一个单词开头的字符，<strong>包括空格</strong> (注记：<code>delete word</code>)</li>
+<li><code>db</code> 删除光标所在位置到<strong>上</strong>一个单词开头的字符，<strong>包括空格</strong> (注记：<code>delete back</code>)</li>
+<li><code>de</code> 删除光标所在位置到<strong>下</strong>一个单词结尾的字符 (注记：<code>delete end</code>)</li>
+<li><code>dd</code> 删除光标所在行</li>
+<li><code>d$</code> 删除光标所在位置到行尾的字符</li>
+<li><code>%d</code>全部删除<blockquote>
+<p>删除命令都会将删除的内容存入剪贴板，可以通过下文的粘贴命令将剪贴板的内容粘贴到文件中。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h3><ul>
+<li><code>yy</code> 复制光标所在行</li>
+<li><code>yw</code> 复制光标所在位置到<strong>下</strong>一个单词开头的字符，<strong>包括空格</strong> (注记：<code>yank word</code>)</li>
+<li><code>p</code> 粘贴剪贴板内容到光标所在行的下一行 (注记：<code>paste</code>)</li>
+<li><code>P</code> 粘贴剪贴板内容到光标所在行的上一行</li>
+</ul>
+<p>还可以使用 <code>v</code> 进入可视模式，然后使用 <code>h</code> <code>j</code> <code>k</code> <code>l</code> 键移动光标，选中一段文本，然后按 <code>y</code> 复制选中的文本，再根据需要使用 <code>p</code> 或 <code>P</code> 粘贴。(有点像鼠标拖拽选中文本，然后复制粘贴)</p>
+<h3 id="撤销重做"><a href="#撤销重做" class="headerlink" title="撤销重做"></a>撤销重做</h3><ul>
+<li><code>u</code> 撤销上一次操作</li>
+<li><code>Ctrl + r</code> 重做被撤销的操作，或者说撤销撤销操作</li>
+<li><code>U</code> 撤销对整行的修改</li>
+<li><code>.</code> 重复上一次修改</li>
+</ul>
+<h3 id="查找替换"><a href="#查找替换" class="headerlink" title="查找替换"></a>查找替换</h3><h4 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h4><ul>
+<li><code>/word</code> 查找 word 字符串，按 <code>n</code> 查找下一个，按 <code>N</code> 查找上一个，如果想逆向查找，可以使用 <code>?word</code> 命令</li>
+<li><code>:set ic</code> 查找时忽略大小写 (ignore case)</li>
+<li><code>:set is</code> 查找时显示匹配的字符串 (ignore case)</li>
+<li><code>:set hls</code> 查找时高亮显示匹配的字符串 (highlight search)</li>
+</ul>
+<h4 id="查找括号匹配"><a href="#查找括号匹配" class="headerlink" title="查找括号匹配"></a>查找括号匹配</h4><ul>
+<li><code>%</code> 查找括号匹配，如 <code>()</code> <code>[]</code> <code>&#123;&#125;</code>，光标放在括号上，按 <code>%</code> 可以跳转到匹配的括号上</li>
+<li><code>:set showmatch</code> 设置括号匹配高亮</li>
+</ul>
+<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><ul>
+<li><code>r</code> 按下 r 后输入一个字符，将光标所在位置的字符替换为输入的字符</li>
+<li><code>R</code> 按下 R 后进入替换模式，每输入一个字符，将光标所在位置的字符替换为输入的字符，并向右移动一个字符。按 <code>ESC</code> 退出替换模式</li>
+<li><code>ce</code> 删除光标所在位置到<strong>下</strong>一个单词结尾的字符，并进入编辑模式</li>
+<li><code>c$</code> 删除光标所在位置到行尾的字符，并进入编辑模式</li>
+<li><code>:s/old/new</code> 将当前行第一个 old 替换为 new</li>
+<li><code>:s/old/new/g</code> 将当前行所有 old 替换为 new (其中 <code>g</code> 为 global 的意思)</li>
+<li><code>:%s/old/new/g</code> 将所有行所有 old 替换为 new</li>
+<li><code>:%s/old/new/gc</code> 将所有行所有 old 替换为 new，替换前询问是否替换 (其中 <code>c</code> 为 confirm 的意思)</li>
+<li><code>:n1,n2s/old/new/g</code> 将第 n1 行到第 n2 行所有 old 替换为 new</li>
+</ul>
+<h3 id="命令数字量化"><a href="#命令数字量化" class="headerlink" title="命令数字量化"></a>命令数字量化</h3><p>vim 指令中很多命令都可以量化，如删除字符, 删除行，向某个方向移动光标等，可以量化为删除多少个字符，删除多少行，向某个方向移动多少个字符等。对于这些命令，可以在命令前加上数字，如 <code>10dd</code> 删除 10 行，<code>10w</code> 向右移动 10 个单词，<code>10b</code> 向左移动 10 个单词，<code>10e</code> 向右移动 10 个单词到单词结尾，<code>10+</code> 光标向下移动 10 行，<code>10-</code> 光标向上移动 10 行，<code>10&lt;space&gt;</code> 光标向右移动 10 个字符，<code>10&lt;enter&gt;</code> 光标向下移动 10 行。</p>
+<h3 id="执行外部命令"><a href="#执行外部命令" class="headerlink" title="执行外部命令"></a>执行外部命令</h3><p>可以通过 <code>:!command</code> 执行外部命令，如 <code>:!ls</code> 执行 <code>ls</code> 命令，<code>:!date</code> 执行 <code>date</code> 命令。这样可以在 vim 中执行外部命令，执行完后会返回 vim，不会退出 vim。</p>
+<h3 id="状态命令"><a href="#状态命令" class="headerlink" title="状态命令"></a>状态命令</h3><ul>
+<li><code>Ctrl + g</code> 显示当前编辑文件的状态，包括文件名，文件状态，总行数，当前行号，光标位置百分比，当前所处列号。</li>
+<li><code>:set number</code> 显示行号</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhaojun.vip/archives/104/">vim 常用操作 - 赵俊个人博客 (zhaojun.vip)</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" class="category-chain-item">文本处理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/vim/" class="print-no-link">#vim</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>vim 常用操作</div>
+      <div>http://example.com/2024/11/03/vim-常用操作/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>秋雨夜眠</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年8月27日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/03/WireGuard%E7%BB%84%E7%BD%91/" title="WireGuard组网">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WireGuard组网</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/03/%E5%85%AC%E5%85%B1DNS/" title="DNS设置">
+                        <span class="hidden-mobile">DNS设置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      Copyright © 1996-2024
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>秋雨夜眠的Blog</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

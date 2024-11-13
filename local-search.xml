@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Caddy网页服务器</title>
+    <link href="/2024/11/03/Caddy%E7%BD%91%E9%A1%B5%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <url>/2024/11/03/Caddy%E7%BD%91%E9%A1%B5%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Caddy-具有自动-HTTPS-的终极服务器"><a href="#Caddy-具有自动-HTTPS-的终极服务器" class="headerlink" title="Caddy - 具有自动 HTTPS 的终极服务器"></a><a href="https://caddyserver.com/">Caddy - 具有自动 HTTPS 的终极服务器</a></h3><p><img src="/upload/2024/02/logo-light-1707219575579.png" alt="logo-light-1707219575579"></p><h1 id="Caddy官网"><a href="#Caddy官网" class="headerlink" title="Caddy官网"></a><a href="https://caddyserver.com/">Caddy官网</a></h1><h2 id="Caddy-WebDav"><a href="#Caddy-WebDav" class="headerlink" title="Caddy+WebDav"></a>Caddy+WebDav</h2><p><a href="https://caddyserver.com/download?package=github.com/mholt/caddy-webdav">https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav</a></p><ul><li>不常用<ul><li>自定义编译<code>xcaddy</code></li><li>添加插件<code>caddy add-package github.com/mholt/caddy-webdav</code></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>网页服务器</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>caddy proxy Web-server</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Docker容器管理</title>
+    <link href="/2024/11/03/Docker-%E5%AE%B9%E5%99%A8/"/>
+    <url>/2024/11/03/Docker-%E5%AE%B9%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="配置代理服务器-拉取更新镜像"><a href="#配置代理服务器-拉取更新镜像" class="headerlink" title="配置代理服务器(拉取更新镜像)"></a>配置代理服务器(拉取更新镜像)</h2><p><code>nano /usr/lib/systemd/system/docker.service</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[Service]<br><span class="hljs-meta prompt_">#</span><span class="language-bash">porxy</span><br>Environment=&quot;HTTP_PROXY=http://127.0.0.1:10809&quot;<br>Environment=&quot;HTTPS_PROXY=http://127.0.0.1:10809&quot;<br></code></pre></td></tr></table></figure><ul><li><p><a href="https://docs.docker.com/engine/install/">Docker官方安装脚本 | 阿里云加速 </a></p><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs console">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun<br>sudo sh ./get-docker.sh<br></code></pre></td></tr></table></figure></li></ul><h4 id="Docker-帮助命令"><a href="#Docker-帮助命令" class="headerlink" title="Docker 帮助命令"></a>Docker 帮助命令</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-meta"># 查看Docker的版本</span><br><span class="hljs-meta"># docker version</span><br><br><span class="hljs-meta"># 查看Docker的详细信息</span><br><span class="hljs-meta"># docker info</span><br></code></pre></td></tr></table></figure><h4 id="Docker-镜像查看命令"><a href="#Docker-镜像查看命令" class="headerlink" title="Docker 镜像查看命令"></a>Docker 镜像查看命令</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-meta"># 查看本地所有镜像的列表</span><br><span class="hljs-meta"># docker images</span><br><br><span class="hljs-meta"># 查看本地某个镜像的信息</span><br><span class="hljs-meta"># docker images 4ab4c602aa5e（镜像ID）</span><br></code></pre></td></tr></table></figure><h4 id="Docker-镜像搜索命令"><a href="#Docker-镜像搜索命令" class="headerlink" title="Docker 镜像搜索命令"></a>Docker 镜像搜索命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">搜索Docker-Hub中的镜像</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">docker search tomcat</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">参数OPTIONS</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--no-trunc：不截断输出</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--<span class="hljs-built_in">limit</span>：限制搜索结果的条目数量，默认值是25，例如“--<span class="hljs-built_in">limit</span> 15”</span><br></code></pre></td></tr></table></figure><h4 id="Docker-镜像下载命令"><a href="#Docker-镜像下载命令" class="headerlink" title="Docker 镜像下载命令"></a>Docker 镜像下载命令</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-meta"># 下载Tomcat镜像，默认下载latest版本</span><br><span class="hljs-meta"># docker pull tomcat</span><br><br><span class="hljs-meta"># 下载指定版本的Tomcat镜像</span><br><span class="hljs-meta"># docker pull tomcat:8.0</span><br></code></pre></td></tr></table></figure><h4 id="Docker-镜像删除命令"><a href="#Docker-镜像删除命令" class="headerlink" title="Docker 镜像删除命令"></a>Docker 镜像删除命令</h4><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-meta"># 根据镜像ID删除镜像</span><br><span class="hljs-meta"># docker rmi 4ab4c602aa5e</span><br><br><span class="hljs-meta"># 删除本地所有镜像</span><br><span class="hljs-meta"># docker rmi $(docker images -qa)</span><br><br><span class="hljs-meta"># 参数OPTIONS</span><br><span class="hljs-meta"># -f：强制删除，即使镜像对应的容器实例正在运行</span><br><span class="hljs-meta"># --no-prune：不移除该镜像的过程镜像，默认移除</span><br></code></pre></td></tr></table></figure><h4 id="批量删除镜像"><a href="#批量删除镜像" class="headerlink" title="批量删除镜像"></a>批量删除镜像</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># 清理所有不被使用的镜像，正在使用的镜像和容器不会被删除，但是这个命令切忌慎用，因为它把整个docker空间都释放掉，即所有不被正在使用的镜像和容器都会被删除</span><br><span class="hljs-comment"># docker system prune -a</span><br></code></pre></td></tr></table></figure><h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><p><code>docker logs -f --tail 20 frpc</code></p><h4 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h4><p><code>docker stats -a</code></p><h3 id="查看Docker-目前已经自带docker-compose-plugin"><a href="#查看Docker-目前已经自带docker-compose-plugin" class="headerlink" title="查看Docker 目前已经自带docker-compose-plugin"></a>查看Docker 目前已经自带docker-compose-plugin</h3><p><code>docker compose version</code></p><ul><li>官方二进制文件Docker Compose：<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#下载</span><br>curl -L https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/docker/</span>compose<span class="hljs-regexp">/releases/</span>latest<span class="hljs-regexp">/download/</span>docker-compose-Linux-x86_64 &gt; <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/bin/</span>docker-compose<br><span class="hljs-comment">#可执行权限</span><br>chmod +x <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/bin/</span>docker-compose<br><span class="hljs-comment">#查看版本</span><br>docker-compose version<br></code></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>虚拟化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HelloWord</title>
+    <link href="/2024/11/03/HelloWord/"/>
+    <url>/2024/11/03/HelloWord/</url>
+    
+    <content type="html"><![CDATA[<h2 id="机场"><a href="#机场" class="headerlink" title="机场"></a>机场</h2><ul><li><p><a href="https://一元机场.com/#/login">一元机场 </a></p></li><li><p><a href="https://www.miaosu.xyz/">喵酥云</a> </p></li><li><p><a href="https://www.miao.lat/">https://www.miao.lat/</a></p></li><li><ul><li><h2 id="Anycast加速器"><a href="#Anycast加速器" class="headerlink" title="Anycast加速器"></a><a href="http://s.fx2306.com/share/o1yre9">Anycast加速器</a></h2></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>代理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>v2ray 代理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux常用工具安装</title>
+    <link href="/2024/11/03/OpenWrt%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
+    <url>/2024/11/03/OpenWrt%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    
+    <content type="html"><![CDATA[<h2 id="通用工具"><a href="#通用工具" class="headerlink" title="通用工具"></a>通用工具</h2><ul><li><code>zsh wget curl git lsof vim nano tree lsb_release mlocate lrzsz neofetch htop fzf autojump bat</code> </li><li><code>age fd ncdu fdupes</code></li><li><code> transmission-daemon qbittorrent-nox syncthing caddy minio</code></li></ul><h2 id="RHEL9系列设置"><a href="#RHEL9系列设置" class="headerlink" title="RHEL9系列设置"></a>RHEL9系列设置</h2><ul><li><p>关闭防火墙firewalld</p><ul><li><code>systemctl disable firewalld --now</code></li><li><code>systemctl status firewalld</code></li></ul></li><li><p>关闭selinux</p><ul><li><code>sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config</code></li><li><code>sestatus</code></li></ul></li><li><p>网络配置<code>nmtui</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano /etc/NetworkManager/system-connections/eno1.nmconnection<br>[connection]<br>id=eno1<br>uuid=91b731fe-3194-3ba0-91db-cdeea9a76c54<br>type=ethernet<br>autoconnect-priority=-999<br>interface-name=eno1<br>timestamp=1720681066<br><br>[ethernet]<br><br>[ipv4]<br>address1=172.16.31.180/24,172.16.31.254<br>dns=223.5.5.5;<br>method=manual<br><br>[ipv6]<br>addr-gen-mode=eui64<br>method=auto<br><br>[proxy]<br></code></pre></td></tr></table></figure></li></ul><h2 id="Debian-12系列设置"><a href="#Debian-12系列设置" class="headerlink" title="Debian 12系列设置"></a>Debian 12系列设置</h2><p>网络配置<code>nmtui</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano /etc/network/interfaces <br><span class="hljs-meta prompt_"># </span><span class="language-bash">This file describes the network interfaces available on your system</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">and how to activate them. For more information, see interfaces(5).</span><br><br>source /etc/network/interfaces.d/*<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">The loopback network interface</span><br>auto lo<br>iface lo inet loopback<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">The primary network interface</span><br>allow-hotplug eno1<br>iface eno1 inet static<br>address 192.168.5.4/24<br>gateway 192.168.5.1<br><span class="hljs-meta prompt_"># </span><span class="language-bash">dns-* options are implemented by the resolvconf package, <span class="hljs-keyword">if</span> installed</span><br>dns-nameservers 223.5.5.5<br></code></pre></td></tr></table></figure><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>Linux命令大全：<a href="http://www.linuxcool.com/">www.linuxcool.com</a><br><a href="https://www.linuxprobe.com/basic-learning-04.html">https://www.linuxprobe.com/basic-learning-04.html</a></p><h2 id="f的"><a href="#f的" class="headerlink" title="f的"></a>f的</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>system</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VMware ESXi</title>
+    <link href="/2024/11/03/VMwareESXi%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+    <url>/2024/11/03/VMwareESXi%E8%99%9A%E6%8B%9F%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h2 id="首次安装ESXi最下化虚拟空间大小设置"><a href="#首次安装ESXi最下化虚拟空间大小设置" class="headerlink" title="首次安装ESXi最下化虚拟空间大小设置"></a>首次安装ESXi最下化虚拟空间大小设置</h2><p>引导界面按<code>Shift+O</code>输入<code>systemMediaSize=min</code>回车确认</p><h3 id="SSH远程设置"><a href="#SSH远程设置" class="headerlink" title="SSH远程设置"></a>SSH远程设置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">物理控制台按Ait+F1切换到Terminal</span><br>vi /etc/ssh/sshd_config<br><span class="hljs-meta prompt_">#</span><span class="language-bash">允许SSH使用密码连接</span><br>PasswordAuthentication yes<br><span class="hljs-meta prompt_">#</span><span class="language-bash">重启网络</span><br>/etc/init.d/SSH restart<br></code></pre></td></tr></table></figure><h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><p><code>esxcli system hostname set --host=ESXi-7</code></p><h2 id="升级ESXi"><a href="#升级ESXi" class="headerlink" title="升级ESXi"></a>升级ESXi</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">进入存储空间</span><br>cd /vmfs/volumes/datastore1/ &amp;&amp; ls<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看补丁包内容</span><br>esxcli software sources profile list -d /vmfs/volumes/datastore1/VMware-ESXi-8.0U1-21495797-depot.zip<br><span class="hljs-meta prompt_">#</span><span class="language-bash">更新ESXi版本</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#ESXi6</span></span><br>esxcli software vib update --depot=/vmfs/volumes/datastore1/ESXi670-202403001.zip<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#ESXi7</span></span><br>esxcli software profile update -d /vmfs/volumes/datastore1/ISO/VMware-VMvisor-Installer-7.0.0.update03-23307199.x86_64-Dell_Customized-A21.zip -p DEL-ESXi-703_23307199-A21<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#查看当前版本：</span></span><br>vmware -vl<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#重启ESXi服务器</span></span><br>reboot<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#查看升级后的版本</span></span><br>vmware -vl<br></code></pre></td></tr></table></figure><h2 id="硬盘直通给虚拟机"><a href="#硬盘直通给虚拟机" class="headerlink" title="硬盘直通给虚拟机"></a>硬盘直通给虚拟机</h2><h3 id="RDM直通-1"><a href="#RDM直通-1" class="headerlink" title="RDM直通[1]"></a>RDM直通<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="优点：可以直通单个硬盘，配置起来很易用。缺点：如果需要对硬盘调整，需要重新映射；群晖无法获取到SMART信息。">[1]</span></a></sup></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">##查看当前挂载的所有磁盘信息</span></span><br>ls -l /dev/disks<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">## 挂载硬盘标识符</span></span><br>vmkfstools -z /vmfs/devices/disks/&lt;直通硬盘的标识符&gt; /vmfs/volumes/datastore1/RDM硬盘挂载/HGST-HC520-12TB.vmdk<br></code></pre></td></tr></table></figure><h3 id="PCIE直通-2"><a href="#PCIE直通-2" class="headerlink" title="PCIE直通[2]"></a>PCIE直通<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="优点：可以对所有的PCIE设备直通；缺点：会对整个PCIE设备映射，无法单独对某块硬盘进行直通。">[2]</span></a></sup></h3><p>#在web控制台。&gt;管理&gt;硬件&gt;中搜索搜索<code>Intel Corporation Union Point-H AHCI Controller</code>查看设备供应商ID(VID)、设备ID(PID)信息</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">编辑passthru.map文件</span><br>vi /etc/vmware/passthru.map<br><span class="hljs-meta prompt_">#</span><span class="language-bash">Intel Corporation Union Point-H AHCI Controller</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">&lt;供应商ID&gt; &lt;设备ID&gt; d3d0 default</span><br>8086 a282 d3d0 default<br><span class="hljs-meta prompt_">#</span><span class="language-bash">在web控制台。到管理、系统、高级设置搜索acscheck设置为True,然后重新引导切换PCIE直通</span><br></code></pre></td></tr></table></figure><h2 id="更改ESXi的ROOT登录密码复杂度要求"><a href="#更改ESXi的ROOT登录密码复杂度要求" class="headerlink" title="更改ESXi的ROOT登录密码复杂度要求"></a>更改ESXi的ROOT登录密码复杂度要求</h2><p>修改<code>/etc/pam.d/passwd</code>配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#主要是enforce=users在起作用，然后使用passwd修改密码</span><br>password required /lib/security/<span class="hljs-variable">$ISA</span>/pam_passwdqc.so retry=3 min=disabled,disabled,7,7,7 max=30 match=4 similar=deny enforce=<span class="hljs-built_in">users</span><br></code></pre></td></tr></table></figure><h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title="禁用防火墙"></a>禁用防火墙</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># disable firewall</span><br>esxcli network firewall unload <br><span class="hljs-comment"># enable firewall</span><br>esxcli network firewall load<br></code></pre></td></tr></table></figure><h2 id="使用VMware-OVF-Tool备份虚拟机"><a href="#使用VMware-OVF-Tool备份虚拟机" class="headerlink" title="使用VMware OVF Tool备份虚拟机"></a><a href="https://customerconnect.vmware.com/downloads/get-download?downloadGroup=OVFTOOL441">使用VMware OVF Tool备份虚拟机</a></h2><h3 id="进入软件安装目录"><a href="#进入软件安装目录" class="headerlink" title="进入软件安装目录"></a>进入软件安装目录</h3><p><code>cd &quot;C:\Program Files\VMware\VMware OVF Tool\&quot;</code></p><h3 id="导出指定虚拟机"><a href="#导出指定虚拟机" class="headerlink" title="导出指定虚拟机"></a>导出指定虚拟机</h3><p><code>.\ovftool.exe   vi://root@192.168.1.50:1688/Gentoo    D:\ovf</code></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>优点：可以直通单个硬盘，配置起来很易用。缺点：如果需要对硬盘调整，需要重新映射；群晖无法获取到SMART信息。<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>优点：可以对所有的PCIE设备直通；缺点：会对整个PCIE设备映射，无法单独对某块硬盘进行直通。<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a href="https://knowledge.broadcom.com/external/article?legacyId=2143832">发行版查询</a><a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>虚拟化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ESXi</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows更改最大路径长度限制</title>
+    <link href="/2024/11/03/Windows%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6/"/>
+    <url>/2024/11/03/Windows%E6%9C%80%E5%A4%A7%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6%E9%99%90%E5%88%B6/</url>
+    
+    <content type="html"><![CDATA[<p>在 Windows 10 版本 1607 及更高版本中启用长路径</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">New-ItemProperty</span> <span class="hljs-literal">-Path</span> <span class="hljs-string">&quot;HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem&quot;</span> <span class="hljs-literal">-Name</span> <span class="hljs-string">&quot;LongPathsEnabled&quot;</span> <span class="hljs-literal">-Value</span> <span class="hljs-number">1</span> <span class="hljs-literal">-PropertyType</span> DWORD <span class="hljs-literal">-Force</span><br></code></pre></td></tr></table></figure><blockquote><p><a href="https://learn.microsoft.com/zh-cn/windows/win32/fileio/maximum-file-path-limitation?tabs=powershell">https://learn.microsoft.com/</a></p></blockquote><p>Windows跳过联网账号登录</p><h2 id="特殊账号，密码随意"><a href="#特殊账号，密码随意" class="headerlink" title="特殊账号，密码随意"></a>特殊账号，密码随意</h2><ul><li><code>1@1.com</code></li><li><code>no@3Q.com</code></li><li><code>no@thankyou.com</code></li></ul><h2 id="在OOBE阶段使用命令跳过"><a href="#在OOBE阶段使用命令跳过" class="headerlink" title="在OOBE阶段使用命令跳过"></a>在OOBE阶段使用命令跳过</h2><p>按 Shift+F10 打开命令提示符 输入<code>oobe\bypassnro</code>按回车确认</p><ul><li><p>禁用系统自动更新(注册表)<br>暂停更新</p></li><li><p>禁用驱动自动更新(组策略gpedit.msc)<br>Windows10<code>计算机配置</code>&gt;<code>管理模板</code>&gt;<code>Windows 组件</code>&gt;<code>Windows更新</code>&gt;<code>Windows 更新不包括驱动程序</code>，&gt;选择<code>启用</code><br>Windows11<code>计算机配置</code>&gt;<code>管理模板</code>&gt;<code>Windows 组件</code>&gt;<code>Windows更新</code>&gt;<code>管理从Windows更新提供的更新</code>&gt;<code>Windows 更新不包括驱动程序</code>，&gt;选择<code>启用</code></p></li><li><p>禁用驱动自动更新（简易方法）</p><p>搜索<code>更改设备安装设置</code>&gt;选择<code>否</code></p></li></ul><p><a href="https://www.sordum.org/9470/windows-update-blocker-v1-8/">windows-update-blocker</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>System</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo博客搭建</title>
+    <link href="/2024/11/03/hexo%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2024/11/03/hexo%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<h2 id="安装Node-js环境"><a href="#安装Node-js环境" class="headerlink" title="安装Node.js环境"></a>安装Node.js环境</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">dnf install -y nodejs<br></code></pre></td></tr></table></figure><h2 id="安装hexo-1"><a href="#安装hexo-1" class="headerlink" title="安装hexo[1]"></a>安装hexo<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="">[1]</span></a></sup></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br></code></pre></td></tr></table></figure><h3 id="初始化站点（在当前目录下）"><a href="#初始化站点（在当前目录下）" class="headerlink" title="初始化站点（在当前目录下）"></a>初始化站点（在当前目录下）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo init<br></code></pre></td></tr></table></figure><h3 id="查看hexo版本信息"><a href="#查看hexo版本信息" class="headerlink" title="查看hexo版本信息"></a>查看hexo版本信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo version<br></code></pre></td></tr></table></figure><h3 id="安装Fluid主题-2-（在当前目录下）"><a href="#安装Fluid主题-2-（在当前目录下）" class="headerlink" title="安装Fluid主题[2]（在当前目录下）"></a>安装Fluid主题<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="">[2]</span></a></sup>（在当前目录下）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install --save hexo-theme-fluid<br></code></pre></td></tr></table></figure><h3 id="更新Fluid主题-2-（在当前目录下）"><a href="#更新Fluid主题-2-（在当前目录下）" class="headerlink" title="更新Fluid主题[2]（在当前目录下）"></a>更新Fluid主题<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="">[2]</span></a></sup>（在当前目录下）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm update --save hexo-theme-fluid<br></code></pre></td></tr></table></figure>    <div class="fold">      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-dc73f5fd" role="button" aria-expanded="false" aria-controls="collapse-dc73f5fd">        <div class="fold-arrow">▶</div>配置文件详情      </div>      <div class="fold-collapse collapse" id="collapse-dc73f5fd">        <div class="fold-content">          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#文章页路径</span><br>Hexo-blog\<span class="hljs-built_in">source</span>\_posts<br><span class="hljs-comment">#图片路径</span><br>Hexo-blog\node_modules\hexo-theme-fluid\<span class="hljs-built_in">source</span>\img<br><span class="hljs-comment">#原始配置文件</span><br>Hexo-blog/_config.yml<br><span class="hljs-comment">#主题配置文件</span><br>Hexo-blog/_config.fluid.yml<br></code></pre></td></tr></table></figure>        </div>      </div>    </div><h3 id="每日必应https-imgapi-cn-bing-php"><a href="#每日必应https-imgapi-cn-bing-php" class="headerlink" title="每日必应https://imgapi.cn/bing.php"></a>每日必应<a href="https://imgapi.cn/bing.php">https://imgapi.cn/bing.php</a></h3><h3 id="二次元https-www-loliapi-com-acg"><a href="#二次元https-www-loliapi-com-acg" class="headerlink" title="二次元https://www.loliapi.com/acg/"></a>二次元<a href="https://www.loliapi.com/acg/">https://www.loliapi.com/acg/</a></h3><h2 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://github.com/hexojs/hexo">https://github.com/hexojs/hexo</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a href="https://hexo.fluid-dev.com/docs/">https://hexo.fluid-dev.com/docs/</a><a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>加密文章测试</title>
+    <link href="/2024/11/03/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/"/>
+    <url>/2024/11/03/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0%E6%B5%8B%E8%AF%95/</url>
+    
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码看着不太对，请再试试。" data-whm="抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。">  <script id="hbeData" type="hbeData" data-hmacdigest="387ba8f7262cbb01aeb9007ab93bec4a79229ee2e8cf00b0d70046df6096af56">1d621d107eecb08cb114bf54a2314bead14a1b8a8f937272fe17cca5dcb211d1271f8dd12d3399879a1bdfe5ba9d0ce2faaa8f081253fc76b8f45e705274e77c2640f0353e1b7259aa9d1ffb3e0723e7642c9dc7f45684a76666426f1a5098d9</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好，这里需要密码。</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何重新安装 macOS</title>
+    <link href="/2024/11/03/%E5%A6%82%E4%BD%95%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85macOS/"/>
+    <url>/2024/11/03/%E5%A6%82%E4%BD%95%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85macOS/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p><a href="https://support.apple.com/zh-cn/109033">哪些 macOS 版本是最新的？</a></p></li><li><p><a href="https://support.apple.com/zh-cn/101578">创建可引导的 macOS 安装器</a></p></li><li><p><a href="https://support.apple.com/zh-cn/102655">如何重新安装 macOS</a></p></li><li><p>从 App Store 下载完整的 macOS 安装器<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://sysin.org/blog/macOS/">[1]</span></a></sup></p><ul><li><a href="https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12">macOS Monterey 12.7</a></li><li><a href="https://apps.apple.com/cn/app/macos-ventura/id1638787999?mt=12">macOS Ventura 13.6</a></li><li><a href="https://apps.apple.com/cn/app/macos-sonoma/id6450717509?mt=12">macOS Sonoma 14.5</a></li></ul></li></ul><h3 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h3><ul><li><a href="https://checkcoverage.apple.com/">确定你的 Mac 型号和年份</a></li><li><a href="https://support.apple.com/zh-cn/109033?cid=baiduansbx06">确定你的 Mac 使用的是哪个 macOS 版本</a></li><li><a href="https://support.apple.com/zh-cn/101578">创建可引导安装器</a></li><li><a href="https://support.apple.com/zh-cn/HT204904">如何重新安装 macOS</a><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://sysin.org/blog/macOS/">https://sysin.org/blog/macOS/</a><br><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Apple</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>macOS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>电影电视剧</title>
+    <link href="/2024/11/03/%E7%94%B5%E5%BD%B1%E7%94%B5%E8%A7%86%E5%89%A7/"/>
+    <url>/2024/11/03/%E7%94%B5%E5%BD%B1%E7%94%B5%E8%A7%86%E5%89%A7/</url>
+    
+    <content type="html"><![CDATA[<ul><li><a href="https://www.ygdy8.net/index.html">阳光电影_免费电影_迅雷电影下载-第一电影天堂 (ygdy8.net)</a></li><li><a href="https://www.bilibili.com/video/BV1Sz421Q7No/?spm_id_from=pageDriver&vd_source=01d9381440f98f774ec070909a11a662">Playlist · 夜色流光 ♫ 霓虹闪烁 Jazz | 暗夜飞行 | 私藏歌单 | 适合工作&#x2F;学习&#x2F;跳舞&#x2F;地铁&#x2F;居家_哔哩哔哩_bilibili</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>影音</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>电影电视剧</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>电脑服务器NAS硬件</title>
+    <link href="/2024/11/03/%E7%94%B5%E8%84%91%E6%9C%8D%E5%8A%A1%E5%99%A8NAS%E7%A1%AC%E4%BB%B6/"/>
+    <url>/2024/11/03/%E7%94%B5%E8%84%91%E6%9C%8D%E5%8A%A1%E5%99%A8NAS%E7%A1%AC%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[<h2 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h2><h3 id="成品NAS"><a href="#成品NAS" class="headerlink" title="成品NAS"></a>成品NAS</h3><h4 id="个人用户"><a href="#个人用户" class="headerlink" title="个人用户"></a>个人用户</h4><ul><li><a href="https://www.hiksemitech.com/cn/homepage/products/nas/r1.html">海康威视R1 | ¥1650</a></li><li><a href="https://www.ugnas.com/products-detail/id-40.html">绿联4800 | ¥1799</a></li></ul><h4 id="企业推荐"><a href="#企业推荐" class="headerlink" title="企业推荐"></a>企业推荐</h4><ul><li><a href="https://www.synology.cn/zh-cn/products/DS1821+">群晖DS1821+ | ¥8000</a></li><li><a href="https://www.qnap.com.cn/zh-cn/product/ts-873a">威联通TS-873A | ¥7200</a></li></ul><h3 id="配件"><a href="#配件" class="headerlink" title="配件"></a>配件</h3><ul><li><a href="https://www.supermicro.com/en/products/motherboard/x11ssh-f">超微Supermicro X11SSH-F| ¥220</a></li></ul><h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><p>DELL PowerEdge R740XD2 含专票的价格是:13479元</p><ul><li><a href="https://i.dell.com/sites/csdocuments/Product_Docs/zh/poweredge-r740xd2-spec-sheet-zh-cn.pdf">PowerEdge R740XD2 彩页</a></li><li><a href="https://www.dell.com/support/home/zh-cn/product-support/product/poweredge-r740xd2/docs">PowerEdge R740XD2 支持</a><br><img src="/img/r740xd2.png" alt="r740xd2"></li></ul><h3 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h3><h3 id="全新硬盘价格参考"><a href="#全新硬盘价格参考" class="headerlink" title="全新硬盘价格参考"></a>全新硬盘价格参考</h3><p>最理想价格1TB&#x2F;100¥</p><ul><li>东芝N300 16TB 1799(3年保修)</li><li>东芝MG08 16TB 1949(5年保修)</li><li>东芝MG09 18TB 2299(5年保修)</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>硬件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>NAS 电脑 服务器</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>网络查询测速</title>
+    <link href="/2024/11/03/%E7%BD%91%E7%BB%9C%E6%9F%A5%E8%AF%A2%E6%B5%8B%E9%80%9F/"/>
+    <url>/2024/11/03/%E7%BD%91%E7%BB%9C%E6%9F%A5%E8%AF%A2%E6%B5%8B%E9%80%9F/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p>查询测试<br>网络测速 <a href="https://www.speedtest.net/">https://www.speedtest.net</a><br>网络测速 <a href="https://test.ustc.edu.cn/">https://test.ustc.edu.cn/</a><br>网络测速 <a href="https://www.speedtest.cn/">https://www.speedtest.cn/</a><br>Ping测试 <code>ping www.baidu.com -t -l 1024</code><br>路由追踪 <code>tracert www.baidu.com</code><br>DNS测试 <code>nslookup www.baidu.com</code></p></li><li><p>获取本机公网IP<br><code>curl myip.ipip.net</code><br><code>curl ip.3322.net</code><br><code>curl ip.rss.ink/text</code><br><code>curl ddns.oray.com/checkip</code><br><code>curl ipinfo.io</code><br><code>curl 4.ipw.cn</code><br><code>curl ip.sb</code></p></li><li><p>网页链接查看</p><ul><li><a href="https://ip.sb/">https://ip.sb/</a></li><li><a href="https://ipxx.pro/">https://ipxx.pro/</a></li><li><a href="https://www.ipip.net/">https://www.ipip.net</a></li><li>3322域名 <a href="https://www.pubyun.com/">https://www.pubyun.com</a></li><li><a href="https://ip.rss.ink/">https://ip.rss.ink</a></li><li><a href="https://ipinfo.io/">https://ipinfo.io</a></li><li>花生壳域名 <a href="https://www.oray.com/">https://www.oray.com</a></li><li><a href="https://ipw.cn/ip/">https://ipw.cn/ip/</a></li><li>手机查看 <a href="https://ip.cn/">https://ip.cn/</a></li><li><a href="https://tool.chinaz.com/">站长工具 - 站长之家 (chinaz.com)</a></li></ul></li><li><p>国内云服务器提供商</p><ul><li><a href="https://www.aliyun.com/?spm=5176.28508143.J_4VYgf18xNlTAyFFbOuOQe.2.3e08154aBg4zBv">阿里云-计算，为了无法计算的价值 (aliyun.com)</a></li><li><a href="https://www.dnspod.cn/">腾讯云官网入口 (tencent.com)</a></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>网络测速</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>飞牛私有云 fnOS</title>
+    <link href="/2024/11/03/%E9%A3%9E%E7%89%9B%E7%A7%81%E6%9C%89%E4%BA%91%20fnOS/"/>
+    <url>/2024/11/03/%E9%A3%9E%E7%89%9B%E7%A7%81%E6%9C%89%E4%BA%91%20fnOS/</url>
+    
+    <content type="html"><![CDATA[<h3 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h3><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://www.fnnas.com/">飞牛私有云 fnOS (fnnas.com)</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络存储</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>NAS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Debian系统管理</title>
+    <link href="/2024/11/03/Debian%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"/>
+    <url>/2024/11/03/Debian%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="配置apt代理服务器-更新安装软件"><a href="#配置apt代理服务器-更新安装软件" class="headerlink" title="配置apt代理服务器(更新安装软件)"></a>配置apt代理服务器(更新安装软件)</h2><p><code>vim /etc/apt/apt.conf.d/99proxy</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">Acquire::http::Proxy &quot;http://127.0.0.1:10809&quot;;<br>Acquire::https::Proxy &quot;http://127.0.0.1:10809&quot;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>debian</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>FreeBSD系统</title>
+    <link href="/2024/11/03/FreeBSD%E7%B3%BB%E7%BB%9F/"/>
+    <url>/2024/11/03/FreeBSD%E7%B3%BB%E7%BB%9F/</url>
+    
+    <content type="html"><![CDATA[<ul><li><h2 id="Transmission下载"><a href="#Transmission下载" class="headerlink" title="Transmission下载"></a><a href="https://transmissionbt.com/">Transmission下载</a></h2><h3 id="1-安装客户端"><a href="#1-安装客户端" class="headerlink" title="1. 安装客户端"></a>1. 安装客户端</h3><p> <code>pkg install -y transmission-daemon</code></p><h3 id="2-停止服务"><a href="#2-停止服务" class="headerlink" title="2. 停止服务"></a>2. 停止服务</h3><p> <code>service transmission status &amp;&amp; service transmission stop</code></p><h3 id="3-美化web界面"><a href="#3-美化web界面" class="headerlink" title="3. 美化web界面"></a>3. 美化web界面</h3><ul><li><p><a href="https://github.com/transmission-web-control/transmission-web-control">transmission-web-control</a>升级版</p></li><li><p><a href="https://github.com/ronggang/transmission-web-control">ronggang</a>原项目</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -sSL https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/transmission-web-control/</span>transmission-web-control<span class="hljs-regexp">/raw/m</span>aster<span class="hljs-regexp">/tools/i</span>nstall.bash -o install.bash &amp;&amp;  chmod +x install.bash &amp;&amp; bash install.bash<br></code></pre></td></tr></table></figure></li><li><p>tr 4.0Web路径&#x1F4C2;<br> <code>/usr/local/share/transmission/public_html</code></p></li></ul><h3 id="4-更改下载位置"><a href="#4-更改下载位置" class="headerlink" title="4. 更改下载位置"></a>4. 更改下载位置</h3><p> <code>sysrc transmission_download_dir=&quot;/home/koicc/pt/data&quot;</code></p><h3 id="5-开机自启"><a href="#5-开机自启" class="headerlink" title="5. 开机自启"></a>5. 开机自启</h3><p> <code>sysrc transmission_enable=YES</code>  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">文件目录  <br>/etc/rc.conf  <br>/usr/local/etc/rc.d/transmission  <br>/usr/local/etc/transmission/home<br></code></pre></td></tr></table></figure><hr><h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul><li><p><a href="https://book.bsdcn.org/">FreeBSD 中文社区</a></p></li><li><p><a href="https://docs.freebsd.org/en/books/handbook/">FreeBSD官方文档wiki</a></p></li><li><p><a href="https://man.freebsd.org/">FreeBSD官方手册页man</a></p></li><li><p><a href="https://www.freshports.org/">FreshPort软件包查询</a></p></li></ul></li></ul><p>[-page-]</p><ul><li><h2 id="qBittorrent下载"><a href="#qBittorrent下载" class="headerlink" title="qBittorrent下载"></a><a href="https://www.qbittorrent.org/">qBittorrent下载</a></h2></li></ul><p>后台运行<br><code>qbittorrent-nox -d</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>其他分类</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>FreeBSD</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>H3C无线局域网优化</title>
+    <link href="/2024/11/03/H3C%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91WLAN/"/>
+    <url>/2024/11/03/H3C%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91WLAN/</url>
+    
+    <content type="html"><![CDATA[<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><ul><li>客户端基本信息<br><code>dis wlan client | in 286b-3540-6640</code></li><li>客户端详细信息<br><code>dis wlan client verbose | in 286b-3540-6640</code></li><li>客户端漫游详情<br><code>display wlan mobility roam-track mac-address a078-1766-69a1</code></li></ul><h2 id="AP管理"><a href="#AP管理" class="headerlink" title="AP管理"></a>AP管理</h2><ul><li>重启AP-用户视图<br><code>reset wlan ap name 3f-qiantai</code></li><li>硬件信息<br><code>dis wlan ap all  | in 1496-2de1-14a0</code></li><li>射频信息<br><code>dis wlan ap all radio | in 1496-2de1-14a0</code></li><li>连接哪些客户端<br><code>dis wlan client ap 882a-5e79-3270 | in 172.16.20.187</code></li><li>进入AP<br><code>wlan ap 00be-d579-dd00</code></li><li>进入5G射频：<br><code>raid 1</code></li><li>进入2.4G射频：<br><code>raid 2</code></li><li>功率设置<br><code>max powwer 20 (1-20dBm)</code></li><li>关闭开启射频<br><code>radio disable</code><br><code>radio enable</code></li></ul><h2 id="AC启用禁止弱信号无线终端接入应用策略"><a href="#AC启用禁止弱信号无线终端接入应用策略" class="headerlink" title="AC启用禁止弱信号无线终端接入应用策略"></a>AC启用禁止弱信号无线终端接入应用策略</h2><h3 id="禁止信号强度低于15dbm的无线终端接入"><a href="#禁止信号强度低于15dbm的无线终端接入" class="headerlink" title="禁止信号强度低于15dbm的无线终端接入"></a>禁止信号强度低于15dbm的无线终端接入</h3><p><code>wlan option client-reject 15</code></p><h3 id="关闭smartmc"><a href="#关闭smartmc" class="headerlink" title="关闭smartmc"></a>关闭smartmc</h3><p><code>undo smartmc enable</code></p><p>查看邻居交换机<br><code>display lldp neighbor-information list</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>企业网络</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>WLAN</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>终端terminal使用zsh</title>
+    <link href="/2024/11/03/Linux%E4%B8%ADterminal%E4%BD%BF%E7%94%A8zsh/"/>
+    <url>/2024/11/03/Linux%E4%B8%ADterminal%E4%BD%BF%E7%94%A8zsh/</url>
+    
+    <content type="html"><![CDATA[<ul><li>dnf install util-linux-user</li><li>chsh -s &#x2F;bin&#x2F;zsh</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>zsh termina</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux常用工具安装</title>
+    <link href="/2024/11/03/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/"/>
+    <url>/2024/11/03/Linux%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/</url>
+    
+    <content type="html"><![CDATA[<h2 id="通用工具"><a href="#通用工具" class="headerlink" title="通用工具"></a>通用工具</h2><p>编辑：nano vim<br>下载：wget curl git lrzsz<br>网络：lsof htop<br>查看：tree lolcat bat ncdu fdupes neofetch<br>终端：zsh neofetch lolcat<br>搜索：mlocate fzf autojump fd</p><ul><li><code> lsb_release</code> </li><li>文件加密</li><li><a href="https://github.com/FiloSottile/age">age</a></li><li><a href="https://github.com/transmission/transmission">transmission-daemon</a></li><li>qbittorrent-nox syncthing caddy minio&#96;</li></ul><h2 id="RHEL9系列设置"><a href="#RHEL9系列设置" class="headerlink" title="RHEL9系列设置"></a>RHEL9系列设置</h2><ul><li><p>关闭防火墙firewalld</p><ul><li><code>systemctl disable firewalld --now</code></li><li><code>systemctl status firewalld</code></li></ul></li><li><p>关闭selinux</p><ul><li><code>sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config</code></li><li><code>sestatus</code></li></ul></li><li><p>网络配置<code>nmtui</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano /etc/NetworkManager/system-connections/eno1.nmconnection<br>[connection]<br>id=eno1<br>uuid=91b731fe-3194-3ba0-91db-cdeea9a76c54<br>type=ethernet<br>autoconnect-priority=-999<br>interface-name=eno1<br>timestamp=1720681066<br><br>[ethernet]<br><br>[ipv4]<br>address1=172.16.31.180/24,172.16.31.254<br>dns=223.5.5.5;<br>method=manual<br><br>[ipv6]<br>addr-gen-mode=eui64<br>method=auto<br><br>[proxy]<br></code></pre></td></tr></table></figure></li></ul><h2 id="Debian-12系列设置"><a href="#Debian-12系列设置" class="headerlink" title="Debian 12系列设置"></a>Debian 12系列设置</h2><p>网络配置<code>nmtui</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell">nano /etc/network/interfaces <br><span class="hljs-meta prompt_"># </span><span class="language-bash">This file describes the network interfaces available on your system</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">and how to activate them. For more information, see interfaces(5).</span><br><br>source /etc/network/interfaces.d/*<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">The loopback network interface</span><br>auto lo<br>iface lo inet loopback<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">The primary network interface</span><br>allow-hotplug eno1<br>iface eno1 inet static<br>address 192.168.5.4/24<br>gateway 192.168.5.1<br><span class="hljs-meta prompt_"># </span><span class="language-bash">dns-* options are implemented by the resolvconf package, <span class="hljs-keyword">if</span> installed</span><br>dns-nameservers 223.5.5.5<br></code></pre></td></tr></table></figure><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>Linux命令大全：<a href="http://www.linuxcool.com/">www.linuxcool.com</a><br><a href="https://www.linuxprobe.com/basic-learning-04.html">https://www.linuxprobe.com/basic-learning-04.html</a></p><p>使用parted将磁盘转换为GPT格式<br><code>parted /dev/sdX mklabel gpt</code></p><h1 id="Cockpit-web"><a href="#Cockpit-web" class="headerlink" title="Cockpit web"></a><em><a href="https://cockpit-project.org/">Cockpit web</a></em></h1><p> 禁用WEB页面重定向到HTTPS</p><p>创建<em>cockpit.conf</em>文件</p><p><code>nano /etc/cockpit/cockpit.conf</code></p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[WebService]</span><br><span class="hljs-attr">AllowUnencrypted</span>=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>system</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux系统备份还原</title>
+    <link href="/2024/11/03/Linux%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E8%BF%98%E5%8E%9F/"/>
+    <url>/2024/11/03/Linux%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD%E8%BF%98%E5%8E%9F/</url>
+    
+    <content type="html"><![CDATA[<h2 id="tar命令"><a href="#tar命令" class="headerlink" title="tar命令"></a>tar命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">进入根目录使用tar.gz压缩</span><br>cd /<br>tar cvpzf system_backup.tar.gz --exclude=/proc --exclude=/lost+found --exclude=/system_backup.tar.gz --exclude=/mnt --exclude=/sys /<br><span class="hljs-meta prompt_">#</span><span class="language-bash">恢复系统</span><br>cd /<br><span class="hljs-meta prompt_">#</span><span class="language-bash">上传文件到根目录下</span><br>tar xvpfz system_backup.tar.gz -C /<br><span class="hljs-meta prompt_">#</span><span class="language-bash">创建备份时排除的目录,,默认权限：dr-xr-xr-x</span> <br>mkdir proc lost+found mnt sys<br></code></pre></td></tr></table></figure><h2 id="rsync命令"><a href="#rsync命令" class="headerlink" title="rsync命令"></a>rsync命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">备份，排除--exclude</span><br>rsync -Pa / /media/usb/backup_20170410 --exclude=/media/ --exclude=/sys/ --exclude=/proc/ --exclude=/mnt/ --exclude=/tmp/<br><span class="hljs-meta prompt_">#</span><span class="language-bash">恢复</span><br>rsync -Pa /media/usb/backup_20170410 /<br></code></pre></td></tr></table></figure><h2 id="dd命令"><a href="#dd命令" class="headerlink" title="dd命令"></a>dd命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">备份sda1到sdb3中</span><br>dd if=/dev/sda1 of=/dev/sdb3<br><span class="hljs-meta prompt_">#</span><span class="language-bash">恢复sdb3到sdb1中</span><br>dd if=/dev/sdb3 of=/dev/sda1<br></code></pre></td></tr></table></figure><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>Clonezilla(再生龙)：<a href="https://drbl.nchc.org.tw/download/">https://drbl.nchc.org.tw/download/</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>backup</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>威联通</title>
+    <link href="/2024/11/03/QNAP%E5%A8%81%E8%81%94%E9%80%9A/"/>
+    <url>/2024/11/03/QNAP%E5%A8%81%E8%81%94%E9%80%9A/</url>
+    
+    <content type="html"><![CDATA[<h2 id="威联通QTS挂载NTFS硬盘"><a href="#威联通QTS挂载NTFS硬盘" class="headerlink" title="威联通QTS挂载NTFS硬盘"></a>威联通QTS挂载NTFS硬盘</h2><p>控制台-共享文件夹，创建文件夹</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#ssh切换root权限</span><br><span class="hljs-built_in">sudo</span> -i<br><span class="hljs-comment">#查看新插入的硬盘</span><br><span class="hljs-comment">#fdisk -l</span><br><span class="hljs-comment">#parted -l</span><br><span class="hljs-comment">#挂载NTFS格式的硬盘</span><br>mount -t ufsd /dev/sda1 /share/NTFS<br></code></pre></td></tr></table></figure><blockquote><p>官网<a href="https://www.qnap.com.cn/">https://www.qnap.com.cn</a></p></blockquote><ol><li>【控制台】——【共享文件夹】，创建文件夹</li><li>切换到root<br><code>sudo -i</code></li><li>查看新插入的硬盘<br><code>fdisk -l</code><br><code>parted -l</code></li><li>挂载磁盘分区<br><code>mount -t ufsd /dev/sdh2 /share/NTFS</code><br><img src="https://www.qnap.com.cn/assets/img/company-profile/bu-s-model-5.png" alt="威联通"><br><a href="https://www.qnap.com.cn/">威联通QNAP</a></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>NAS网络存储</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>QNAP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>群晖Synology Inc.</title>
+    <link href="/2024/11/03/Synology%E7%BE%A4%E6%99%96/"/>
+    <url>/2024/11/03/Synology%E7%BE%A4%E6%99%96/</url>
+    
+    <content type="html"><![CDATA[<h2 id="账户权限设置"><a href="#账户权限设置" class="headerlink" title="账户权限设置"></a>账户权限设置</h2><ul><li>切换到Root权限<br><code>sudo -i</code></li><li>更改用户密码<br><code>synouser --setpw root xxx</code><br><code>synouser --setpw user xxx</code></li><li>允许root远程连接<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#编辑ssh配置文件</span><br>vim /etc/ssh/sshd_config<br><span class="hljs-comment">#允许root远程连接</span><br>PermitRootLogin <span class="hljs-built_in">yes</span><br><span class="hljs-comment">#重启sshd服务</span><br>synosystemctl restart sshd<br></code></pre></td></tr></table></figure></li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>停用搜索<br><code>synosystemctl disable pkgctl-SynoFinder</code><br>删除指定文件夹,文件<br><code>find /volume* -name &quot;@eaDir&quot; -type d -print0 | xargs -0 rm -rf</code><br><code>find /volume* -name &quot;Thumbs.db&quot; -type f -print0 | xargs -0 rm -rf</code><br>显示已安装的包<br><code>synopkg list | sed &#39;s/: .*$//&#39;</code><br>卸载软件包<br><code>synopkg uninstall</code></p><h2 id="挂载NTFS文件系统"><a href="#挂载NTFS文件系统" class="headerlink" title="挂载NTFS文件系统"></a>挂载NTFS文件系统</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">查看ntfs硬盘,搜寻关键字 Microsoft<br>fdisk -l | grep Microsoft<br>将NTFS硬盘挂载到文件夹<br>mount -t ntfs /dev/sata6p1 /volume2/myntfs/ntfshdd<br></code></pre></td></tr></table></figure><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>官网 <a href="https://www.synology.cn/">https://www.synology.cn</a></li><li>文档 <a href="https://kb.synology.cn/zh-cn">https://kb.synology.cn/zh-cn</a></li><li>VPN Server套件下载 <a href="https://www.synology.com/en-us/support/download/DS220+?version=7.2#packages">https://www.synology.com/en-us/support/download/DS220+?version=7.2#packages</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>NAS网络存储</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Synology</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Systemd系统管理</title>
+    <link href="/2024/11/03/Systemd%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"/>
+    <url>/2024/11/03/Systemd%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="systemctl是-Systemd-的主命令，用于管理系统。"><a href="#systemctl是-Systemd-的主命令，用于管理系统。" class="headerlink" title="systemctl是 Systemd 的主命令，用于管理系统。"></a>systemctl是 Systemd 的主命令，用于管理系统。</h2><p>#查看启动耗时<br>systemd-analyze<br>#查看每个服务的启动耗时<br>systemd-analyze blame<br>#显示瀑布状的启动过程流<br>systemd-analyze critical-chain<br>#显示指定服务的启动流<br>systemd-analyze critical-chain atd.service<br>#显示当前主机的信息<br>hostnamectl<br>#设置主机名。<br>hostnamectl set-hostname rhel7</p><p>1.4 localectl<br>localectl命令用于查看本地化设置。</p><h2 id="查看本地化设置"><a href="#查看本地化设置" class="headerlink" title="查看本地化设置"></a>查看本地化设置</h2><p>localectl<br>#查看当前时区设置<br>timedatectl<br>#查看当前登录的用户。<br>loginctl<br>#列出显示指定用户的信息<br>loginctl show-user ruanyf</p><h2 id="列出所有配置文件"><a href="#列出所有配置文件" class="headerlink" title="列出所有配置文件"></a>列出所有配置文件</h2><p><code>systemctl list-unit-files</code><br>#列出指定类型的配置文件<br><code>systemctl list-unit-files --type=service</code><br>这个列表显示每个配置文件的状态，一共有四种。<br>enabled：已建立启动链接<br>disabled：没建立启动链接<br>static：该配置文件没有[Install]部分（无法执行），只能作为其他配置文件的依赖<br>masked：该配置文件被禁止建立启动链接</p><h2 id="更改查看Unit-的状态"><a href="#更改查看Unit-的状态" class="headerlink" title="更改查看Unit 的状态"></a>更改查看Unit 的状态</h2><p><code>sysystemctl status transmission-daemon.service</code></p><ul><li>重载所有修改过的配置文件<br><code>systemctl daemon-reload</code></li><li>开始 | 停止 | 重启服务<br><code>systemctl start|stop|restart httpd.service</code></li><li>开机自启并运行<br><code>systemctl enable httpd.service --now</code></li><li>禁止开机自启<br><code>systemctl disable httpd.service --now</code></li><li>查看配置文件<br><code>systemctl cat atd.service</code></li><li>杀死一个服务的所有子进程<br><code>systemctl kill apache.service</code></li><li>列出正在运行的 Unit<br><code>systemctl list-units</code></li><li>列出所有Unit，包括没有找到配置文件的或者启动失败的<br><code>systemctl list-units --all</code></li><li>列出所有没有运行的 Unit<br><code>systemctl list-units --all --state=inactive</code></li><li>列出所有加载失败的 Unit<br><code>systemctl list-units --failed</code></li><li>列出所有正在运行的、类型为 service 的 Unit<br><code>systemctl list-units --type=service</code></li><li>显示某个 Unit 服务是否建立了启动链接<br><code>systemctl is-enabled transmission-daemon.service</code></li></ul><h2 id="日志管理"><a href="#日志管理" class="headerlink" title="日志管理"></a>日志管理</h2><p>Systemd 统一管理所有 Unit 的启动日志。带来的好处就是，可以只用journalctl一个命令，查看所有日志（内核日志和应用日志）。日志的配置文件是&#x2F;etc&#x2F;systemd&#x2F;journald.conf。</p>    <div class="fold">      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-8f7bdefe" role="button" aria-expanded="false" aria-controls="collapse-8f7bdefe">        <div class="fold-arrow">▶</div>title      </div>      <div class="fold-collapse collapse" id="collapse-8f7bdefe">        <div class="fold-content">          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">查看所有日志（默认情况下 ，只保存本次启动的日志）</span><br>sudo journalctl<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看内核日志（不显示应用日志）</span><br>sudo journalctl -k<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看系统本次启动的日志</span><br>sudo journalctl -b<br>sudo journalctl -b -0<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看上一次启动的日志（需更改设置）</span><br>sudo journalctl -b -1<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定时间的日志</span><br>sudo journalctl --since=&quot;2012-10-30 18:17:16&quot;<br>sudo journalctl --since &quot;20 min ago&quot;<br>sudo journalctl --since yesterday<br>sudo journalctl --since &quot;2015-01-10&quot; --until &quot;2015-01-11 03:00&quot;<br>sudo journalctl --since 09:00 --until &quot;1 hour ago&quot;<br><span class="hljs-meta prompt_">#</span><span class="language-bash">显示尾部的最新10行日志</span><br>sudo journalctl -n<br><span class="hljs-meta prompt_">#</span><span class="language-bash">显示尾部指定行数的日志</span><br>sudo journalctl -n 20<br><span class="hljs-meta prompt_">#</span><span class="language-bash">实时滚动显示最新日志</span><br>sudo journalctl -f<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定服务的日志</span><br>sudo journalctl /usr/lib/systemd/systemd<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定进程的日志</span><br>sudo journalctl _PID=1<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看某个路径的脚本的日志</span><br>sudo journalctl /usr/bin/bash<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定用户的日志</span><br>sudo journalctl _UID=33 --since today<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看某个 Unit 的日志</span><br>sudo journalctl -u nginx.service&gt;<br>sudo journalctl -u nginx.service --since today<br><span class="hljs-meta prompt_">#</span><span class="language-bash">实时滚动显示某个 Unit 的最新日志</span><br>sudo journalctl -u nginx.service -f<br><span class="hljs-meta prompt_">#</span><span class="language-bash">查看指定优先级（及其以上级别）的日志，共有8级</span><br>sudo journalctl -p err -b<br>0: emerg | 1: alert | 2: crit | 3: err | 4: warning | 5: notice | 6: info | 7: debug<br>日志默认分页输出，--no-pager 改为正常的标准输出<br>sudo journalctl --no-pager<br><span class="hljs-meta prompt_">#</span><span class="language-bash">以 JSON 格式（单行）输出</span><br>sudo journalctl -b -u nginx.service -o json<br><span class="hljs-meta prompt_">#</span><span class="language-bash">显示日志占据的硬盘空间</span><br>sudo journalctl --disk-usage<br><span class="hljs-meta prompt_">#</span><span class="language-bash">指定日志文件占据的最大空间</span><br>sudo journalctl --vacuum-size=1G<br><span class="hljs-meta prompt_">#</span><span class="language-bash">指定日志文件保存多久</span><br>sudo journalctl --vacuum-time=1years<br><span class="hljs-meta prompt_">#</span><span class="language-bash">删除重置日志</span><br>rm -rf  /var/log/journal/*<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#重启服务</span></span><br>systemctl restart systemd-journald<br></code></pre></td></tr></table></figure>        </div>      </div>    </div><h2 id="Linux使用timedatectl设置时区与同步时间"><a href="#Linux使用timedatectl设置时区与同步时间" class="headerlink" title="Linux使用timedatectl设置时区与同步时间"></a>Linux使用timedatectl设置时区与同步时间</h2><p><img src="https://s3.bmp.ovh/imgs/2024/02/04/c79499f6bd2e26e6.png" alt="Systemd"></p><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><code>timedatectl</code>是一个新工具，它作为 <code>systemd</code> 系统和服务管理器的一部分，代替旧的传统的用在基于 Linux 分布式系统的 <code>sysvinit</code> 守护进程的 <code>date</code> 命令。<code>timedatectl</code> 命令可以查询和更改系统时钟和设置，可以使用此命令来设置或更改当前的日期、时间和时区，或实现与远程 NTP 服务器的自动系统时钟同步。</p><ul><li>查看所有可用的时区</li></ul><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">timedatectl list-timezones</span><br></code></pre></td></tr></table></figure><ul><li>设置当前系统的时区为上海</li></ul><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">sudo</span> <span class="hljs-string">timedatectl</span> <span class="hljs-built_in">set-timezone</span> <span class="hljs-string">&quot;Asia/Shanghai&quot;</span><br></code></pre></td></tr></table></figure><ul><li>查看当前系统的时区</li></ul><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">timedatectl status</span><br></code></pre></td></tr></table></figure><h2 id="同步时间"><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h2><p>一般重新设置系统时区后，现实时间会与系统时间之间会有误差，这时候建议使用 <code>systemd-timesyncd</code> 相关工具来解决时间差异的问题。<strong>特别注意：<code>timedatectl</code> 并不兼容 <code>ntpd</code> 等组件，请不要安装 <code>ntpd</code> 等组件，以免时间同步失效。</strong></p><ul><li>安装 <code>systemd-timesyncd</code> 服务</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install systemd-timesyncd<br></code></pre></td></tr></table></figure><ul><li>更改配置文件，添加 NTP 服务器（添加一行 NTP 服务器地址）</li></ul><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sudo vim /etc/systemd/timesyncd<span class="hljs-selector-class">.conf</span><br><span class="hljs-selector-attr">[Time]</span><br>NTP=pool<span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span> <span class="hljs-number">0</span><span class="hljs-selector-class">.asia</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span> <span class="hljs-number">1</span><span class="hljs-selector-class">.asia</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span> <span class="hljs-number">2</span><span class="hljs-selector-class">.asia</span><span class="hljs-selector-class">.pool</span><span class="hljs-selector-class">.ntp</span><span class="hljs-selector-class">.org</span><br>#RootDistanceMaxSec=<span class="hljs-number">5</span><br>#PollIntervalMinSec=<span class="hljs-number">32</span><br>#PollIntervalMaxSec=<span class="hljs-number">2048</span><br></code></pre></td></tr></table></figure><ul><li>重启 <code>systemd-timesyncd</code> 服务</li></ul><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nsis">sudo <span class="hljs-params">system</span>ctl restart <span class="hljs-params">system</span>d-timesyncd<br></code></pre></td></tr></table></figure><ul><li>查看 <code>systemd-timesyncd</code> 服务的运行状态</li></ul><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nsis">sudo <span class="hljs-params">system</span>ctl status <span class="hljs-params">system</span>d-timesyncd<br></code></pre></td></tr></table></figure><ul><li>启用时间自动同步</li></ul><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">sudo</span> <span class="hljs-string">timedatectl</span> <span class="hljs-built_in">set-ntp</span> <span class="hljs-string">true</span><br></code></pre></td></tr></table></figure><ul><li>查看时间同步状态</li></ul><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs fortran">timedatectl <span class="hljs-keyword">status</span><br><br>timedatectl timesync-<span class="hljs-keyword">status</span><br><br>timedatectl show-timesync --<span class="hljs-built_in">all</span><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>system</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Tailscale远程访问</title>
+    <link href="/2024/11/03/Tailscale%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+    <url>/2024/11/03/Tailscale%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Tailscale"><a href="#Tailscale" class="headerlink" title="Tailscale"></a>Tailscale</h3><ul><li><p>控制面板<br><a href="https://login.tailscale.com/admin/machines">https://login.tailscale.com/admin/machines</a> </p></li><li><p>软件包下载<br><a href="https://tailscale.com/download">https://tailscale.com/download</a><br><a href="https://pkgs.tailscale.com/stable/#spks">https://pkgs.tailscale.com/stable/#spks</a></p></li><li><p>自建中转服务器（可选）</p><p><a href="https://github.com/juanfont/headscale">headscale</a></p></li></ul><blockquote><p>注意事项：关闭秘钥验证<span class="label label-warning">Disable key expiry</span></p></blockquote><ul><li><p>其他相关产品</p><p><a href="https://www.zerotier.com/">ZeroTier</a><br><a href="https://github.com/netbirdio/netbird">netbirdio</a><br><a href="https://hsk.oray.com/price/scene">贝锐花生壳</a><br><a href="https://www.ddnsto.com/">DDNSTO易有云</a></p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>内网穿透</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>WireGuard Tailscale</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>WireGuard组网</title>
+    <link href="/2024/11/03/WireGuard%E7%BB%84%E7%BD%91/"/>
+    <url>/2024/11/03/WireGuard%E7%BB%84%E7%BD%91/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1、WireGuard下载"><a href="#1、WireGuard下载" class="headerlink" title="1、WireGuard下载"></a>1、<a href="https://www.wireguard.com/install/">WireGuard下载</a></h2><h2 id="2、wg-easy管理面板"><a href="#2、wg-easy管理面板" class="headerlink" title="2、wg-easy管理面板"></a>2、<a href="https://github.com/wg-easy/wg-easy">wg-easy管理面板</a></h2><p>采用 Docker Compose 部署</p>    <div class="fold">      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-65ad56e5" role="button" aria-expanded="false" aria-controls="collapse-65ad56e5">        <div class="fold-arrow">▶</div>docker-compose.yml      </div>      <div class="fold-collapse collapse" id="collapse-65ad56e5">        <div class="fold-content">          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs shell">volumes:<br>  etc_wireguard:<br><br>services:<br>  wg-easy:<br>    environment:<br>      - LANG=chs #中文简体<br>      - WG_HOST=www.google.com #域名或公网IP<br>      - PASSWORD_HASH=&#x27;$2a$12$XN1Mvww6pn3N2jGc6hyMtupgYAVJPrIBF1MVgoB6y3HuKhoeZcuzC&#x27; #docker run -it ghcr.io/wg-easy/wg-easy wgpw YOUR_PASSWORD生成web页面登陆密码<br>      - PORT=51821  #Web页面登陆端口<br>      - WG_PORT=51820<br>      - WG_DEFAULT_ADDRESS=10.8.0.x #客户端IP地址范围<br>      - WG_DEFAULT_DNS=223.5.5.5 #公共DNS<br>      - WG_ALLOWED_IPS=192.168.15.0/24, 10.8.1.0/24 #客户端允许使通过的IP<br>      - WG_PERSISTENT_KEEPALIVE=25 #定期心跳检测<br>      - UI_TRAFFIC_STATS=true #在 Web UI 中启用详细的RX/TX客户端统计信息<br><br>    image: ghcr.io/wg-easy/wg-easy<br>    container_name: wg-easy<br>    volumes:<br>      - /home/koicc/wireguard:/etc/wireguard<br>    ports:<br>      - &quot;51820:51820/udp&quot;<br>      - &quot;51821:51821/tcp&quot;<br>    restart: unless-stopped<br>    cap_add:<br>      - NET_ADMIN<br>      - SYS_MODULE<br>    sysctls:<br>      - net.ipv4.ip_forward=1<br>      - net.ipv4.conf.all.src_valid_mark=1<br></code></pre></td></tr></table></figure>        </div>      </div>    </div><h2 id="3、群晖使用WireGuard客户的需要注意的地方"><a href="#3、群晖使用WireGuard客户的需要注意的地方" class="headerlink" title="3、群晖使用WireGuard客户的需要注意的地方"></a>3、群晖使用WireGuard客户的需要注意的地方</h2><ol><li>删除配置文件中<code>DNS = 223.5.5.5</code>一行，因为群晖缺少对应的功能。</li><li>添加定期心跳<code>PersistentKeepalive</code>不然偶尔会失联</li><li>启动<code>wg-quick up wg0</code></li><li>查看连接状态<code>wg show wg0</code></li><li>关闭<code>wg-quick down wg0</code></li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.suzuhafan.com/synology/synology-920-install-wireguard-on-dsm7.html">https://blog.suzuhafan.com/synology/synology-920-install-wireguard-on-dsm7.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络互连</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>VPN WireGuard</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vim 常用操作</title>
+    <link href="/2024/11/03/vim-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    <url>/2024/11/03/vim-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[<h3 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h3><p><em>通过 <code>i</code> 命令进入编辑模式</em></p><ul><li><p><code>i</code> 在当前光标所在位置进入编辑模式</p></li><li><p><code>I</code> 在当前行的第一个字符进入编辑模式</p></li><li><p><code>a</code> 在当前光标所在位置的下一个字符进入编辑模式</p></li><li><p><code>A</code> 在当前行的最后一个字符进入编辑模式</p></li><li><p><code>o</code> 在当前行的下一行插入一个新行，并进入编辑模式</p></li><li><p><code>O</code> 在当前行的上一行插入一个新行，并进入编辑模式</p></li></ul><blockquote><p>也可通过 <code>A</code> 命令进入仅添加编辑模式，此时光标在当前字符的后面，无法进行删除操作。</p></blockquote><h2 id="命令模式模式"><a href="#命令模式模式" class="headerlink" title="命令模式模式"></a>命令模式模式</h2><p><em>按<code>ESC</code> 键退出编辑模式，这时是命令模式。</em></p><h3 id="保存退出"><a href="#保存退出" class="headerlink" title="保存退出"></a>保存退出</h3><ul><li><code>:q</code> 退出 vim</li><li><code>:q!</code> 强制退出 vim 不保存</li><li><code>:w</code> 保存修改</li><li><code>:wq</code> 保存修改并退出</li></ul><h3 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h3><p><em>通过 <code>h</code> <code>j</code> <code>k</code> <code>l</code> 键移动光标，分别对应左、下、上、右</em></p><ul><li><code>0</code> 移动光标到行首</li><li><code>$</code> 移动光标到行尾</li><li><code>gg</code> 移动光标到文件首</li><li><code>G</code> 移动光标到文件尾</li><li><code>nG</code> 移动光标到第 n 行, 如 <code>10G</code> 移动光标到第 10 行</li><li><code>n+</code> 光标<strong>向下</strong>移动 n 行, 如 <code>10+</code> 光标向下移动 10 行</li><li><code>n-</code> 光标<strong>向上</strong>移动 n 行, 如 <code>10-</code> 光标向上移动 10 行</li><li><code>n&lt;space&gt;</code> 光标<strong>向右</strong>移动 n 个字符, 如 <code>10&lt;space&gt;</code> 光标向右移动 10 个字符</li><li><code>n&lt;enter&gt;</code> 光标<strong>向下</strong>移动 n 行, 如 <code>10&lt;enter&gt;</code> 光标向下移动 10 行</li><li><code>w</code> 光标<strong>向右</strong>移动一个单词，注记：<code>word</code></li><li><code>b</code> 光标<strong>向左</strong>移动一个单词，注记：<code>back</code></li><li><code>e</code> 光标<strong>向右</strong>移动到单词结尾，注记：<code>end</code></li></ul><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><h4 id="字符删除"><a href="#字符删除" class="headerlink" title="字符删除"></a>字符删除</h4><ul><li><code>x</code> 删除光标所在位置的字符</li><li><code>X</code> 删除光标所在位置的前一个字符</li></ul><h4 id="单词删除"><a href="#单词删除" class="headerlink" title="单词删除"></a>单词删除</h4><ul><li><code>dw</code> 删除光标所在位置到<strong>下</strong>一个单词开头的字符，<strong>包括空格</strong> (注记：<code>delete word</code>)</li><li><code>db</code> 删除光标所在位置到<strong>上</strong>一个单词开头的字符，<strong>包括空格</strong> (注记：<code>delete back</code>)</li><li><code>de</code> 删除光标所在位置到<strong>下</strong>一个单词结尾的字符 (注记：<code>delete end</code>)</li><li><code>dd</code> 删除光标所在行</li><li><code>d$</code> 删除光标所在位置到行尾的字符</li><li><code>%d</code>全部删除<blockquote><p>删除命令都会将删除的内容存入剪贴板，可以通过下文的粘贴命令将剪贴板的内容粘贴到文件中。</p></blockquote></li></ul><h3 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h3><ul><li><code>yy</code> 复制光标所在行</li><li><code>yw</code> 复制光标所在位置到<strong>下</strong>一个单词开头的字符，<strong>包括空格</strong> (注记：<code>yank word</code>)</li><li><code>p</code> 粘贴剪贴板内容到光标所在行的下一行 (注记：<code>paste</code>)</li><li><code>P</code> 粘贴剪贴板内容到光标所在行的上一行</li></ul><p>还可以使用 <code>v</code> 进入可视模式，然后使用 <code>h</code> <code>j</code> <code>k</code> <code>l</code> 键移动光标，选中一段文本，然后按 <code>y</code> 复制选中的文本，再根据需要使用 <code>p</code> 或 <code>P</code> 粘贴。(有点像鼠标拖拽选中文本，然后复制粘贴)</p><h3 id="撤销重做"><a href="#撤销重做" class="headerlink" title="撤销重做"></a>撤销重做</h3><ul><li><code>u</code> 撤销上一次操作</li><li><code>Ctrl + r</code> 重做被撤销的操作，或者说撤销撤销操作</li><li><code>U</code> 撤销对整行的修改</li><li><code>.</code> 重复上一次修改</li></ul><h3 id="查找替换"><a href="#查找替换" class="headerlink" title="查找替换"></a>查找替换</h3><h4 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h4><ul><li><code>/word</code> 查找 word 字符串，按 <code>n</code> 查找下一个，按 <code>N</code> 查找上一个，如果想逆向查找，可以使用 <code>?word</code> 命令</li><li><code>:set ic</code> 查找时忽略大小写 (ignore case)</li><li><code>:set is</code> 查找时显示匹配的字符串 (ignore case)</li><li><code>:set hls</code> 查找时高亮显示匹配的字符串 (highlight search)</li></ul><h4 id="查找括号匹配"><a href="#查找括号匹配" class="headerlink" title="查找括号匹配"></a>查找括号匹配</h4><ul><li><code>%</code> 查找括号匹配，如 <code>()</code> <code>[]</code> <code>&#123;&#125;</code>，光标放在括号上，按 <code>%</code> 可以跳转到匹配的括号上</li><li><code>:set showmatch</code> 设置括号匹配高亮</li></ul><h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><ul><li><code>r</code> 按下 r 后输入一个字符，将光标所在位置的字符替换为输入的字符</li><li><code>R</code> 按下 R 后进入替换模式，每输入一个字符，将光标所在位置的字符替换为输入的字符，并向右移动一个字符。按 <code>ESC</code> 退出替换模式</li><li><code>ce</code> 删除光标所在位置到<strong>下</strong>一个单词结尾的字符，并进入编辑模式</li><li><code>c$</code> 删除光标所在位置到行尾的字符，并进入编辑模式</li><li><code>:s/old/new</code> 将当前行第一个 old 替换为 new</li><li><code>:s/old/new/g</code> 将当前行所有 old 替换为 new (其中 <code>g</code> 为 global 的意思)</li><li><code>:%s/old/new/g</code> 将所有行所有 old 替换为 new</li><li><code>:%s/old/new/gc</code> 将所有行所有 old 替换为 new，替换前询问是否替换 (其中 <code>c</code> 为 confirm 的意思)</li><li><code>:n1,n2s/old/new/g</code> 将第 n1 行到第 n2 行所有 old 替换为 new</li></ul><h3 id="命令数字量化"><a href="#命令数字量化" class="headerlink" title="命令数字量化"></a>命令数字量化</h3><p>vim 指令中很多命令都可以量化，如删除字符, 删除行，向某个方向移动光标等，可以量化为删除多少个字符，删除多少行，向某个方向移动多少个字符等。对于这些命令，可以在命令前加上数字，如 <code>10dd</code> 删除 10 行，<code>10w</code> 向右移动 10 个单词，<code>10b</code> 向左移动 10 个单词，<code>10e</code> 向右移动 10 个单词到单词结尾，<code>10+</code> 光标向下移动 10 行，<code>10-</code> 光标向上移动 10 行，<code>10&lt;space&gt;</code> 光标向右移动 10 个字符，<code>10&lt;enter&gt;</code> 光标向下移动 10 行。</p><h3 id="执行外部命令"><a href="#执行外部命令" class="headerlink" title="执行外部命令"></a>执行外部命令</h3><p>可以通过 <code>:!command</code> 执行外部命令，如 <code>:!ls</code> 执行 <code>ls</code> 命令，<code>:!date</code> 执行 <code>date</code> 命令。这样可以在 vim 中执行外部命令，执行完后会返回 vim，不会退出 vim。</p><h3 id="状态命令"><a href="#状态命令" class="headerlink" title="状态命令"></a>状态命令</h3><ul><li><code>Ctrl + g</code> 显示当前编辑文件的状态，包括文件名，文件状态，总行数，当前行号，光标位置百分比，当前所处列号。</li><li><code>:set number</code> 显示行号</li></ul><p><a href="https://zhaojun.vip/archives/104/">vim 常用操作 - 赵俊个人博客 (zhaojun.vip)</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>文本处理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>DNS设置</title>
+    <link href="/2024/11/03/%E5%85%AC%E5%85%B1DNS/"/>
+    <url>/2024/11/03/%E5%85%AC%E5%85%B1DNS/</url>
+    
+    <content type="html"><![CDATA[<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h2 id="1-中国电信Telecom"><a href="#1-中国电信Telecom" class="headerlink" title="1. 中国电信Telecom"></a>1. 中国电信Telecom</h2><table><thead><tr><th>名称</th><th>首选 DNS 服务器</th><th>备用 DNS 服务器</th></tr></thead><tbody><tr><td>上海电信</td><td>202.96.209.133</td><td>116.228.111.118</td></tr><tr><td>北京电信</td><td>219.142.76.3</td><td>219.141.140.10</td></tr></tbody></table><h2 id="2-中国联通Unicom"><a href="#2-中国联通Unicom" class="headerlink" title="2. 中国联通Unicom"></a>2. 中国联通Unicom</h2><table><thead><tr><th>名称</th><th>首选 DNS 服务器</th><th>备用 DNS 服务器</th></tr></thead><tbody><tr><td>山西联通</td><td>202.99.192.66</td><td>202.99.192.68</td></tr><tr><td>上海联通</td><td>210.22.70.3</td><td>210.22.84.3</td></tr><tr><td>北京联通</td><td>123.123.123.123</td><td>123.123.123.124</td></tr></tbody></table><h2 id="4-公共DNS"><a href="#4-公共DNS" class="headerlink" title="4. 公共DNS"></a>4. 公共DNS</h2><table><thead><tr><th>名称</th><th>首选 DNS 服务器</th><th>备用 DNS 服务器</th></tr></thead><tbody><tr><td><a href="https://www.114dns.com/">114 DNS</a></td><td>114.114.114.114</td><td>114.114.115.115</td></tr><tr><td><a href="https://www.sdns.cn/">中国互联网信息中心</a></td><td>1.2.4.8</td><td>210.2.4.8</td></tr><tr><td><a href="https://www.alidns.com/">阿里云</a></td><td>223.5.5.5</td><td>223.6.6.6</td></tr><tr><td><a href="https://www.dnspod.cn/Products/Public.DNS">腾讯云</a></td><td>119.29.29.29</td><td></td></tr><tr><td><a href="https://dudns.baidu.com/">百度云</a></td><td>180.76.76.76</td><td></td></tr></tbody></table><h2 id="4-国外公共DNS"><a href="#4-国外公共DNS" class="headerlink" title="4. 国外公共DNS"></a>4. 国外公共DNS</h2><table><thead><tr><th>名称</th><th>首选 DNS 服务器</th><th>备用 DNS 服务器</th></tr></thead><tbody><tr><td><a href="https://developers.google.com/speed/public-dns/">Google</a></td><td>8.8.8.8</td><td>8.8.4.4</td></tr><tr><td><a href="https://quad9.net/">IBM</a></td><td>9.9.9.9</td><td>149.112.112.112</td></tr><tr><td><a href="https://one.one.one.one/">CloudFlare</a></td><td>1.1.1.1</td><td>1.0.0.1</td></tr><tr><td><a href="https://www.opendns.com/">OpenDNS</a></td><td>208.67.222.222</td><td>208.67.220.220</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络设置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>DNS 基本网络</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何重新安装 macOS</title>
+    <link href="/2024/11/03/%E5%A6%82%E4%BD%95%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85macOS%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <url>/2024/11/03/%E5%A6%82%E4%BD%95%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85macOS%20-%20%E5%89%AF%E6%9C%AC/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p><a href="https://support.apple.com/zh-cn/109033">哪些 macOS 版本是最新的？</a></p></li><li><p><a href="https://support.apple.com/zh-cn/101578">创建可引导的 macOS 安装器</a></p></li><li><p><a href="https://support.apple.com/zh-cn/102655">如何重新安装 macOS</a></p></li><li><p>从 App Store 下载完整的 macOS 安装器<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://sysin.org/blog/macOS/">[1]</span></a></sup></p><ul><li><a href="https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12">macOS Monterey 12.7</a></li><li><a href="https://apps.apple.com/cn/app/macos-ventura/id1638787999?mt=12">macOS Ventura 13.6</a></li><li><a href="https://apps.apple.com/cn/app/macos-sonoma/id6450717509?mt=12">macOS Sonoma 14.5</a></li></ul></li></ul><h3 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h3><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://sysin.org/blog/macOS/">https://sysin.org/blog/macOS/</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>Apple</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>macOS</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>硬盘检测</title>
+    <link href="/2024/11/03/%E7%A1%AC%E7%9B%98%E6%A3%80%E6%B5%8B/"/>
+    <url>/2024/11/03/%E7%A1%AC%E7%9B%98%E6%A3%80%E6%B5%8B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="smartmontools"><a href="#smartmontools" class="headerlink" title="smartmontools"></a><a href="https://www.smartmontools.org/">smartmontools</a></h3><p>安装<br><code>apt install smartmontools</code></p><ol><li><p>是否开启支持<br>  <code>smartctl -i /dev/sda | grep support</code></p></li><li><p>检测硬盘通电时间(小时)</p><p>  <code>smartctl -A /dev/sda | grep Power_On_Hours</code></p></li><li><p>硬盘温度</p><p>  <code>smartctl -A /dev/sda | grep Airflow_Temperature_Cel</code></p></li><li><p>后台对硬盘进行长检测</p><p>  <code>smartctl -t long /dev/sda</code></p></li><li><p>检查硬盘健康状态<br>   <code>smartctl -H /dev/sda  | grep overall-health</code></p></li><li><p>查看硬盘检测的日志</p><p><code>smartctl -l selftest /dev/sda</code></p></li><li><p>查看硬盘错误日志</p><p><code>smartctl -l error /dev/sda</code></p></li></ol><h3 id="WHDD"><a href="#WHDD" class="headerlink" title="ＷＨＤＤ"></a><a href="https://github.com/whdd/whdd">ＷＨＤＤ</a></h3><p>下载</p><p><a href="https://whdd.github.io/get_it/">https://whdd.github.io/get_it/</a> </p><p><a href="https://launchpad.net/~whdd/+archive/ubuntu/stable/+packages">WHDD Ubuntu&#x2F;Debian 软件包</a></p><p><em>whdd</em>二进制文件放在*&#x2F;usr&#x2F;local&#x2F;bin&#x2F;*</p><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><ul><li><a href="https://diskgenius.cn/download.php">DiskGenius</a></li><li><a href="https://www.hdtune.com/download.html">HD Tune 网站</a></li><li><a href="https://crystalmark.info/en/download/">CrystalDiskMark</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>硬件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>硬盘HDD</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何重新安装 macOS</title>
+    <link href="/2024/11/03/%E8%B4%AD%E8%BD%A6/"/>
+    <url>/2024/11/03/%E8%B4%AD%E8%BD%A6/</url>
+    
+    <content type="html"><![CDATA[<h2 id="SUV"><a href="#SUV" class="headerlink" title="SUV"></a>SUV</h2><ul><li>大众途观</li><li>吉利星越L-14W</li><li>马自达 CX-5</li><li>现代途胜L狮搏拓界</li></ul><hr><h2 id="轿车"><a href="#轿车" class="headerlink" title="轿车"></a>轿车</h2><ul><li>星瑞 10W</li><li>别克威朗pro悦享版-9W</li><li>轩逸经典舒适版落地-8W</li><li>朗逸星空</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>购物</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>汽车</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux软件宝藏库</title>
+    <link href="/2024/11/03/Linux%E8%BD%AF%E4%BB%B6%E5%AE%9D%E8%97%8F%E5%BA%93/"/>
+    <url>/2024/11/03/Linux%E8%BD%AF%E4%BB%B6%E5%AE%9D%E8%97%8F%E5%BA%93/</url>
+    
+    <content type="html"><![CDATA[<h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><ul><li><a href="https://github.com/restic/restic">restic-文件备份</a></li><li><a href="https://clonezilla.org/">clonezilla-系统备份</a></li><li><a href="https://github.com/RsyncProject/rsync">rsync-文件同步</a><ul><li><a href="https://github.com/laurent22/rsync-time-backup">rsync-time-backup-脚本</a></li></ul></li></ul><h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><ul><li><a href="https://github.com/minio/minio">minio-对象存储</a></li><li><a href="https://github.com/rclone/rclone">rclone-同步挂载</a></li></ul><h3 id="文件访问"><a href="#文件访问" class="headerlink" title="文件访问"></a>文件访问</h3><ul><li><a href="https://www.samba.org/">samba</a></li><li><a href="https://nfs.sourceforge.net/">nfs</a></li><li><a href="http://www.webdav.org/">webdav</a><ul><li><a href="https://caddyserver.com/docs/modules/http.handlers.webdav">caddy</a></li></ul></li><li><a href="https://security.appspot.com/vsftpd.html">vsftpd</a></li><li><a href="https://sourceforge.net/projects/minidlna/">minidlna</a><ul><li><a href="https://github.com/UniversalMediaServer/UniversalMediaServer">UniversalMediaServer</a></li></ul></li></ul><p><code>lsb_release -a</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>system</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows软件宝藏库</title>
+    <link href="/2024/11/03/Windows%E8%BD%AF%E4%BB%B6%E5%AE%9D%E8%97%8F%E5%BA%93/"/>
+    <url>/2024/11/03/Windows%E8%BD%AF%E4%BB%B6%E5%AE%9D%E8%97%8F%E5%BA%93/</url>
+    
+    <content type="html"><![CDATA[<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><ul><li><a href="https://www.filezilla.cn/">https://www.filezilla.cn/</a></li></ul><p>在线激活命令<br><code>irm https://get.activated.win | iex</code></p><p><img src="https://typora.io/img/new/user-bg.jpg" alt="typora"><br>Typora软件下载<br><a href="https://suyin-tools.lanzoul.com/b0608rayb">https://suyin-tools.lanzoul.com/b0608rayb</a> 密码：826s</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>software</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
