@@ -51,10 +51,10 @@ languages:
       languageAltTitle: 博客
       profileMode:
         enabled: true
-        title: Hello Word
+        title: "☁️ "
         imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
         imageTitle: ProfileMode 图片
-        subtitle: "☄️ 快速 | ☁️ 流畅 | 🌙 平滑 | 📱 响应式"
+        subtitle:
         buttons:
           - name: 博客
             url: /
@@ -99,9 +99,9 @@ params:
     Content: >
 
   socialIcons:
-    - name: github
+    - name: Synology
       title: 查看 GitHub 源代码
-      url: "https://github.com/adityatelange/hugo-PaperMod"
+      url: "https://koicc.i234.me:5001"
     - name: Discord
       title: 加入 Discord 社区
       url: "https://discord.gg/ahpmTvhVmp"
