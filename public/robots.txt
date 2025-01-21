@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: //172.16.31.25:1313/sitemap.xml

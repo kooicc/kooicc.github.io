@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Archlinux on 秋雨夜眠</title>
+    <link>//172.16.31.25:1313/tags/archlinux/</link>
+    <description>Recent content in Archlinux on 秋雨夜眠</description>
+    <image>
+      <title>秋雨夜眠</title>
+      <url>//172.16.31.25:1313/images/papermod-cover.png</url>
+      <link>//172.16.31.25:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.141.0</generator>
+    <language>zh</language>
+    <copyright>©1996 - 2025 秋雨夜眠的Blog</copyright>
+    <lastBuildDate>Mon, 20 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//172.16.31.25:1313/tags/archlinux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于 Linux 的一些心得</title>
+      <link>//172.16.31.25:1313/posts/linux/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/linux/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;p&gt;Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强大
+&lt;a href=&#34;https://www.baidu.com&#34; title=&#34;Title&#34;&gt;sdasd&lt;/a&gt;
+的社区&lt;/strong&gt;：Arch Linux 拥有一个非常活跃的社区，用户可以轻松找到支持和教程。&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>
