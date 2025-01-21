@@ -36,9 +36,6 @@ languages:
         - name: 标签
           url: tags/
           weight: 10
-        - name: 链接
-          url: link/
-          weight: 10
   fr:
     languageName: "主页"
     weight: 2
@@ -54,15 +51,13 @@ languages:
       languageAltTitle: 博客
       profileMode:
         enabled: true
-        title: "☁️ "
+        title: "Gnetoo"
         imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
         imageTitle: ProfileMode 图片
         subtitle:
         buttons:
           - name: 博客
             url: /
-          - name: Synology
-            url: https://koicc.i234.me:5001
 
 outputs:
   home:
@@ -75,7 +70,7 @@ params:
   description: "hugo-Blog"
   author: "☁️ "
   defaultTheme: auto
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowReadingTime: true
   displayFullLangName: true
   ShowPostNavLinks: true
@@ -100,7 +95,8 @@ params:
 
   homeInfoParams:
     Content: >
-      购买我一杯 Ko-Fi :)
+      山极远碧云合，清夜一声白雪微。
+      欲寄相思千里月，溪边残照雨霏霏。
 
   assets:
     disableHLJS: false
