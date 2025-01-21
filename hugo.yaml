@@ -100,9 +100,6 @@ params:
 
   homeInfoParams:
     Content: >
-
-  socialIcons:
-    - name: Synology
       title: 查看 GitHub 源代码
       url: "https://koicc.i234.me:5001"
     - name: Discord
