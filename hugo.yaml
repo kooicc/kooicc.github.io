@@ -100,21 +100,7 @@ params:
 
   homeInfoParams:
     Content: >
-      title: 查看 GitHub 源代码
-      url: "https://koicc.i234.me:5001"
-    - name: Discord
-      title: 加入 Discord 社区
-      url: "https://discord.gg/ahpmTvhVmp"
-    - name: X
-      title: 在 X/Twitter 上分享 PaperMod
-      url: "https://x.com/intent/tweet/?text=Checkout%20Hugo%20PaperMod%20%E2%9C%A8%0AA%20fast,%20clean,%20responsive%20Hugo%20theme.&url=https://github.com/adityatelange/hugo-PaperMod&hashtags=Hugo,PaperMod"
-    - name: KoFi
-      title: 购买我一杯 Ko-Fi :)
-      url: "https://ko-fi.com/adityatelange"
-
-
-
-
+      购买我一杯 Ko-Fi :)
 
   assets:
     disableHLJS: false
