@@ -51,15 +51,15 @@ languages:
       languageAltTitle: 博客
       profileMode:
         enabled: true
-        title: PaperMod
-        imageUrl: "https://raw.githubusercontent.com/googlefonts/noto-emoji/master/svg/emoji_u1f9d1_1f3fb_200d_1f4bb.svg"
+        title: Hello Word
+        imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
         imageTitle: ProfileMode 图片
         subtitle: "☄️ 快速 | ☁️ 流畅 | 🌙 平滑 | 📱 响应式"
         buttons:
           - name: 博客
             url: /
-          - name: Profile Mode
-            url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
+          - name: Synology
+            url: https://koicc.i234.me:5001
 
 outputs:
   home:
@@ -86,7 +86,7 @@ params:
 
   profileMode:
     enabled: false
-    title: PaperMod
+    title: Hello
     imageUrl: "#"
     imageTitle: 我的图片
     buttons:
