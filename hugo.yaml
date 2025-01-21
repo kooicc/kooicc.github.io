@@ -39,7 +39,7 @@ languages:
   fr:
     languageName: "主页"
     weight: 2
-    title: 秋雨夜眠
+    title:
 #    menu:
 #      main:
 #        - name: DXP4800
