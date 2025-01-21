@@ -69,23 +69,23 @@ outputs:
 
 params:
   env: production
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-  author: ✔
+  description: "hugo-Blog"
+  author: subtitle: "☁️ "
   defaultTheme: auto
-  ShowShareButtons: false
+  ShowShareButtons: true
   ShowReadingTime: true
   displayFullLangName: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
-  ShowRssButtonInSectionTermList: true
+  ShowRssButtonInSectionTermList: false
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
   images: ["images/papermod-cover.png"]
 
   profileMode:
-    enabled: false
+    enabled: true
     title: PaperMod
     imageUrl: "#"
     imageTitle: 我的图片
@@ -117,13 +117,7 @@ params:
 
 
   assets:
-    disableHLJS: true
-
-  cover:
-    hidden: true
-    hiddenInList: true
-    hiddenInSingle: true
-
+    disableHLJS: false
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
