@@ -51,7 +51,7 @@ languages:
       languageAltTitle: 博客
       profileMode:
         enabled: true
-        title: "风"
+        title: "Hi"
         imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
         imageTitle: ProfileMode 图片
         subtitle:
@@ -97,23 +97,6 @@ params:
 
   homeInfoParams:
     Content: >
-
-  socialIcons:
-    - title: Synology
-      url: "https://koicc.i234.me:5001"
-    - name: Discord
-      title: 加入 Discord 社区
-      url: "https://discord.gg/ahpmTvhVmp"
-    - name: X
-      title: 在 X/Twitter 上分享 PaperMod
-      url: "https://x.com/intent/tweet/?text=Checkout%20Hugo%20PaperMod%20%E2%9C%A8%0AA%20fast,%20clean,%20responsive%20Hugo%20theme.&url=https://github.com/adityatelange/hugo-PaperMod&hashtags=Hugo,PaperMod"
-    - name: KoFi
-      title: 购买我一杯 Ko-Fi :)
-      url: "https://ko-fi.com/adityatelange"
-
-
-
-
 
   assets:
     disableHLJS: false
