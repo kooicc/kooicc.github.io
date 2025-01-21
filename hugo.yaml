@@ -51,7 +51,6 @@ languages:
       languageAltTitle: 博客
       profileMode:
         enabled: true
-        title:
         imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
         imageTitle: ProfileMode 图片
         subtitle:
