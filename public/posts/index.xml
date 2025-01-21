@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on 秋雨夜眠</title>
+    <title>Posts on 秋雨夜眠的Blog</title>
     <link>//172.16.31.25:1313/posts/</link>
-    <description>Recent content in Posts on 秋雨夜眠</description>
+    <description>Recent content in Posts on 秋雨夜眠的Blog</description>
     <image>
-      <title>秋雨夜眠</title>
+      <title>秋雨夜眠的Blog</title>
       <url>//172.16.31.25:1313/images/papermod-cover.png</url>
       <link>//172.16.31.25:1313/images/papermod-cover.png</link>
     </image>
@@ -16,6 +16,90 @@
     <atom:link href="//172.16.31.25:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于 Linux 的一些心得</title>
+      <link>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-2/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-2/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;p&gt;Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>关于 Linux 的一些心得</title>
+      <link>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-3/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-3/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;p&gt;Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>关于 Linux 的一些心得</title>
+      <link>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-4/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-4/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;p&gt;Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>关于 Linux 的一些心得</title>
+      <link>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-5/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-5/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;p&gt;Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>关于 Linux 的一些心得</title>
+      <link>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-6/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC-6/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;p&gt;Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>关于 Linux 的一些心得</title>
+      <link>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/linux---%E5%89%AF%E6%9C%AC/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;p&gt;Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。&lt;/p&gt;
+&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>关于 Linux 的一些心得</title>
       <link>//172.16.31.25:1313/posts/linux/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
       <guid>//172.16.31.25:1313/posts/linux/</guid>
@@ -24,8 +108,219 @@
 &lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>模板</title>
+      <link>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-2/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-2/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdf
+sdgdfhgj
+dfghfgh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;caddy---具有自动-https-的终极服务器httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy - 具有自动 HTTPS 的终极服务器&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;logo-light-1707219575579&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/upload/2024/02/logo-light-1707219575579.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;caddy官网httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy官网&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;caddywebdav&#34;&gt;Caddy+WebDav&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&#34;&gt;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不常用
+&lt;ul&gt;
+&lt;li&gt;自定义编译&lt;code&gt;xcaddy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;添加插件&lt;code&gt;caddy add-package github.com/mholt/caddy-webdav&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>模板</title>
+      <link>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-3/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-3/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdf
+sdgdfhgj
+dfghfgh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;caddy---具有自动-https-的终极服务器httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy - 具有自动 HTTPS 的终极服务器&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;logo-light-1707219575579&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/upload/2024/02/logo-light-1707219575579.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;caddy官网httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy官网&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;caddywebdav&#34;&gt;Caddy+WebDav&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&#34;&gt;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不常用
+&lt;ul&gt;
+&lt;li&gt;自定义编译&lt;code&gt;xcaddy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;添加插件&lt;code&gt;caddy add-package github.com/mholt/caddy-webdav&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>模板</title>
+      <link>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-4/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-4/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdf
+sdgdfhgj
+dfghfgh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;caddy---具有自动-https-的终极服务器httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy - 具有自动 HTTPS 的终极服务器&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;logo-light-1707219575579&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/upload/2024/02/logo-light-1707219575579.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;caddy官网httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy官网&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;caddywebdav&#34;&gt;Caddy+WebDav&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&#34;&gt;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不常用
+&lt;ul&gt;
+&lt;li&gt;自定义编译&lt;code&gt;xcaddy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;添加插件&lt;code&gt;caddy add-package github.com/mholt/caddy-webdav&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>模板</title>
+      <link>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-5/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-5/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdf
+sdgdfhgj
+dfghfgh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;caddy---具有自动-https-的终极服务器httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy - 具有自动 HTTPS 的终极服务器&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;logo-light-1707219575579&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/upload/2024/02/logo-light-1707219575579.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;caddy官网httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy官网&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;caddywebdav&#34;&gt;Caddy+WebDav&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&#34;&gt;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不常用
+&lt;ul&gt;
+&lt;li&gt;自定义编译&lt;code&gt;xcaddy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;添加插件&lt;code&gt;caddy add-package github.com/mholt/caddy-webdav&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>模板</title>
+      <link>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-6/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC-6/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdf
+sdgdfhgj
+dfghfgh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;caddy---具有自动-https-的终极服务器httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy - 具有自动 HTTPS 的终极服务器&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;logo-light-1707219575579&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/upload/2024/02/logo-light-1707219575579.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;caddy官网httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy官网&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;caddywebdav&#34;&gt;Caddy+WebDav&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&#34;&gt;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不常用
+&lt;ul&gt;
+&lt;li&gt;自定义编译&lt;code&gt;xcaddy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;添加插件&lt;code&gt;caddy add-package github.com/mholt/caddy-webdav&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>模板</title>
+      <link>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF---%E5%89%AF%E6%9C%AC/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdf
+sdgdfhgj
+dfghfgh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;caddy---具有自动-https-的终极服务器httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy - 具有自动 HTTPS 的终极服务器&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;logo-light-1707219575579&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/upload/2024/02/logo-light-1707219575579.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;caddy官网httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy官网&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;caddywebdav&#34;&gt;Caddy+WebDav&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&#34;&gt;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不常用
+&lt;ul&gt;
+&lt;li&gt;自定义编译&lt;code&gt;xcaddy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;添加插件&lt;code&gt;caddy add-package github.com/mholt/caddy-webdav&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>模板</title>
+      <link>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//172.16.31.25:1313/posts/%E6%A8%A1%E6%9D%BF/</guid>
+      <description>&lt;h2 id=&#34;为什么选择-linux&#34;&gt;为什么选择 Linux？&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdf
+sdgdfhgj
+dfghfgh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;arch-linux-的优势&#34;&gt;Arch Linux 的优势&lt;/h2&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;滚动更新&lt;/strong&gt;：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KISS 原则&lt;/strong&gt;：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
+&lt;img alt=&#34;图片描述&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/images/fnOS.png&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;caddy---具有自动-https-的终极服务器httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy - 具有自动 HTTPS 的终极服务器&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt=&#34;logo-light-1707219575579&#34; loading=&#34;lazy&#34; src=&#34;//172.16.31.25:1313/upload/2024/02/logo-light-1707219575579.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;caddy官网httpscaddyservercom&#34;&gt;&lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy官网&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;caddywebdav&#34;&gt;Caddy+WebDav&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&#34;&gt;https://caddyserver.com/download?package=github.com%2Fmholt%2Fcaddy-webdav&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不常用
+&lt;ul&gt;
+&lt;li&gt;自定义编译&lt;code&gt;xcaddy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;添加插件&lt;code&gt;caddy add-package github.com/mholt/caddy-webdav&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>
