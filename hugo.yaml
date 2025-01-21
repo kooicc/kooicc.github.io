@@ -83,7 +83,6 @@ params:
 
   profileMode:
     enabled: false
-    title: Hello
     imageUrl: "#"
     imageTitle: 我的图片
     buttons:
