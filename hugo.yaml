@@ -85,7 +85,7 @@ params:
   images: ["images/papermod-cover.png"]
 
   profileMode:
-    enabled: true
+    enabled: false
     title: PaperMod
     imageUrl: "#"
     imageTitle: 我的图片
