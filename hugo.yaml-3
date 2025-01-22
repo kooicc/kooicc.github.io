@@ -50,8 +50,14 @@ languages:
     params:
       languageAltTitle: 博客
       profileMode:
-        enabled: true
+        enabled: false
+        title: 楼阁朦胧烟雨中
         imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
+        imageTitle: 夜
+        subtitle:
+        buttons:
+          - name: Hi
+            url: /
 
 outputs:
   home:
