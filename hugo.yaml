@@ -53,7 +53,7 @@ languages:
         enabled: true
         title: 楼阁朦胧烟雨中
         imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
-        imageTitle: 夜深
+        imageTitle: 夜
         subtitle:
         buttons:
           - name: Hi
