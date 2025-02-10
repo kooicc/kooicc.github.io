@@ -8,7 +8,7 @@ tags:
   - Docker
 ---
 
-![hugo](/images/docker.png)
+![hugo](/images/hugo.svg)
 
 ## 安装Docker
 

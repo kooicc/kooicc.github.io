@@ -1,9 +1,11 @@
 ---
-title: oh-my-zsh终端
-date: 2025-02-11
+title: "oh-my-zsh终端"
+date: 2025-02-10
 searchHidden: true
-categories: Linux
-tags: zsh
+categories:
+  - Linux
+tags:
+  - zsh
 ---
 
 ## apt install zsh
