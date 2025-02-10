@@ -2,12 +2,13 @@
 title: "Docker容器"
 date: 2025-02-11
 searchHidden: true
-featured_image: "/images/docker.png"
 categories:
   - linux
 tags:
   - Docker
 ---
+
+![hugo](/images/docker.png)
 
 ## 安装Docker
 
