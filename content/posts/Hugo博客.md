@@ -1,6 +1,7 @@
 ---
 title: "Hugo博客"
-date: 2025-02-11
+cover:
+    image: "/images/hugo.svg"
 categories:
   - Blog
 tags:
