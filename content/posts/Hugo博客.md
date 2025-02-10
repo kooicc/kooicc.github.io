@@ -24,7 +24,7 @@ tags:
 
 `cd /root/kooicc.github.io/content/posts`
 
-3. git启用凭证存储
+3. 启用Git凭证存储
 
 `git config --global credential.helper store`
 
@@ -47,6 +47,9 @@ tags:
 3. 替换[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
 
 > 官网：<https://gohugo.io>
+> 
 > GitHub：<https://github.com/gohugoio/hugo>
+> 
 > PaperMod主题：<https://github.com/adityatelange/hugo-PaperMod>
+> 
 > Stack主题：<https://github.com/CaiJimmy/hugo-theme-stack>
