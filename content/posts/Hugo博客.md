@@ -20,7 +20,7 @@ tags:
 
 `git clone  https://github.com/kooicc/kooicc.github.io.git`
 
-2. 进入文档文件夹编辑文章
+2. 进入文件夹编辑文章
 
 `cd /root/kooicc.github.io/content/posts`
 
@@ -28,13 +28,13 @@ tags:
 
 `git config --global credential.helper store`
 
-4. 提交更改到Github
+4. 提交更改到Github仓库
 
 `git add . && git commit -m "new" && git push -u origin main`
 
 ----------------------------------------------------------------------------------------------------
 
-## Hugo PaperMod主题配置
+### Hugo PaperMod主题配置
 
 1. 创建新的 Hugo 站点
 
@@ -46,7 +46,7 @@ tags:
 
 3. 替换[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
 
-> - 官网：<https://gohugo.io>
-> - GitHub：<https://github.com/gohugoio/hugo>
-> - PaperMod主题：<https://github.com/adityatelange/hugo-PaperMod>
-> - Stack主题：<https://github.com/CaiJimmy/hugo-theme-stack>
+> 官网：<https://gohugo.io>
+> GitHub：<https://github.com/gohugoio/hugo>
+> PaperMod主题：<https://github.com/adityatelange/hugo-PaperMod>
+> Stack主题：<https://github.com/CaiJimmy/hugo-theme-stack>
