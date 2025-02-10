@@ -1,8 +1,8 @@
 ---
 title: "Docker容器"
-date: 2025-02-10
+date: "2025-02-11"
 searchHidden: true
-image: "/images/docker.png"
+cover: "/images/docker.png"
 categories:
   - linux
 tags:
