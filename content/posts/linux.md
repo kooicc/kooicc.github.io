@@ -8,12 +8,21 @@ tags:
   - archlinux
 ---
 
-## 为什么选择 Linux？
+## Docker Engine安装教程
 
-Linux 是一个自由、开源的操作系统，它的强大和灵活性使其成为许多开发者和技术爱好者的首选。尤其是 Arch Linux，它提供了高度自定义的系统配置，适合有经验的用户。
+### [官方脚本一键安装](https://docs.docker.com/engine/install/)
 
-## Arch Linux 的优势
+Debian、Ubuntu、CentOS、RHEL、Fedora、Oracle Linux
 
-1. **滚动更新**：Arch Linux 使用滚动更新，确保你始终拥有最新的软件包。
-2. **KISS 原则**：Arch 遵循“保持简单”的原则，去掉了许多不必要的默认设置，让用户可以从头开始构建他们的操作系统。
-![图片描述](/images/fnOS.png)
+```shell
+curl -fsSL https://get.docker.com -o get-docker.sh`
+sh install-docker.sh --mirror Aliyun
+```
+
+## Docker管理
+
+[portainer-ce中文版](https://hub.docker.com/r/6053537/portainer-ce)
+
+```bash
+docker run -d --restart=always --name="portainer" -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock 6053537/portainer-ce
+```
