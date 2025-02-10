@@ -1,7 +1,6 @@
 ---
 title: "Hugo博客"
 date: 2025-02-10
-searchHidden: true
 categories:
   - Blog
 tags:

@@ -75,6 +75,7 @@ params:
   displayFullLangName: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
+  searchHidden: true
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: false
   ShowAllPagesInArchive: true
