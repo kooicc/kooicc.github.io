@@ -1,7 +1,7 @@
 ---
 title: "Docker容器"
-date: 2025-02-20
-disableHLJS: false
+date: 2025-02-10
+searchHidden: true
 categories:
   - linux
 tags:
@@ -13,11 +13,8 @@ tags:
 ### [官方脚本一键安装](https://docs.docker.com/engine/install/)
 
 Debian、Ubuntu、CentOS、RHEL、Fedora、Oracle Linux
-
-```shell
-curl -fsSL https://get.docker.com -o get-docker.sh`
-sh install-docker.sh --mirror Aliyun
-```
+`curl -fsSL https://get.docker.com -o get-docker.sh`
+`sh install-docker.sh --mirror Aliyun`
 
 ## Docker管理
 
