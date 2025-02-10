@@ -1,5 +1,6 @@
 ---
 title: "oh-my-zsh终端"
+date: 2025-02-15T11:30:03+00:00
 categories:
   - Linux
 tags:
