@@ -12,9 +12,9 @@ tags:
 
 ## 快速部署Hugo播客
 
-仓库地址：<https://github.com/kooicc/kooicc.github.io>
+### GitHub仓库：<https://github.com/kooicc/kooicc.github.io>
 
-网站地址：<https://kooicc.github.io>
+### Blog播客：<https://kooicc.github.io>
 
 1. 克隆GitHub仓库到本地
 
@@ -47,6 +47,9 @@ tags:
 3. 替换[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
 
 > 官网：<https://gohugo.io>
+>
 > GitHub：<https://github.com/gohugoio/hugo>
+>
 > PaperMod主题：<https://github.com/adityatelange/hugo-PaperMod>
+>
 > Stack主题：<https://github.com/CaiJimmy/hugo-theme-stack>
