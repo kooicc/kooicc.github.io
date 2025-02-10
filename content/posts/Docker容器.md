@@ -2,8 +2,7 @@
 title: "Docker容器"
 date: 2025-02-11
 searchHidden: true
-cover:
-  image: "/images/docker.png"
+featured_image: "/images/docker.png"
 categories:
   - linux
 tags:

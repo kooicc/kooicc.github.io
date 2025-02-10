@@ -2,13 +2,13 @@
 title: "Hugo博客"
 date: 2025-02-10
 searchHidden: true
-cover:
-  image: "/images/hugo.svg"
 categories:
   - Blog
 tags:
   - Hugo
 ---
+
+![hugo](/images/hugo.svg)
 
 ## 快速部署Hugo播客
 
