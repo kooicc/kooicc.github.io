@@ -2,13 +2,13 @@
 title: "Hugo博客"
 date: 2025-02-10
 searchHidden: true
+cover:
+  image: "/images/hugo.svg"
 categories:
   - Blog
 tags:
   - Hugo
 ---
-
-![1](/images/hugo.svg)
 
 ## 快速部署Hugo播客
 
@@ -47,9 +47,6 @@ tags:
 3. 替换[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
 
 > 官网：<https://gohugo.io>
-> 
 > GitHub：<https://github.com/gohugoio/hugo>
-> 
 > PaperMod主题：<https://github.com/adityatelange/hugo-PaperMod>
-> 
 > Stack主题：<https://github.com/CaiJimmy/hugo-theme-stack>
