@@ -1,5 +1,6 @@
 ---
 title: "Hugo博客"
+date: 2025-02-11
 weight: 1
 categories:
   - Blog
