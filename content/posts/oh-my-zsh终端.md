@@ -1,12 +1,12 @@
 ---
 title: "oh-my-zsh终端"
-cover:
-    image: "/images/zsh.png"
 categories:
   - Linux
 tags:
   - zsh
 ---
+
+![1](/images/zsh.png)
 
 ## apt install zsh
 

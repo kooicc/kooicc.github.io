@@ -1,13 +1,13 @@
 ---
 title: "Docker容器"
 searchHidden: true
-cover:
-    image: "/images/docker.png"
 categories:
   - linux
 tags:
   - Docker
 ---
+
+![1](/images/docker.png)
 
 ## 安装Docker
 

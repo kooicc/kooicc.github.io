@@ -1,12 +1,12 @@
 ---
 title: "LinuxSamba文件共享配置"
-cover:
-    image: "/images/samba.png"
 categories:
   - Linux
 tags:
   - samba
 ---
+
+![1](/images/samba.png)
 
 ## 安装 SAMBA 服务器
 

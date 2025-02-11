@@ -1,5 +1,6 @@
 ---
 title: "Hugo博客"
+weight: 1
 cover:
     image: "/images/hugo.svg"
 categories:
