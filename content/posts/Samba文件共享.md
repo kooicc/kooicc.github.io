@@ -1,10 +1,8 @@
 ---
 title: "Samba文件共享"
-date: 2025-02-11
-categories:
-  - Linux
-tags:
-  - Samba
+date: "2025-02-04"
+tags: ["Samba"]
+categories: ["Linux"]
 ---
 
 ![1](/images/samba.png)

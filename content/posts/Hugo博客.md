@@ -1,11 +1,9 @@
 ---
 title: "Hugo博客"
-date: 2025-02-11
+date: "2025-02-01"
 weight: 1
-categories:
-  - Blog
-tags:
-  - Hugo
+categories: ["Blog"]
+tags: ["Hugo"]
 ---
 
 ![hugo](/images/hugo.png)

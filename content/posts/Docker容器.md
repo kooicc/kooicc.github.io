@@ -1,14 +1,11 @@
 ---
 title: "Docker容器"
-date: 2025-02-11
-searchHidden: true
-categories:
-  - linux
-tags:
-  - Docker
+date: "2025-02-02"
+categories: ["linux"]
+tags: ["Docker"]
 ---
 
-![1](/images/docker.png)
+![docker](/images/docker.png)
 
 ## 安装Docker
 

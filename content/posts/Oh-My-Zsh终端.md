@@ -1,13 +1,11 @@
 ---
 title: "Oh-My-Zsh终端"
-date: 2025-02-11
-categories:
-  - Linux
-tags:
-  - zsh
+date: "2025-02-03"
+tags: ["zsh"]
+categories: ["Linux"]
 ---
 
-![1](/images/zsh.png)
+![zsh](/images/zsh.png)
 
 ```bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
