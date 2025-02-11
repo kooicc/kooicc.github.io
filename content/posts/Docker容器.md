@@ -27,4 +27,4 @@ tags:
 
 `docker run -d --restart=always --name="portainer" -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock 6053537/portainer-ce`
 
-> Docker发行说明：<https://docs.docker.com/engine/release-notes>
+> Docker发行版说明：<https://docs.docker.com/engine/release-notes>
