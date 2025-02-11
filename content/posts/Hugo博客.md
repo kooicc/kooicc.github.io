@@ -8,7 +8,7 @@ tags:
   - Hugo
 ---
 
-![hugo](https://s3.bmp.ovh/imgs/2025/02/11/3518d50e7b6a2c19.png)
+![hugo](/images/hugo.png)
 
 ## 快速部署Hugo播客
 
