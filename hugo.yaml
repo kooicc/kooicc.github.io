@@ -97,6 +97,7 @@ params:
     Content: >
       山极远碧云合，清夜一声白雪微。
       欲寄相思千里月，溪边残照雨霏霏。
+      "/images/hugo.svg"
 
   assets:
     disableHLJS: false
