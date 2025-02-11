@@ -42,9 +42,9 @@ tags: ["Hugo"]
 
    `git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod`
 
-3. 替换[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
+3. 编辑[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
 
-> {{< collapse summary="**Code**" >}}
+   {{< collapse summary="*hugo.yaml*" >}}
 
 ```yml
 baseURL: "https://kooicc.github.io/"
@@ -160,7 +160,7 @@ params:
 defaultContentLanguage: "zh" # 默认内容语言设置为中文
 ```
 
-{{</ collapse >}}
+   {{</ collapse >}}
 
 > 官网：<https://gohugo.io>
 >
