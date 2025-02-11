@@ -44,7 +44,7 @@ tags: ["Hugo"]
 
 3. 编辑[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
 
-   {{< collapse summary="*hugo.yaml*" >}}
+   {{< collapse summary="`nano /home/koicc/kooicc.github.io/hugo.yaml`" >}}
 
 ```yml
 baseURL: "https://kooicc.github.io/"
