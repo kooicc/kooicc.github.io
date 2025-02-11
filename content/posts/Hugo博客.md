@@ -46,7 +46,7 @@ tags: ["Hugo"]
 
 > {{< collapse summary="**Code**" >}}
 
-```bash
+```yml
 baseURL: "https://kooicc.github.io/"
 title: "秋雨夜眠的Blog"
 copyright: "©1996 - 2025"
