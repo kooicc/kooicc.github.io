@@ -1,6 +1,6 @@
 ---
 title: "Samba文件共享"
-date: 2025-02-10
+date: 2025-02-12
 categories:
   - Linux
 tags:
@@ -43,14 +43,14 @@ tags:
 
 5. 备份编辑*smb.conf*文件
 
-   `cp /etc/samba/smb.conf{,-backup}`
+   - cp /etc/samba/smb.conf{,-backup}
 
-   `nano /etc/samba/smb.conf`
+   - nano /etc/samba/smb.conf
 
    ```bash
-   [share] #名称
-     path = /mnt/Samsung_990Pro_4TB/uk_storage #路径
-     comment = Samsung 990 Pro ZFS storage #描述
+   [share] #共享名称
+     path = /mnt/ #路径
+     comment = raid #描述
      browseable = yes #允许在网络浏览中显示
      writable = yes #允许写入
      read only = no #禁止只读
@@ -65,3 +65,5 @@ tags:
    ```bash
    systemctl daemon-reload && systemctl restart smbd
    ```
+
+>部分引用：<https://littlenewton.uk/2024/12/tutorial-samba-server-configuration/>
