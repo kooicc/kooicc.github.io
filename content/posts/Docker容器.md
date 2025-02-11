@@ -9,8 +9,6 @@ tags:
   - Docker
 ---
 
-![docker](/images/docker.png)
-
 ## 安装Docker
 
 ### [官方安装脚本](https://docs.docker.com/engine/install/)

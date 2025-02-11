@@ -8,8 +8,6 @@ tags:
   - Hugo
 ---
 
-![hugo](/images/hugo.svg)
-
 ## 快速部署Hugo播客
 
 ### GitHub仓库：<https://github.com/kooicc/kooicc.github.io>

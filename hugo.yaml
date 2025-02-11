@@ -1,6 +1,6 @@
 baseURL: "https://kooicc.github.io/"
 title: "秋雨夜眠的Blog"
-copyright: "©1996 - 2025 秋雨夜眠的Blog"
+copyright: "©1996 - 2025"
 pagination:
   pagerSize: 10
 theme: [PaperMod]
@@ -71,7 +71,7 @@ params:
   author: "☁️ "
   defaultTheme: auto
   ShowShareButtons: false
-  ShowReadingTime: true
+  ShowReadingTime: false
   displayFullLangName: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
