@@ -1,11 +1,11 @@
 ---
 title: "Samba文件共享"
-date: "2025-02-04"
+date: "2025-02-12"
 tags: ["Samba"]
 categories: ["Linux"]
 ---
 
-![1](/images/samba.png)
+![samba](/images/samba.png)
 
 1. Debian12安装[Samba](https://www.samba.org/samba/)服务器
 
@@ -14,17 +14,17 @@ categories: ["Linux"]
    apt install samba
    ```
 
-2. 创建Linux用户*可选*
+2. 创建Linux用户(可选)
 
    ```bash
-   创建一个`xxx`用户
+   #创建一个*xxx*用户
    useradd -m -s /sbin/nologin xxx
-   创建一个`sambashare`用户组
-   groupadd sambashare
-   将`xxx`用户加入`sambashare`组
-   usermod -aG sambashare xxx
-   更改目录所属组为`sambashare`
-   chgrp sambashare /mnt/path
+   #创建一个*smb*用户组
+   groupadd smb
+   #将*xxx*用户加入*smb*组
+   usermod -aG smb xxx
+   #更改目录所属组为*smb*
+   chgrp smb /mnt/path
    ```
 
 3. 将该用户添加到 Samba 用户数据库
@@ -66,4 +66,4 @@ categories: ["Linux"]
 
 --------------------------------------------------------------------------------------
 
->部分引用：<https://littlenewton.uk/2024/12/tutorial-samba-server-configuration/>
+> 部分引用：<https://littlenewton.uk/2024/12/tutorial-samba-server-configuration/>

@@ -8,11 +8,7 @@ tags: ["Hugo"]
 
 ![hugo](/images/hugo.png)
 
-## 快速部署Hugo播客
-
-### GitHub仓库：<https://github.com/kooicc/kooicc.github.io>
-
-### Blog播客：<https://kooicc.github.io>
+### 快速部署Hugo播客
 
 1. 克隆GitHub仓库到本地
 
@@ -161,6 +157,8 @@ defaultContentLanguage: "zh" # 默认内容语言设置为中文
 ```
 
    {{</ collapse >}}
+
+----------------------------------------------------------------------------------------
 
 > 官网：<https://gohugo.io>
 >
