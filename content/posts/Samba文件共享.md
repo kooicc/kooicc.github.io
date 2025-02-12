@@ -7,7 +7,7 @@ categories: ["Linux"]
 
 ![1](/images/samba.png)
 
-1. Debian12安装`samba`服务器
+1. Debian12安装[Samba](https://www.samba.org/samba/)服务器
 
    ```bash
    apt update
@@ -17,13 +17,13 @@ categories: ["Linux"]
 2. 创建Linux用户*可选*
 
    ```bash
-   #创建一个普通用户
+   创建一个`xxx`用户
    useradd -m -s /sbin/nologin xxx
-   #创建组
+   创建一个`sambashare`用户组
    groupadd sambashare
-   #将xxx用户加入*sambashare*组
+   将`xxx`用户加入`sambashare`组
    usermod -aG sambashare xxx
-   #仅改目录所属组为*sambashare*
+   更改目录所属组为`sambashare`
    chgrp sambashare /mnt/path
    ```
 
@@ -39,7 +39,7 @@ categories: ["Linux"]
    pdbedit -L
    ```
 
-5. 备份编辑*smb.conf*文件
+5. 备份编辑`smb.conf`文件
 
    - cp /etc/samba/smb.conf{,-backup}
 
@@ -63,5 +63,7 @@ categories: ["Linux"]
    ```bash
    systemctl daemon-reload && systemctl restart smbd
    ```
+
+--------------------------------------------------------------------------------------
 
 >部分引用：<https://littlenewton.uk/2024/12/tutorial-samba-server-configuration/>
