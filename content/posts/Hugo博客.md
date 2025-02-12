@@ -8,7 +8,7 @@ tags: ["Hugo"]
 
 ![hugo](/images/hugo.png)
 
-### 快速部署Hugo播客
+## 快速部署Hugo播客
 
 1. 克隆GitHub仓库到本地
 
@@ -40,7 +40,7 @@ tags: ["Hugo"]
 
 3. 编辑[hugo.yaml](https://github.com/kooicc/kooicc.github.io/blob/main/hugo.yaml)文件
 
-   {{< collapse summary="`nano /home/koicc/kooicc.github.io/hugo.yaml`" >}}
+{{< collapse summary="`nano /home/koicc/kooicc.github.io/hugo.yaml`" >}}
 
 ```yml
 baseURL: "https://kooicc.github.io/"
@@ -156,7 +156,7 @@ params:
 defaultContentLanguage: "zh" # 默认内容语言设置为中文
 ```
 
-   {{</ collapse >}}
+{{</ collapse >}}
 
 ----------------------------------------------------------------------------------------
 

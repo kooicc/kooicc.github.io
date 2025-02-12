@@ -17,13 +17,13 @@ categories: ["Linux"]
 2. 创建Linux用户(可选)
 
    ```bash
-   #创建一个*xxx*用户
+   #创建一个xxx用户
    useradd -m -s /sbin/nologin xxx
-   #创建一个*smb*用户组
+   #创建一个smb用户组
    groupadd smb
-   #将*xxx*用户加入*smb*组
+   #将xxx用户加入smb组
    usermod -aG smb xxx
-   #更改目录所属组为*smb*
+   #更改目录所属组为smb
    chgrp smb /mnt/path
    ```
 
