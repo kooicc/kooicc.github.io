@@ -1,4 +1,5 @@
-baseURL: "https://kooicc.github.io/"
+#baseURL: "https://kooicc.github.io/"
+baseURL: "http://koicc-blog.test.upcdn.net/"
 title: "秋雨夜眠的Blog"
 copyright: "©1996 - 2025"
 pagination:
