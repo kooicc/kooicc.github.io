@@ -1,7 +1,7 @@
 ---
 title: "Hugo博客"
 date: "2025-02-01"
-weight: 1
+weight: 2
 categories: ["Blog"]
 tags: ["Hugo"]
 ---
