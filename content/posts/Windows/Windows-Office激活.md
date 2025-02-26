@@ -36,9 +36,6 @@ irm https://massgrave.dev/get | iex
 
 ---------------------------------------------------------------------------------------------------------------------------
 
-- 知彼而知己HEU_KMS_Activator
-  - https://github.com/zbezj/HEU_KMS_Activator/releases
-
-- 俄罗斯大神@Ratiborus
-  - https://t.me/RatiborusKMSTools
-  - https://msfree.su/index.php
+- [彼而知己HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)
+- [KMS_VL_ALL_AIO](https://github.com/abbodi1406/KMS_VL_ALL_AIO)
+- [俄罗斯大神@Ratiborus](https://t.me/RatiborusKMSTools)
