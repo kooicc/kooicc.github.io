@@ -9,30 +9,25 @@ tags: ["Office"]
 
 ## Microsoft 激活脚本 (MAS)
 
-### 使用方法 1 - PowerShell在线激活 (推荐) 
+### 方法 1 - 在线激活 (推荐) 
 
 右键 Windows 开始菜单打开*Windows PowerShell*终端
 
 ```PowerShell
 irm https://get.activated.win | iex
 ```
-或者，您可以使用以下内容（将来将弃用）。
 
-```PowerShell
-irm https://massgrave.dev/get | iex
-```
-
-###  使用方法 2 - 下载激活
+###  方法 2 - 下载激活
 
 解压文件后，找到名为 `All-In-One-Version` 的文件夹，运行名为 `MAS_AIO.cmd` 的文件。
  
 - [下载链接](https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip)
-
 - [备用下载链接](https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip)
-  
-> https://massgrave.dev
-> 
-> https://github.com/massgravel/Microsoft-Activation-Scripts
+
+### 参考链接  
+
+- https://massgrave.dev
+- https://github.com/massgravel/Microsoft-Activation-Scripts
 
 ---------------------------------------------------------------------------------------------------------------------------
 
