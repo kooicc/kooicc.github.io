@@ -57,7 +57,7 @@ languages:
         imageTitle: 夜
         subtitle:
         buttons:
-          - name: Hi~
+          - name: 博客文章
             url: /
 
 outputs:
