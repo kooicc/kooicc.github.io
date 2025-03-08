@@ -6,7 +6,7 @@ categories: ["网络路由交换"]
 tags: ["h3c", "wlan"]
 ---
 
-# Bootroom 操作指南
+# 以WA5320-SI刷云版本为例
 
 ## 1. 进入 Bootroom 菜单
 设备上电后，按 `Ctrl+B` 进入 Bootroom 菜单。  
@@ -109,28 +109,14 @@ Enter your choice(0-5): 2
 ```plaintext
 Ctrl+Y: Change AP Mode
 ```
-```
 
-### 使用方法：
-1. 复制上述内容。
-2. 打开文本编辑器（如 VS Code、Notepad++ 等）。
-3. 将内容粘贴到编辑器中。
-4. 保存文件，文件名为 `bootroom_guide.md`。
+---
 
-如果你需要其他格式（如 PDF、Word 等），可以使用 Markdown 转换工具（如 Pandoc）将其转换为所需格式。如果有其他需求，请告诉我！
+- 查看 AP 工作模式
+`display wlan device role`
 
-##### 查看 AP 工作模式
-```
-display wlan device role
-```
+- 更改 AP 工作模式
+`ap-mode fat`
 
-##### 更改 AP 工作模式
-```
-ap-mode fat
-```
-
-##### 默认 AP 登录密码
-```
-h3capadmin
-```
-
+- 默认 AP 登录密码
+`h3capadmin`
