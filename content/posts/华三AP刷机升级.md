@@ -1,6 +1,6 @@
 ---
 title: "华三AP刷机升级"
-date: "2025-03-09"
+date: "2025-03-07"
 weight: 2
 categories: ["网络路由交换"]
 tags: ["h3c", "wlan"]
