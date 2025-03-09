@@ -37,6 +37,9 @@ languages:
         - name: 标签
           url: tags/
           weight: 10
+        - name: 关于
+          url: about/
+          weight: 20
   fr:
     languageName: "主页"
     weight: 2
