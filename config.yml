@@ -102,7 +102,7 @@ params:
     title: 追风筝的人☁️
     subtitle:
     # subtitle: "🧨学而时习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
-    imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/0ec0ddefe3cf7f65.png"
+    imageUrl: "Q.gif"
     imageTitle:
     imageWidth: 150
     imageHeight: 150
@@ -117,16 +117,20 @@ params:
         url: posts/life
 
   socialIcons:
-    - name: github
-      url: "https://github.com/kooicc"
-    - name: wechat
-      url: "https://weixin.qq.com/"
     - name: QQ
       url: "https://im.qq.com/index/"
+    - name: WeChat
+      url: "https://weixin.qq.com/"
+    - name: Discord
+      url: "https://discord.com/"
+    - name: Telegram
+      url: "https://www.telegram.org/"
+    - name: github
+      url: "https://github.com/kooicc"
 
   label: # 左上角图标
     text: "Gentoo Blog"
-    icon: "Q.gif"
+    icon: "https://s3.bmp.ovh/imgs/2023/11/17/0ec0ddefe3cf7f65.png"
     iconHeight: 35
 
   analytics:
