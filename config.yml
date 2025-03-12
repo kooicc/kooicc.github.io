@@ -99,7 +99,7 @@ params:
 
   profileMode:
     enabled: true
-    title: 追风筝的人☁️
+    title: 博客☁️
     subtitle:
     # subtitle: "🧨学而时习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
     imageUrl: "Q.gif"
@@ -130,7 +130,7 @@ params:
 
   label: # 左上角图标
     text: "Gentoo Blog"
-    icon: "https://s3.bmp.ovh/imgs/2023/11/17/0ec0ddefe3cf7f65.png"
+    icon: "https://s3.bmp.ovh/imgs/2025/03/13/6dbf842391e32c50.png"
     iconHeight: 35
 
   analytics:
