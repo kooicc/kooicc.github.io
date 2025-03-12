@@ -74,7 +74,8 @@ params:
   author: Startstorm
   # author: ["Me", "You"] # multiple authors
 
-  defaultTheme: auto  # defaultTheme: light or  dark
+  # defaultTheme: auto  # defaultTheme: light or  dark
+  defaultTheme: light
   disableThemeToggle: false
   DateFormat: "2006-01-02"
   ShowShareButtons: true
@@ -94,14 +95,14 @@ params:
 
   extendCodeBackground: false # 代码块是否自动横向展开
 
-  comments: true
+  comments: false
 
   profileMode:
     enabled: true
     title: 追风筝的人☁️
     subtitle:
     # subtitle: "🧨学而时习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
-    imageUrl: "Q.gif"
+    imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/0ec0ddefe3cf7f65.png"
     imageTitle:
     imageWidth: 150
     imageHeight: 150
@@ -118,10 +119,10 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/kooicc"
-    - name: bilibili
-      url: "https://space.bilibili.com/31564626"
-    - name: RSS
-      url: "index.xml"
+    - name: wechat
+      url: "https://weixin.qq.com/"
+    - name: QQ
+      url: "https://im.qq.com/index/"
 
   label: # 左上角图标
     text: "Gentoo Blog"

@@ -1,1 +1,1 @@
-[秋雨夜眠的Blog](https://github.com/kooicc/kooicc.github.io)
+[秋雨夜眠的Blog]http://koicc-blog.test.upcdn.net/
