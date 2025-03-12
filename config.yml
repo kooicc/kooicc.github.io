@@ -99,10 +99,10 @@ params:
 
   profileMode:
     enabled: true
-    title: 博客☁️
+    title: ☁️
     subtitle:
     # subtitle: "🧨学而时习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
-    imageUrl: "Q.gif"
+    imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
     imageTitle:
     imageWidth: 150
     imageHeight: 150
@@ -129,8 +129,8 @@ params:
       url: "https://github.com/kooicc"
 
   label: # 左上角图标
-    text: "Gentoo Blog"
-    icon: "https://s3.bmp.ovh/imgs/2025/03/13/6dbf842391e32c50.png"
+    text: "秋雨夜眠の博客"
+    icon: "Q.gif"
     iconHeight: 35
 
   analytics:
