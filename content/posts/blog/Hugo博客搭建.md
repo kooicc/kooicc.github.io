@@ -23,7 +23,7 @@ disableShare: true # 底部不显示分享栏
 showbreadcrumbs: true #顶部显示路径
 cover:
     image: "/images/hugo.png" #图片路径例如：posts/tech/123/123.png
-    caption: "docker" #图片底部描述
+    caption: "" #图片底部描述
     alt: ""
     relative: false
 ---
