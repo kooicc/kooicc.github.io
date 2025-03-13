@@ -45,19 +45,15 @@ menu:
       url: posts
       weight: 3
     - identifier: tags
-      name: 🧩 标签
+      name: ✨ 标签
       url: tags
-      weight: 15
+      weight: 4
     - identifier: archives
       name: ⏱️ 时间轴
       url: archives/
       weight: 20
-    - identifier: about
-      name: 🙋🏻‍♂️ 关于
-      url: about
-      weight: 50
     - identifier: links
-      name: 🤝 友链
+      name: 🕸 链接
       url: links
       weight: 60
 
@@ -71,7 +67,7 @@ outputs:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: ""
-  author: Startstorm
+  author: 秋雨夜眠
   # author: ["Me", "You"] # multiple authors
 
   # defaultTheme: auto  # defaultTheme: light or  dark
@@ -88,7 +84,7 @@ params:
   hideFooter: false # 隐藏页脚
   ShowWordCounts: true
   VisitCount: true
-  ShowLastMod: true #显示文章更新时间
+  ShowLastMod: false #显示文章更新时间
 
   ShowToc: true # 显示目录
   TocOpen: true # 自动展开目录
@@ -107,14 +103,14 @@ params:
     imageWidth: 150
     imageHeight: 150
     buttons:
-      - name: 📋 建站
+      - name: 🎈 博客生活
         url: posts/blog
-      - name: 👨🏻‍💻 网络
-        url: posts/tech
-      - name: 📕 阅读
-        url: posts/read
-      - name: 🎈 生活
-        url: posts/life
+      - name: 🌀 操作系统
+        url: posts/system
+      - name: 🛫NAS网络存储
+        url: posts/nas
+      - name: 👨🏻‍💻 企业网络
+        url: posts/network
 
   socialIcons:
     - name: QQ
