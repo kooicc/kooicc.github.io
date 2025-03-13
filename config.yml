@@ -95,10 +95,10 @@ params:
 
   profileMode:
     enabled: true
-    title: ☁️
-    subtitle:
-    # subtitle: "🧨学而时习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
-    imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
+    title: 💕
+    subtitle: 媛媛
+    # subtitle: "🧨学而时☁️习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
+    imageUrl: "Q.gif"
     imageTitle:
     imageWidth: 150
     imageHeight: 150
@@ -117,8 +117,6 @@ params:
       url: "https://im.qq.com/index/"
     - name: WeChat
       url: "https://weixin.qq.com/"
-    - name: Discord
-      url: "https://discord.com/"
     - name: Telegram
       url: "https://www.telegram.org/"
     - name: github
@@ -126,7 +124,7 @@ params:
 
   label: # 左上角图标
     text: "秋雨夜眠の博客"
-    icon: "Q.gif"
+    icon: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
     iconHeight: 35
 
   analytics:
