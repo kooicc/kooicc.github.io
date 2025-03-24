@@ -1,5 +1,5 @@
 baseURL: http://7668815.xyz/ # 绑定的域名
-languageCode: zh # en-us
+languageCode: zh
 title: Gentoo Blog
 theme: hugo-PaperMod  # 主题名字，和themes文件夹下的一致
 
