@@ -67,7 +67,7 @@ outputs:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: ""
-  author: 秋雨夜眠
+  # author: 秋雨夜眠
   # author: ["Me", "You"] # multiple authors
 
   # defaultTheme: auto  # defaultTheme: light or  dark
@@ -95,7 +95,7 @@ params:
 
   profileMode:
     enabled: true
-    title: d
+    title:
     subtitle: Hi~
     # subtitle: "🧨学而时☁️习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
     imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
