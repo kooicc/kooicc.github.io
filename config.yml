@@ -53,8 +53,8 @@ menu:
       url: archives/
       weight: 20
     - identifier: links
-      name: 🕸 链接
-      url: links
+      name: 🐌服务器导航面板
+      url: https://link.7668815.xyz/
       weight: 60
 
 outputs:
