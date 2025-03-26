@@ -14,7 +14,7 @@ showbreadcrumbs: false
 
 <div class="friend">
 
-{{< friend name="Startstorm's Blog" url="https://www.startstorm.online" logo="https://www.startstorm.online/img/Q.gif" word="一个记录技术、阅读、生活的博客" >}}
+{{< friend name="文件目录" url="https://7668815.xyz/file" logo="https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg" word="腾讯云文件服务器" >}}
 
 {{< friend name="Sulv's Blog" url="https://www.sulvblog.cn" logo="https://www.sulvblog.cn/img/Q.gif" word="一个记录技术、阅读、生活的博客" >}}
 
