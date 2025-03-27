@@ -117,14 +117,12 @@ params:
       url: "https://im.qq.com/index/"
     - name: WeChat
       url: "https://weixin.qq.com/"
-    - name: TSun-Panel
-      url: "https://link.7668815.xyz"
     - name: github
       url: "https://github.com/kooicc"
 
   label: # 左上角图标
-    text: "秋雨夜眠の博客"
-    icon: "Q.gif"
+    text: "Hugo博客"
+    icon: "hugo.png"
     iconHeight: 35
 
   analytics:
