@@ -13,8 +13,8 @@ buildFuture: false
 buildExpired: false
 
 googleAnalytics:  # 谷歌统计
-Copyright: "Copyright©1996-2025 & 欲买桂花同载酒 · 终不似少年游"
-
+#Copyright: "Copyright©1996-2025 & 欲买桂花同载酒 · 终不似少年游"
+Copyright: "Powered By 追风筝的人©1996-2025"
 
 paginate: 15    # 首页每页显示的文章数
 summaryLength: 140 # 文章概览的自字数，默认70
