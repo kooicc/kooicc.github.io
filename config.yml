@@ -14,7 +14,7 @@ buildExpired: false
 
 googleAnalytics:  # 谷歌统计
 #Copyright: "Copyright©1996-2025 & 欲买桂花同载酒 · 终不似少年游"
-Copyright: "Powered By 追风筝的人©1996-2025"
+Copyright: "©1996-2025 Powered By 秋雨夜眠的博客"
 
 paginate: 15    # 首页每页显示的文章数
 summaryLength: 140 # 文章概览的自字数，默认70
@@ -96,7 +96,7 @@ params:
   profileMode:
     enabled: true
     title:  ☁️
-    subtitle: Hi~
+    subtitle: 欲买桂花同载酒 · 终不似少年游
     # subtitle: "🧨学而时☁️习之，不亦说乎？有朋自远方来，不亦乐乎？<br/>👇联系方式"
     imageUrl: "https://s3.bmp.ovh/imgs/2023/11/17/d155cee23d2cfc0a.jpg"
     imageTitle:
