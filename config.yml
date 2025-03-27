@@ -14,8 +14,8 @@ buildExpired: false
 
 googleAnalytics:  # 谷歌统计
 #Copyright: "Copyright©1996-2025 & 欲买桂花同载酒 · 终不似少年游"
-Copyright: "©1996-2025 Powered By 秋雨夜眠的博客"
-
+#Copyright: "Copyright © 秋雨夜眠的博客 1996-2025"
+Copyright: 'Copyright © <a href="https://blog.7668815.xyz" target="_blank">秋雨夜眠的博客 1996-2025</a>'
 paginate: 15    # 首页每页显示的文章数
 summaryLength: 140 # 文章概览的自字数，默认70
 
@@ -54,7 +54,7 @@ menu:
       weight: 20
     - identifier: links
       name: 🐌服务器导航面板
-      url: https://link.7668815.xyz/
+      url: https://7668815.xyz/
       weight: 60
 
 outputs:
@@ -130,11 +130,11 @@ params:
       SiteVerificationTag: ""
 
   assets:
-    favicon: "Q.gif"
-    favicon16x16: "Q.gif"
-    favicon32x32: "Q.gif"
-    apple_touch_icon: "Q.gif"
-    safari_pinned_tab: "Q.gif"
+    favicon: "hugo.png"
+    favicon16x16: "hugo.png"
+    favicon32x32: "hugo.png"
+    apple_touch_icon: "hugo.png"
+    safari_pinned_tab: "hugo.png"
     disableFingerprinting: true # 禁用指纹
 
   cover:
