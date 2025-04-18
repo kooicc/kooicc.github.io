@@ -1,6 +1,6 @@
 baseURL: https://blog.7668815.xyz/ # 绑定的域名
 languageCode: zh
-title: Gentoo Blog
+title: 我的博客
 theme: hugo-PaperMod  # 主题名字，和themes文件夹下的一致
 
 enableInlineShortcodes: true
@@ -15,7 +15,7 @@ buildExpired: false
 googleAnalytics:  # 谷歌统计
 #Copyright: "Copyright©1996-2025 & 欲买桂花同载酒 · 终不似少年游"
 #Copyright: "Copyright © 秋雨夜眠的博客 1996-2025"
-Copyright: 'Copyright © <a href="https://blog.7668815.xyz" target="_blank">秋雨夜眠的博客 1996-2025</a>'
+Copyright: 'Copyright ©1996-2025 <a href="https://blog.7668815.xyz" target="_blank">秋雨夜眠的博客</a>'
 paginate: 15    # 首页每页显示的文章数
 summaryLength: 140 # 文章概览的自字数，默认70
 
@@ -53,7 +53,7 @@ menu:
       url: archives/
       weight: 20
     - identifier: links
-      name: 🐌服务器导航面板
+      name: 🐌腾讯轻量云服务器
       url: https://7668815.xyz/
       weight: 60
 
