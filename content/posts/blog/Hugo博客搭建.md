@@ -30,22 +30,36 @@ cover:
 
 ## 快速部署Hugo播客
 
-1. 克隆GitHub仓库到本地
+1. 配置Git环境  
 
-   `git clone  https://github.com/kooicc/kooicc.github.io.git`
+  `git config --global user.email "koicc@qq.com"`
+  `git config --global user.name "koicc"`
 
-2. 进入文件夹编辑文章
+2. 检查当前远程仓库的协议
+   `git remote -v`
+
+3. 使用SSH链接Git仓库(推荐，秘钥链接)
+   `git clone git@github.com:kooicc/kooicc.github.io.git`
+   # 使用HTTPS链接Git仓库（可选，密码链接）
+   1. `git clone https://github.com/kooicc/kooicc.github.io.git`
+   # Git凭证存储
+   2. `git config --global credential.helper store`
+
+4. 进入项目目录编辑文章
 
    `cd /root/kooicc.github.io/content/posts`
 
-3. 启用Git凭证存储
-
-   `git config --global credential.helper store`
-
-4. 提交更改到Github仓库
-
-   `git add . && git commit -m "new" && git push -u origin main`
-
+5. 提交更改到Github仓库
+   ```
+   git add .
+   git commit -m "new"
+   git push -u origin main
+   ```
+   # 使用alias快捷指令提交
+   1. 设置`git quick`快速提交
+   `git config --global alias.quick '!git add . && git commit -m "quick commit" && git push'`
+   2. 快速提交
+   `git quick`
 ----------------------------------------------------------------------------------------------------
 
 ### Hugo PaperMod主题配置
