@@ -1,6 +1,7 @@
 ---
 title: "KVM虚拟机"
 date: "2025-04-18"
+lastmod: "2025-06-13"
 tags: ["kvm"]
 ---
 

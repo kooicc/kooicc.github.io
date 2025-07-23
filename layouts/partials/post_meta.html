@@ -70,7 +70,6 @@
     </span>
 </span>
 
-<!-- 更新时间 -->
-{{- if (.Param "ShowLastMod") -}}
-{{- $scratch.Add "meta" (slice (printf "Update:&nbsp;%s" (.Lastmod.Format (.Site.Params.dateFormat | default "2006-01-02")))) }}
-{{- end }}
+{{ if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
+    <p> 最后更新于 {{ .Lastmod.Year }} 年 {{ printf "%d" .Lastmod.Month }} 月 {{ .Lastmod.Day }} 日</p>
+{{ end }}

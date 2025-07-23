@@ -1,7 +1,7 @@
 ---
 title: "Hugo博客搭建"
-date: 2025-03-12T00:18:23+08:00
-lastmod: 2025-07-13T00:18:23+08:00
+date: 2025-04-12
+lastmod: 2025-06-13
 author: ["koicc"]
 keywords: 
 - 
