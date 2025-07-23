@@ -1,6 +1,6 @@
 baseURL: https://blog.7668815.xyz/ # 绑定的域名
 languageCode: zh
-title: 我的博客
+title: 秋雨夜眠
 theme: hugo-PaperMod  # 主题名字，和themes文件夹下的一致
 
 enableInlineShortcodes: true
@@ -218,3 +218,9 @@ services:
   twitter:
     disableInlineCSS: true
         
+frontmatter:
+    lastmod:
+        - lastmod
+        - :fileModTime
+        - :default
+ShowLastMod: true
