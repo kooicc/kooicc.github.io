@@ -7,4 +7,3 @@ categories: ["Linux"]
 ---
 
 1. [性价比机场](https://xingjiabijichang.vip/#/register)
-2. sdf s

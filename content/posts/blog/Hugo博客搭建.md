@@ -1,7 +1,7 @@
 ---
 title: "Hugo博客搭建"
 date: 2025-03-12T00:18:23+08:00
-lastmod: 2025-03-13T00:18:23+08:00
+lastmod: 2025-07-13T00:18:23+08:00
 author: ["koicc"]
 keywords: 
 - 
@@ -33,17 +33,24 @@ cover:
 1. 配置Git环境  
 
   `git config --global user.email "koicc@qq.com"`
+  
   `git config --global user.name "koicc"`
 
 2. 检查当前远程仓库的协议
+   
    `git remote -v`
 
 3. 使用SSH链接Git仓库(推荐，秘钥链接)
+   
    `git clone git@github.com:kooicc/kooicc.github.io.git`
-   # 使用HTTPS链接Git仓库（可选，密码链接）
-   1. `git clone https://github.com/kooicc/kooicc.github.io.git`
-   # Git凭证存储
-   2. `git config --global credential.helper store`
+   
+   1. 使用HTTPS链接Git仓库（可选，密码链接）
+   
+      `git clone https://github.com/kooicc/kooicc.github.io.git`
+   
+   2. Git凭证存储
+   
+      `git config --global credential.helper store`
 
 4. 进入项目目录编辑文章
 
@@ -55,11 +62,16 @@ cover:
    git commit -m "new"
    git push -u origin main
    ```
-   # 使用alias快捷指令提交
-   1. 设置`git quick`快速提交
-   `git config --global alias.quick '!git add . && git commit -m "quick commit" && git push'`
-   2. 快速提交
-   `git quick`
+
+   ### 使用alias快捷指令提交
+   
+   ```
+   # 设置快捷指令
+   git config --global alias.quick '!git add . && git commit -m "quick commit" && git push'`
+   # 快速提交至GitHub
+   git quick
+   ```
+
 ----------------------------------------------------------------------------------------------------
 
 ### Hugo PaperMod主题配置
