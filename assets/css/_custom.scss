@@ -79,16 +79,26 @@ hr {
     }
 }
 
-/* 目录 */
-nav#TableOfContents ol {
+/* 侧边栏目录折叠优化 */
+nav#TableOfContents {
+  ol {
     padding-inline-start: 30px;
-
-    & ol {
-        padding-inline-start: 25px;
-        display: none;
+    list-style: none;
+    
+    ol {
+      padding-inline-start: 25px;
+      display: none;  /* 默认隐藏嵌套列表 */
     }
 
-    & li.has-active ol {
-        display: block;
+    /* 展开当前活动项的子目录 */
+    li.has-active > ol {
+      display: block;
     }
+  }
+  
+  /* 活动目录项样式 */
+  a.active {
+    font-weight: bold;
+    color: var(--sidebar-toc-link-active-color);
+  }
 }
