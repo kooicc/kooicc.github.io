@@ -1,0 +1,72 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - 标签 - 秋雨夜眠</title>
+        <link>http://localhost:1313/tags/</link>
+        <description>Tags - 标签 - 秋雨夜眠</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>koicc@qq.com (koicc)</managingEditor>
+            <webMaster>koicc@qq.com (koicc)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Markdown</title>
+    <link>http://localhost:1313/tags/markdown/</link>
+    <pubDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/markdown/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Test</title>
+    <link>http://localhost:1313/tags/test/</link>
+    <pubDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/test/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Shortcodes</title>
+    <link>http://localhost:1313/tags/shortcodes/</link>
+    <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/shortcodes/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>HTML</title>
+    <link>http://localhost:1313/tags/html/</link>
+    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/html/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Emoji</title>
+    <link>http://localhost:1313/tags/emoji/</link>
+    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/emoji/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>安装</title>
+    <link>http://localhost:1313/tags/installation/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/installation/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>内容</title>
+    <link>http://localhost:1313/tags/content/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/content/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>配置</title>
+    <link>http://localhost:1313/tags/configuration/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+    <author>koicc</author>
+    <guid>http://localhost:1313/tags/configuration/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
