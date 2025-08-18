@@ -1,16 +1,21 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>HTML - 标签 - 秋雨夜眠</title>
-        <link>http://localhost:1313/tags/html/</link>
-        <description>HTML - 标签 - 秋雨夜眠</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>koicc@qq.com (koicc)</managingEditor>
-            <webMaster>koicc@qq.com (koicc)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/html/" rel="self" type="application/rss+xml" /><item>
-    <title>Markdown 基本语法</title>
-    <link>http://localhost:1313/basic-markdown-syntax/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/basic-markdown-syntax/</guid>
-    <description><![CDATA[<p>这篇文章提供了可以在 Hugo 的文章中使用的基本 Markdown 语法示例.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>html on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/html/</link>
+    <description>Recent content in html on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 11 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>文章模板</title>
+      <link>https://blog.7668815.xyz/posts/blog/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/blog/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF/</guid>
+      <description>We&amp;rsquo;ll be using yml/yaml format for all examples down below, it is recommend to use yaml over toml as it is easier to read. You can find any YML to TOML converters if needed. Getting Started 🚀 Follow Hugo Docs&amp;rsquo;s - Quick Start guide to install . (Make sure you install Hugo &amp;gt;= v0.112.4) Create a new site hugo new site MyFreshWebsite --format yaml # replace MyFreshWebsite with name of your website Note: Older versions of Hugo may not support --format yaml Read more here about Hugo Docs&amp;rsquo;s - hugo new site command After you have created a new site, follow the below steps to add PaperMod Installing/Updating PaperMod Themes reside in MyFreshWebsite/themes directory. PaperMod will be installed in MyFreshWebsite/themes/PaperMod Expand Method 1 - Git Clone INSTALL : Inside the folder of your Hugo site MyFreshWebsite, run: git clone https://github.com/adityatelange/hugo-PaperMod</description>
+    </item>
+    
+  </channel>
 </rss>

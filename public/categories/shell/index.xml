@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Shell on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/categories/shell/</link>
+    <description>Recent content in Shell on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 03 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/categories/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oh-My-Zsh终端</title>
+      <link>https://blog.7668815.xyz/posts/network/oh-my-zsh%E7%BB%88%E7%AB%AF/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/oh-my-zsh%E7%BB%88%E7%AB%AF/</guid>
+      <description>安装oh-my-zsh sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 语法高亮zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 自动填充zsh-autosuggestions git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 历史记录zsh-history-substring-searc git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search</description>
+    </item>
+    
+  </channel>
+</rss>

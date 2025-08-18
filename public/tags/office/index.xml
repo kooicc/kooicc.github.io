@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Office on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/office/</link>
+    <description>Recent content in Office on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/office/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows-Office激活</title>
+      <link>https://blog.7668815.xyz/posts/system/windows-office%E6%BF%80%E6%B4%BB/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/system/windows-office%E6%BF%80%E6%B4%BB/</guid>
+      <description>MAS激活脚本 一、在线激活 在Windows PowerShell终端输入以下命令 irm https://get.activated.win | iex 二、下载激活 下载解压文件后，找到名为 All-In-One-Version 的文件夹，运行名为 MAS_AIO.cmd 的文件。 下载链接 备用下载链接 参考链接 https://massgrave.dev https://github.com/massgravel/Microsoft-Activation-Scripts 其他软件 彼而知己HEU_KMS_Activator KMS_VL_ALL_AIO 俄罗斯大神@Ratiborus</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tech on Gentoo Blog</title>
+    <link>http://localhost:1313/tags/tech/</link>
+    <description>Recent content in Tech on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 27 Jul 2024 11:41:04 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ctf学习笔记</title>
+      <link>http://localhost:1313/posts/tech/ctf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 27 Jul 2024 11:41:04 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/ctf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h1 id=&#34;杂项题目misc&#34;&gt;杂项题目（Misc）&lt;/h1&gt;
+&lt;h2 id=&#34;1查看文件类型kali自带&#34;&gt;1、查看文件类型（kali自带）&lt;/h2&gt;
+&lt;p&gt;file 命令&lt;br/&gt;
+用法：&lt;br/&gt;
+file filename&lt;/p&gt;
+&lt;p&gt;使用16进制查看文件，根据文件特征码判断文件类型&lt;/p&gt;
+&lt;h2 id=&#34;2分离文件分析文件&#34;&gt;2、分离文件，分析文件&lt;/h2&gt;
+&lt;h3 id=&#34;binwalk-命令kali自带&#34;&gt;binwalk 命令（kali自带）&lt;/h3&gt;
+&lt;p&gt;作用：分离文件，分析文件&lt;br&gt;
+用法：&lt;br&gt;
+分析文件：binwalk filename&lt;br&gt;
+分离文件：binwalk -e filename&lt;/p&gt;
+&lt;h3 id=&#34;foremost-命令kali自带&#34;&gt;foremost 命令（kali自带）&lt;/h3&gt;
+&lt;p&gt;作用：分离文件&lt;br&gt;
+用法：&lt;br&gt;
+foremost 文件名 -o 输出目录名&lt;/p&gt;
+&lt;h3 id=&#34;dd-命令-kali自带&#34;&gt;dd 命令 （kali自带）&lt;/h3&gt;
+&lt;p&gt;作用：当文件自动分离出错或者因为其他原因无法自动分离时，可以使用dd实现文件手动分离。&lt;br&gt;
+格式：dd if=源文件 of=目标文件名 bs=1 skip=开始分离的字节数&lt;br&gt;
+参数说明：&lt;br&gt;
+if=file   #输入文件名，缺省为标准输入&lt;br&gt;
+of=file   #输入文件名，缺省为标准输出&lt;br&gt;
+bs=bytes  #同时设置读写块的大小为bytes，可替代ibs和obs&lt;br&gt;
+skip=blocks  #从输入文件开头跳过blocks个块后再开始复制&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx正向tcp代理</title>
+      <link>http://localhost:1313/posts/tech/nginx%E6%AD%A3%E5%90%91tcp%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Mon, 03 Jun 2024 22:20:48 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/nginx%E6%AD%A3%E5%90%91tcp%E4%BB%A3%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;nginx模块&#34;&gt;Nginx模块&lt;/h1&gt;
+&lt;p&gt;nginx正向tcp代理需要stream模块，检查模块的方法如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nginx -V | grep -i stream
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;nginx配置&#34;&gt;Nginx配置&lt;/h1&gt;
+&lt;p&gt;配置如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;stream &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    upstream backend_servers &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# ... 上游服务器池配置 ...  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        server 10.190.17.155:80;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    server &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        listen 127.0.0.1:12345; &lt;span style=&#34;color:#75715e&#34;&gt;# 监听端口，客户端将连接到这个端口  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        proxy_pass backend_servers; &lt;span style=&#34;color:#75715e&#34;&gt;# 代理到上游服务器池  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# 可选配置：  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# proxy_connect_timeout 10s; # 连接超时时间  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# proxy_timeout 30s; # 数据传输超时时间  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Redis scan命令学习</title>
+      <link>http://localhost:1313/posts/tech/tech1/</link>
+      <pubDate>Wed, 30 Nov 2022 15:55:23 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/tech1/</guid>
+      <description>scan命令详解</description>
+    </item>
+    
+    <item>
+      <title>Tech</title>
+      <link>http://localhost:1313/posts/tech/tech/</link>
+      <pubDate>Thu, 05 May 2022 00:17:58 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tech/tech/</guid>
+      <description>科技代码</description>
+    </item>
+    
+  </channel>
+</rss>

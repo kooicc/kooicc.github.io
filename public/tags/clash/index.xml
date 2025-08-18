@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>clash on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/clash/</link>
+    <description>Recent content in clash on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/clash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello-Word</title>
+      <link>https://blog.7668815.xyz/posts/network/hello-word/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/hello-word/</guid>
+      <description>性价比机场 sdf s</description>
+    </item>
+    
+  </channel>
+</rss>

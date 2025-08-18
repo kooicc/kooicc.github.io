@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>DXP4800 on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/dxp4800/</link>
+    <description>Recent content in DXP4800 on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/dxp4800/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>绿联DXP4800Plus私有云</title>
+      <link>https://blog.7668815.xyz/posts/network/nas%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/%E7%BB%BF%E8%81%94dxp4800plus%E7%A7%81%E6%9C%89%E4%BA%91/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/nas%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/%E7%BB%BF%E8%81%94dxp4800plus%E7%A7%81%E6%9C%89%E4%BA%91/</guid>
+      <description>BIOS快捷键 Ctrl+F2：进入BIOS配置 Ctrl+F12：进入启动项选择 Ctrl+F1：进入BIOS配置后，开启显示隐藏的参数 刷机 关闭WatchDog，否则隔几分钟机器就会重启！ 关闭引导盘NVMEM2-KEYM2 SATA和非系统盘的NVME 允许启动BOOT是默认关闭的！！！</description>
+    </item>
+    
+  </channel>
+</rss>

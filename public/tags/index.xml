@@ -1,72 +1,174 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Tags - 标签 - 秋雨夜眠</title>
-        <link>http://localhost:1313/tags/</link>
-        <description>Tags - 标签 - 秋雨夜眠</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>koicc@qq.com (koicc)</managingEditor>
-            <webMaster>koicc@qq.com (koicc)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>Markdown</title>
-    <link>http://localhost:1313/tags/markdown/</link>
-    <pubDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/markdown/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Test</title>
-    <link>http://localhost:1313/tags/test/</link>
-    <pubDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/test/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Shortcodes</title>
-    <link>http://localhost:1313/tags/shortcodes/</link>
-    <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/shortcodes/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>HTML</title>
-    <link>http://localhost:1313/tags/html/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/html/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Emoji</title>
-    <link>http://localhost:1313/tags/emoji/</link>
-    <pubDate>Tue, 01 Oct 2019 17:55:28 &#43;0800</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/emoji/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>安装</title>
-    <link>http://localhost:1313/tags/installation/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/installation/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>内容</title>
-    <link>http://localhost:1313/tags/content/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/content/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>配置</title>
-    <link>http://localhost:1313/tags/configuration/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/tags/configuration/</guid>
-    <description><![CDATA[]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>🧩 标签 on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/</link>
+    <description>Recent content in 🧩 标签 on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>syncthing</title>
+      <link>https://blog.7668815.xyz/tags/syncthing/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/syncthing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://blog.7668815.xyz/tags/blog/</link>
+      <pubDate>Wed, 12 Mar 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DXP4800</title>
+      <link>https://blog.7668815.xyz/tags/dxp4800/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/dxp4800/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>movie</title>
+      <link>https://blog.7668815.xyz/tags/movie/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>huawei</title>
+      <link>https://blog.7668815.xyz/tags/huawei/</link>
+      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/huawei/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>route</title>
+      <link>https://blog.7668815.xyz/tags/route/</link>
+      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/route/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wlan</title>
+      <link>https://blog.7668815.xyz/tags/wlan/</link>
+      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/wlan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clash</title>
+      <link>https://blog.7668815.xyz/tags/clash/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/clash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>h3c</title>
+      <link>https://blog.7668815.xyz/tags/h3c/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/h3c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Office</title>
+      <link>https://blog.7668815.xyz/tags/office/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/office/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Samba</title>
+      <link>https://blog.7668815.xyz/tags/samba/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/samba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>https://blog.7668815.xyz/tags/css/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://blog.7668815.xyz/tags/html/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://blog.7668815.xyz/tags/markdown/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://blog.7668815.xyz/tags/themes/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
+      <link>https://blog.7668815.xyz/tags/zsh/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://blog.7668815.xyz/tags/docker/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>life</title>
+      <link>https://blog.7668815.xyz/tags/life/</link>
+      <pubDate>Thu, 05 May 2022 00:18:15 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/tags/life/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

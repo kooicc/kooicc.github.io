@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>blog on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/blog/</link>
+    <description>Recent content in blog on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Mar 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo博客搭建</title>
+      <link>https://blog.7668815.xyz/posts/blog/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 12 Mar 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/blog/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
+      <description>快速部署Hugo播客 克隆GitHub仓库到本地 git clone https://github.com/kooicc/kooicc.github.io.git 进入文件夹编辑文章 cd /root/kooicc.github.io/content/posts 启用Git凭证存储 git config --global credential.helper store 提交更改到Github仓库 git add . &amp;amp;&amp;amp; git commit -m &amp;quot;new&amp;quot; &amp;amp;&amp;amp; git push -u origin main Hugo PaperMod主题配置 创建新的 Hugo 站点 hugo new site MyFreshWebsite --format yaml 安装PaperMod主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 编辑hugo.yaml文件 nano /home/koicc/kooicc.github.io/hugo.yaml baseURL: &amp;#34;https://kooicc.github.io/&amp;#34; 官</description>
+    </item>
+    
+  </channel>
+</rss>

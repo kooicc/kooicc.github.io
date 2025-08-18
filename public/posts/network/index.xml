@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>👨🏻‍💻 企业网络 on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/posts/network/</link>
+    <description>Recent content in 👨🏻‍💻 企业网络 on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/posts/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello-Word</title>
+      <link>https://blog.7668815.xyz/posts/network/hello-word/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/hello-word/</guid>
+      <description>性价比机场 sdf s</description>
+    </item>
+    
+    <item>
+      <title>华三AP刷机升级</title>
+      <link>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E5%8D%8E%E4%B8%89ap%E5%88%B7%E6%9C%BA%E5%8D%87%E7%BA%A7/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E5%8D%8E%E4%B8%89ap%E5%88%B7%E6%9C%BA%E5%8D%87%E7%BA%A7/</guid>
+      <description>以WA5320-SI刷云版本为例 1. 进入 Bootroom 菜单 设备上电后，按 Ctrl+B 进入 Bootroom 菜单。 系统会显示以下提示： BootWare Validating... Press Ctrl+B to enter extended boot menu... 2. 格式化系统 进入 Bootroom 菜单后，按 Ctrl+F 格式化系统。 系统会显示以下提示： Ctrl+F: Format File System 3. 更新 BootWare 版本 3.1 进入 BootWare 操作子菜单 在 Bootroom 菜单中选择 7 进入 BootWare 操作子菜单： &amp;lt;7&amp;gt; BootWare Operation Menu Enter your choice(0-9): 7 3.2 设置通过网线更新 BootWare</description>
+    </item>
+    
+    <item>
+      <title>电影</title>
+      <link>https://blog.7668815.xyz/posts/network/%E7%94%B5%E5%BD%B1/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/%E7%94%B5%E5%BD%B1/</guid>
+      <description>鹊刀门传奇 刑警的日子</description>
+    </item>
+    
+    <item>
+      <title>绿联DXP4800Plus私有云</title>
+      <link>https://blog.7668815.xyz/posts/network/nas%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/%E7%BB%BF%E8%81%94dxp4800plus%E7%A7%81%E6%9C%89%E4%BA%91/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/nas%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/%E7%BB%BF%E8%81%94dxp4800plus%E7%A7%81%E6%9C%89%E4%BA%91/</guid>
+      <description>BIOS快捷键 Ctrl+F2：进入BIOS配置 Ctrl+F12：进入启动项选择 Ctrl+F1：进入BIOS配置后，开启显示隐藏的参数 刷机 关闭WatchDog，否则隔几分钟机器就会重启！ 关闭引导盘NVMEM2-KEYM2 SATA和非系统盘的NVME 允许启动BOOT是默认关闭的！！！</description>
+    </item>
+    
+    <item>
+      <title>企业网络设备选购指南</title>
+      <link>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E9%80%89%E8%B4%AD%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E9%80%89%E8%B4%AD%E6%8C%87%E5%8D%97/</guid>
+      <description>HUAWEI AirEngine 8760-X1-PRO wifi6旗舰 3200¥ AirEngine 8771-X1T接入点 wifi7旗舰 3200¥</description>
+    </item>
+    
+    <item>
+      <title>Samba文件共享</title>
+      <link>https://blog.7668815.xyz/posts/network/samba%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/samba%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</guid>
+      <description>Debian12安装Samba服务器 apt update apt install samba 创建Linux用户(可选) #创建一个xxx用户 useradd -m -s /sbin/nologin xxx #创建一个smb用户组 groupadd smb #将xxx用户加入smb组 usermod -aG smb xxx #更改目录所属组为smb chgrp smb /mnt/path 将该用户添加到 Samba 用户数据库 smbpasswd -a koicc 查看 Samba 用户列表 pdbedit -L 备份编辑smb.conf文件 cp /etc/samba/smb.conf{,-backup} nano /etc/samba/smb.conf [share]</description>
+    </item>
+    
+    <item>
+      <title>Oh-My-Zsh终端</title>
+      <link>https://blog.7668815.xyz/posts/network/oh-my-zsh%E7%BB%88%E7%AB%AF/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/oh-my-zsh%E7%BB%88%E7%AB%AF/</guid>
+      <description>安装oh-my-zsh sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 语法高亮zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 自动填充zsh-autosuggestions git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 历史记录zsh-history-substring-searc git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search</description>
+    </item>
+    
+    <item>
+      <title>Docker容器</title>
+      <link>https://blog.7668815.xyz/posts/network/docker%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/docker%E5%AE%B9%E5%99%A8/</guid>
+      <description>官方安装脚本 curl -fsSL https://get.docker.com -o get-docker.sh sh install-docker.sh --mirror Aliyun 将普通用户xxx添加到 Docker 组中 usermod -aG docker xxx Docker面板管理Portainer-CE中文版 docker run -d --restart=always --name=&amp;#34;portainer&amp;#34; -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock 6053537/portainer-ce Docker发行版说明:https://docs.docker.com/engine/release-notes</description>
+    </item>
+    
+  </channel>
+</rss>

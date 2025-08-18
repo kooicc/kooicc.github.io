@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>life on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/life/</link>
+    <description>Recent content in life on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 05 May 2022 00:18:15 +0800</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Life</title>
+      <link>https://blog.7668815.xyz/posts/nas/life/</link>
+      <pubDate>Thu, 05 May 2022 00:18:15 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/nas/life/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

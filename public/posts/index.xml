@@ -1,91 +1,12 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>所有文章 - 秋雨夜眠</title>
-        <link>http://localhost:1313/posts/</link>
-        <description>所有文章 | 秋雨夜眠</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>koicc@qq.com (koicc)</managingEditor>
-            <webMaster>koicc@qq.com (koicc)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>1</title>
-    <link>http://localhost:1313/1/</link>
-    <pubDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</pubDate>
-    <author>辉辉</author>
-    <guid>http://localhost:1313/1/</guid>
-    <description><![CDATA[2]]></description>
-</item>
-<item>
-    <title>主题文档 - 基本概念</title>
-    <link>http://localhost:1313/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - 内容</title>
-    <link>http://localhost:1313/theme-documentation-content/</link>
-    <pubDate>Thu, 05 Mar 2020 16:30:05 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-content/</guid>
-    <description><![CDATA[<p>了解如何在 <strong>LoveIt</strong> 主题中快速, 直观地创建和组织内容.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - 内置 Shortcodes</title>
-    <link>http://localhost:1313/theme-documentation-built-in-shortcodes/</link>
-    <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-built-in-shortcodes/</guid>
-    <description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - 扩展 Shortcodes</title>
-    <link>http://localhost:1313/theme-documentation-extended-shortcodes/</link>
-    <pubDate>Tue, 03 Mar 2020 16:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-extended-shortcodes/</guid>
-    <description><![CDATA[<p><strong>LoveIt</strong> 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - mermaid Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-mermaid-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 15:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-mermaid-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.11" rel="noopener noreffer" target="_blank"></a>
-<p><code>mermaid</code> shortcode 使用 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> 库提供绘制图表和流程图的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - echarts Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-echarts-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 14:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-echarts-shortcode/</guid>
-    <description><![CDATA[<p><code>echarts</code> shortcode 使用 <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> 库提供数据可视化的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - mapbox Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-mapbox-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 13:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-mapbox-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p><code>mapbox</code> shortcode 使用 <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> 库提供互动式地图的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - music Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-music-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 12:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-music-shortcode/</guid>
-    <description><![CDATA[<p><code>music</code> shortcode 基于 <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer ">APlayer</a> 和 <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer ">MetingJS</a> 库提供了一个内嵌的响应式音乐播放器.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - bilibili Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-bilibili-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 11:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-bilibili-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p><code>bilibili</code> shortcode 提供了一个内嵌的用来播放 bilibili 视频的响应式播放器.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>📚文章 on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/posts/</link>
+    <description>Recent content in 📚文章 on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
 </rss>

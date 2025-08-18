@@ -1,24 +1,75 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Categories - 分类 - 秋雨夜眠</title>
-        <link>http://localhost:1313/categories/</link>
-        <description>Categories - 分类 - 秋雨夜眠</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>koicc@qq.com (koicc)</managingEditor>
-            <webMaster>koicc@qq.com (koicc)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>Markdown</title>
-    <link>http://localhost:1313/categories/markdown/</link>
-    <pubDate>Sun, 01 Dec 2019 21:57:40 &#43;0800</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/categories/markdown/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>文档</title>
-    <link>http://localhost:1313/categories/documentation/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>koicc</author>
-    <guid>http://localhost:1313/categories/documentation/</guid>
-    <description><![CDATA[]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/categories/</link>
+    <description>Recent content in Categories on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Mar 2025 00:18:23 +0800</lastBuildDate><atom:link href="https://blog.7668815.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux</title>
+      <link>https://blog.7668815.xyz/categories/linux/</link>
+      <pubDate>Wed, 12 Mar 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syntax</title>
+      <link>https://blog.7668815.xyz/categories/syntax/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/categories/syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://blog.7668815.xyz/categories/themes/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/categories/themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网络存储</title>
+      <link>https://blog.7668815.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/categories/%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网络路由交换</title>
+      <link>https://blog.7668815.xyz/categories/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/</link>
+      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/categories/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://blog.7668815.xyz/categories/windows/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>https://blog.7668815.xyz/categories/shell/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/categories/shell/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

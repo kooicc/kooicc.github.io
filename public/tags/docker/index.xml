@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/docker/</link>
+    <description>Recent content in Docker on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 02 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker容器</title>
+      <link>https://blog.7668815.xyz/posts/network/docker%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/docker%E5%AE%B9%E5%99%A8/</guid>
+      <description>官方安装脚本 curl -fsSL https://get.docker.com -o get-docker.sh sh install-docker.sh --mirror Aliyun 将普通用户xxx添加到 Docker 组中 usermod -aG docker xxx Docker面板管理Portainer-CE中文版 docker run -d --restart=always --name=&amp;#34;portainer&amp;#34; -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock 6053537/portainer-ce Docker发行版说明:https://docs.docker.com/engine/release-notes</description>
+    </item>
+    
+  </channel>
+</rss>

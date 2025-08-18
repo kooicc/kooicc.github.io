@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>syncthing on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/syncthing/</link>
+    <description>Recent content in syncthing on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/syncthing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>syncthing文件同步器</title>
+      <link>https://blog.7668815.xyz/posts/nas/syncthing%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/nas/syncthing%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>Debian/Ubuntu Packages # Add the release PGP keys: mkdir -p /etc/apt/keyrings curl -L -o /etc/apt/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg # Add the &amp;#34;stable&amp;#34; channel to your APT sources: echo &amp;#34;deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable&amp;#34; | sudo tee /etc/apt/sources.list.d/syncthing.list # Update and install syncthing: apt update &amp;amp;&amp;amp; apt upgrade -y 引用参考 https://apt.syncthing.net/ https://syncthing.net/ https://github.com/syncthing/syncthing</description>
+    </item>
+    
+  </channel>
+</rss>

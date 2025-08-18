@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Samba on Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/tags/samba/</link>
+    <description>Recent content in Samba on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/tags/samba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Samba文件共享</title>
+      <link>https://blog.7668815.xyz/posts/network/samba%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/samba%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</guid>
+      <description>Debian12安装Samba服务器 apt update apt install samba 创建Linux用户(可选) #创建一个xxx用户 useradd -m -s /sbin/nologin xxx #创建一个smb用户组 groupadd smb #将xxx用户加入smb组 usermod -aG smb xxx #更改目录所属组为smb chgrp smb /mnt/path 将该用户添加到 Samba 用户数据库 smbpasswd -a koicc 查看 Samba 用户列表 pdbedit -L 备份编辑smb.conf文件 cp /etc/samba/smb.conf{,-backup} nano /etc/samba/smb.conf [share]</description>
+    </item>
+    
+  </channel>
+</rss>

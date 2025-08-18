@@ -1,93 +1,140 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>秋雨夜眠</title>
-        <link>http://localhost:1313/</link>
-        <description>Hugo theme - LoveIt</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>koicc@qq.com (koicc)</managingEditor>
-            <webMaster>koicc@qq.com (koicc)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</lastBuildDate>
-            <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-        <item>
-    <title>1</title>
-    <link>http://localhost:1313/1/</link>
-    <pubDate>Sun, 17 Aug 2025 20:05:53 &#43;0800</pubDate>
-    <author>辉辉</author>
-    <guid>http://localhost:1313/1/</guid>
-    <description><![CDATA[2]]></description>
-</item>
-<item>
-    <title>主题文档 - 基本概念</title>
-    <link>http://localhost:1313/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - 内容</title>
-    <link>http://localhost:1313/theme-documentation-content/</link>
-    <pubDate>Thu, 05 Mar 2020 16:30:05 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-content/</guid>
-    <description><![CDATA[<p>了解如何在 <strong>LoveIt</strong> 主题中快速, 直观地创建和组织内容.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - 内置 Shortcodes</title>
-    <link>http://localhost:1313/theme-documentation-built-in-shortcodes/</link>
-    <pubDate>Wed, 04 Mar 2020 16:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-built-in-shortcodes/</guid>
-    <description><![CDATA[<p><strong>Hugo</strong> 提供了多个内置的 Shortcodes, 以方便作者保持 Markdown 内容的整洁.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - 扩展 Shortcodes</title>
-    <link>http://localhost:1313/theme-documentation-extended-shortcodes/</link>
-    <pubDate>Tue, 03 Mar 2020 16:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-extended-shortcodes/</guid>
-    <description><![CDATA[<p><strong>LoveIt</strong> 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - mermaid Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-mermaid-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 15:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-mermaid-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.11" rel="noopener noreffer" target="_blank"></a>
-<p><code>mermaid</code> shortcode 使用 <a href="https://mermaidjs.github.io/" target="_blank" rel="noopener noreffer ">Mermaid</a> 库提供绘制图表和流程图的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - echarts Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-echarts-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 14:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-echarts-shortcode/</guid>
-    <description><![CDATA[<p><code>echarts</code> shortcode 使用 <a href="https://echarts.apache.org/" target="_blank" rel="noopener noreffer ">ECharts</a> 库提供数据可视化的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - mapbox Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-mapbox-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 13:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-mapbox-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p><code>mapbox</code> shortcode 使用 <a href="https://docs.mapbox.com/mapbox-gl-js" target="_blank" rel="noopener noreffer ">Mapbox GL JS</a> 库提供互动式地图的功能.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - music Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-music-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 12:29:59 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-music-shortcode/</guid>
-    <description><![CDATA[<p><code>music</code> shortcode 基于 <a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener noreffer ">APlayer</a> 和 <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener noreffer ">MetingJS</a> 库提供了一个内嵌的响应式音乐播放器.</p>]]></description>
-</item>
-<item>
-    <title>主题文档 - bilibili Shortcode</title>
-    <link>http://localhost:1313/theme-documentation-bilibili-shortcode/</link>
-    <pubDate>Tue, 03 Mar 2020 11:29:41 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>http://localhost:1313/theme-documentation-bilibili-shortcode/</guid>
-    <description><![CDATA[<a href="https://github.com/dillonzq/LoveIt/releases/tag/v0.2.0" rel="noopener noreffer" target="_blank"></a>
-<p><code>bilibili</code> shortcode 提供了一个内嵌的用来播放 bilibili 视频的响应式播放器.</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Gentoo Blog</title>
+    <link>https://blog.7668815.xyz/</link>
+    <description>Recent content on Gentoo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Copyright © &lt;a href=&#34;https://blog.7668815.xyz&#34; target=&#34;_blank&#34;&gt;秋雨夜眠的博客 1996-2025&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.7668815.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello-Word</title>
+      <link>https://blog.7668815.xyz/posts/network/hello-word/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/hello-word/</guid>
+      <description>性价比机场 sdf s</description>
+    </item>
+    
+    <item>
+      <title>华三AP刷机升级</title>
+      <link>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E5%8D%8E%E4%B8%89ap%E5%88%B7%E6%9C%BA%E5%8D%87%E7%BA%A7/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E5%8D%8E%E4%B8%89ap%E5%88%B7%E6%9C%BA%E5%8D%87%E7%BA%A7/</guid>
+      <description>以WA5320-SI刷云版本为例 1. 进入 Bootroom 菜单 设备上电后，按 Ctrl+B 进入 Bootroom 菜单。 系统会显示以下提示： BootWare Validating... Press Ctrl+B to enter extended boot menu... 2. 格式化系统 进入 Bootroom 菜单后，按 Ctrl+F 格式化系统。 系统会显示以下提示： Ctrl+F: Format File System 3. 更新 BootWare 版本 3.1 进入 BootWare 操作子菜单 在 Bootroom 菜单中选择 7 进入 BootWare 操作子菜单： &amp;lt;7&amp;gt; BootWare Operation Menu Enter your choice(0-9): 7 3.2 设置通过网线更新 BootWare</description>
+    </item>
+    
+    <item>
+      <title>syncthing文件同步器</title>
+      <link>https://blog.7668815.xyz/posts/nas/syncthing%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/nas/syncthing%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>Debian/Ubuntu Packages # Add the release PGP keys: mkdir -p /etc/apt/keyrings curl -L -o /etc/apt/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg # Add the &amp;#34;stable&amp;#34; channel to your APT sources: echo &amp;#34;deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable&amp;#34; | sudo tee /etc/apt/sources.list.d/syncthing.list # Update and install syncthing: apt update &amp;amp;&amp;amp; apt upgrade -y 引用参考 https://apt.syncthing.net/ https://syncthing.net/ https://github.com/syncthing/syncthing</description>
+    </item>
+    
+    <item>
+      <title>Hugo博客搭建</title>
+      <link>https://blog.7668815.xyz/posts/blog/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 12 Mar 2025 00:18:23 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/blog/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
+      <description>快速部署Hugo播客 克隆GitHub仓库到本地 git clone https://github.com/kooicc/kooicc.github.io.git 进入文件夹编辑文章 cd /root/kooicc.github.io/content/posts 启用Git凭证存储 git config --global credential.helper store 提交更改到Github仓库 git add . &amp;amp;&amp;amp; git commit -m &amp;quot;new&amp;quot; &amp;amp;&amp;amp; git push -u origin main Hugo PaperMod主题配置 创建新的 Hugo 站点 hugo new site MyFreshWebsite --format yaml 安装PaperMod主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 编辑hugo.yaml文件 nano /home/koicc/kooicc.github.io/hugo.yaml baseURL: &amp;#34;https://kooicc.github.io/&amp;#34; 官</description>
+    </item>
+    
+    <item>
+      <title>电影</title>
+      <link>https://blog.7668815.xyz/posts/network/%E7%94%B5%E5%BD%B1/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/%E7%94%B5%E5%BD%B1/</guid>
+      <description>鹊刀门传奇 刑警的日子</description>
+    </item>
+    
+    <item>
+      <title>绿联DXP4800Plus私有云</title>
+      <link>https://blog.7668815.xyz/posts/network/nas%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/%E7%BB%BF%E8%81%94dxp4800plus%E7%A7%81%E6%9C%89%E4%BA%91/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/nas%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8/%E7%BB%BF%E8%81%94dxp4800plus%E7%A7%81%E6%9C%89%E4%BA%91/</guid>
+      <description>BIOS快捷键 Ctrl+F2：进入BIOS配置 Ctrl+F12：进入启动项选择 Ctrl+F1：进入BIOS配置后，开启显示隐藏的参数 刷机 关闭WatchDog，否则隔几分钟机器就会重启！ 关闭引导盘NVMEM2-KEYM2 SATA和非系统盘的NVME 允许启动BOOT是默认关闭的！！！</description>
+    </item>
+    
+    <item>
+      <title>企业网络设备选购指南</title>
+      <link>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E9%80%89%E8%B4%AD%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/%E4%BC%81%E4%B8%9A%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E9%80%89%E8%B4%AD%E6%8C%87%E5%8D%97/</guid>
+      <description>HUAWEI AirEngine 8760-X1-PRO wifi6旗舰 3200¥ AirEngine 8771-X1T接入点 wifi7旗舰 3200¥</description>
+    </item>
+    
+    <item>
+      <title>Windows-Office激活</title>
+      <link>https://blog.7668815.xyz/posts/system/windows-office%E6%BF%80%E6%B4%BB/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/system/windows-office%E6%BF%80%E6%B4%BB/</guid>
+      <description>MAS激活脚本 一、在线激活 在Windows PowerShell终端输入以下命令 irm https://get.activated.win | iex 二、下载激活 下载解压文件后，找到名为 All-In-One-Version 的文件夹，运行名为 MAS_AIO.cmd 的文件。 下载链接 备用下载链接 参考链接 https://massgrave.dev https://github.com/massgravel/Microsoft-Activation-Scripts 其他软件 彼而知己HEU_KMS_Activator KMS_VL_ALL_AIO 俄罗斯大神@Ratiborus</description>
+    </item>
+    
+    <item>
+      <title>Samba文件共享</title>
+      <link>https://blog.7668815.xyz/posts/network/samba%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/samba%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</guid>
+      <description>Debian12安装Samba服务器 apt update apt install samba 创建Linux用户(可选) #创建一个xxx用户 useradd -m -s /sbin/nologin xxx #创建一个smb用户组 groupadd smb #将xxx用户加入smb组 usermod -aG smb xxx #更改目录所属组为smb chgrp smb /mnt/path 将该用户添加到 Samba 用户数据库 smbpasswd -a koicc 查看 Samba 用户列表 pdbedit -L 备份编辑smb.conf文件 cp /etc/samba/smb.conf{,-backup} nano /etc/samba/smb.conf [share]</description>
+    </item>
+    
+    <item>
+      <title>文章模板</title>
+      <link>https://blog.7668815.xyz/posts/blog/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/blog/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF/</guid>
+      <description>We&amp;rsquo;ll be using yml/yaml format for all examples down below, it is recommend to use yaml over toml as it is easier to read. You can find any YML to TOML converters if needed. Getting Started 🚀 Follow Hugo Docs&amp;rsquo;s - Quick Start guide to install . (Make sure you install Hugo &amp;gt;= v0.112.4) Create a new site hugo new site MyFreshWebsite --format yaml # replace MyFreshWebsite with name of your website Note: Older versions of Hugo may not support --format yaml Read more here about Hugo Docs&amp;rsquo;s - hugo new site command After you have created a new site, follow the below steps to add PaperMod Installing/Updating PaperMod Themes reside in MyFreshWebsite/themes directory. PaperMod will be installed in MyFreshWebsite/themes/PaperMod Expand Method 1 - Git Clone INSTALL : Inside the folder of your Hugo site MyFreshWebsite, run: git clone https://github.com/adityatelange/hugo-PaperMod</description>
+    </item>
+    
+    <item>
+      <title>Oh-My-Zsh终端</title>
+      <link>https://blog.7668815.xyz/posts/network/oh-my-zsh%E7%BB%88%E7%AB%AF/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/oh-my-zsh%E7%BB%88%E7%AB%AF/</guid>
+      <description>安装oh-my-zsh sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; 语法高亮zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 自动填充zsh-autosuggestions git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 历史记录zsh-history-substring-searc git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search</description>
+    </item>
+    
+    <item>
+      <title>Docker容器</title>
+      <link>https://blog.7668815.xyz/posts/network/docker%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/network/docker%E5%AE%B9%E5%99%A8/</guid>
+      <description>官方安装脚本 curl -fsSL https://get.docker.com -o get-docker.sh sh install-docker.sh --mirror Aliyun 将普通用户xxx添加到 Docker 组中 usermod -aG docker xxx Docker面板管理Portainer-CE中文版 docker run -d --restart=always --name=&amp;#34;portainer&amp;#34; -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock 6053537/portainer-ce Docker发行版说明:https://docs.docker.com/engine/release-notes</description>
+    </item>
+    
+    <item>
+      <title>Life</title>
+      <link>https://blog.7668815.xyz/posts/nas/life/</link>
+      <pubDate>Thu, 05 May 2022 00:18:15 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/posts/nas/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>🤝</title>
+      <link>https://blog.7668815.xyz/links/</link>
+      <pubDate>Sat, 06 Nov 2021 15:15:53 +0800</pubDate>
+      
+      <guid>https://blog.7668815.xyz/links/</guid>
+      <description>文件目录 腾讯云文件服务器 Sulv&amp;#39;s Blog 一个记录技术、阅读、生活的博客 mohuishou&amp;#39;s Blog mohuishou的博客 倪朋飞的个人网站 倪朋飞的个人网站 👉友链格式 名称： Sulv&amp;rsquo;s Blog 网址： https://www.sulvblog.cn 图标： https://www.sulvblog.cn/img/Q.gif 描述： 一个记录技术、阅读、生活的博客 👉友链申请要求 秉承互换友链原则、文章定期更新、不能有太多广告、个人描述字数控制在15字内 👉</description>
+    </item>
+    
+    
+    
+  </channel>
 </rss>

@@ -1,0 +1,15 @@
+[Unit]
+Description=Hugo Static Site Generator
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/hugo server -D --bind=0.0.0.0 --baseURL=http://xgjy.8866.org:8815 --port=1313 --appendPort=false --liveReloadPort=8815
+WorkingDirectory=/tank/appdata/my-hugo-papermod
+User=koicc
+Group=koicc
+Restart=always
+RestartSec=3
+LimitNOFILE=8192
+
+[Install]
+WantedBy=multi-user.target
