@@ -1,4 +1,4 @@
 [submodule "themes/hugo-blog-awesome"]
 	path = themes/hugo-blog-awesome
-	url = https://github.com/kooicc/kooicc.github.io
+	url = https://github.com/kooicc/kooicc.github.io.git
 	branch = main
