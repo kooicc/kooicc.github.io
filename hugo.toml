@@ -1,4 +1,4 @@
-title = "Gentoo"
+title = "Gentoo's Blog"
 baseURL = "https://kooicc.github.io/"
 
 # 设置 <html lang=""> 的值
@@ -135,7 +135,7 @@ theme = "hugo-blog-awesome"
 
 [[params.socialIcons]]
   name = "github"
-  url = "https://github.com/koicc"
+  url = "https://github.com/kooicc"
 
 [[params.socialIcons]]
   name = "running"
