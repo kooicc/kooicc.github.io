@@ -94,6 +94,7 @@ theme = "hugo-blog-awesome"
       intro = "Gentoo"
       name = "Gentoo"
       description = "追风筝的人"
+    copyright = "© 1996-2025 Powered by Gentoo's Blog"
 
     # 允许覆盖 webmanifest 选项
     [Languages.zh-cn.params.webmanifest]
@@ -129,20 +130,11 @@ theme = "hugo-blog-awesome"
     # externalSrc = "https://example.com/goatcounter.js" # 需要使用外部统计脚本资源时取消注释
 
 # Follow 订阅源认证
-[params.follow]
-  feedId = "96027576665585664"
-  userId = "59414119634735104"
 
 [[params.socialIcons]]
   name = "github"
-  url = "https://github.com/viazure"
-
-[[params.socialIcons]]
-  name = "running"
-  url = "https://run.viazure.cc"
+  url = "https://kooicc.github.io/"
 
 [[params.socialIcons]]
   name = "Rss"
   url = "/index.xml"
-[params]
-  copyright = "© 1996-2025 Powered by Gentoo's Blog"
