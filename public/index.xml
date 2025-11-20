@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>首页 on koicc</title>
-    <link>http://172.16.31.151:1313/</link>
-    <description>Recent content in 首页 on koicc</description>
+    <title>首页 on Gentoo&#39;s Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in 首页 on Gentoo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 02 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://172.16.31.151:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Nov 2025 10:02:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>http://localhost:1313/posts/my-first-post/</link>
+      <pubDate>Thu, 20 Nov 2025 10:02:44 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/my-first-post/</guid>
+      
+      <description>&lt;h1 id=&#34;sdf&#34;&gt;sdf&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;sdf
+&lt;code&gt;sdfsd&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sdfsdfd
+&lt;/code&gt;&lt;/pre&gt;</description>
+      
+    </item>
+    
     <item>
       <title>目录</title>
-      <link>http://172.16.31.151:1313/posts/table-of-content/</link>
+      <link>http://localhost:1313/posts/table-of-content/</link>
       <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://172.16.31.151:1313/posts/table-of-content/</guid>
+      <guid>http://localhost:1313/posts/table-of-content/</guid>
       
       <description>&lt;h2 id=&#34;目录&#34;&gt;目录&lt;/h2&gt;
 &lt;p&gt;本主题支持在博客文章中显示目录（ToC）。&lt;/p&gt;
@@ -69,10 +86,10 @@
     
     <item>
       <title>数学排版 - 在博客文章中使用数学符号</title>
-      <link>http://172.16.31.151:1313/posts/math-typesetting/</link>
+      <link>http://localhost:1313/posts/math-typesetting/</link>
       <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://172.16.31.151:1313/posts/math-typesetting/</guid>
+      <guid>http://localhost:1313/posts/math-typesetting/</guid>
       
       <description>&lt;p&gt;在 Hugo 项目中，可以通过使用 &lt;a href=&#34;https://github.com/hugo-sid/hugo-blog-awesome/blob/main/layouts/partials/helpers/katex.html&#34;&gt;第三方 JavaScript 库&lt;/a&gt; 来启用数学符号。&lt;/p&gt;
 &lt;p&gt;在本示例中，我们将使用 &lt;a href=&#34;https://katex.org/&#34;&gt;KaTeX&lt;/a&gt;。&lt;/p&gt;
@@ -116,10 +133,10 @@ $$&lt;/p&gt;
     
     <item>
       <title>Markdown 语法指南</title>
-      <link>http://172.16.31.151:1313/posts/markdown-syntax/</link>
+      <link>http://localhost:1313/posts/markdown-syntax/</link>
       <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://172.16.31.151:1313/posts/markdown-syntax/</guid>
+      <guid>http://localhost:1313/posts/markdown-syntax/</guid>
       
       <description>&lt;p&gt;本文提供了 Hugo 内容文件中可以使用的 Markdown 语法示例，同时展示了 Hugo 主题中是否对基本 HTML 元素进行了 CSS 装饰。&lt;/p&gt;
 &lt;h2 id=&#34;标题&#34;&gt;标题&lt;/h2&gt;
@@ -136,7 +153,7 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;图片&#34;&gt;图片&lt;/h2&gt;
 &lt;p&gt;您可以使用以下语法来包含图片。图片的路径应相对于 &lt;code&gt;index.md&lt;/code&gt; 文件。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;Landscape&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;1.jpg&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://172.16.31.151:1313/posts/markdown-syntax/1.jpg&#34; alt=&#34;Landscape&#34;&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/posts/markdown-syntax/1.jpg&#34; alt=&#34;Landscape&#34;&gt;&lt;/p&gt;
 &lt;p&gt;您还可以包含来自外部来源的图片。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;Image&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;https://source.unsplash.com/random/600x400/?tech&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://source.unsplash.com/random/600x400/?tech&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
@@ -273,10 +290,10 @@ $$&lt;/p&gt;
     
     <item>
       <title>占位文本</title>
-      <link>http://172.16.31.151:1313/posts/placeholder-text/</link>
+      <link>http://localhost:1313/posts/placeholder-text/</link>
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://172.16.31.151:1313/posts/placeholder-text/</guid>
+      <guid>http://localhost:1313/posts/placeholder-text/</guid>
       
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;
 &lt;p&gt;Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.&lt;/p&gt;
@@ -306,10 +323,10 @@ $$&lt;/p&gt;
     
     <item>
       <title>Emoji 支持</title>
-      <link>http://172.16.31.151:1313/posts/emoji-support/</link>
+      <link>http://localhost:1313/posts/emoji-support/</link>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://172.16.31.151:1313/posts/emoji-support/</guid>
+      <guid>http://localhost:1313/posts/emoji-support/</guid>
       
       <description>&lt;p&gt;在 Hugo 项目中有多种方式可以启用 Emoji。&lt;/p&gt;
 &lt;p&gt;可以在模板中直接调用 &lt;a href=&#34;https://gohugo.io/functions/emojify/&#34;&gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; 函数，或者使用 &lt;a href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;&gt;Inline Shortcodes&lt;/a&gt;。&lt;/p&gt;
@@ -327,10 +344,10 @@ $$&lt;/p&gt;
     
     <item>
       <title>关于</title>
-      <link>http://172.16.31.151:1313/pages/about/</link>
+      <link>http://localhost:1313/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://172.16.31.151:1313/pages/about/</guid>
+      <guid>http://localhost:1313/pages/about/</guid>
       
       <description>&lt;p&gt;Hugo 是用 Go 语言编写的开源静态网站生成器，遵循 &lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;&gt;Apache Licence 2.0&lt;/a&gt; 许可证。Hugo 支持 TOML、YAML 和 JSON 数据文件类型，以及 Markdown 和 HTML 内容文件，并使用短代码来添加丰富的内容。其他显著功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 压缩以及对 Sass SCSS 工作流的支持。&lt;/p&gt;
 &lt;p&gt;Hugo 使用了多种开源项目，包括：&lt;/p&gt;

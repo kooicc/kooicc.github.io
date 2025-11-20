@@ -92,9 +92,8 @@ theme = "hugo-blog-awesome"
       avatar = "avatar.png" # 将文件放在 assets 文件夹中；确保图片具有相同的高度和宽度
       # 注意：如果找不到资源（头像图片），图片不会被渲染。不会显示错误
       intro = "Gentoo"
-      name = "Gentoo"
+      name = ""
       description = "追风筝的人"
-    copyright = "© 1996-2025 Powered by Gentoo's Blog"
 
     # 允许覆盖 webmanifest 选项
     [Languages.zh-cn.params.webmanifest]

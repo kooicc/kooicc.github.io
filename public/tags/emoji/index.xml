@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Emoji on koicc</title>
-    <link>http://172.16.31.151:1313/tags/emoji/</link>
-    <description>Recent content in Emoji on koicc</description>
+    <title>Emoji on Gentoo&#39;s Blog</title>
+    <link>http://localhost:1313/tags/emoji/</link>
+    <description>Recent content in Emoji on Gentoo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://172.16.31.151:1313/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emoji 支持</title>
-      <link>http://172.16.31.151:1313/posts/emoji-support/</link>
+      <link>http://localhost:1313/posts/emoji-support/</link>
       <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://172.16.31.151:1313/posts/emoji-support/</guid>
+      <guid>http://localhost:1313/posts/emoji-support/</guid>
       
       <description>&lt;p&gt;在 Hugo 项目中有多种方式可以启用 Emoji。&lt;/p&gt;
 &lt;p&gt;可以在模板中直接调用 &lt;a href=&#34;https://gohugo.io/functions/emojify/&#34;&gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; 函数，或者使用 &lt;a href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;&gt;Inline Shortcodes&lt;/a&gt;。&lt;/p&gt;
