@@ -4,3 +4,4 @@
   - https://hugoloveit.com/zh-cn/posts/
   - https://stilig.me/
   - https://lewky.cn/
+  - https://viazure.cc/
