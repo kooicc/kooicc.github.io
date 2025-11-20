@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pages on Gentoo&#39;s Blog</title>
+    <title>Pages on Gentoo</title>
     <link>http://localhost:1313/pages/</link>
-    <description>Recent content in Pages on Gentoo&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="http://localhost:1313/pages/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Pages on Gentoo</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://localhost:1313/pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
       <link>http://localhost:1313/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>http://localhost:1313/pages/about/</guid>
-      
-      <description>&lt;p&gt;Hugo 是用 Go 语言编写的开源静态网站生成器，遵循 &lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;&gt;Apache Licence 2.0&lt;/a&gt; 许可证。Hugo 支持 TOML、YAML 和 JSON 数据文件类型，以及 Markdown 和 HTML 内容文件，并使用短代码来添加丰富的内容。其他显著功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 压缩以及对 Sass SCSS 工作流的支持。&lt;/p&gt;
-&lt;p&gt;Hugo 使用了多种开源项目，包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/yuin/goldmark&#34;&gt;https://github.com/yuin/goldmark&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;https://github.com/alecthomas/chroma&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/muesli/smartcrop&#34;&gt;https://github.com/muesli/smartcrop&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;https://github.com/spf13/cobra&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;https://github.com/spf13/viper&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Hugo 非常适合博客、企业网站、创意作品集、在线杂志、单页应用程序，甚至是拥有数千页的网站。&lt;/p&gt;
-&lt;p&gt;Hugo 适合那些希望手动编写自己的网站，而不必担心设置复杂的运行时环境、依赖项和数据库的人。&lt;/p&gt;
-&lt;p&gt;使用 Hugo 构建的网站速度极快、安全性高，并且可以部署在任何地方，包括 AWS、GitHub Pages、Heroku、Netlify 以及任何其他托管提供商。&lt;/p&gt;
-&lt;p&gt;在 &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt; 上了解更多信息并参与贡献。&lt;/p&gt;
-</description>
-      
+      <description>&lt;!-- markdownlint-disable no-inline-html --&gt;&#xA;&lt;p&gt;👋 Hi，我是 viazure。&lt;/p&gt;&#xA;&lt;p&gt;目前是一名后端程序员，主力开发语言是 &lt;code&gt;C#&lt;/code&gt;，开源代码主要在 &lt;a href=&#34;https://github.com/viazure&#34;&gt;GitHub&lt;/a&gt;。喜欢探索新技术，折腾自己觉得有趣的东西。&lt;/p&gt;&#xA;&lt;p&gt;日常爱好 &lt;a href=&#34;https://last.fm/user/viazure&#34;&gt;听音乐&lt;/a&gt;、&lt;a href=&#34;https://run.viazure.cc&#34;&gt;跑步&lt;/a&gt;、&lt;del&gt;&lt;abbr title=&#34;现在是上下班的通勤工具。&#34;&gt;长板&lt;/abbr&gt;&lt;/del&gt;、&lt;del&gt;&lt;abbr title=&#34;吃灰一年有余，最近正在尝试捡起来。&#34;&gt;口琴&lt;/abbr&gt;&lt;/del&gt;，喜欢通过拍照寻找生活中有意思的事物，偶尔也会玩下单机游戏，看看漫画和电影。&lt;/p&gt;&#xA;&lt;p&gt;想在这里输出一些东西，暂时还不知道未来会怎样，先开始吧。&lt;/p&gt;&#xA;&lt;p&gt;联系方式：&lt;a href=&#34;mailto:hi@viazure.cc&#34;&gt;hi@viazure.cc&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

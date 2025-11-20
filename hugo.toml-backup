@@ -1,5 +1,5 @@
-title = "Gentoo"
-baseURL = "https://kooicc.github.io/"
+title = "viazure"
+baseURL = "https://viazure.cc/"
 
 # 设置 <html lang=""> 的值
 languageCode = "zh-cn"
@@ -66,7 +66,7 @@ theme = "hugo-blog-awesome"
       weight = 30
 
   [Languages.zh-cn.params]
-    sitename = "Gentoo"
+    sitename = "viazure"
     defaultColor = "auto" # 设置颜色模式：dark（深色）, light（浅色）, auto（自动）
     # 设置为 "auto" 时会根据访问者的设备颜色偏好应用配色方案
     # 如果不指定任何内容，忽略此参数或将其留空，默认值设置为 "auto"
@@ -91,9 +91,9 @@ theme = "hugo-blog-awesome"
     [Languages.zh-cn.params.author]
       avatar = "avatar.png" # 将文件放在 assets 文件夹中；确保图片具有相同的高度和宽度
       # 注意：如果找不到资源（头像图片），图片不会被渲染。不会显示错误
-      intro = "Gentoo"
-      name = "Gentoo"
-      description = "追风筝的人"
+      intro = "viazure"
+      name = "viazure"
+      description = "人若无名，可以专心练剑"
 
     # 允许覆盖 webmanifest 选项
     [Languages.zh-cn.params.webmanifest]
