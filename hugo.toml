@@ -66,7 +66,7 @@ theme = "hugo-blog-awesome"
       weight = 30
 
   [Languages.zh-cn.params]
-    sitename = "gentoo"
+    sitename = "Gentoo"
     defaultColor = "auto" # 设置颜色模式：dark（深色）, light（浅色）, auto（自动）
     # 设置为 "auto" 时会根据访问者的设备颜色偏好应用配色方案
     # 如果不指定任何内容，忽略此参数或将其留空，默认值设置为 "auto"
@@ -91,14 +91,14 @@ theme = "hugo-blog-awesome"
     [Languages.zh-cn.params.author]
       avatar = "avatar.png" # 将文件放在 assets 文件夹中；确保图片具有相同的高度和宽度
       # 注意：如果找不到资源（头像图片），图片不会被渲染。不会显示错误
-      intro = "gentoo"
-      name = "gentoo"
+      intro = "Gentoo"
+      name = "Gentoo"
       description = "追风筝的人"
 
     # 允许覆盖 webmanifest 选项
     [Languages.zh-cn.params.webmanifest]
-      name = "gentoo's blog" # 将使用 "params.sitename" 或 "title" 作为默认值
-      short_name = "gentoo" # 与 name 相同
+      name = "Gentoo's blog" # 将使用 "params.sitename" 或 "title" 作为默认值
+      short_name = "Gentoo" # 与 name 相同
       start_url = "/" # 将使用主页 url 作为默认值
       theme_color = "#434648" # 默认为 "#434648"（文本的基色）。还会覆盖 html 的 `<meta name="theme-color" />`
       background_color = "#fff" # 默认根据 "params.defaultColor" 设置，对于 "light" 或 "auto" 将设置为 "#fff"，对于 dark 将设置为 "#131418"（深色模式背景色）
@@ -144,3 +144,5 @@ theme = "hugo-blog-awesome"
 [[params.socialIcons]]
   name = "Rss"
   url = "/index.xml"
+[params]
+  copyright = "© 1996-2025 Powered by Gentoo's Blog"
