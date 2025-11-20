@@ -1,23 +1,16 @@
 ---
 title: 关于
-description: 'Hugo，世界上最快的网站构建框架'
-author: Hugo Authors
+comments: false
 ---
 
-Hugo 是用 Go 语言编写的开源静态网站生成器，遵循 [Apache Licence 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE) 许可证。Hugo 支持 TOML、YAML 和 JSON 数据文件类型，以及 Markdown 和 HTML 内容文件，并使用短代码来添加丰富的内容。其他显著功能包括分类法、多语言模式、图像处理、自定义输出格式、HTML/CSS/JS 压缩以及对 Sass SCSS 工作流的支持。
+<!-- markdownlint-disable no-inline-html -->
 
-Hugo 使用了多种开源项目，包括：
+👋 Hi，我是 viazure。
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+目前是一名后端程序员，主力开发语言是 `C#`，开源代码主要在 [GitHub](https://github.com/viazure)。喜欢探索新技术，折腾自己觉得有趣的东西。
 
-Hugo 非常适合博客、企业网站、创意作品集、在线杂志、单页应用程序，甚至是拥有数千页的网站。
+日常爱好 [听音乐](https://last.fm/user/viazure)、[跑步](https://run.viazure.cc)、~~<abbr title="现在是上下班的通勤工具。">长板</abbr>~~、~~<abbr title="吃灰一年有余，最近正在尝试捡起来。">口琴</abbr>~~，喜欢通过拍照寻找生活中有意思的事物，偶尔也会玩下单机游戏，看看漫画和电影。
 
-Hugo 适合那些希望手动编写自己的网站，而不必担心设置复杂的运行时环境、依赖项和数据库的人。
+想在这里输出一些东西，暂时还不知道未来会怎样，先开始吧。
 
-使用 Hugo 构建的网站速度极快、安全性高，并且可以部署在任何地方，包括 AWS、GitHub Pages、Heroku、Netlify 以及任何其他托管提供商。
-
-在 [GitHub](https://github.com/gohugoio) 上了解更多信息并参与贡献。
+联系方式：<hi@viazure.cc>
