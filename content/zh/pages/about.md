@@ -8,7 +8,7 @@ author: Hugo Authors
 
 Hi，👋
 
-这是我的博客，基于[Hugo](https://github.com/gohugoio/hugo)构建，主题采用的是[viazure](https://github.com/viazure/hugo-blog-awesome)托管在[Github Pages](https://pages.github.com/)平台。
+这是我的博客，基于[Hugo](https://github.com/gohugoio/hugo)构建,主题采用的是[viazure](https://github.com/viazure/hugo-blog-awesome),托管在[Github Pages](https://pages.github.com/)平台。
 
 
 从小看《动物世界》喜欢户外徒步，看人文自然纪录片（地球脉动）。听歌（李宗盛，孙燕姿，邓紫棋），游戏：英雄联盟。
