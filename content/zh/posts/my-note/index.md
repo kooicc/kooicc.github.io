@@ -1,162 +1,47 @@
 +++
-date = '2025-11-20T17:06:14+08:00'
+date = '2025-11-26T18:03:29+08:00'
 draft = false
-title = 'My Note'
+title = '媛媛生日计划安排'
 +++
-本文提供了 Hugo 内容文件中可以使用的 Markdown 语法示例，同时展示了 Hugo 主题中是否对基本 HTML 元素进行了 CSS 装饰。
-<!--more-->
 
-## 标题
+### 🎂 媛媛生日（11月29日，周六）
 
-以下 HTML `<h1>`—`<h6>` 元素表示六个级别的标题。`<h1>` 是最高级别的标题，而 `<h6>` 是最低级别的标题。
+#### 🕚 11:00  
+📍 **海底捞火锅 · 阳光国际店**  
+- 预约“生日主题i人版”（送西瓜蛋糕🍰）  
+- [ ] 提前订蛋糕，鲜花，玩偶，送到海底捞布置
+- 拍照留念，记录甜蜜瞬间📸  
+> “媛媛，今天能陪你过生日，我特别开心,以前也没在意过在哪儿过生日这些事，现在跟你在一起吃顿火锅，都让我觉得特别有意义。这段时间和你相处，我确定：你就是我喜欢、想要好好珍惜的人。虽然之前给你预告过了，但我还是想正式地问你一下：媛媛，你愿意做我女朋友吗？
 
-# H1
+#### 🕐 13:30 左右  
+🚶‍♂️ **步行回家**（预计10分钟）  
+- 慢悠悠散步，聊聊天，享受饭后悠闲时光💑  
 
-## H2
+#### 🕑 14:00  
+🏠 **到家 · 放下物品 + 小憩**  
+- 换身舒适衣服，补个觉或一起看看短视频放松一下🛋️  
+- 建议设定闹钟⏰，避免睡过头哦！
 
-### H3
+#### 🕓 16:00  
+🛍️ **出发前往万达广场**  
+- 骑电动车10分钟（1.8km）  
 
-#### H4
+#### 🕔 16:30 – 18:30  
+🌟 **万达广场 · 轻松逛街时光**  
+- 👗 陪她逛喜欢的衣服店（波司登）  
+- 💍 **周大福专柜**：看看首饰，试戴型号大小。✨  
+- 买杯奶茶🥤或小零食，边走边吃更惬意  
 
-##### H5
+#### 🕖 18:30 – 19:30  
+🍽️ **晚餐时间**  
+- 推荐万达内餐厅：  
+  - [ ] 未完成事项
 
-###### H6
+#### 🕗 20:05 – 21:53  
+🎬 **电影院 · 看一场电影**  
+- 《疯狂动物城2》（尼克狐尼克，你被捕了💕）  
+- 买爆米花🍿+可乐 
 
-## 段落
-
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
-
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
-
-## 图片
-
-您可以使用以下语法来包含图片。图片的路径应相对于 `index.md` 文件。
-
-```markdown
-![Landscape](1.jpg)
-```
-
-![Landscape](1.jpg)
-
-您还可以包含来自外部来源的图片。
-
-```markdown
-![Image](https://source.unsplash.com/random/600x400/?tech)
-```
-
-![Image](https://source.unsplash.com/random/600x400/?tech)
-
-## 引用
-
-引用元素表示从其他来源引用的内容，可以选择包含引用来源，引用来源必须位于 `footer` 或 `cite` 元素中，还可以选择包含注释和缩写等内联更改。
-
-### 无来源的引用
-
-> 您可以在引用中使用 Markdown 语法，例如 **bold**,  _italics_, [links](https://gohugo.io/), `code`。
-
-### 带来源的引用
-
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
-
-[^1]: 上述引用摘自 Rob Pike 在 2015 年 11 月 18 日 Gopherfest 上的[演讲](https://www.youtube.com/watch?v=PAAkCSZUG1c)。
-
-## 表格
-
-表格不是 Markdown 核心规范的一部分，但 Hugo 原生支持它们。
-
-   Name | Age
---------|------
-   Bob  | 27
- Alice  | 23
-
-### 表格中的 Markdown
-
-| Italics   | Bold     | Code   |
-| --------  | -------- | ------ |
-| *italics* | **bold** | `code` |
-
-## 代码块
-
-### 使用反引号的代码块
-
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-```
-
-### 缩进四个空格的代码块
-
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>Example HTML5 Document</title>
-    </head>
-    <body>
-      <p>Test</p>
-    </body>
-    </html>
-
-### 使用 Hugo 内置高亮短代码的代码块
-
-{{< highlight html >}}
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
-{{< /highlight >}}
-
-### 内联代码
-
-使用反引号在句子中引用 `variable`。
-
-## 列表类型
-
-### 有序列表
-
-1. First item
-2. Second item with some `code` in it
-3. Third item
-
-### 无序列表
-
-* List item
-* Another item with some `code` in it
-* And another item
-
-### 嵌套列表
-
-* Fruit
-  * Apple
-  * Orange
-  * Banana
-* Dairy
-  * Milk
-  * Cheese
-
-## 其他元素 — abbr, sub, sup, kbd, mark
-
-<abbr title="Graphics Interchange Format">GIF</abbr> 是一种位图图像格式。
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-按下 <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd> 结束会话。
-
-大多数 <mark>蝾螈</mark> 是夜行动物，捕食昆虫、蠕虫和其他小生物。
+#### 🕘 21:45 左右  
+🚗 **结束回家**  
+- 骑电动车15分钟（1.8km）  
