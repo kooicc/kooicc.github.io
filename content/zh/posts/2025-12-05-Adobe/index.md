@@ -1,7 +1,6 @@
 +++
 date = "2025-12-04 18:03:29"
 lastmod = "2025-12-05 10:49:19"
-draft = false
 title = "Adobe软件屏蔽弹窗"
 +++
 
