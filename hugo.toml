@@ -56,14 +56,19 @@ theme = "hugo-blog-awesome"
       weight = 10
     [[Languages.zh-cn.menu.main]]
       pageRef="posts"
-      name = "文章"
+      name = "博客"
       url = "/posts/"
       weight = 20
+    [[Languages.zh-cn.menu.main]]
+      pageRef="notes"
+      name = "生活"
+      url = "/notes/"
+      weight = 30
     [[Languages.zh-cn.menu.main]]
       pageRef="about"
       name = "关于"
       url = "/about/"
-      weight = 30
+      weight = 40
 
   [Languages.zh-cn.params]
     sitename = "Gentoo"
@@ -128,18 +133,9 @@ theme = "hugo-blog-awesome"
 #    localSrc = "js/goatcounter.js"  # 本地统计脚本资源路径 (assets/js/goatcounter.js)
 #    # externalSrc = "https://example.com/goatcounter.js" # 需要使用外部统计脚本资源时取消注释
 
-# Follow 订阅源认证
-[params.follow]
-  feedId = "96027576665585664"
-  userId = "59414119634735104"
-
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/kooicc/kooicc.github.io"
+# [[params.socialIcons]]
+#   name = "github"
+#   url = "https://github.com/kooicc/kooicc.github.io"
 [[params.socialIcons]]
   name = "running"
   url = "https://bing.wdbyte.com/"
-
-[[params.socialIcons]]
-  name = "Rss"
-  url = "/index.xml"
