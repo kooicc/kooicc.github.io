@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秋雨夜眠 · 主页</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .avatar {
+            font-size: 80px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .bio {
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .services {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+        .service-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="avatar">🏃‍♂️</div>
+        <h1>秋雨夜眠</h1>
+        <div class="bio">
+            全栈开发者 · 开源爱好者<br>
+            喜欢折腾各种技术，分享实用工具
+        </div>
+        <div class="links">
+            <a href="https://github.com/kooicc" class="btn" target="_blank">GitHub</a>
+            <a href="https://img.244056614.xyz/" class="btn" target="_blank">📸 图床</a>
+            <a href="https://short.244056614.xyz/" class="btn" target="_blank">🔗 短链</a>
+            <a href="https://note.244056614.xyz/" class="btn" target="_blank">📝 笔记</a>
+        </div>
+        <div class="services">
+            <a href="https://img.244056614.xyz/" class="service-link">📸 R2 图床</a>
+            <a href="https://short.244056614.xyz/" class="service-link">🔗 短链接服务</a>
+            <a href="https://temp.244056614.xyz/" class="service-link">✅ 待办事项</a>
+        </div>
+        <div class="footer">
+            Copyright © 1996-2026 秋雨夜眠
+        </div>
+    </div>
+</body>
+</html>
