@@ -1,15 +1,11 @@
-# BI4BOB Amateur Radio Station
+# BI4BOB 业余无线电台
 
-Personal HAM station homepage.
+个人业余无线电站主页。
 
-Callsign:
-
-BI4BOB
+呼号：BI4BOB
 
 
-Equipment:
-
-Baofeng UV-5R
+设备：宝峰 UV-5R
 
 
 73 & Good DX 📡
