@@ -1,284 +1,665 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于 · 秋雨夜眠</title>
-    <style>
-        /* 全局重置，保持极简干净 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            background-color: #f4f4f4;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            color: #2c3e50;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem 1.5rem;
-            line-height: 1.6;
-        }
+<meta charset="UTF-8">
 
-        .container {
-            max-width: 780px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 2.8rem 3rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            border: 1px solid #eaeef2;
-        }
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
-        /* 标题区 — 与 "Gentoo'Docker" 风格呼应 */
-        .site-header {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 1.8rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 2px solid #eef2f6;
-        }
+<title>BI4BOB</title>
 
-        .site-title {
-            font-size: 2rem;
-            font-weight: 550;
-            letter-spacing: -0.5px;
-            color: #1e2a36;
-        }
+<link rel="icon" href="favicon.svg">
 
-        .site-title .accent {
-            color: #4a6a8b;
-        }
 
-        .site-sub {
-            font-size: 0.95rem;
-            color: #6b7f92;
-            background: #f0f4f8;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-weight: 450;
-        }
+<style>
 
-        /* 通用排版 */
-        h2 {
-            font-size: 1.3rem;
-            font-weight: 550;
-            margin: 2rem 0 0.8rem;
-            color: #1e2a36;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        h2:first-of-type {
-            margin-top: 0.2rem;
-        }
 
-        p {
-            margin-bottom: 1rem;
-            color: #34495e;
-        }
+body{
 
-        a {
-            color: #2c6b9e;
-            text-decoration: none;
-            border-bottom: 1.5px dotted #cbd8e6;
-            transition: border-color 0.2s, color 0.2s;
-        }
+font-family:
+"Microsoft YaHei",
+sans-serif;
 
-        a:hover {
-            border-bottom-color: #2c6b9e;
-            color: #1a4b73;
-        }
+background:#00152d;
 
-        hr {
-            border: none;
-            border-top: 2px solid #eef2f6;
-            margin: 2rem 0 1.5rem;
-        }
+color:white;
 
-        /* 标签列表 */
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem 1.2rem;
-            margin: 0.2rem 0 0.8rem;
-            padding: 0.4rem 0;
-        }
+overflow-x:hidden;
 
-        .tag-item {
-            font-size: 0.98rem;
-            background: #f0f4f8;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            color: #2c3e50;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
+}
 
-        .tag-item img {
-            width: 18px;
-            height: 18px;
-            vertical-align: middle;
-            border-radius: 2px;
-        }
 
-        /* 影视卡片网格 */
-        .media-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            margin: 0.8rem 0 0.2rem;
-        }
 
-        .media-card {
-            flex: 1 1 160px;
-            min-width: 130px;
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 0.6rem 0.6rem 0.4rem;
-            text-align: center;
-            border: 1px solid #eef2f6;
-            transition: background 0.15s;
-        }
+#stars{
 
-        .media-card:hover {
-            background: #f0f4f8;
-        }
+position:fixed;
 
-        .media-card img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
-            border-radius: 12px;
-            background: #dce3eb;
-            display: block;
-        }
+left:0;
+top:0;
 
-        .media-card .caption {
-            font-size: 0.88rem;
-            margin-top: 0.4rem;
-            color: #2c3e50;
-        }
+width:100%;
+height:100%;
 
-        /* 页脚 */
-        .footer-note {
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px solid #eef2f6;
-            font-size: 0.9rem;
-            color: #6b7f92;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem 1.8rem;
-            flex-wrap: wrap;
-        }
+z-index:-5;
 
-        .footer-note span {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
+}
 
-        /* 响应式 */
-        @media (max-width: 640px) {
-            .container {
-                padding: 1.8rem 1.2rem;
-                border-radius: 18px;
-            }
-            .site-title {
-                font-size: 1.7rem;
-            }
-            .media-grid {
-                gap: 0.8rem;
-            }
-            .media-card {
-                flex: 1 1 120px;
-                min-width: 100px;
-            }
-        }
 
-        @media (max-width: 400px) {
-            .container {
-                padding: 1rem 0.8rem;
-            }
-            .media-card {
-                flex: 1 1 100%;
-            }
-        }
-    </style>
+
+.scan{
+
+position:fixed;
+
+height:2px;
+
+left:0;
+
+right:0;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+cyan,
+transparent
+);
+
+
+box-shadow:
+0 0 20px cyan;
+
+animation:
+scan 5s linear infinite;
+
+z-index:-2;
+
+}
+
+
+@keyframes scan{
+
+from{
+top:0;
+}
+
+to{
+top:100%;
+}
+
+}
+
+
+
+.container{
+
+max-width:900px;
+
+margin:auto;
+
+padding:40px 20px;
+
+}
+
+
+
+.card{
+
+background:
+rgba(255,255,255,.12);
+
+backdrop-filter:
+blur(12px);
+
+border-radius:20px;
+
+padding:30px;
+
+margin-bottom:25px;
+
+box-shadow:
+0 10px 30px #0008;
+
+}
+
+
+
+.header{
+
+text-align:center;
+
+}
+
+
+
+.call{
+
+font-size:4rem;
+
+font-weight:900;
+
+letter-spacing:8px;
+
+color:#90e0ef;
+
+}
+
+
+
+.morse{
+
+margin-top:15px;
+
+font-family:monospace;
+
+font-size:22px;
+
+color:#caf0f8;
+
+}
+
+
+
+#utc,
+#propagation{
+
+margin-top:15px;
+
+font-family:monospace;
+
+}
+
+
+
+.earth{
+
+font-size:120px;
+
+animation:
+earth 20s linear infinite;
+
+filter:
+drop-shadow(
+0 0 30px cyan
+);
+
+}
+
+
+
+@keyframes earth{
+
+from{
+transform:rotateY(0);
+}
+
+to{
+transform:rotateY(360deg);
+}
+
+}
+
+
+
+h2{
+
+color:#90e0ef;
+
+margin-bottom:15px;
+
+}
+
+
+.tag{
+
+display:inline-block;
+
+background:#0077b6;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+margin:5px;
+
+}
+
+
+
+a{
+
+color:#caf0f8;
+
+}
+
+
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+opacity:.7;
+
+}
+
+
+</style>
+
+
 </head>
+
+
+
 <body>
-    <div class="container">
 
-        <!-- 顶栏 -->
-        <header class="site-header">
-            <span class="site-title">
-                <span class="accent">⛅</span> 秋雨夜眠
-            </span>
-            <span class="site-sub">/about</span>
-        </header>
 
-        <!-- 简介 -->
-        <p style="font-size: 1.05rem;">
-            Hi 💌 这是我的博客，基于 
-            <a href="https://github.com/adityatelange/hugo-PaperMod" target="_blank">Hugo+PaperMod</a> 
-            与 <a href="https://pages.cloudflare.com/" target="_blank">Cloudflare Pages</a>。
-        </p>
-        <p>
-            <a href="https://www.cloudflare.com/zh-cn/" target="_blank">Cloudflare | 随时随地连接、保护、构建</a>
-            <span style="margin-left: 10px;">
-                <a href="https://pages.cloudflare.com/" target="_blank">
-                    <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare" style="height: 28px; vertical-align: middle;">
-                </a>
-            </span>
-        </p>
+<canvas id="stars"></canvas>
 
-        <hr>
 
-        <!-- 影音 -->
-        <h2>🎬 自然 · 历史</h2>
-        <div class="media-grid">
-            <div class="media-card">
-                <img src="/images/about/Blue-Planet-II.webp" alt="蓝色星球" loading="lazy">
-                <div class="caption"><a href="https://movie.douban.com/subject/1325007/" target="_blank">《蓝色星球》</a></div>
-            </div>
-            <div class="media-card">
-                <img src="/images/about/Planet-Earth-II.webp" alt="地球脉动" loading="lazy">
-                <div class="caption"><a href="https://movie.douban.com/subject/26979545/" target="_blank">《地球脉动》</a></div>
-            </div>
-            <div class="media-card">
-                <img src="/images/about/zhuyuanzhang.jpg" alt="百家讲坛" loading="lazy">
-                <div class="caption"><a href="https://movie.douban.com/subject/27202894/" target="_blank">《百家讲坛：明太祖朱元璋》</a></div>
-            </div>
-        </div>
+<div class="scan"></div>
 
-        <!-- 兴趣 -->
-        <h2 style="margin-top: 2rem;">🎧 兴趣 · 日常</h2>
-        <div class="tag-list">
-            <span class="tag-item"><img src="https://y.qq.com/favicon.ico" alt=""> 李宗盛 · 孙燕姿 · 邓紫棋 · Taylor Swift</span>
-            <span class="tag-item"><img src="https://lol.qq.com/favicon.ico" alt=""> NAS · 业余无线电 · LOL 海克斯大乱斗</span>
-            <span class="tag-item"><img src="https://ssl.gstatic.com/ui/v1/icons/mail/images/favicon_gmail_2026_v2.ico" alt=""> <a href="mailto:8bps@proton.me">8bps@proton.me</a></span>
-        </div>
 
-        <hr>
+<div class="container">
 
-        <!-- 页脚 -->
-        <div class="footer-note">
-            <span>© 1996-2026 秋雨夜眠</span>
-            <span>🏃♂️ 保持好奇</span>
-            <span>☁️ Cloudflare Workers</span>
-        </div>
 
-    </div>
+
+<div class="card header">
+
+
+<div class="call">
+
+BI4BOB
+
+</div>
+
+
+<div class="morse">
+
+-... .. ....- -... --- -...
+
+</div>
+
+
+<div class="earth">
+
+🌍
+
+</div>
+
+
+<div id="utc">
+
+UTC
+
+</div>
+
+
+<div id="propagation">
+
+📶 Monitoring...
+
+</div>
+
+
+<p style="margin-top:20px">
+
+Amateur Radio Operator
+
+<br>
+
+设备：
+
+<strong>
+Baofeng UV-5R
+</strong>
+
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+🌍 我的兴趣
+</h2>
+
+
+<span class="tag">
+业余无线电
+</span>
+
+
+<span class="tag">
+NAS
+</span>
+
+
+<span class="tag">
+LOL 海克斯大乱斗
+</span>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+🎬 收藏
+</h2>
+
+
+<p>
+🌊 《蓝色星球》
+</p>
+
+<p>
+🌎 《地球脉动》
+</p>
+
+<p>
+📖 百家讲坛：明太祖朱元璋
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+
+<h2>
+🎵 音乐
+</h2>
+
+
+<p>
+李宗盛 · 孙燕姿 · 邓紫棋 · Taylor Swift
+</p>
+
+
+</div>
+
+
+
+<div class="card">
+
+
+<h2>
+📡 Radio Station
+</h2>
+
+
+<a href="qso.html">
+
+查看 QSO 通联日志 →
+
+</a>
+
+
+</div>
+
+
+
+<div class="card">
+
+
+<h2>
+📮 Contact
+</h2>
+
+
+8bps@proton.me
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<footer>
+
+Copyright © 1996-2026 秋雨夜眠 🏃‍♂️
+
+|
+
+Github Pages ☁️
+
+</footer>
+
+
+
+<script>
+
+
+// 星空
+
+let c=document.getElementById("stars");
+
+let ctx=c.getContext("2d");
+
+let stars=[];
+
+
+function resize(){
+
+c.width=innerWidth;
+
+c.height=innerHeight;
+
+
+stars=[];
+
+
+for(let i=0;i<250;i++){
+
+stars.push({
+
+x:Math.random()*c.width,
+
+y:Math.random()*c.height,
+
+r:Math.random()*2,
+
+s:Math.random()+0.2
+
+});
+
+}
+
+}
+
+
+function draw(){
+
+ctx.clearRect(
+0,
+0,
+c.width,
+c.height
+);
+
+
+stars.forEach(s=>{
+
+ctx.fillStyle="white";
+
+ctx.beginPath();
+
+ctx.arc(
+s.x,
+s.y,
+s.r,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+
+s.y+=s.s;
+
+
+if(s.y>c.height)
+s.y=0;
+
+
+});
+
+
+requestAnimationFrame(draw);
+
+}
+
+
+resize();
+
+draw();
+
+
+onresize=resize;
+
+
+
+// UTC
+
+function utc(){
+
+let d=new Date();
+
+
+document.getElementById("utc")
+.innerHTML=
+"🕒 UTC "+
+d.toISOString()
+.substring(11,19);
+
+}
+
+
+setInterval(utc,1000);
+
+utc();
+
+
+
+// 电波状态
+
+let p=[
+
+"📶 7.050MHz Listening",
+
+"🌎 Ionosphere Active",
+
+"📡 HF Monitoring",
+
+"✨ Propagation Stable"
+
+];
+
+
+let i=0;
+
+
+setInterval(()=>{
+
+document.getElementById(
+"propagation"
+)
+.innerHTML=p[i++%p.length];
+
+
+},3000);
+
+
+
+// 流星
+
+setInterval(()=>{
+
+let m=document.createElement("div");
+
+m.style.position="fixed";
+
+m.style.width="3px";
+
+m.style.height="100px";
+
+m.style.background=
+"linear-gradient(white,transparent)";
+
+
+m.style.left=
+Math.random()*100+"%";
+
+m.style.top="-100px";
+
+m.style.transform=
+"rotate(45deg)";
+
+
+document.body.appendChild(m);
+
+
+
+m.animate([
+
+{
+transform:
+"translate(0,0) rotate(45deg)"
+},
+
+{
+transform:
+"translate(-500px,700px) rotate(45deg)",
+opacity:0
+}
+
+],
+
+{
+duration:1500
+});
+
+
+setTimeout(
+()=>m.remove(),
+1600
+);
+
+
+},4000);
+
+
+
+</script>
+
+
 </body>
+
 </html>
