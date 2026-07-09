@@ -1,665 +1,438 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
-
-<title>BI4BOB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📡 业余无线电台通联日志（QSO）</title>
 
 <link rel="icon" href="favicon.svg">
 
-
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+html,body{
+    width:100%;
+    height:100%;
+}
 
 body{
-
-font-family:
-"Microsoft YaHei",
-sans-serif;
-
-background:#00152d;
-
-color:white;
-
-overflow-x:hidden;
-
+    font-family:"Microsoft YaHei","Segoe UI",sans-serif;
+    background:linear-gradient(180deg,#03132f 0%,#072654 45%,#0b3c73 100%);
+    color:#fff;
+    overflow-x:hidden;
 }
-
-
 
 #stars{
-
-position:fixed;
-
-left:0;
-top:0;
-
-width:100%;
-height:100%;
-
-z-index:-5;
-
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
 }
-
-
-
-.scan{
-
-position:fixed;
-
-height:2px;
-
-left:0;
-
-right:0;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-cyan,
-transparent
-);
-
-
-box-shadow:
-0 0 20px cyan;
-
-animation:
-scan 5s linear infinite;
-
-z-index:-2;
-
-}
-
-
-@keyframes scan{
-
-from{
-top:0;
-}
-
-to{
-top:100%;
-}
-
-}
-
-
 
 .container{
-
-max-width:900px;
-
-margin:auto;
-
-padding:40px 20px;
-
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
 }
-
-
-
-.card{
-
-background:
-rgba(255,255,255,.12);
-
-backdrop-filter:
-blur(12px);
-
-border-radius:20px;
-
-padding:30px;
-
-margin-bottom:25px;
-
-box-shadow:
-0 10px 30px #0008;
-
-}
-
-
 
 .header{
-
-text-align:center;
-
+    text-align:center;
+    margin-bottom:40px;
 }
 
-
-
-.call{
-
-font-size:4rem;
-
-font-weight:900;
-
-letter-spacing:8px;
-
-color:#90e0ef;
-
+.header h1{
+    font-size:58px;
+    color:#b8ecff;
+    text-shadow:0 0 20px rgba(80,180,255,.5);
+    letter-spacing:2px;
+    font-weight:900;
 }
 
-
-
-.morse{
-
-margin-top:15px;
-
-font-family:monospace;
-
-font-size:22px;
-
-color:#caf0f8;
-
+.divider{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:30px 0;
 }
 
-
-
-#utc,
-#propagation{
-
-margin-top:15px;
-
-font-family:monospace;
-
+.divider:before,
+.divider:after{
+    content:"";
+    height:1px;
+    background:rgba(255,255,255,.35);
+    flex:1;
 }
 
-
-
-.earth{
-
-font-size:120px;
-
-animation:
-earth 20s linear infinite;
-
-filter:
-drop-shadow(
-0 0 30px cyan
-);
-
+.divider span{
+    padding:0 18px;
+    color:#9fdcff;
+    font-size:20px;
 }
 
-
-
-@keyframes earth{
-
-from{
-transform:rotateY(0);
+.card{
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:28px;
+    padding:22px;
+    box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
 
-to{
-transform:rotateY(360deg);
+table{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:18px;
+}
+
+thead{
+    background:#0d4ea5;
+}
+
+th{
+    padding:18px 10px;
+    font-size:28px;
+    font-weight:bold;
+    border:1px solid rgba(255,255,255,.12);
+}
+
+td{
+    padding:22px 12px;
+    font-size:22px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.10);
+}
+
+tbody tr:hover{
+    background:rgba(255,255,255,.06);
+}
+
+.band{
+    display:inline-block;
+    background:#2b9fff;
+    padding:8px 18px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.mode{
+    color:#69beff;
+    font-weight:bold;
+}
+
+.rst{
+    color:#ffd84b;
+    font-weight:bold;
+}
+
+.middle{
+    text-align:center;
+    margin:45px 0 25px;
+    font-size:42px;
+    color:#ffffff;
+    letter-spacing:2px;
+}
+
+.footer{
+    text-align:center;
+    padding:35px 15px;
+    color:#dcdcdc;
+    font-size:22px;
+}
+
+@media(max-width:768px){
+
+.header h1{
+    font-size:32px;
+}
+
+th{
+    font-size:15px;
+}
+
+td{
+    font-size:14px;
+}
+
+.middle{
+    font-size:24px;
+}
+
+.footer{
+    font-size:15px;
 }
 
 }
-
-
-
-h2{
-
-color:#90e0ef;
-
-margin-bottom:15px;
-
-}
-
-
-.tag{
-
-display:inline-block;
-
-background:#0077b6;
-
-padding:8px 15px;
-
-border-radius:20px;
-
-margin:5px;
-
-}
-
-
-
-a{
-
-color:#caf0f8;
-
-}
-
-
-
-footer{
-
-text-align:center;
-
-padding:30px;
-
-opacity:.7;
-
-}
-
-
 </style>
-
-
 </head>
-
-
 
 <body>
 
-
 <canvas id="stars"></canvas>
-
-
-<div class="scan"></div>
-
 
 <div class="container">
 
+<div class="header">
 
+<h1>📡 业余无线电台通联日志（QSO）</h1>
 
-<div class="card header">
-
-
-<div class="call">
-
-BI4BOB
-
+<div class="divider">
+<span>✦</span>
 </div>
 
-
-<div class="morse">
-
--... .. ....- -... --- -...
-
 </div>
-
-
-<div class="earth">
-
-🌍
-
-</div>
-
-
-<div id="utc">
-
-UTC
-
-</div>
-
-
-<div id="propagation">
-
-📶 Monitoring...
-
-</div>
-
-
-<p style="margin-top:20px">
-
-Amateur Radio Operator
-
-<br>
-
-设备：
-
-<strong>
-Baofeng UV-5R
-</strong>
-
-
-</p>
-
-
-</div>
-
-
-
 
 <div class="card">
 
+<table>
 
-<h2>
-🌍 我的兴趣
-</h2>
+<thead>
 
+<tr>
 
-<span class="tag">
-业余无线电
-</span>
+<th>时间</th>
 
+<th>呼号</th>
 
-<span class="tag">
-NAS
-</span>
+<th>频段</th>
 
+<th>模式</th>
 
-<span class="tag">
-LOL 海克斯大乱斗
-</span>
+<th>RST</th>
 
+<th>QTH</th>
+
+<th>备注</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+<tr>
+
+<td>2026-07-10</td>
+
+<td>BG4XXX</td>
+
+<td>
+<span class="band">7MHz</span>
+</td>
+
+<td class="mode">SSB</td>
+
+<td class="rst">59</td>
+
+<td>中国</td>
+
+<td>首次通联</td>
+
+</tr>
+
+<tr>
+
+<td>2026-07-11</td>
+
+<td>BD5XXX</td>
+
+<td>
+<span class="band">144MHz</span>
+</td>
+
+<td class="mode">FM</td>
+
+<td class="rst">59</td>
+
+<td>中国</td>
+
+<td>本地通联</td>
+
+</tr>
+
+<tr>
+
+<td>2026-07-12</td>
+
+<td>JA1XXX</td>
+
+<td>
+<span class="band">14MHz</span>
+</td>
+
+<td class="mode">FT8</td>
+
+<td class="rst">-10dB</td>
+
+<td>日本</td>
+
+<td>DX 通联</td>
+
+</tr>
+
+<!-- 新增记录请从这里开始复制 -->
+
+<!--
+<tr>
+<td>2026-07-13</td>
+<td>BH1XXX</td>
+<td><span class="band">21MHz</span></td>
+<td class="mode">SSB</td>
+<td class="rst">59</td>
+<td>北京</td>
+<td>备注</td>
+</tr>
+-->
+
+</tbody>
+
+</table>
+
+<div class="middle">
+
+Call BI4BOB
 
 </div>
 
-
-
-
-<div class="card">
-
-
-<h2>
-🎬 收藏
-</h2>
-
-
-<p>
-🌊 《蓝色星球》
-</p>
-
-<p>
-🌎 《地球脉动》
-</p>
-
-<p>
-📖 百家讲坛：明太祖朱元璋
-</p>
-
+</div>
 
 </div>
 
-
-
-
-<div class="card">
-
-
-<h2>
-🎵 音乐
-</h2>
-
-
-<p>
-李宗盛 · 孙燕姿 · 邓紫棋 · Taylor Swift
-</p>
-
-
-</div>
-
-
-
-<div class="card">
-
-
-<h2>
-📡 Radio Station
-</h2>
-
-
-<a href="qso.html">
-
-查看 QSO 通联日志 →
-
-</a>
-
-
-</div>
-
-
-
-<div class="card">
-
-
-<h2>
-📮 Contact
-</h2>
-
-
-8bps@proton.me
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-<footer>
+<footer class="footer">
 
 Copyright © 1996-2026 秋雨夜眠 🏃‍♂️
 
-|
-
-Github Pages ☁️
-
 </footer>
-
-
-
 <script>
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
 
+let stars = [];
+let shootingStars = [];
 
-// 星空
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-let c=document.getElementById("stars");
+    stars = [];
 
-let ctx=c.getContext("2d");
+    for (let i = 0; i < 220; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 2 + 0.3,
+            a: Math.random(),
+            v: Math.random() * 0.3 + 0.05
+        });
+    }
+}
 
-let stars=[];
+function createShootingStar() {
 
+    shootingStars.push({
 
-function resize(){
+        x: Math.random() * canvas.width,
 
-c.width=innerWidth;
+        y: Math.random() * canvas.height * 0.35,
 
-c.height=innerHeight;
+        len: Math.random() * 120 + 80,
 
+        speed: Math.random() * 12 + 10,
 
-stars=[];
+        life: 0
 
-
-for(let i=0;i<250;i++){
-
-stars.push({
-
-x:Math.random()*c.width,
-
-y:Math.random()*c.height,
-
-r:Math.random()*2,
-
-s:Math.random()+0.2
-
-});
+    });
 
 }
 
+setInterval(createShootingStar, 5000);
+
+function drawBackground() {
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    stars.forEach(star=>{
+
+        ctx.beginPath();
+
+        ctx.fillStyle="rgba(255,255,255,"+star.a+")";
+
+        ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
+
+        ctx.fill();
+
+        star.y+=star.v;
+
+        if(star.y>canvas.height){
+
+            star.y=0;
+
+            star.x=Math.random()*canvas.width;
+
+        }
+
+    });
+
+    for(let i=shootingStars.length-1;i>=0;i--){
+
+        let s=shootingStars[i];
+
+        ctx.beginPath();
+
+        let g=ctx.createLinearGradient(
+            s.x,
+            s.y,
+            s.x+s.len,
+            s.y+s.len*0.35
+        );
+
+        g.addColorStop(0,"rgba(255,255,255,1)");
+        g.addColorStop(1,"rgba(255,255,255,0)");
+
+        ctx.strokeStyle=g;
+
+        ctx.lineWidth=2;
+
+        ctx.moveTo(s.x,s.y);
+
+        ctx.lineTo(
+            s.x+s.len,
+            s.y+s.len*0.35
+        );
+
+        ctx.stroke();
+
+        s.x+=s.speed;
+
+        s.y+=s.speed*0.35;
+
+        s.life++;
+
+        if(s.life>40){
+
+            shootingStars.splice(i,1);
+
+        }
+
+    }
+
+    requestAnimationFrame(drawBackground);
+
 }
-
-
-function draw(){
-
-ctx.clearRect(
-0,
-0,
-c.width,
-c.height
-);
-
-
-stars.forEach(s=>{
-
-ctx.fillStyle="white";
-
-ctx.beginPath();
-
-ctx.arc(
-s.x,
-s.y,
-s.r,
-0,
-Math.PI*2
-);
-
-ctx.fill();
-
-
-s.y+=s.s;
-
-
-if(s.y>c.height)
-s.y=0;
-
-
-});
-
-
-requestAnimationFrame(draw);
-
-}
-
 
 resize();
 
-draw();
+drawBackground();
 
-
-onresize=resize;
-
-
-
-// UTC
-
-function utc(){
-
-let d=new Date();
-
-
-document.getElementById("utc")
-.innerHTML=
-"🕒 UTC "+
-d.toISOString()
-.substring(11,19);
-
-}
-
-
-setInterval(utc,1000);
-
-utc();
-
-
-
-// 电波状态
-
-let p=[
-
-"📶 7.050MHz Listening",
-
-"🌎 Ionosphere Active",
-
-"📡 HF Monitoring",
-
-"✨ Propagation Stable"
-
-];
-
-
-let i=0;
-
-
-setInterval(()=>{
-
-document.getElementById(
-"propagation"
-)
-.innerHTML=p[i++%p.length];
-
-
-},3000);
-
-
-
-// 流星
-
-setInterval(()=>{
-
-let m=document.createElement("div");
-
-m.style.position="fixed";
-
-m.style.width="3px";
-
-m.style.height="100px";
-
-m.style.background=
-"linear-gradient(white,transparent)";
-
-
-m.style.left=
-Math.random()*100+"%";
-
-m.style.top="-100px";
-
-m.style.transform=
-"rotate(45deg)";
-
-
-document.body.appendChild(m);
-
-
-
-m.animate([
-
-{
-transform:
-"translate(0,0) rotate(45deg)"
-},
-
-{
-transform:
-"translate(-500px,700px) rotate(45deg)",
-opacity:0
-}
-
-],
-
-{
-duration:1500
-});
-
-
-setTimeout(
-()=>m.remove(),
-1600
-);
-
-
-},4000);
-
-
+window.addEventListener("resize",resize);
 
 </script>
 
-
 </body>
-
 </html>
