@@ -58,12 +58,16 @@ let filteredLogs = [...qsoLogs];
 
 const logBody = document.getElementById("logBody");
 const searchInput = document.getElementById("callsignSearch");
+const logTitle = document.getElementById("logTitle");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const pageInfo = document.getElementById("pageInfo");
 const rangeInfo = document.getElementById("rangeInfo");
 const totalInfo = document.getElementById("totalInfo");
 const emptyState = document.getElementById("emptyState");
+const toggleBtn = document.getElementById("toggleLogBtn");
+const logContainer = document.getElementById("logContainer");
+let isLogExpanded = false;
 
 function escapeHTML(value) {
   return String(value).replace(/[&<>'"]/g, char => ({
@@ -96,9 +100,70 @@ function renderLogs() {
   nextBtn.disabled = currentPage === totalPages || filteredLogs.length === 0;
 }
 
+// 展开日志函数
+function expandLog() {
+  if (!isLogExpanded) {
+    isLogExpanded = true;
+    logContainer.classList.remove("collapsed");
+    toggleBtn.classList.add("expanded");
+    toggleBtn.querySelector(".btn-label").textContent = "收起日志";
+    if (logBody.children.length === 0) {
+      renderLogs();
+    }
+  }
+}
+
+// 收起日志函数
+function collapseLog() {
+  if (isLogExpanded) {
+    isLogExpanded = false;
+    logContainer.classList.add("collapsed");
+    toggleBtn.classList.remove("expanded");
+    toggleBtn.querySelector(".btn-label").textContent = "展开日志";
+  }
+}
+
+// 展开/收起按钮
+toggleBtn.addEventListener("click", () => {
+  if (isLogExpanded) {
+    collapseLog();
+  } else {
+    expandLog();
+  }
+});
+
+// 点击 "QSO 通联日志" 标题 → 展开 + 回到首页
+logTitle.addEventListener("click", () => {
+  expandLog();
+  searchInput.value = "";
+  filteredLogs = [...qsoLogs];
+  currentPage = 1;
+  renderLogs();
+  searchInput.blur();
+});
+
+// 点击搜索框自动展开
+searchInput.addEventListener("focus", expandLog);
+
+// 搜索逻辑
 searchInput.addEventListener("input", event => {
   const keyword = event.target.value.trim().toUpperCase();
-  filteredLogs = qsoLogs.filter(log => log.call.toUpperCase().includes(keyword));
+  if (!keyword) {
+    filteredLogs = [...qsoLogs];
+  } else {
+    filteredLogs = qsoLogs.filter(log => {
+      const searchable = [
+        log.call,
+        log.band,
+        log.mode,
+        log.qth,
+        log.remarks,
+        log.rst,
+        log.time
+      ].join(" ").toUpperCase();
+      return searchable.includes(keyword);
+    });
+  }
   currentPage = 1;
   renderLogs();
 });
@@ -111,12 +176,24 @@ nextBtn.addEventListener("click", () => {
   if (currentPage * pageSize < filteredLogs.length) { currentPage += 1; renderLogs(); }
 });
 
+// 时钟更新：显示日期 + 时间
 function updateClock() {
-  document.getElementById("liveClock").textContent = new Intl.DateTimeFormat("zh-CN", {
-    timeZone: "Asia/Shanghai", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit"
-  }).format(new Date());
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  });
+  document.getElementById("liveClock").textContent = formatter.format(now);
 }
 
+// 初始状态：收起
+logContainer.classList.add("collapsed");
 renderLogs();
 updateClock();
 setInterval(updateClock, 1000);

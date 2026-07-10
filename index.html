@@ -48,48 +48,58 @@
           <h2 id="logTitle">QSO 通联日志</h2>
         </div>
 
-        <label class="search-box" for="callsignSearch">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-          <input id="callsignSearch" type="search" placeholder="搜索呼号，如 JA1ABC" autocomplete="off">
-          <kbd>CALLSIGN</kbd>
-        </label>
-      </div>
+        <div class="panel-head-actions">
+          <button id="toggleLogBtn" class="toggle-log-btn" type="button">
+            <span class="btn-icon" aria-hidden="true">▼</span>
+            <span class="btn-label">展开日志</span>
+          </button>
 
-      <div class="table-frame">
-        <table>
-          <thead>
-            <tr>
-              <th>时间 <small>DATE / TIME</small></th>
-              <th>呼号 <small>CALLSIGN</small></th>
-              <th>频段 <small>BAND</small></th>
-              <th>模式 <small>MODE</small></th>
-              <th>信号 <small>RST</small></th>
-              <th>位置 <small>QTH</small></th>
-              <th>备注 <small>REMARKS</small></th>
-            </tr>
-          </thead>
-          <tbody id="logBody"></tbody>
-        </table>
-        <div id="emptyState" class="empty-state" hidden>
-          <span>⌁</span>
-          <strong>未找到匹配的呼号</strong>
-          <small>请尝试输入其他关键字</small>
+          <label class="search-box" for="callsignSearch">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+            <input id="callsignSearch" type="search" placeholder="搜索呼号、频段、模式、位置等" autocomplete="off">
+            <kbd>SEARCH</kbd>
+          </label>
         </div>
       </div>
 
-      <div class="panel-footer">
-        <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条通联记录</p>
-        <nav class="pagination" aria-label="通联日志分页">
-          <button id="prevBtn" type="button" aria-label="上一页">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-            上一页
-          </button>
-          <span id="pageInfo">01 / 01</span>
-          <button id="nextBtn" type="button" aria-label="下一页">
-            下一页
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
-        </nav>
+      <!-- 日志表格折叠容器 -->
+      <div id="logContainer" class="log-container collapsed">
+        <div class="table-frame">
+          <table>
+            <thead>
+              <tr>
+                <th>时间 <small>DATE / TIME</small></th>
+                <th>呼号 <small>CALLSIGN</small></th>
+                <th>频段 <small>BAND</small></th>
+                <th>模式 <small>MODE</small></th>
+                <th>信号 <small>RST</small></th>
+                <th>位置 <small>QTH</small></th>
+                <th>备注 <small>REMARKS</small></th>
+              </tr>
+            </thead>
+            <tbody id="logBody"></tbody>
+          </table>
+          <div id="emptyState" class="empty-state" hidden>
+            <span>⌁</span>
+            <strong>未找到匹配的记录</strong>
+            <small>请尝试输入其他关键字</small>
+          </div>
+        </div>
+
+        <div class="panel-footer">
+          <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条通联记录</p>
+          <nav class="pagination" aria-label="通联日志分页">
+            <button id="prevBtn" type="button" aria-label="上一页">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+              上一页
+            </button>
+            <span id="pageInfo">01 / 01</span>
+            <button id="nextBtn" type="button" aria-label="下一页">
+              下一页
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </nav>
+        </div>
       </div>
     </section>
   </main>
