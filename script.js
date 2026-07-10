@@ -65,7 +65,6 @@ const pageInfo = document.getElementById("pageInfo");
 const rangeInfo = document.getElementById("rangeInfo");
 const totalInfo = document.getElementById("totalInfo");
 const emptyState = document.getElementById("emptyState");
-const toggleBtn = document.getElementById("toggleLogBtn");
 const logContainer = document.getElementById("logContainer");
 let isLogExpanded = false;
 
@@ -100,50 +99,35 @@ function renderLogs() {
   nextBtn.disabled = currentPage === totalPages || filteredLogs.length === 0;
 }
 
-// 展开日志函数
-function expandLog() {
-  if (!isLogExpanded) {
-    isLogExpanded = true;
-    logContainer.classList.remove("collapsed");
-    toggleBtn.classList.add("expanded");
-    toggleBtn.querySelector(".btn-label").textContent = "收起日志";
-    if (logBody.children.length === 0) {
-      renderLogs();
-    }
-  }
-}
+// 切换日志展开/收起 + 回到首页
+function toggleLog() {
+  isLogExpanded = !isLogExpanded;
+  logContainer.classList.toggle("collapsed", !isLogExpanded);
+  logTitle.classList.toggle("expanded", isLogExpanded);
+  logTitle.querySelector(".btn-label").textContent = isLogExpanded ? "收起日志" : "展开日志";
 
-// 收起日志函数
-function collapseLog() {
-  if (isLogExpanded) {
-    isLogExpanded = false;
-    logContainer.classList.add("collapsed");
-    toggleBtn.classList.remove("expanded");
-    toggleBtn.querySelector(".btn-label").textContent = "展开日志";
-  }
-}
-
-// 展开/收起按钮
-toggleBtn.addEventListener("click", () => {
-  if (isLogExpanded) {
-    collapseLog();
-  } else {
-    expandLog();
-  }
-});
-
-// 点击 "QSO 通联日志" 标题 → 展开 + 回到首页
-logTitle.addEventListener("click", () => {
-  expandLog();
+  // 回到首页：清空搜索，重置数据
   searchInput.value = "";
   filteredLogs = [...qsoLogs];
   currentPage = 1;
   renderLogs();
   searchInput.blur();
-});
+
+  // 首次展开时渲染数据
+  if (isLogExpanded && logBody.children.length === 0) {
+    renderLogs();
+  }
+}
+
+// 点击标题切换
+logTitle.addEventListener("click", toggleLog);
 
 // 点击搜索框自动展开
-searchInput.addEventListener("focus", expandLog);
+searchInput.addEventListener("focus", () => {
+  if (!isLogExpanded) {
+    toggleLog();
+  }
+});
 
 // 搜索逻辑
 searchInput.addEventListener("input", event => {
