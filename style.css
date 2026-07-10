@@ -122,15 +122,43 @@ body::before {
 
 .log-panel { margin-top: 24px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(135deg, rgba(9, 35, 61, .65), rgba(2, 14, 29, .76)); box-shadow: 0 24px 70px rgba(0, 0, 0, .42), inset 0 1px rgba(255,255,255,.04), 0 0 35px rgba(0, 134, 205, .06); backdrop-filter: blur(18px) saturate(125%); }
 .log-panel::before { content: ""; display: block; height: 2px; background: linear-gradient(90deg, transparent, rgba(82, 226, 255, .85), transparent); }
-.panel-head { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px 16px; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(29, 100, 133, .08), transparent); }
-.panel-head h2 { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: .1em; cursor: pointer; transition: color .2s ease; }
-.panel-head h2:hover { color: var(--cyan); text-shadow: 0 0 20px rgba(85, 233, 255, .2); }
-.panel-head h2 #headerClock {
-  font-size: 14px;
-  font-weight: 400;
-  color: #6b9caf;
-  margin-left: 16px;
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px 16px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(29, 100, 133, .08), transparent);
+}
+.panel-head-left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.panel-head .title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 100%;
+}
+.panel-head .title-row .title-clock {
+  font-size: 22px;
+  font-weight: 600;
+  color: #dff8ff;
   letter-spacing: .05em;
+  margin-right: auto;
+}
+.panel-head .title-row .title-log {
+  font-size: 22px;
+  font-weight: 600;
+  color: #dff8ff;
+  cursor: pointer;
+  transition: color .2s ease;
+  letter-spacing: .08em;
+}
+.panel-head .title-row .title-log:hover {
+  color: var(--cyan);
+  text-shadow: 0 0 20px rgba(85, 233, 255, .2);
 }
 .eyebrow { color: #527e91; margin-bottom: 5px; }
 
@@ -139,6 +167,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 /* ===== 展开/收起按钮 ===== */
@@ -296,9 +325,26 @@ tbody tr:hover td { color: #d6f6ff; }
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   color: #628495;
   font-size: 15px;
   letter-spacing: .08em;
+}
+.site-footer .footer-content .footer-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #31f2ba;
+  box-shadow: 0 0 10px #31f2ba;
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.site-footer .footer-content .footer-callsign {
+  color: #86e9fb;
+}
+.site-footer .footer-content .footer-separator {
+  color: #4a6a7a;
 }
 .site-footer .footer-content a {
   color: var(--cyan);
