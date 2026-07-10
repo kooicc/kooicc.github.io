@@ -90,10 +90,10 @@ body::before {
   overflow: hidden;
   border: 1px solid rgba(109, 220, 255, 0.06);
   border-radius: 12px;
-  background: rgba(2, 14, 29, 0.25);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(2, 14, 29, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .log-panel::before {
   display: none;
@@ -103,8 +103,8 @@ body::before {
   justify-content: space-between;
   align-items: center;
   padding: 12px 0 12px 0;
-  border-bottom: 1px solid rgba(109, 220, 255, 0.06);
-  background: rgba(2, 14, 29, 0.08);
+  border-bottom: 1px solid rgba(109, 220, 255, 0.04);
+  background: rgba(2, 14, 29, 0.04);
 }
 .panel-head-left {
   flex: 1;
@@ -114,6 +114,7 @@ body::before {
   align-items: baseline;
   justify-content: flex-start;
   width: 100%;
+  padding-left: 16px;
 }
 .panel-head .title-row .title-log {
   display: inline-flex;
@@ -179,11 +180,11 @@ body::before {
   min-height: 420px;
   position: relative;
   padding: 8px 0;
-  background: rgba(2, 14, 29, 0.08);
+  background: rgba(2, 14, 29, 0.04);
   border-radius: 0 0 12px 12px;
 }
 table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-thead { background: rgba(8, 45, 70, 0.12); }
+thead { background: rgba(8, 45, 70, 0.06); }
 th {
   height: 60px;
   padding: 0 12px;
@@ -211,7 +212,7 @@ th:last-child, td:last-child { padding-right: 20px; width: 14.28%; }
 td {
   height: 48px;
   padding: 0 12px;
-  border-bottom: 1px solid rgba(109, 220, 255, 0.04);
+  border-bottom: 1px solid rgba(109, 220, 255, 0.02);
   color: #99b3c1;
   font-size: 18px;
   text-align: center;
@@ -221,7 +222,7 @@ td {
   transition: .18s ease;
 }
 tbody tr { transition: .18s ease; }
-tbody tr:hover { background: rgba(32, 177, 225, 0.06); }
+tbody tr:hover { background: rgba(32, 177, 225, 0.04); }
 tbody tr:hover td { color: #d6f6ff; }
 .time-cell { font-family: Consolas, monospace; color: #7898aa; }
 .call-cell { color: #86e9fb; font: 600 16px Consolas, monospace; letter-spacing: .08em; text-shadow: 0 0 9px rgba(70, 222, 255, .18); }
@@ -257,8 +258,8 @@ tbody tr:hover td { color: #d6f6ff; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(109, 220, 255, 0.06);
-  background: transparent;
+  border-top: 1px solid rgba(109, 220, 255, 0.04);
+  background: rgba(2, 14, 29, 0.04);
 }
 .panel-footer p { color: #526f80; font-size: 12px; }
 .panel-footer p strong { color: #7ccfe0; font: 500 12px Consolas, monospace; }
