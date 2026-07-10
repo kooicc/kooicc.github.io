@@ -72,11 +72,6 @@ body::before {
   align-items: center;
   gap: 10px;
 }
-.brand .brand-radar {
-  font-size: 28px;
-  line-height: 1;
-  filter: drop-shadow(0 0 6px rgba(85, 233, 255, 0.2));
-}
 .brand-copy #brandClock {
   margin-top: 6px;
   color: #6b9caf;
@@ -183,7 +178,7 @@ body::before {
 }
 
 /* ===== 表格 ===== */
-.table-frame { min-height: 704px; position: relative; }
+.table-frame { min-height: 500px; position: relative; }
 table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 thead { background: rgba(8, 45, 70, .38); }
 th {
@@ -203,6 +198,11 @@ th small {
   font: 10px Consolas, monospace;
   letter-spacing: .12em;
 }
+/* 频段和模式表头居中 */
+th:nth-child(3), th:nth-child(4) {
+  text-align: center;
+}
+/* 列宽 */
 th:first-child, td:first-child { padding-left: 29px; width: 16%; }
 th:nth-child(2) { width: 14%; }
 th:nth-child(3) { width: 10%; }
@@ -216,10 +216,15 @@ td {
   border-bottom: 1px solid rgba(95, 190, 221, .075);
   color: #99b3c1;
   font-size: 13px;
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: .18s ease;
+}
+/* 频段和模式列内容居中 */
+td:nth-child(3), td:nth-child(4) {
+  text-align: center;
 }
 tbody tr { transition: .18s ease; }
 tbody tr:hover { background: linear-gradient(90deg, rgba(32, 177, 225, .04), rgba(51, 206, 247, .11), rgba(32, 177, 225, .03)); box-shadow: inset 2px 0 var(--cyan), inset 0 0 22px rgba(42, 190, 236, .04); }

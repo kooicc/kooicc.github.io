@@ -52,7 +52,7 @@ const qsoLogs = [
   ["2026-07-05 13:49", "JH1GEX", "18MHz", "FT8", "+04", "Yokohama, Japan", "Excellent decode"]
 ].map(([time, call, band, mode, rst, qth, remarks]) => ({ time, call, band, mode, rst, qth, remarks }));
 
-const pageSize = 20;
+const pageSize = 10;
 let currentPage = 1;
 let filteredLogs = [...qsoLogs];
 
