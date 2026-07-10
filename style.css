@@ -538,3 +538,51 @@ tbody tr:hover td { color: #d6f6ff; }
     transform: scale(1.8);
   }
 }
+
+/* ===== 流星（细长、微弱、偶尔划过） ===== */
+.shooting-star {
+  position: absolute;
+  width: 80px;
+  height: 1px;
+  opacity: 0;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3));
+  transform: rotate(-30deg);
+  animation: shooting 12s ease-in-out infinite;
+}
+
+.shooting-star::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.15);
+}
+
+.shooting-star-1 { top: 10%; left: 20%; animation-delay: 0s; }
+.shooting-star-2 { top: 30%; left: 60%; animation-delay: 6s; animation-duration: 14s; }
+.shooting-star-3 { top: 5%; left: 80%; animation-delay: 11s; animation-duration: 16s; }
+
+@keyframes shooting {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-30deg) scale(0.5);
+  }
+  3% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 1;
+    transform: translate(-120px, 70px) rotate(-30deg) scale(1);
+  }
+  8% {
+    opacity: 0;
+    transform: translate(-180px, 100px) rotate(-30deg) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+  }
+}
