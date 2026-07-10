@@ -13,6 +13,7 @@ body {
   overflow-x: auto;
   color: var(--ink);
   background: #020b17 url("https://bing.ee123.net/img") center / cover fixed no-repeat;
+  /* background: #020b17 url("background.webp") center / cover fixed no-repeat; */
   font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", Arial, sans-serif;
   letter-spacing: .02em;
 }
