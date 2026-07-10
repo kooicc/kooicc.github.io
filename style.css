@@ -62,7 +62,7 @@ body::before {
 }
 .brand strong {
   font-family: "Arial Narrow", "Segoe UI", sans-serif;
-  font-size: 34px;
+  font-size: 22px;
   line-height: 1;
   letter-spacing: .13em;
   color: white;
@@ -70,6 +70,16 @@ body::before {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.brand strong .brand-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #31f2ba;
+  box-shadow: 0 0 10px #31f2ba;
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 .brand-copy #brandClock {
   margin-top: 6px;
@@ -280,52 +290,24 @@ tbody tr:hover td { color: #d6f6ff; }
   height: 48px;
   display: grid;
   place-items: center;
-  border-top: 1px solid rgba(96, 211, 243, .16);
 }
-.site-footer p {
-  margin: 0;
+.site-footer .footer-content {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   color: #628495;
   font-size: 13px;
   letter-spacing: .08em;
 }
-.site-footer p .footer-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #31f2ba;
-  box-shadow: 0 0 10px #31f2ba;
-  animation: pulse 2s ease-in-out infinite;
-  flex-shrink: 0;
-}
-.site-footer p .separator {
-  color: #4a6a7a;
-}
-.site-footer p .aprs-link {
+.site-footer .footer-content a {
   color: var(--cyan);
   text-decoration: none;
   transition: color .2s ease, text-shadow .2s ease;
 }
-.site-footer p .aprs-link:hover {
+.site-footer .footer-content a:hover {
   color: #8ff4ff;
   text-shadow: 0 0 12px rgba(85, 233, 255, 0.4);
   text-decoration: underline;
-}
-.site-footer p .callsign-link {
-  color: var(--cyan);
-  text-decoration: none;
-  transition: color .2s ease, text-shadow .2s ease;
-}
-.site-footer p .callsign-link:hover {
-  color: #8ff4ff;
-  text-shadow: 0 0 12px rgba(85, 233, 255, 0.4);
-  text-decoration: underline;
-}
-.site-footer p span:last-child {
-  color: #81b6c4;
 }
 
 @media (prefers-reduced-motion: reduce) {
