@@ -539,48 +539,62 @@ tbody tr:hover td { color: #d6f6ff; }
   }
 }
 
-/* ===== 流星（细长、微弱、偶尔划过） ===== */
+/* ===== 流星（细长、平滑、偶尔划过） ===== */
 .shooting-star {
   position: absolute;
-  width: 80px;
+  width: 1px;
   height: 1px;
   opacity: 0;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3));
-  transform: rotate(-30deg);
-  animation: shooting 12s ease-in-out infinite;
+  background: transparent;
+  transform: rotate(-35deg);
+  animation: shooting 10s ease-in-out infinite;
 }
 
+/* 用伪元素做尾巴，保持粗细一致 */
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.6), transparent);
+  border-radius: 0;
+  transform-origin: right center;
+}
+
+/* 头部小光点 */
 .shooting-star::after {
   content: "";
   position: absolute;
-  right: 0;
   top: -2px;
+  right: 0;
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.2);
 }
 
-.shooting-star-1 { top: 10%; left: 20%; animation-delay: 0s; }
-.shooting-star-2 { top: 30%; left: 60%; animation-delay: 6s; animation-duration: 14s; }
-.shooting-star-3 { top: 5%; left: 80%; animation-delay: 11s; animation-duration: 16s; }
+.shooting-star-1 { top: 8%; left: 15%; animation-delay: 0s; }
+.shooting-star-2 { top: 25%; left: 55%; animation-delay: 7s; animation-duration: 12s; }
+.shooting-star-3 { top: 3%; left: 80%; animation-delay: 13s; animation-duration: 14s; }
 
 @keyframes shooting {
   0% {
     opacity: 0;
-    transform: translate(0, 0) rotate(-30deg) scale(0.5);
+    transform: translate(0, 0) rotate(-35deg);
   }
-  3% {
+  2% {
     opacity: 1;
-  }
-  6% {
-    opacity: 1;
-    transform: translate(-120px, 70px) rotate(-30deg) scale(1);
   }
   8% {
+    opacity: 1;
+    transform: translate(-180px, 110px) rotate(-35deg);
+  }
+  10% {
     opacity: 0;
-    transform: translate(-180px, 100px) rotate(-30deg) scale(0.8);
+    transform: translate(-220px, 135px) rotate(-35deg);
   }
   100% {
     opacity: 0;
