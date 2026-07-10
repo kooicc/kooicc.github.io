@@ -1,438 +1,103 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📡 业余无线电台通联日志（QSO）</title>
-
-<link rel="icon" href="favicon.svg">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,body{
-    width:100%;
-    height:100%;
-}
-
-body{
-    font-family:"Microsoft YaHei","Segoe UI",sans-serif;
-    background:linear-gradient(180deg,#03132f 0%,#072654 45%,#0b3c73 100%);
-    color:#fff;
-    overflow-x:hidden;
-}
-
-#stars{
-    position:fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    z-index:-2;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:50px 20px;
-}
-
-.header{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.header h1{
-    font-size:58px;
-    color:#b8ecff;
-    text-shadow:0 0 20px rgba(80,180,255,.5);
-    letter-spacing:2px;
-    font-weight:900;
-}
-
-.divider{
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:30px 0;
-}
-
-.divider:before,
-.divider:after{
-    content:"";
-    height:1px;
-    background:rgba(255,255,255,.35);
-    flex:1;
-}
-
-.divider span{
-    padding:0 18px;
-    color:#9fdcff;
-    font-size:20px;
-}
-
-.card{
-    background:rgba(255,255,255,.10);
-    backdrop-filter:blur(16px);
-    border:1px solid rgba(255,255,255,.18);
-    border-radius:28px;
-    padding:22px;
-    box-shadow:0 15px 45px rgba(0,0,0,.35);
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    overflow:hidden;
-    border-radius:18px;
-}
-
-thead{
-    background:#0d4ea5;
-}
-
-th{
-    padding:18px 10px;
-    font-size:28px;
-    font-weight:bold;
-    border:1px solid rgba(255,255,255,.12);
-}
-
-td{
-    padding:22px 12px;
-    font-size:22px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,.10);
-}
-
-tbody tr:hover{
-    background:rgba(255,255,255,.06);
-}
-
-.band{
-    display:inline-block;
-    background:#2b9fff;
-    padding:8px 18px;
-    border-radius:10px;
-    font-weight:bold;
-}
-
-.mode{
-    color:#69beff;
-    font-weight:bold;
-}
-
-.rst{
-    color:#ffd84b;
-    font-weight:bold;
-}
-
-.middle{
-    text-align:center;
-    margin:45px 0 25px;
-    font-size:42px;
-    color:#ffffff;
-    letter-spacing:2px;
-}
-
-.footer{
-    text-align:center;
-    padding:35px 15px;
-    color:#dcdcdc;
-    font-size:22px;
-}
-
-@media(max-width:768px){
-
-.header h1{
-    font-size:32px;
-}
-
-th{
-    font-size:15px;
-}
-
-td{
-    font-size:14px;
-}
-
-.middle{
-    font-size:24px;
-}
-
-.footer{
-    font-size:15px;
-}
-
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BI4BOB 业余无线电台 QSO 通联日志">
+  <meta name="theme-color" content="#031428">
+  <title>BI4BOB · QSO 通联日志</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<canvas id="stars"></canvas>
-
-<div class="container">
-
-<div class="header">
-
-<h1>📡 业余无线电台通联日志（QSO）</h1>
-
-<div class="divider">
-<span>✦</span>
-</div>
-
-</div>
-
-<div class="card">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>时间</th>
-
-<th>呼号</th>
-
-<th>频段</th>
-
-<th>模式</th>
-
-<th>RST</th>
-
-<th>QTH</th>
-
-<th>备注</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-<tr>
-
-<td>2026-07-10</td>
-
-<td>BG4XXX</td>
-
-<td>
-<span class="band">7MHz</span>
-</td>
-
-<td class="mode">SSB</td>
-
-<td class="rst">59</td>
-
-<td>中国</td>
-
-<td>首次通联</td>
-
-</tr>
-
-<tr>
-
-<td>2026-07-11</td>
-
-<td>BD5XXX</td>
-
-<td>
-<span class="band">144MHz</span>
-</td>
-
-<td class="mode">FM</td>
-
-<td class="rst">59</td>
-
-<td>中国</td>
-
-<td>本地通联</td>
-
-</tr>
-
-<tr>
-
-<td>2026-07-12</td>
-
-<td>JA1XXX</td>
-
-<td>
-<span class="band">14MHz</span>
-</td>
-
-<td class="mode">FT8</td>
-
-<td class="rst">-10dB</td>
-
-<td>日本</td>
-
-<td>DX 通联</td>
-
-</tr>
-
-<!-- 新增记录请从这里开始复制 -->
-
-<!--
-<tr>
-<td>2026-07-13</td>
-<td>BH1XXX</td>
-<td><span class="band">21MHz</span></td>
-<td class="mode">SSB</td>
-<td class="rst">59</td>
-<td>北京</td>
-<td>备注</td>
-</tr>
--->
-
-</tbody>
-
-</table>
-
-<div class="middle">
-
-Call BI4BOB
-
-</div>
-
-</div>
-
-</div>
-
-<footer class="footer">
-
-Copyright © 1996-2026 秋雨夜眠 🏃‍♂️
-
-</footer>
-<script>
-const canvas = document.getElementById("stars");
-const ctx = canvas.getContext("2d");
-
-let stars = [];
-let shootingStars = [];
-
-function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    stars = [];
-
-    for (let i = 0; i < 220; i++) {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 2 + 0.3,
-            a: Math.random(),
-            v: Math.random() * 0.3 + 0.05
-        });
-    }
-}
-
-function createShootingStar() {
-
-    shootingStars.push({
-
-        x: Math.random() * canvas.width,
-
-        y: Math.random() * canvas.height * 0.35,
-
-        len: Math.random() * 120 + 80,
-
-        speed: Math.random() * 12 + 10,
-
-        life: 0
-
-    });
-
-}
-
-setInterval(createShootingStar, 5000);
-
-function drawBackground() {
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    stars.forEach(star=>{
-
-        ctx.beginPath();
-
-        ctx.fillStyle="rgba(255,255,255,"+star.a+")";
-
-        ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
-
-        ctx.fill();
-
-        star.y+=star.v;
-
-        if(star.y>canvas.height){
-
-            star.y=0;
-
-            star.x=Math.random()*canvas.width;
-
-        }
-
-    });
-
-    for(let i=shootingStars.length-1;i>=0;i--){
-
-        let s=shootingStars[i];
-
-        ctx.beginPath();
-
-        let g=ctx.createLinearGradient(
-            s.x,
-            s.y,
-            s.x+s.len,
-            s.y+s.len*0.35
-        );
-
-        g.addColorStop(0,"rgba(255,255,255,1)");
-        g.addColorStop(1,"rgba(255,255,255,0)");
-
-        ctx.strokeStyle=g;
-
-        ctx.lineWidth=2;
-
-        ctx.moveTo(s.x,s.y);
-
-        ctx.lineTo(
-            s.x+s.len,
-            s.y+s.len*0.35
-        );
-
-        ctx.stroke();
-
-        s.x+=s.speed;
-
-        s.y+=s.speed*0.35;
-
-        s.life++;
-
-        if(s.life>40){
-
-            shootingStars.splice(i,1);
-
-        }
-
-    }
-
-    requestAnimationFrame(drawBackground);
-
-}
-
-resize();
-
-drawBackground();
-
-window.addEventListener("resize",resize);
-
-</script>
-
+  <div class="scene" aria-hidden="true">
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="meteor meteor-one"></div>
+    <div class="meteor meteor-two"></div>
+    <div class="meteor meteor-three"></div>
+    <div class="grid-horizon"></div>
+  </div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <a class="brand" href="#" aria-label="BI4BOB 首页">
+        <span class="brand-signal" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-copy">
+          <strong>BI4BOB</strong>
+          <small>AMATEUR RADIO STATION</small>
+        </span>
+      </a>
+
+      <div class="hero-title">
+        <p><span class="live-dot"></span> ON AIR · SHANGHAI</p>
+        <h1><span aria-hidden="true">📡</span> 业余无线电台 <em>QSO</em></h1>
+      </div>
+
+      <div class="station-status" aria-label="电台状态">
+        <span>LOCAL TIME</span>
+        <strong id="liveClock">--:--:--</strong>
+        <small>UTC+8</small>
+      </div>
+    </header>
+
+    <section class="log-panel" aria-labelledby="logTitle">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">RADIO CONTACT RECORDS</p>
+          <h2 id="logTitle">QSO 通联日志</h2>
+        </div>
+
+        <label class="search-box" for="callsignSearch">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+          <input id="callsignSearch" type="search" placeholder="搜索呼号，如 JA1ABC" autocomplete="off">
+          <kbd>CALLSIGN</kbd>
+        </label>
+      </div>
+
+      <div class="table-frame">
+        <table>
+          <thead>
+            <tr>
+              <th>时间 <small>DATE / TIME</small></th>
+              <th>呼号 <small>CALLSIGN</small></th>
+              <th>频段 <small>BAND</small></th>
+              <th>模式 <small>MODE</small></th>
+              <th>信号 <small>RST</small></th>
+              <th>位置 <small>QTH</small></th>
+              <th>备注 <small>REMARKS</small></th>
+            </tr>
+          </thead>
+          <tbody id="logBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" hidden>
+          <span>⌁</span>
+          <strong>未找到匹配的呼号</strong>
+          <small>请尝试输入其他关键字</small>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条通联记录</p>
+        <nav class="pagination" aria-label="通联日志分页">
+          <button id="prevBtn" type="button" aria-label="上一页">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            上一页
+          </button>
+          <span id="pageInfo">01 / 01</span>
+          <button id="nextBtn" type="button" aria-label="下一页">
+            下一页
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><span>QTH: Shanghai, China</span><i></i><span>Callsign: BI4BOB</span><i></i><span>每一次通联，都是电波跨越山海的相遇。</span></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
