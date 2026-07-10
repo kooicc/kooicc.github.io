@@ -185,7 +185,7 @@ function updateClock() {
   const hours = String(now.getHours()).padStart(2, "0");
   const minutes = String(now.getMinutes()).padStart(2, "0");
   const seconds = String(now.getSeconds()).padStart(2, "0");
-  document.getElementById("liveClock").textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  document.getElementById("brandClock").textContent = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
 // 初始状态：收起
