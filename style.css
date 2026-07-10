@@ -97,7 +97,7 @@ body::before {
   height: 70px;
   width: auto;
   flex-shrink: 0;
-  opacity: 0.85;
+  opacity: 0.5;
   filter: drop-shadow(0 0 8px rgba(85, 233, 255, 0.15));
 }
 .hero-title h1 .title-text {
