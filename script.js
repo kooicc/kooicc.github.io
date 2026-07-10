@@ -104,7 +104,10 @@ function toggleLog() {
   isLogExpanded = !isLogExpanded;
   logContainer.classList.toggle("collapsed", !isLogExpanded);
   logTitle.classList.toggle("expanded", isLogExpanded);
-  logTitle.querySelector(".btn-label").textContent = isLogExpanded ? "收起日志" : "展开日志";
+  
+  // 只更新图标文字，不重建整个按钮
+  const icon = logTitle.querySelector(".btn-icon");
+  icon.textContent = isLogExpanded ? '▲' : '▼';
 
   // 回到首页：清空搜索，重置数据
   searchInput.value = "";

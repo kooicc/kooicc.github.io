@@ -1,8 +1,6 @@
 :root {
   --cyan: #55e9ff;
   --ink: #dff8ff;
-  --muted: #7ca0b7;
-  --line: rgba(109, 220, 255, 0.18);
 }
 
 * { box-sizing: border-box; }
@@ -90,11 +88,12 @@ body::before {
 .log-panel {
   margin-top: 24px;
   overflow: hidden;
-  border: none;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
+  border: 1px solid rgba(109, 220, 255, 0.06);
+  border-radius: 12px;
+  background: rgba(2, 14, 29, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 .log-panel::before {
   display: none;
@@ -104,8 +103,8 @@ body::before {
   justify-content: space-between;
   align-items: center;
   padding: 12px 0 12px 0;
-  border-bottom: none;
-  background: transparent;
+  border-bottom: 1px solid rgba(109, 220, 255, 0.06);
+  background: rgba(2, 14, 29, 0.08);
 }
 .panel-head-left {
   flex: 1;
@@ -180,6 +179,8 @@ body::before {
   min-height: 420px;
   position: relative;
   padding: 8px 0;
+  background: rgba(2, 14, 29, 0.08);
+  border-radius: 0 0 12px 12px;
 }
 table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 thead { background: rgba(8, 45, 70, 0.12); }
