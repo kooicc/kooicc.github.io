@@ -45,15 +45,9 @@
 }
 ```
 
-## 自定义配置
-
-### 更换背景图
-
-直接替换 background.webp 文件即可，或在 style.css 中修改 background 属性。
-
 ### 添加通联记录
 
-在 script.js 的 qsoLogs 数组中按格式追加新记录：
+在 `script.js`文件中按格式追加新记录：
 
 ```
 ["2026-07-11 09:30", "W1AW", "14MHz", "SSB", "59", "Connecticut, USA", "Contest QSO"]
