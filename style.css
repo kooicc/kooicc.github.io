@@ -81,12 +81,6 @@ body::before {
   animation: pulse 2s ease-in-out infinite;
   flex-shrink: 0;
 }
-.brand-copy #brandClock {
-  margin-top: 6px;
-  color: #6b9caf;
-  font: 15px Consolas, monospace;
-  letter-spacing: .08em;
-}
 
 .hero-title { text-align: center; }
 .hero-title p, .eyebrow { margin: 0 0 9px; color: #62dff4; font: 600 10px/1.3 Consolas, monospace; letter-spacing: .25em; }
@@ -107,7 +101,7 @@ body::before {
   height: 70px;
   width: auto;
   flex-shrink: 0;
-  opacity: 0.5;
+  opacity: 1;
   filter: drop-shadow(0 0 8px rgba(85, 233, 255, 0.15));
 }
 .hero-title h1 .title-text {
@@ -131,6 +125,13 @@ body::before {
 .panel-head { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px 16px; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(29, 100, 133, .08), transparent); }
 .panel-head h2 { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: .1em; cursor: pointer; transition: color .2s ease; }
 .panel-head h2:hover { color: var(--cyan); text-shadow: 0 0 20px rgba(85, 233, 255, .2); }
+.panel-head h2 #headerClock {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b9caf;
+  margin-left: 16px;
+  letter-spacing: .05em;
+}
 .eyebrow { color: #527e91; margin-bottom: 5px; }
 
 /* ===== 头部右侧操作区 ===== */
@@ -296,7 +297,7 @@ tbody tr:hover td { color: #d6f6ff; }
   align-items: center;
   justify-content: center;
   color: #628495;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: .08em;
 }
 .site-footer .footer-content a {
