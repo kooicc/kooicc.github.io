@@ -166,3 +166,17 @@ nextBtn.addEventListener("click", () => {
 // 初始状态：收起
 logContainer.classList.add("collapsed");
 renderLogs();
+
+// ===== 生成星星背景 =====
+const stars = document.createElement("div");
+stars.className = "stars";
+
+for (let i = 0; i < 120; i++) {
+  let star = document.createElement("span");
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 70 + "%";
+  star.style.animationDelay = Math.random() * 5 + "s";
+  stars.appendChild(star);
+}
+
+document.body.appendChild(stars);

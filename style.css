@@ -12,8 +12,8 @@ body {
   min-height: 100vh;
   overflow-x: auto;
   color: var(--ink);
-  background: #020b17 url("https://bing.ee123.net/img") center / cover fixed no-repeat;
-  /* background: #020b17 url("background.webp") center / cover fixed no-repeat; */
+  /* background: #020b17 url("https://bing.ee123.net/img") center / cover fixed no-repeat; */
+  background: #020b17 url("background.webp") center / cover fixed no-repeat;
   font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", Arial, sans-serif;
   letter-spacing: .02em;
 }
@@ -411,4 +411,130 @@ tbody tr:hover td { color: #d6f6ff; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* ===== 手机适配 ===== */
+@media (max-width: 768px) {
+  /* 去掉固定宽度限制 */
+  html { min-width: auto; }
+
+  /* 容器自适应 */
+  .app-shell {
+    width: calc(100% - 20px);
+    padding: 16px 0 80px;
+  }
+
+  /* 头部改为上下排列 */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: auto;
+    padding: 12px 0;
+  }
+
+  /* 标题文字缩小 */
+  .hero-title h1 {
+    font-size: 20px;
+    gap: 10px;
+  }
+  .hero-title h1 .crac-logo {
+    height: 40px;
+  }
+  .hero-title h1 .title-text small {
+    font-size: 11px;
+  }
+
+  /* 面板头部：按钮和搜索框换行 */
+  .panel-head {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .panel-head .title-row {
+    padding-left: 0;
+  }
+  .panel-head .title-row .title-log {
+    font-size: 12px;
+    height: 34px;
+    padding: 0 12px;
+  }
+
+  /* 搜索框占满宽度 */
+  .search-box {
+    width: 100%;
+  }
+
+  /* 表格字体缩小，支持横向滚动 */
+  .table-frame {
+    overflow-x: auto;
+    padding: 4px 0;
+  }
+  table {
+    min-width: 700px;
+  }
+  th {
+    font-size: 14px;
+    height: 44px;
+    padding: 0 8px;
+  }
+  th small {
+    font-size: 9px;
+  }
+  td {
+    font-size: 13px;
+    height: 36px;
+    padding: 0 8px;
+  }
+  .call-cell {
+    font-size: 13px;
+  }
+  .band-pill, .mode-pill {
+    font-size: 10px;
+    padding: 2px 8px;
+    min-width: 40px;
+  }
+  .rst {
+    font-size: 12px;
+  }
+
+  /* 底部版权信息 */
+  .site-footer {
+    height: 56px;
+    padding: 0 12px;
+  }
+  .site-footer .footer-content {
+    font-size: 11px;
+    flex-wrap: wrap;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
+/* ===== 星星背景 ===== */
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.stars span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
 }
