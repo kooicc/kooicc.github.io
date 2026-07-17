@@ -4,6 +4,21 @@
  * 搜索、分页和表格渲染逻辑无需改变。
  */
 
+// 频率分类函数
+function getFrequencyClass(band) {
+  // 提取数字部分
+  const num = parseFloat(band.replace(/[^0-9.]/g, ''));
+  if (isNaN(num)) return '?';
+  
+  if (num < 3) return 'VLF';
+  if (num < 30) return 'HF';
+  if (num < 300) return 'VHF';
+  if (num < 3000) return 'UHF';
+  if (num < 30000) return 'SHF';
+  if (num < 300000) return 'EHF';
+  return 'THF';
+}
+
 const qsoLogs = [
   ["2026-07-10 08:30", "JA1ABC", "14MHz", "FT8", "599", "Tokyo, Japan", "Strong signal"],
   ["2026-07-10 07:52", "HL2KCS", "7MHz", "CW", "579", "Seoul, Korea", "Clean keying"],
@@ -52,6 +67,11 @@ const qsoLogs = [
   ["2026-07-05 13:49", "JH1GEX", "18MHz", "FT8", "+04", "Yokohama, Japan", "Excellent decode"]
 ].map(([time, call, band, mode, rst, qth, remarks]) => ({ time, call, band, mode, rst, qth, remarks }));
 
+// 为每条记录添加频率分类
+qsoLogs.forEach(log => {
+  log.class = getFrequencyClass(log.band);
+});
+
 const pageSize = 10;
 let currentPage = 1;
 let filteredLogs = [...qsoLogs];
@@ -68,6 +88,18 @@ const emptyState = document.getElementById("emptyState");
 const logContainer = document.getElementById("logContainer");
 let isLogExpanded = false;
 
+// 频率分类颜色映射
+const classColors = {
+  'VLF': { color: '#ff6b6b', bg: 'rgba(255, 107, 107, 0.1)', border: 'rgba(255, 107, 107, 0.2)' },
+  'HF': { color: '#4ecdc4', bg: 'rgba(78, 205, 196, 0.08)', border: 'rgba(78, 205, 196, 0.15)' },
+  'VHF': { color: '#45b7d1', bg: 'rgba(69, 183, 209, 0.08)', border: 'rgba(69, 183, 209, 0.15)' },
+  'UHF': { color: '#f9ca24', bg: 'rgba(249, 202, 36, 0.08)', border: 'rgba(249, 202, 36, 0.15)' },
+  'SHF': { color: '#a29bfe', bg: 'rgba(162, 155, 254, 0.08)', border: 'rgba(162, 155, 254, 0.15)' },
+  'EHF': { color: '#fd79a8', bg: 'rgba(253, 121, 168, 0.08)', border: 'rgba(253, 121, 168, 0.15)' },
+  'THF': { color: '#fdcb6e', bg: 'rgba(253, 203, 110, 0.08)', border: 'rgba(253, 203, 110, 0.15)' },
+  '?': { color: '#636e72', bg: 'rgba(99, 110, 114, 0.08)', border: 'rgba(99, 110, 114, 0.15)' }
+};
+
 function escapeHTML(value) {
   return String(value).replace(/[&<>'"]/g, char => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
@@ -80,16 +112,21 @@ function renderLogs() {
   const start = (currentPage - 1) * pageSize;
   const visibleLogs = filteredLogs.slice(start, start + pageSize);
 
-  logBody.innerHTML = visibleLogs.map(log => `
-    <tr>
-      <td class="time-cell">${escapeHTML(log.time)}</td>
-      <td class="call-cell">${escapeHTML(log.call)}</td>
-      <td><span class="band-pill">${escapeHTML(log.band)}</span></td>
-      <td><span class="mode-pill">${escapeHTML(log.mode)}</span></td>
-      <td class="rst">${escapeHTML(log.rst)}</td>
-      <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth)}</td>
-      <td title="${escapeHTML(log.remarks)}">${escapeHTML(log.remarks)}</td>
-    </tr>`).join("");
+  logBody.innerHTML = visibleLogs.map(log => {
+    const cls = log.class || '?';
+    const style = classColors[cls] || classColors['?'];
+    return `
+      <tr>
+        <td class="time-cell">${escapeHTML(log.time)}</td>
+        <td class="call-cell">${escapeHTML(log.call)}</td>
+        <td><span class="band-pill">${escapeHTML(log.band)}</span></td>
+        <td><span class="class-pill" style="color:${style.color};background:${style.bg};border-color:${style.border}">${escapeHTML(cls)}</span></td>
+        <td><span class="mode-pill">${escapeHTML(log.mode)}</span></td>
+        <td class="rst">${escapeHTML(log.rst)}</td>
+        <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth)}</td>
+        <td title="${escapeHTML(log.remarks)}">${escapeHTML(log.remarks)}</td>
+      </tr>`;
+  }).join("");
 
   emptyState.hidden = filteredLogs.length !== 0;
   totalInfo.textContent = filteredLogs.length;
@@ -105,34 +142,28 @@ function toggleLog() {
   logContainer.classList.toggle("collapsed", !isLogExpanded);
   logTitle.classList.toggle("expanded", isLogExpanded);
   
-  // 只更新图标文字，不重建整个按钮
   const icon = logTitle.querySelector(".btn-icon");
   icon.textContent = isLogExpanded ? '▲' : '▼';
 
-  // 回到首页：清空搜索，重置数据
   searchInput.value = "";
   filteredLogs = [...qsoLogs];
   currentPage = 1;
   renderLogs();
   searchInput.blur();
 
-  // 首次展开时渲染数据
   if (isLogExpanded && logBody.children.length === 0) {
     renderLogs();
   }
 }
 
-// 点击标题切换
 logTitle.addEventListener("click", toggleLog);
 
-// 点击搜索框自动展开
 searchInput.addEventListener("focus", () => {
   if (!isLogExpanded) {
     toggleLog();
   }
 });
 
-// 搜索逻辑
 searchInput.addEventListener("input", event => {
   const keyword = event.target.value.trim().toUpperCase();
   if (!keyword) {
@@ -146,7 +177,8 @@ searchInput.addEventListener("input", event => {
         log.qth,
         log.remarks,
         log.rst,
-        log.time
+        log.time,
+        log.class
       ].join(" ").toUpperCase();
       return searchable.includes(keyword);
     });
@@ -163,7 +195,6 @@ nextBtn.addEventListener("click", () => {
   if (currentPage * pageSize < filteredLogs.length) { currentPage += 1; renderLogs(); }
 });
 
-// 初始状态：收起
 logContainer.classList.add("collapsed");
 renderLogs();
 
