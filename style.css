@@ -270,16 +270,17 @@ tbody tr:hover td { color: #d6f6ff; }
 
 .time-cell { font-family: Consolas, monospace; color: #8aacbe; font-size: 16px; }
 .call-cell {
-  color: #86e9fb;
+  color: #4ecdc4;
   font: 600 16px Consolas, monospace;
   letter-spacing: .08em;
-  text-shadow: 0 0 9px rgba(70, 222, 255, 0.15);
+  text-shadow: 0 0 9px rgba(78, 205, 196, 0.15);
 }
 .freq-cell {
   font-family: Consolas, monospace;
-  color: #d4b87a;
+  color: #86e9fb;
   font-weight: 600;
   font-size: 17px;
+  text-shadow: 0 0 9px rgba(70, 222, 255, 0.15);
 }
 
 .mode-pill {
