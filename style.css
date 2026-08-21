@@ -466,13 +466,13 @@ tbody tr:hover td { color: #d6f6ff; }
 
 /* ===== 电脑端列宽（≥769px） ===== */
 @media (min-width: 769px) {
-  th:nth-child(1), td:nth-child(1) { width: 15%; }   /* 时间 */
-  th:nth-child(2), td:nth-child(2) { width: 14%; }   /* 呼号 */
+  th:nth-child(1), td:nth-child(1) { width: 14%; }   /* 时间 */
+  th:nth-child(2), td:nth-child(2) { width: 13%; }   /* 呼号 */
   th:nth-child(3), td:nth-child(3) { width: 10%; }   /* 频率 */
   th:nth-child(4), td:nth-child(4) { width: 9%; }    /* 模式 */
   th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
-  th:nth-child(6), td:nth-child(6) { width: 22%; }   /* 位置 */
-  th:nth-child(7), td:nth-child(7) { width: 22%; }   /* 卡片状态 */
+  th:nth-child(6), td:nth-child(6) { width: 26%; }   /* 位置 - 加宽 */
+  th:nth-child(7), td:nth-child(7) { width: 20%; }   /* 卡片状态 - 缩小，与位置间距缩小 */
 }
 
 /* ===== 手机端列宽（≤768px） ===== */
@@ -528,14 +528,14 @@ tbody tr:hover td { color: #d6f6ff; }
     min-width: 680px;
   }
 
-  /* 手机端列宽重新分配 */
-  th:nth-child(1), td:nth-child(1) { width: 20%; }   /* 时间 - 加宽，与呼号拉开 */
-  th:nth-child(2), td:nth-child(2) { width: 16%; }   /* 呼号 */
+  /* 手机端列宽 - 时间与呼号拉开间距 */
+  th:nth-child(1), td:nth-child(1) { width: 22%; }   /* 时间 - 加宽 */
+  th:nth-child(2), td:nth-child(2) { width: 17%; }   /* 呼号 - 加宽 */
   th:nth-child(3), td:nth-child(3) { width: 12%; }   /* 频率 */
   th:nth-child(4), td:nth-child(4) { width: 10%; }   /* 模式 */
   th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
-  th:nth-child(6), td:nth-child(6) { width: 18%; }   /* 位置 - 缩小 */
-  th:nth-child(7), td:nth-child(7) { width: 16%; }   /* 卡片状态 - 缩小 */
+  th:nth-child(6), td:nth-child(6) { width: 18%; }   /* 位置 */
+  th:nth-child(7), td:nth-child(7) { width: 13%; }   /* 卡片状态 - 缩小 */
 
   th {
     font-size: 14px;
@@ -596,7 +596,6 @@ tbody tr:hover td { color: #d6f6ff; }
   }
 }
 
-/* ===== 星星背景 ===== */
 .stars {
   position: fixed;
   inset: 0;
