@@ -1,29 +1,29 @@
 /**
  * BI4BOB QSL 卡片状态查询
- * 数据格式：时间(UTC), 呼号, 频率, 模式, 信号, 位置, QSL状态
+ * 数据格式：时间(UTC), 呼号, 频率, 模式, 信号, 位置(中文), QSL状态
  */
 
 const qsoLogs = [
-  ["2026-07-10 00:30", "JA1ABC", "14.270", "FT8", "599", "Tokyo, Japan", "已收到"],
-  ["2026-07-09 23:52", "HL2KCS", "7.050", "CW", "579", "Seoul, Korea", "已寄出"],
-  ["2026-07-09 15:18", "VK3DX", "21.200", "SSB", "57", "Melbourne, Australia", "未寄出"],
-  ["2026-07-09 13:46", "BA4TB", "14.180", "FT8", "+08", "Shanghai, China", "已收到"],
-  ["2026-07-09 12:11", "VR2XMT", "50.150", "SSB", "59", "Hong Kong, China", "已寄出"],
-  ["2026-07-09 10:36", "9V1YC", "28.750", "FT8", "-04", "Singapore", "未寄出"],
-  ["2026-07-09 08:04", "DU1IST", "21.350", "CW", "559", "Manila, Philippines", "已收到"],
-  ["2026-07-09 06:25", "HS0ZIV", "14.220", "SSB", "58", "Bangkok, Thailand", "已寄出"],
-  ["2026-07-09 04:47", "BV2A", "7.100", "FT8", "+02", "Taipei, China", "未寄出"],
-  ["2026-07-09 02:19", "JH4UYB", "18.100", "CW", "579", "Okayama, Japan", "已收到"],
-  ["2026-07-08 15:52", "W6AFA", "14.250", "FT8", "-11", "California, USA", "已寄出"],
-  ["2026-07-08 14:31", "RA0FF", "7.080", "CW", "569", "Sakhalin, Russia", "未寄出"],
-  ["2026-07-08 12:44", "YB0AZ", "21.280", "SSB", "56", "Jakarta, Indonesia", "已收到"],
-  ["2026-07-08 11:08", "4F3BZ", "14.330", "FT8", "-07", "Cebu, Philippines", "已寄出"],
-  ["2026-07-08 09:22", "E21EIC", "28.500", "CW", "599", "Bangkok, Thailand", "未寄出"],
-  ["2026-07-08 07:41", "BD4UJ", "50.250", "SSB", "59", "Suzhou, China", "已收到"],
-  ["2026-07-08 05:16", "DS5USH", "18.150", "FT8", "-03", "Busan, Korea", "已寄出"],
-  ["2026-07-08 03:38", "JA7QVI", "21.400", "SSB", "57", "Sendai, Japan", "未寄出"],
-  ["2026-07-08 01:55", "BG5TOX", "7.150", "CW", "589", "Hangzhou, China", "已收到"],
-  ["2026-07-08 00:12", "VK6LW", "14.080", "FT8", "-15", "Perth, Australia", "已寄出"]
+  ["2026-07-10 00:30", "JA1ABC", "14.270", "FT8", "599", "日本 东京", "收到"],
+  ["2026-07-09 23:52", "HL2KCS", "7.050", "CW", "579", "韩国 首尔", "寄出"],
+  ["2026-07-09 15:18", "VK3DX", "21.200", "SSB", "57", "澳大利亚 墨尔本", ""],
+  ["2026-07-09 13:46", "BA4TB", "14.180", "FT8", "+08", "中国 上海", "收到"],
+  ["2026-07-09 12:11", "VR2XMT", "50.150", "SSB", "59", "中国 香港", "寄出"],
+  ["2026-07-09 10:36", "9V1YC", "28.750", "FT8", "-04", "新加坡", ""],
+  ["2026-07-09 08:04", "DU1IST", "21.350", "CW", "559", "菲律宾 马尼拉", "收到"],
+  ["2026-07-09 06:25", "HS0ZIV", "14.220", "SSB", "58", "泰国 曼谷", "寄出"],
+  ["2026-07-09 04:47", "BV2A", "7.100", "FT8", "+02", "中国 台北", ""],
+  ["2026-07-09 02:19", "JH4UYB", "18.100", "CW", "579", "日本 冈山", "收到"],
+  ["2026-07-08 15:52", "W6AFA", "14.250", "FT8", "-11", "美国 加州", "寄出"],
+  ["2026-07-08 14:31", "RA0FF", "7.080", "CW", "569", "俄罗斯 萨哈林", ""],
+  ["2026-07-08 12:44", "YB0AZ", "21.280", "SSB", "56", "印度尼西亚 雅加达", "收到"],
+  ["2026-07-08 11:08", "4F3BZ", "14.330", "FT8", "-07", "菲律宾 宿务", "寄出"],
+  ["2026-07-08 09:22", "E21EIC", "28.500", "CW", "599", "泰国 曼谷", ""],
+  ["2026-07-08 07:41", "BD4UJ", "50.250", "SSB", "59", "中国 苏州", "收到"],
+  ["2026-07-08 05:16", "DS5USH", "18.150", "FT8", "-03", "韩国 釜山", "寄出"],
+  ["2026-07-08 03:38", "JA7QVI", "21.400", "SSB", "57", "日本 仙台", ""],
+  ["2026-07-08 01:55", "BG5TOX", "7.150", "CW", "589", "中国 杭州", "收到"],
+  ["2026-07-08 00:12", "VK6LW", "14.080", "FT8", "-15", "澳大利亚 珀斯", "寄出"]
 ].map(([time, call, freq, mode, rst, qth, remarks]) => ({
   time, call, freq, mode, rst, qth, remarks
 }));
@@ -57,16 +57,15 @@ function renderLogs() {
   const visibleLogs = filteredLogs.slice(start, start + pageSize);
 
   logBody.innerHTML = visibleLogs.map(log => {
-    let statusColor = '#8a9ba8';
-    let bgColor = 'rgba(138, 155, 168, 0.12)';
-    if (log.remarks === '已收到') {
-      statusColor = '#66BB6A';
-      bgColor = 'rgba(102, 187, 106, 0.15)';
-    } else if (log.remarks === '已寄出') {
-      statusColor = '#42A5F5';
-      bgColor = 'rgba(66, 165, 245, 0.15)';
+    // QSL状态：收到 / 寄出 / 留空
+    let statusHtml = '';
+    if (log.remarks === '收到') {
+      statusHtml = `<span class="status-received">收到 <small>(Received)</small></span>`;
+    } else if (log.remarks === '寄出') {
+      statusHtml = `<span class="status-sent">寄出 <small>(Sent)</small></span>`;
+    } else {
+      statusHtml = `<span class="status-empty">—</span>`;
     }
-    const statusHtml = `<span style="color: ${statusColor}; background: ${bgColor}; padding: 2px 12px; border-radius: 4px; font-weight: 500; font-size: 15px; border: 1px solid ${statusColor}33;">${escapeHTML(log.remarks)}</span>`;
 
     return `
     <tr>
