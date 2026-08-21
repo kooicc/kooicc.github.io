@@ -5,7 +5,7 @@
 
 * { box-sizing: border-box; }
 
-html { min-width: 900px; color-scheme: dark; }
+html { min-width: 1100px; color-scheme: dark; }
 
 body {
   margin: 0;
@@ -39,15 +39,14 @@ body::before {
   mask-image: linear-gradient(transparent, #000);
 }
 
-/* ===== 整体容器缩小 ===== */
 .app-shell {
-  width: min(1200px, calc(100% - 40px));
+  width: min(1500px, calc(100% - 90px));
   margin: 0 auto;
-  padding: 20px 0 72px;
+  padding: 32px 0 96px;
 }
 
 .hero {
-  min-height: 72px;
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,19 +56,19 @@ body::before {
 .hero-title { text-align: center; }
 .hero-title h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 600;
   letter-spacing: .08em;
   text-shadow: 0 3px 20px #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 20px;
   line-height: 1.4;
   flex-wrap: wrap;
 }
 .hero-title h1 .crac-logo {
-  height: 50px;
+  height: 70px;
   width: auto;
   flex-shrink: 0;
   opacity: 1;
@@ -81,7 +80,7 @@ body::before {
   align-items: center;
 }
 .hero-title h1 .title-text small {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: .15em;
   color: #7ca0b7;
@@ -91,7 +90,7 @@ body::before {
 @keyframes pulse { 50% { opacity: .3; } }
 
 .log-panel {
-  margin-top: 12px;
+  margin-top: 24px;
   overflow: visible;
   border: none;
   border-radius: 0;
@@ -107,7 +106,7 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 0 6px 0;
+  padding: 12px 0 12px 0;
   border-bottom: none;
   background: transparent;
 }
@@ -125,14 +124,14 @@ body::before {
 .panel-head .title-row .title-log {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  height: 34px;
-  padding: 0 14px;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
   border: 1px solid rgba(85, 233, 255, 0.2);
   border-radius: 6px;
   color: var(--cyan);
   background: rgba(2, 14, 29, 0.5);
-  font: 500 12px inherit;
+  font: 500 13px inherit;
   letter-spacing: .08em;
   cursor: pointer;
   transition: .25s ease;
@@ -145,7 +144,7 @@ body::before {
 .panel-head .title-row .title-log .btn-icon {
   display: inline-block;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 10px;
+  font-size: 11px;
 }
 .panel-head .title-row .title-log.expanded .btn-icon {
   transform: rotate(180deg);
@@ -154,14 +153,14 @@ body::before {
 .panel-head-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   flex-shrink: 0;
 }
 
 .search-box {
-  width: 280px;
-  height: 34px;
-  padding: 0 10px 0 12px;
+  width: 320px;
+  height: 38px;
+  padding: 0 12px 0 14px;
   display: flex;
   align-items: center;
   border: 1px solid rgba(99, 218, 255, 0.15);
@@ -174,7 +173,7 @@ body::before {
   box-shadow: 0 0 0 3px rgba(66, 221, 255, 0.05);
 }
 .search-box svg {
-  width: 15px;
+  width: 16px;
   fill: none;
   stroke: #5cb9d0;
   stroke-width: 1.7;
@@ -183,21 +182,21 @@ body::before {
   min-width: 0;
   flex: 1;
   height: 100%;
-  margin-left: 8px;
+  margin-left: 10px;
   border: 0;
   outline: 0;
   color: #dffbff;
   background: transparent;
-  font: 11px inherit;
+  font: 12px inherit;
 }
 .search-box input::placeholder { color: #577b8d; }
 .search-box kbd {
-  padding: 2px 4px;
+  padding: 3px 5px;
   border: 1px solid rgba(118, 206, 230, .12);
   border-radius: 4px;
   color: #4e7486;
   background: rgba(80, 155, 180, 0.06);
-  font: 6px Consolas, monospace;
+  font: 7px Consolas, monospace;
   letter-spacing: .12em;
 }
 
@@ -213,9 +212,9 @@ body::before {
 }
 
 .table-frame {
-  min-height: 380px;
+  min-height: 420px;
   position: relative;
-  padding: 6px 0;
+  padding: 8px 0;
   background: rgba(2, 14, 29, 0.65);
   border-radius: 8px;
   margin-top: 4px;
@@ -229,12 +228,11 @@ table {
 
 thead { background: rgba(8, 45, 70, 0.3); }
 
-/* ===== 固定列宽（根据内容合理分配） ===== */
 th {
-  height: 50px;
-  padding: 0 10px;
+  height: 60px;
+  padding: 0 12px;
   color: #91d9e8;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 600;
   text-align: left;
   letter-spacing: .06em;
@@ -243,27 +241,26 @@ th {
 }
 th small {
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
   color: #436c7d;
-  font: 10px Consolas, monospace;
+  font: 12px Consolas, monospace;
   letter-spacing: .10em;
 }
 
-/* 列宽固定 */
-th:nth-child(1), td:nth-child(1) { width: 16%; }   /* 时间 */
-th:nth-child(2), td:nth-child(2) { width: 12%; }   /* 呼号 */
-th:nth-child(3), td:nth-child(3) { width: 10%; }   /* 频率 */
-th:nth-child(4), td:nth-child(4) { width: 10%; }   /* 模式 */
-th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
-th:nth-child(6), td:nth-child(6) { width: 22%; }   /* 位置 */
-th:nth-child(7), td:nth-child(7) { width: 22%; }   /* QSL状态 */
+th:nth-child(1), td:nth-child(1) { width: 16%; }
+th:nth-child(2), td:nth-child(2) { width: 12%; }
+th:nth-child(3), td:nth-child(3) { width: 10%; }
+th:nth-child(4), td:nth-child(4) { width: 10%; }
+th:nth-child(5), td:nth-child(5) { width: 8%; }
+th:nth-child(6), td:nth-child(6) { width: 22%; }
+th:nth-child(7), td:nth-child(7) { width: 22%; }
 
 td {
-  height: 42px;
-  padding: 0 10px;
+  height: 48px;
+  padding: 0 12px;
   border-bottom: 1px solid rgba(109, 220, 255, 0.05);
   color: #b5ccd9;
-  font-size: 15px;
+  font-size: 18px;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
@@ -275,10 +272,10 @@ tbody tr { transition: .18s ease; }
 tbody tr:hover { background: rgba(32, 177, 225, 0.08); }
 tbody tr:hover td { color: #d6f6ff; }
 
-.time-cell { font-family: Consolas, monospace; color: #8aacbe; font-size: 14px; }
+.time-cell { font-family: Consolas, monospace; color: #8aacbe; font-size: 16px; }
 .call-cell {
   color: #4ecdc4;
-  font: 600 15px Consolas, monospace;
+  font: 600 16px Consolas, monospace;
   letter-spacing: .08em;
   text-shadow: 0 0 9px rgba(78, 205, 196, 0.15);
 }
@@ -286,7 +283,7 @@ tbody tr:hover td { color: #d6f6ff; }
   font-family: Consolas, monospace;
   color: #86e9fb;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
   text-shadow: 0 0 9px rgba(70, 222, 255, 0.15);
 }
 
@@ -294,76 +291,82 @@ tbody tr:hover td { color: #d6f6ff; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 44px;
-  padding: 2px 10px;
+  min-width: 56px;
+  padding: 4px 12px;
   border: 1px solid rgba(151, 125, 255, 0.12);
   border-radius: 4px;
   color: #b4a7ff;
   background: rgba(122, 100, 255, 0.04);
-  font: 11px Consolas, monospace;
+  font: 13px Consolas, monospace;
   text-align: center;
 }
-.rst { color: #71e3ad; font: 13px Consolas, monospace; }
+.rst { color: #71e3ad; font: 15px Consolas, monospace; }
 
-/* ===== QSL 状态样式 ===== */
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
 
-/* 寄出 - 蓝色圆点 */
 .status-sent {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   color: #42A5F5;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   white-space: nowrap;
 }
 .status-sent .dot.blue {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #42A5F5;
   box-shadow: 0 0 8px rgba(66, 165, 245, 0.5);
   flex-shrink: 0;
+  animation: dotPulse 2s ease-in-out infinite;
 }
 .status-sent small {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   color: #42A5F5;
   opacity: 0.7;
 }
 
-/* 已收已寄 - 绿色圆点 */
 .status-both {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   color: #66BB6A;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   white-space: nowrap;
 }
 .status-both .dot.green {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #66BB6A;
   box-shadow: 0 0 8px rgba(102, 187, 106, 0.5);
   flex-shrink: 0;
 }
 .status-both small {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   color: #66BB6A;
   opacity: 0.7;
 }
 
-/* 留空 - 什么都不显示 */
-
 .empty-state {
   position: absolute;
-  inset: 48px 0 0;
+  inset: 53px 0 0;
   display: grid;
   place-content: center;
   justify-items: center;
@@ -371,13 +374,13 @@ tbody tr:hover td { color: #d6f6ff; }
   background: rgba(2, 15, 29, 0.2);
 }
 .empty-state[hidden] { display: none; }
-.empty-state span { font-size: 32px; color: #4ccfe9; }
-.empty-state strong { margin-top: 6px; font-weight: 500; }
-.empty-state small { margin-top: 4px; color: #486879; }
+.empty-state span { font-size: 36px; color: #4ccfe9; }
+.empty-state strong { margin-top: 8px; font-weight: 500; }
+.empty-state small { margin-top: 6px; color: #486879; }
 
 .panel-footer {
-  min-height: 46px;
-  padding: 6px 0 0 0;
+  min-height: 54px;
+  padding: 8px 0 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -386,23 +389,23 @@ tbody tr:hover td { color: #d6f6ff; }
   border-radius: 0 0 8px 8px;
   margin-top: 0;
 }
-.panel-footer p { color: #526f80; font-size: 11px; margin: 0; }
-.panel-footer p strong { color: #7ccfe0; font: 500 11px Consolas, monospace; }
+.panel-footer p { color: #526f80; font-size: 12px; }
+.panel-footer p strong { color: #7ccfe0; font: 500 12px Consolas, monospace; }
 
-.pagination { display: flex; align-items: center; gap: 6px; }
+.pagination { display: flex; align-items: center; gap: 8px; }
 .pagination button {
-  height: 28px;
-  min-width: 64px;
-  padding: 0 10px;
+  height: 32px;
+  min-width: 74px;
+  padding: 0 12px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   border: 1px solid rgba(91, 205, 237, 0.12);
   border-radius: 5px;
   color: #739bab;
   background: rgba(30, 100, 128, 0.06);
-  font: 10px inherit;
+  font: 11px inherit;
   cursor: pointer;
   transition: .2s ease;
 }
@@ -413,17 +416,17 @@ tbody tr:hover td { color: #d6f6ff; }
   box-shadow: 0 0 15px rgba(48, 199, 237, 0.06);
 }
 .pagination button:disabled { opacity: .3; cursor: not-allowed; }
-.pagination button svg { width: 12px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.pagination button svg { width: 13px; fill: none; stroke: currentColor; stroke-width: 1.7; }
 .pagination span {
-  min-width: 62px;
-  height: 28px;
+  min-width: 72px;
+  height: 32px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(91, 219, 250, 0.15);
   border-radius: 5px;
   color: #a8eff8;
   background: rgba(41, 178, 216, 0.06);
-  font: 11px Consolas, monospace;
+  font: 12px Consolas, monospace;
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
@@ -433,7 +436,7 @@ tbody tr:hover td { color: #d6f6ff; }
   bottom: 0;
   left: 0;
   right: 0;
-  height: 42px;
+  height: 48px;
   display: grid;
   place-items: center;
 }
@@ -441,19 +444,19 @@ tbody tr:hover td { color: #d6f6ff; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   color: #628495;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: .08em;
 }
 .site-footer .footer-content .footer-dot {
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #31f2ba;
   box-shadow: 0 0 10px #31f2ba;
-  animation: pulse 2s ease-in-out infinite;
+  animation: dotPulse 2s ease-in-out infinite;
   flex-shrink: 0;
 }
 .site-footer .footer-content a {
@@ -475,34 +478,44 @@ tbody tr:hover td { color: #d6f6ff; }
   html { min-width: auto; }
 
   .app-shell {
-    width: calc(100% - 16px);
-    padding: 12px 0 64px;
+    width: calc(100% - 20px);
+    padding: 16px 0 80px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: auto;
+    padding: 12px 0;
   }
 
   .hero-title h1 {
-    font-size: 18px;
-    gap: 8px;
+    font-size: 20px;
+    gap: 10px;
   }
   .hero-title h1 .crac-logo {
-    height: 34px;
+    height: 40px;
   }
   .hero-title h1 .title-text small {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .panel-head {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+  }
+  .panel-head .title-row {
+    padding-left: 0;
   }
   .panel-head .title-row .title-log {
-    font-size: 11px;
-    height: 30px;
-    padding: 0 10px;
+    font-size: 12px;
+    height: 34px;
+    padding: 0 12px;
   }
 
   .search-box {
     width: 100%;
-    height: 30px;
   }
 
   .table-frame {
@@ -510,54 +523,54 @@ tbody tr:hover td { color: #d6f6ff; }
     padding: 4px 0;
   }
   table {
-    min-width: 650px;
+    min-width: 700px;
   }
   th {
-    font-size: 12px;
-    height: 38px;
-    padding: 0 6px;
+    font-size: 14px;
+    height: 44px;
+    padding: 0 8px;
   }
   th small {
-    font-size: 8px;
+    font-size: 9px;
   }
   td {
-    font-size: 12px;
-    height: 34px;
-    padding: 0 6px;
+    font-size: 13px;
+    height: 36px;
+    padding: 0 8px;
   }
   .call-cell {
-    font-size: 12px;
+    font-size: 13px;
   }
   .freq-cell {
-    font-size: 12px;
+    font-size: 14px;
   }
   .mode-pill {
-    font-size: 9px;
-    padding: 1px 6px;
-    min-width: 32px;
+    font-size: 10px;
+    padding: 2px 8px;
+    min-width: 40px;
   }
   .rst {
-    font-size: 11px;
-  }
-  .status-sent, .status-both {
     font-size: 12px;
   }
+  .status-sent, .status-both {
+    font-size: 14px;
+  }
   .status-sent small, .status-both small {
-    font-size: 8px;
+    font-size: 10px;
   }
   .status-sent .dot.blue, .status-both .dot.green {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
 
   .site-footer {
-    height: 48px;
-    padding: 0 10px;
+    height: 56px;
+    padding: 0 12px;
   }
   .site-footer .footer-content {
-    font-size: 10px;
+    font-size: 11px;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 6px;
     text-align: center;
   }
 }
