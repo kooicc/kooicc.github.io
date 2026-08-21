@@ -339,23 +339,15 @@ tbody tr:hover td { color: #d6f6ff; }
   opacity: 0.7;
 }
 
+/* 已收已寄 - 无圆点，仅绿色文字 */
 .status-both {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   color: #66BB6A;
   font-weight: 500;
   font-size: 17px;
   white-space: nowrap;
-}
-.status-both .dot.green {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #66BB6A;
-  box-shadow: 0 0 8px rgba(102, 187, 106, 0.5);
-  flex-shrink: 0;
 }
 .status-both small {
   font-size: 12px;
@@ -538,30 +530,46 @@ tbody tr:hover td { color: #d6f6ff; }
     height: 36px;
     padding: 0 8px;
   }
+  /* 手机端时间完整显示 */
+  .time-cell {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+  }
   .call-cell {
     font-size: 13px;
   }
   .freq-cell {
-    font-size: 14px;
+    font-size: 13px;
   }
   .mode-pill {
-    font-size: 10px;
-    padding: 2px 8px;
-    min-width: 40px;
+    font-size: 9px;
+    padding: 2px 6px;
+    min-width: 32px;
   }
   .rst {
-    font-size: 12px;
+    font-size: 11px;
   }
   .status-sent, .status-both {
-    font-size: 14px;
+    font-size: 13px;
   }
   .status-sent small, .status-both small {
-    font-size: 10px;
+    font-size: 9px;
   }
-  .status-sent .dot.blue, .status-both .dot.green {
+  .status-sent .dot.blue {
     width: 6px;
     height: 6px;
   }
+
+  /* 手机端重新分配列宽 - 位置与卡片状态间距缩小 */
+  th:nth-child(1), td:nth-child(1) { width: 18%; }   /* 时间 - 加宽以完整显示 */
+  th:nth-child(2), td:nth-child(2) { width: 14%; }   /* 呼号 */
+  th:nth-child(3), td:nth-child(3) { width: 12%; }   /* 频率 */
+  th:nth-child(4), td:nth-child(4) { width: 10%; }   /* 模式 */
+  th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
+  th:nth-child(6), td:nth-child(6) { width: 20%; }   /* 位置 - 缩小 */
+  th:nth-child(7), td:nth-child(7) { width: 18%; }   /* 卡片状态 - 缩小，与位置间距拉近 */
 
   .site-footer {
     height: 56px;

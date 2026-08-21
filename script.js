@@ -61,7 +61,7 @@ function renderLogs() {
     if (log.remarks === '寄出') {
       statusHtml = `<span class="status-sent"><span class="dot blue"></span>寄出 <small>(Sent)</small></span>`;
     } else if (log.remarks === '已收已寄') {
-      statusHtml = `<span class="status-both"><span class="dot green"></span>已收已寄 <small>(Received & Sent)</small></span>`;
+      statusHtml = `<span class="status-both">已收已寄 <small>(Received & Sent)</small></span>`;
     } else {
       statusHtml = '';
     }
