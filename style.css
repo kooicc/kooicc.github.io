@@ -247,13 +247,14 @@ th small {
   letter-spacing: .10em;
 }
 
-th:nth-child(1), td:nth-child(1) { width: 16%; }
-th:nth-child(2), td:nth-child(2) { width: 12%; }
-th:nth-child(3), td:nth-child(3) { width: 10%; }
-th:nth-child(4), td:nth-child(4) { width: 10%; }
-th:nth-child(5), td:nth-child(5) { width: 8%; }
-th:nth-child(6), td:nth-child(6) { width: 22%; }
-th:nth-child(7), td:nth-child(7) { width: 22%; }
+/* ===== 统一列宽 ===== */
+th:nth-child(1), td:nth-child(1) { width: 18%; }   /* 时间 */
+th:nth-child(2), td:nth-child(2) { width: 12%; }   /* 呼号 */
+th:nth-child(3), td:nth-child(3) { width: 10%; }   /* 频率 */
+th:nth-child(4), td:nth-child(4) { width: 10%; }   /* 模式 */
+th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
+th:nth-child(6), td:nth-child(6) { width: 20%; }   /* 位置 */
+th:nth-child(7), td:nth-child(7) { width: 22%; }   /* 卡片状态 */
 
 td {
   height: 48px;
@@ -303,14 +304,8 @@ tbody tr:hover td { color: #d6f6ff; }
 .rst { color: #71e3ad; font: 15px Consolas, monospace; }
 
 @keyframes dotPulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.3); }
 }
 
 .status-sent {
@@ -339,8 +334,7 @@ tbody tr:hover td { color: #d6f6ff; }
   opacity: 0.7;
 }
 
-/* 已收已寄 - 无圆点，仅绿色文字 */
-.status-both {
+.status-done {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -349,11 +343,17 @@ tbody tr:hover td { color: #d6f6ff; }
   font-size: 17px;
   white-space: nowrap;
 }
-.status-both small {
+.status-done small {
   font-size: 12px;
   font-weight: 400;
   color: #66BB6A;
   opacity: 0.7;
+}
+
+.status-empty {
+  color: #4a6a7a;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .empty-state {
@@ -530,7 +530,6 @@ tbody tr:hover td { color: #d6f6ff; }
     height: 36px;
     padding: 0 8px;
   }
-  /* 手机端时间完整显示 */
   .time-cell {
     font-size: 12px;
     white-space: nowrap;
@@ -551,25 +550,28 @@ tbody tr:hover td { color: #d6f6ff; }
   .rst {
     font-size: 11px;
   }
-  .status-sent, .status-both {
+  .status-sent, .status-done {
     font-size: 13px;
   }
-  .status-sent small, .status-both small {
+  .status-sent small, .status-done small {
     font-size: 9px;
   }
   .status-sent .dot.blue {
     width: 6px;
     height: 6px;
   }
+  .status-empty {
+    font-size: 13px;
+  }
 
-  /* 手机端重新分配列宽 - 位置与卡片状态间距缩小 */
-  th:nth-child(1), td:nth-child(1) { width: 18%; }   /* 时间 - 加宽以完整显示 */
-  th:nth-child(2), td:nth-child(2) { width: 14%; }   /* 呼号 */
-  th:nth-child(3), td:nth-child(3) { width: 12%; }   /* 频率 */
-  th:nth-child(4), td:nth-child(4) { width: 10%; }   /* 模式 */
-  th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
-  th:nth-child(6), td:nth-child(6) { width: 20%; }   /* 位置 - 缩小 */
-  th:nth-child(7), td:nth-child(7) { width: 18%; }   /* 卡片状态 - 缩小，与位置间距拉近 */
+  /* 手机端卡片状态单独缩至18% */
+  th:nth-child(1), td:nth-child(1) { width: 18%; }
+  th:nth-child(2), td:nth-child(2) { width: 14%; }
+  th:nth-child(3), td:nth-child(3) { width: 12%; }
+  th:nth-child(4), td:nth-child(4) { width: 10%; }
+  th:nth-child(5), td:nth-child(5) { width: 8%; }
+  th:nth-child(6), td:nth-child(6) { width: 20%; }
+  th:nth-child(7), td:nth-child(7) { width: 18%; }
 
   .site-footer {
     height: 56px;
@@ -601,12 +603,6 @@ tbody tr:hover td { color: #d6f6ff; }
 }
 
 @keyframes blink {
-  0%, 100% {
-    opacity: 0.2;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.8);
-  }
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.8); }
 }
