@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BI4BOB 业余无线电台 QSO 通联日志">
+  <meta name="description" content="BI4BOB 业余无线电台 QSL卡片查询">
   <meta name="theme-color" content="#031428">
   <title>BI4BOB业余无线电台</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -38,7 +38,7 @@
           <div class="title-row">
             <button id="logTitle" class="title-log" type="button">
               <span class="btn-icon" aria-hidden="true">▼</span>
-              QSO 通联日志
+              QSL 卡片状态查询
             </button>
           </div>
         </div>
@@ -57,13 +57,13 @@
           <table>
             <thead>
               <tr>
-                <th>时间 <small>DATE / TIME</small></th>
+                <th>时间 <small>DATE / TIME (UTC)</small></th>
                 <th>呼号 <small>CALLSIGN</small></th>
                 <th>频率 <small>FREQ (MHz)</small></th>
                 <th>模式 <small>MODE</small></th>
                 <th>信号 <small>RST</small></th>
                 <th>位置 <small>QTH</small></th>
-                <th>备注 <small>REMARKS</small></th>
+                <th>QSL卡片状态</th>
               </tr>
             </thead>
             <tbody id="logBody"></tbody>
@@ -76,7 +76,7 @@
         </div>
 
         <div class="panel-footer">
-          <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条通联记录</p>
+          <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
           <nav class="pagination" aria-label="通联日志分页">
             <button id="prevBtn" type="button" aria-label="上一页">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>

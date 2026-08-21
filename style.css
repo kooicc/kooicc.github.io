@@ -219,7 +219,7 @@ body::before {
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 thead { background: rgba(8, 45, 70, 0.3); }
@@ -233,6 +233,7 @@ th {
   text-align: center;
   letter-spacing: .06em;
   border-bottom: 1px solid rgba(109, 220, 255, 0.08);
+  white-space: nowrap;
 }
 th small {
   display: block;
@@ -242,14 +243,14 @@ th small {
   letter-spacing: .10em;
 }
 
-/* 7列等宽 */
-th:first-child, td:first-child { padding-left: 20px; width: 14.28%; }
-th:nth-child(2) { width: 14.28%; }
-th:nth-child(3) { width: 14.28%; }
-th:nth-child(4) { width: 14.28%; }
-th:nth-child(5) { width: 14.28%; }
-th:nth-child(6) { width: 14.28%; }
-th:last-child, td:last-child { padding-right: 20px; width: 14.28%; }
+/* 列宽：呼号、频率、模式自适应内容，其他均分剩余空间 */
+th:first-child, td:first-child { padding-left: 20px; width: 18%; }      /* 时间 */
+th:nth-child(2), td:nth-child(2) { width: 1%; white-space: nowrap; }    /* 呼号 - 自适应 */
+th:nth-child(3), td:nth-child(3) { width: 1%; white-space: nowrap; }    /* 频率 - 自适应 */
+th:nth-child(4), td:nth-child(4) { width: 1%; white-space: nowrap; }    /* 模式 - 自适应 */
+th:nth-child(5), td:nth-child(5) { width: 12%; }                        /* 信号 */
+th:nth-child(6), td:nth-child(6) { width: 20%; }                        /* 位置 */
+th:last-child, td:last-child { padding-right: 20px; width: 18%; }       /* QSL状态 */
 
 td {
   height: 48px;
@@ -486,6 +487,12 @@ tbody tr:hover td { color: #d6f6ff; }
   .rst {
     font-size: 12px;
   }
+
+  /* 移动端列宽保持比例 */
+  th:first-child, td:first-child { width: 16%; }
+  th:nth-child(5), td:nth-child(5) { width: 10%; }
+  th:nth-child(6), td:nth-child(6) { width: 18%; }
+  th:last-child, td:last-child { width: 16%; }
 
   .site-footer {
     height: 56px;
