@@ -477,7 +477,7 @@ tbody tr:hover td { color: #d6f6ff; }
     padding: 4px 0;
   }
   table {
-    min-width: 820px; /* 加宽表格，防止挤压 */
+    min-width: 820px;
   }
   th {
     font-size: 14px;
@@ -516,15 +516,15 @@ tbody tr:hover td { color: #d6f6ff; }
     font-size: 12px;
   }
 
-  /* ===== 手机端列宽（时间与呼号间距拉大） ===== */
-  th:nth-child(1), td:nth-child(1) { width: 18%; }   /* 通联时间 - 加宽 */
-  th:nth-child(2), td:nth-child(2) { width: 16%; }   /* 呼号 - 加宽 */
-  th:nth-child(3), td:nth-child(3) { width: 12%; }   /* 频率 */
-  th:nth-child(4), td:nth-child(4) { width: 12%; }   /* 模式 */
-  th:nth-child(5), td:nth-child(5) { width: 10%; }   /* 信号 */
-  th:nth-child(6), td:nth-child(6) { width: 16%; }   /* 位置 */
-  th:nth-child(7), td:nth-child(7) { width: 8%; }    /* QSL寄出时间 */
-  th:nth-child(8), td:nth-child(8) { width: 8%; }    /* QSL收到时间 */
+  /* ===== 手机端列宽（QSL时间列分开，不黏连） ===== */
+  th:nth-child(1), td:nth-child(1) { width: 16%; }   /* 通联时间 */
+  th:nth-child(2), td:nth-child(2) { width: 14%; }   /* 呼号 */
+  th:nth-child(3), td:nth-child(3) { width: 11%; }   /* 频率 */
+  th:nth-child(4), td:nth-child(4) { width: 11%; }   /* 模式 */
+  th:nth-child(5), td:nth-child(5) { width: 9%; }    /* 信号 */
+  th:nth-child(6), td:nth-child(6) { width: 15%; }   /* 位置 */
+  th:nth-child(7), td:nth-child(7) { width: 12%; }   /* QSL寄出时间 - 加大 */
+  th:nth-child(8), td:nth-child(8) { width: 12%; }   /* QSL收到时间 - 加大 */
 
   .site-footer {
     height: 56px;
