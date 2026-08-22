@@ -37,7 +37,7 @@ const qsoLogs = [
   
   // === 已收到（1条） ===
   // BI4BOB - 你自己的呼号
-  ["2026-08-22", "BI4BOB", "/", "/", "/", "中国", "", "2026-08-22"]
+  ["2026-08-21", "BI4BOB", "/", "/", "/", "中国", "", "2026-08-22"]
 ].map(([time, call, freq, mode, rst, qth, sent_date, received_date]) => ({
   time, call, freq, mode, rst, qth, sent_date, received_date
 }));
