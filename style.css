@@ -247,15 +247,15 @@ th small {
   letter-spacing: .10em;
 }
 
-/* ===== 8列等宽分配 ===== */
-th:nth-child(1), td:nth-child(1) { width: 12%; }   /* 通联时间 */
-th:nth-child(2), td:nth-child(2) { width: 12%; }   /* 呼号 */
+/* ===== 8列宽分配（时间与呼号间距拉大） ===== */
+th:nth-child(1), td:nth-child(1) { width: 15%; }   /* 通联时间 - 加宽 */
+th:nth-child(2), td:nth-child(2) { width: 14%; }   /* 呼号 - 加宽 */
 th:nth-child(3), td:nth-child(3) { width: 10%; }   /* 频率 */
 th:nth-child(4), td:nth-child(4) { width: 10%; }   /* 模式 */
 th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
-th:nth-child(6), td:nth-child(6) { width: 18%; }   /* 位置 */
-th:nth-child(7), td:nth-child(7) { width: 15%; }   /* QSL寄出时间 */
-th:nth-child(8), td:nth-child(8) { width: 15%; }   /* QSL收到时间 */
+th:nth-child(6), td:nth-child(6) { width: 17%; }   /* 位置 */
+th:nth-child(7), td:nth-child(7) { width: 13%; }   /* QSL寄出时间 */
+th:nth-child(8), td:nth-child(8) { width: 13%; }   /* QSL收到时间 */
 
 td {
   height: 48px;
