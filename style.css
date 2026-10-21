@@ -59,7 +59,10 @@ body::before {
   font-size: 32px;
   font-weight: 600;
   letter-spacing: .08em;
-  color: #f5d78e;
+  color: #1d4ed8;
+  text-shadow:
+    0 0 2px rgba(255,255,255,.85),
+    0 0 8px rgba(255,255,255,.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,7 +85,10 @@ body::before {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: .15em;
-  color: #7ca0b7;
+  color: #2c5282;
+  text-shadow:
+    0 0 2px rgba(255,255,255,.7),
+    0 0 6px rgba(255,255,255,.25);
 }
 
 @keyframes pulse { 50% { opacity: .3; } }
@@ -213,7 +219,9 @@ body::before {
   min-height: 420px;
   position: relative;
   padding: 8px 0;
-  background: rgba(2, 14, 29, 0.38);
+  background: rgba(2, 10, 20, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 8px;
   margin-top: 4px;
 }
@@ -229,20 +237,22 @@ thead { background: rgba(8, 45, 70, 0.22); }
 th {
   height: 60px;
   padding: 0 12px;
-  color: #91d9e8;
+  color: #eaf7ff;
   font-size: 19px;
   font-weight: 600;
   text-align: left;
   letter-spacing: .06em;
   border-bottom: 1px solid rgba(109, 220, 255, 0.08);
   white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8);
 }
 th small {
   display: block;
   margin-top: 3px;
-  color: #436c7d;
+  color: #9fc3d4;
   font: 12px Consolas, monospace;
   letter-spacing: .10em;
+  text-shadow: none;
 }
 
 /* ===== 电脑端列宽 ===== */
@@ -259,32 +269,36 @@ td {
   height: 48px;
   padding: 0 12px;
   border-bottom: 1px solid rgba(109, 220, 255, 0.05);
-  color: #cfe3ee;
+  color: #eaf7ff;
   font-size: 18px;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: .18s ease;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8), 0 0 4px rgba(0,0,0,.5);
 }
 
 tbody tr { transition: .18s ease; }
-tbody tr:hover { background: rgba(32, 177, 225, 0.08); }
-tbody tr:hover td { color: #d6f6ff; }
+tbody tr:hover { background: rgba(111, 247, 234, 0.08); }
+tbody tr:hover td { color: #ffffff; }
+tbody tr:hover .call-cell,
+tbody tr:hover .freq-cell,
+tbody tr:hover .mode-pill { color: #9dfff5; }
 
-.time-cell { font-family: Consolas, monospace; color: #a7c6d6; font-size: 16px; }
+.time-cell { font-family: Consolas, monospace; color: #eaf7ff; font-size: 16px; }
 .call-cell {
-  color: #4ecdc4;
+  color: #6ff7ea;
   font: 600 16px Consolas, monospace;
   letter-spacing: .08em;
-  text-shadow: 0 0 9px rgba(78, 205, 196, 0.15);
+  text-shadow: 0 1px 2px rgba(0,0,0,.8), 0 0 6px rgba(111,247,234,.25);
 }
 .freq-cell {
   font-family: Consolas, monospace;
-  color: #86e9fb;
+  color: #6ff7ea;
   font-weight: 600;
   font-size: 17px;
-  text-shadow: 0 0 9px rgba(70, 222, 255, 0.15);
+  text-shadow: 0 1px 2px rgba(0,0,0,.8), 0 0 6px rgba(111,247,234,.25);
 }
 
 .mode-pill {
@@ -293,26 +307,27 @@ tbody tr:hover td { color: #d6f6ff; }
   justify-content: center;
   min-width: 56px;
   padding: 4px 12px;
-  border: 1px solid rgba(151, 125, 255, 0.12);
+  border: 1px solid rgba(111, 247, 234, 0.25);
   border-radius: 4px;
-  color: #b4a7ff;
-  background: rgba(122, 100, 255, 0.04);
+  color: #6ff7ea;
+  background: rgba(111, 247, 234, 0.06);
   font: 13px Consolas, monospace;
   text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8);
 }
-.rst { color: #71e3ad; font: 15px Consolas, monospace; }
+.rst { color: #eaf7ff; font: 15px Consolas, monospace; }
 
-/* ===== QSL 日期颜色样式 ===== */
+/* ===== QSL 日期统一主色 ===== */
 .sent-date {
-  color: #42A5F5;
+  color: #eaf7ff;
   font-weight: 500;
 }
 .received-date {
-  color: #66BB6A;
+  color: #eaf7ff;
   font-weight: 500;
 }
 .empty-date {
-  color: #4a6a7a;
+  color: #9fc3d4;
 }
 
 .empty-state {
@@ -321,13 +336,13 @@ tbody tr:hover td { color: #d6f6ff; }
   display: grid;
   place-content: center;
   justify-items: center;
-  color: #5d8394;
-  background: rgba(2, 15, 29, 0.15);
+  color: #9fc3d4;
+  background: rgba(2, 15, 29, 0.35);
 }
 .empty-state[hidden] { display: none; }
-.empty-state span { font-size: 36px; color: #4ccfe9; }
-.empty-state strong { margin-top: 8px; font-weight: 500; }
-.empty-state small { margin-top: 6px; color: #486879; }
+.empty-state span { font-size: 36px; color: #6ff7ea; }
+.empty-state strong { margin-top: 8px; font-weight: 500; color: #eaf7ff; }
+.empty-state small { margin-top: 6px; color: #9fc3d4; }
 
 .panel-footer {
   min-height: 54px;
@@ -336,12 +351,14 @@ tbody tr:hover td { color: #d6f6ff; }
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid rgba(109, 220, 255, 0.06);
-  background: rgba(2, 14, 29, 0.38);
+  background: rgba(2, 10, 20, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 0 0 8px 8px;
   margin-top: 0;
 }
-.panel-footer p { color: #6d8c9d; font-size: 12px; }
-.panel-footer p strong { color: #7ccfe0; font: 500 12px Consolas, monospace; }
+.panel-footer p { color: #9fc3d4; font-size: 12px; }
+.panel-footer p strong { color: #eaf7ff; font: 500 12px Consolas, monospace; }
 
 .pagination { display: flex; align-items: center; gap: 8px; }
 .pagination button {
@@ -354,14 +371,14 @@ tbody tr:hover td { color: #d6f6ff; }
   gap: 5px;
   border: 1px solid rgba(91, 205, 237, 0.12);
   border-radius: 5px;
-  color: #8ab0c0;
+  color: #9fc3d4;
   background: rgba(30, 100, 128, 0.06);
   font: 11px inherit;
   cursor: pointer;
   transition: .2s ease;
 }
 .pagination button:hover:not(:disabled) {
-  color: #bff8ff;
+  color: #eaf7ff;
   border-color: rgba(77, 224, 255, 0.35);
   background: rgba(39, 164, 202, 0.1);
   box-shadow: 0 0 15px rgba(48, 199, 237, 0.06);
@@ -375,7 +392,7 @@ tbody tr:hover td { color: #d6f6ff; }
   place-items: center;
   border: 1px solid rgba(91, 219, 250, 0.15);
   border-radius: 5px;
-  color: #a8eff8;
+  color: #eaf7ff;
   background: rgba(41, 178, 216, 0.06);
   font: 12px Consolas, monospace;
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
@@ -396,9 +413,10 @@ tbody tr:hover td { color: #d6f6ff; }
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: #628495;
+  color: #9fc3d4;
   font-size: 15px;
   letter-spacing: .08em;
+  text-shadow: 0 1px 3px rgba(0,0,0,.8);
 }
 .site-footer .footer-content .footer-dot {
   display: inline-block;
