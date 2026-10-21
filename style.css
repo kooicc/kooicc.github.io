@@ -51,6 +51,7 @@ body::before {
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-top: 20px; /* 整体下移 */
 }
 
 .hero-title { text-align: center; }
@@ -64,16 +65,18 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 32px; 
+  gap: 16px; /* 间距缩小 */
   line-height: 1.2;
   flex-wrap: wrap;
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
 .hero-title h1 .crac-logo {
-  height: 140px; 
+  height: 155px; /* Logo 再次放大 */
   width: auto;
   flex-shrink: 0;
   opacity: 1;
+  margin-top: -10px; 
+  margin-bottom: -10px;
 }
 .hero-title h1 .title-text {
   display: flex;
@@ -380,6 +383,13 @@ tbody tr:hover td { color: #ffffff; }
   letter-spacing: .05em;
   text-shadow: 0 1px 3px rgba(0,0,0,.9);
 }
+
+/* 专门缩小版权文本里的小人前面的间距 */
+.site-footer .footer-emoji {
+  margin-left: -12px;
+  margin-right: -8px;
+}
+
 .site-footer .footer-content .footer-dot {
   display: inline-block;
   width: 7px;
@@ -389,7 +399,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: 0 0 10px #31f2ba;
   animation: pulse 2s ease-in-out infinite;
   flex-shrink: 0;
-  margin-left: 4px; /* 和前面的文字稍微拉开一点距离 */
+  margin-left: 4px; 
 }
 .site-footer .footer-content a {
   color: var(--cyan);
@@ -402,9 +412,9 @@ tbody tr:hover td { color: #ffffff; }
   text-decoration: underline;
 }
 .site-footer .footer-separator {
-  color: var(--cyan); /* 修改为跟链接相同的亮青色 */
+  color: var(--cyan); 
   margin: 0 4px;
-  opacity: 0.6; /* 稍微降低一点透明度，让它作为分隔符不抢戏 */
+  opacity: 0.6; 
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -431,9 +441,13 @@ tbody tr:hover td { color: #ffffff; }
   .hero-title h1 {
     font-size: 22px; 
     flex-direction: column; 
-    gap: 16px;
+    gap: 8px; 
   }
-  .hero-title h1 .crac-logo { height: 75px; }
+  .hero-title h1 .crac-logo { 
+    height: 90px; 
+    margin-top: 0;
+    margin-bottom: 0;
+  }
   .hero-title h1 .title-text small { font-size: 11px; letter-spacing: .15em; margin-right: -.15em; margin-top: 8px; }
 
   .panel-head {
@@ -467,7 +481,7 @@ tbody tr:hover td { color: #ffffff; }
   th:nth-child(7), td:nth-child(7) { width: 15%; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
-  /* 手机端页脚：限制宽度确保自动换行 */
+  /* 手机端页脚 */
   .site-footer { height: 72px; padding: 0 12px; align-items: flex-start; }
   .site-footer .footer-content { 
     font-size: 12px; 
@@ -476,6 +490,10 @@ tbody tr:hover td { color: #ffffff; }
     max-width: 320px; 
     text-align: center; 
     justify-content: center;
+  }
+  .site-footer .footer-emoji {
+    margin-left: 0;
+    margin-right: 0;
   }
   .site-footer .footer-separator {
     margin: 0 2px;
