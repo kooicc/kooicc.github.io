@@ -1,8 +1,8 @@
 const qsoLogs = [
   ["2026-08-27 14:13", "BD8ENX", "14.074", "FT8", "-05", "四川-成都", "2026-09-03", "2026-09-02"],
-  ["/", "BH4GDY", "14.074", "FT8", "/", "上海-浦东", "2026-08-22", ""],
-  ["/", "BH4GUW", "14.074", "FT8", "/", "上海", "2026-08-22", ""],
-  ["2026-09-03 12:00", "BI4AVZ", "/", "/", "/", "上海-徐汇", "2026-09-03", "2026-10-03"],
+  ["", "BH4GDY", "14.074", "FT8", "", "上海-浦东", "2026-08-22", ""],
+  ["", "BH4GUW", "14.074", "FT8", "", "上海", "2026-08-22", ""],
+  ["2026-09-03 12:00", "BI4AVZ", "", "", "", "上海-徐汇", "2026-09-03", "2026-10-03"],
   ["2026-08-19 09:49", "BG2MGR", "14.074", "FT8", "", "吉林-长春", "2026-08-22", ""],
   ["2026-08-17 16:40", "BI4AEL", "14.074", "FT8", "-05", "上海", "2026-08-22", ""],
   ["2026-08-17 00:52", "BH6AWZ", "14.074", "FT8", "-03", "安徽-六安", "2026-08-22", "2026-09-11"],
@@ -83,8 +83,9 @@ function escapeHTML(value) {
   })[char]);
 }
 
+// 空数据不再显示 "/"，直接返回空字符串
 function formatDate(dateStr) {
-  if (!dateStr || dateStr.trim() === '') return '/';
+  if (!dateStr || dateStr.trim() === '') return '';
   return dateStr;
 }
 
@@ -102,17 +103,18 @@ function renderLogs() {
     const sentDisplay = formatDate(log.sent_date);
     const receivedDisplay = formatDate(log.received_date);
     
-    const sentHtml = sentDisplay !== '/' 
+    // 直接渲染内容，留空则由CSS控制样式
+    const sentHtml = sentDisplay !== '' 
       ? `<span class="sent-date">${sentDisplay}</span>` 
-      : `<span class="empty-date">/</span>`;
+      : `<span class="empty-date"></span>`;
     
-    const receivedHtml = receivedDisplay !== '/' 
+    const receivedHtml = receivedDisplay !== '' 
       ? `<span class="received-date">${receivedDisplay}</span>` 
-      : `<span class="empty-date">/</span>`;
+      : `<span class="empty-date"></span>`;
 
-    const freqDisplay = log.freq && log.freq.trim() !== '' ? log.freq : '/';
-    const modeDisplay = log.mode && log.mode.trim() !== '' ? log.mode : '/';
-    const rstDisplay = log.rst && log.rst.trim() !== '' ? log.rst : '/';
+    const freqDisplay = log.freq && log.freq.trim() !== '' ? log.freq : '';
+    const modeDisplay = log.mode && log.mode.trim() !== '' ? log.mode : '';
+    const rstDisplay = log.rst && log.rst.trim() !== '' ? log.rst : '';
 
     tr.innerHTML = `
       <td class="time-cell">${escapeHTML(log.time)}</td>
