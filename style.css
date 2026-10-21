@@ -59,7 +59,7 @@ body::before {
   font-size: 32px;
   font-weight: 600;
   letter-spacing: .08em;
-  color: #1d4ed8;
+  color: #0b2252; /* 修改为藏青色 */
   text-shadow:
     0 0 2px rgba(255,255,255,.85),
     0 0 8px rgba(255,255,255,.35);
@@ -234,10 +234,11 @@ table {
 
 thead { background: rgba(8, 45, 70, 0.22); }
 
+/* 表头统一使用青色 */
 th {
   height: 60px;
   padding: 0 12px;
-  color: #eaf7ff;
+  color: #55e9ff;
   font-size: 19px;
   font-weight: 600;
   text-align: left;
@@ -249,27 +250,29 @@ th {
 th small {
   display: block;
   margin-top: 3px;
-  color: #9fc3d4;
+  color: #55e9ff;
   font: 12px Consolas, monospace;
   letter-spacing: .10em;
   text-shadow: none;
+  opacity: 0.8; /* 让英文小字稍微弱化一点，不抢中文风头 */
 }
 
 /* ===== 电脑端列宽 ===== */
-th:nth-child(1), td:nth-child(1) { width: 15%; }   /* 通联时间 */
-th:nth-child(2), td:nth-child(2) { width: 14%; }   /* 呼号 */
-th:nth-child(3), td:nth-child(3) { width: 10%; }   /* 频率 */
-th:nth-child(4), td:nth-child(4) { width: 10%; }   /* 模式 */
-th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
-th:nth-child(6), td:nth-child(6) { width: 17%; }   /* 位置 */
-th:nth-child(7), td:nth-child(7) { width: 13%; }   /* QSL寄出时间 */
-th:nth-child(8), td:nth-child(8) { width: 13%; }   /* QSL收到时间 */
+th:nth-child(1), td:nth-child(1) { width: 15%; }
+th:nth-child(2), td:nth-child(2) { width: 14%; }
+th:nth-child(3), td:nth-child(3) { width: 10%; }
+th:nth-child(4), td:nth-child(4) { width: 10%; }
+th:nth-child(5), td:nth-child(5) { width: 8%; }
+th:nth-child(6), td:nth-child(6) { width: 17%; }
+th:nth-child(7), td:nth-child(7) { width: 13%; }
+th:nth-child(8), td:nth-child(8) { width: 13%; }
 
+/* 表格内的数据全部用白色 */
 td {
   height: 48px;
   padding: 0 12px;
   border-bottom: 1px solid rgba(109, 220, 255, 0.05);
-  color: #eaf7ff;
+  color: #ffffff;
   font-size: 18px;
   text-align: left;
   white-space: nowrap;
@@ -282,53 +285,37 @@ td {
 tbody tr { transition: .18s ease; }
 tbody tr:hover { background: rgba(111, 247, 234, 0.08); }
 tbody tr:hover td { color: #ffffff; }
-tbody tr:hover .call-cell,
-tbody tr:hover .freq-cell,
-tbody tr:hover .mode-pill { color: #9dfff5; }
 
-.time-cell { font-family: Consolas, monospace; color: #eaf7ff; font-size: 16px; }
+/* 去除原来呼号和频率的青色，统一白色 */
+.time-cell { font-family: Consolas, monospace; color: #ffffff; font-size: 16px; }
 .call-cell {
-  color: #6ff7ea;
+  color: #ffffff;
   font: 600 16px Consolas, monospace;
   letter-spacing: .08em;
-  text-shadow: 0 1px 2px rgba(0,0,0,.8), 0 0 6px rgba(111,247,234,.25);
 }
 .freq-cell {
   font-family: Consolas, monospace;
-  color: #6ff7ea;
+  color: #ffffff;
   font-weight: 600;
   font-size: 17px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.8), 0 0 6px rgba(111,247,234,.25);
 }
 
+/* 模式列去掉边框和底色，文字统一白色 */
 .mode-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 56px;
-  padding: 4px 12px;
-  border: 1px solid rgba(111, 247, 234, 0.25);
-  border-radius: 4px;
-  color: #6ff7ea;
-  background: rgba(111, 247, 234, 0.06);
-  font: 13px Consolas, monospace;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0,0,0,.8);
+  display: inline;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font: 15px Consolas, monospace;
+  text-align: left;
 }
-.rst { color: #eaf7ff; font: 15px Consolas, monospace; }
+.rst { color: #ffffff; font: 15px Consolas, monospace; }
 
-/* ===== QSL 日期统一主色 ===== */
-.sent-date {
-  color: #eaf7ff;
-  font-weight: 500;
-}
-.received-date {
-  color: #eaf7ff;
-  font-weight: 500;
-}
-.empty-date {
-  color: #9fc3d4;
-}
+/* ===== QSL 日期统一白色 ===== */
+.sent-date { color: #ffffff; font-weight: 500; }
+.received-date { color: #ffffff; font-weight: 500; }
+.empty-date { color: #ffffff; opacity: 0.5; } /* 空值稍微淡一点 */
 
 .empty-state {
   position: absolute;
@@ -413,7 +400,7 @@ tbody tr:hover .mode-pill { color: #9dfff5; }
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: #9fc3d4;
+  color: #ffffff;
   font-size: 15px;
   letter-spacing: .08em;
   text-shadow: 0 1px 3px rgba(0,0,0,.8);
@@ -521,9 +508,7 @@ tbody tr:hover .mode-pill { color: #9dfff5; }
     font-size: 13px;
   }
   .mode-pill {
-    font-size: 9px;
-    padding: 2px 6px;
-    min-width: 32px;
+    font-size: 11px;
   }
   .rst {
     font-size: 11px;
@@ -532,15 +517,14 @@ tbody tr:hover .mode-pill { color: #9dfff5; }
     font-size: 12px;
   }
 
-  /* ===== 手机端列宽（QSL时间列分开，不黏连） ===== */
-  th:nth-child(1), td:nth-child(1) { width: 18%; }   /* 通联时间 */
-  th:nth-child(2), td:nth-child(2) { width: 13%; }   /* 呼号 */
-  th:nth-child(3), td:nth-child(3) { width: 10%; }   /* 频率 */
-  th:nth-child(4), td:nth-child(4) { width: 9%; }   /* 模式 */
-  th:nth-child(5), td:nth-child(5) { width: 8%; }    /* 信号 */
-  th:nth-child(6), td:nth-child(6) { width: 12%; }   /* 位置 */
-  th:nth-child(7), td:nth-child(7) { width: 15%; }   /* QSL寄出时间 - 加大 */
-  th:nth-child(8), td:nth-child(8) { width: 15%; }   /* QSL收到时间 - 加大 */
+  th:nth-child(1), td:nth-child(1) { width: 18%; }
+  th:nth-child(2), td:nth-child(2) { width: 13%; }
+  th:nth-child(3), td:nth-child(3) { width: 10%; }
+  th:nth-child(4), td:nth-child(4) { width: 9%; }
+  th:nth-child(5), td:nth-child(5) { width: 8%; }
+  th:nth-child(6), td:nth-child(6) { width: 12%; }
+  th:nth-child(7), td:nth-child(7) { width: 15%; }
+  th:nth-child(8), td:nth-child(8) { width: 15%; }
 
   .site-footer {
     height: 56px;
