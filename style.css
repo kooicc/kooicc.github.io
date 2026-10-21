@@ -359,7 +359,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
-/* ===== 底部页脚：颜色统一为亮青色 ===== */
+/* ===== 底部页脚 ===== */
 .site-footer {
   position: fixed;
   z-index: 10;
@@ -375,7 +375,7 @@ tbody tr:hover td { color: #ffffff; }
   align-items: center;
   justify-content: center;
   gap: 24px; 
-  color: var(--cyan); /* 文字也改成亮青色 */
+  color: var(--cyan); 
   font-size: 14px;
   letter-spacing: .05em;
   text-shadow: 0 1px 3px rgba(0,0,0,.9);
@@ -389,6 +389,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: 0 0 10px #31f2ba;
   animation: pulse 2s ease-in-out infinite;
   flex-shrink: 0;
+  margin-left: 4px; /* 和前面的文字稍微拉开一点距离 */
 }
 .site-footer .footer-content a {
   color: var(--cyan);
@@ -401,9 +402,9 @@ tbody tr:hover td { color: #ffffff; }
   text-decoration: underline;
 }
 .site-footer .footer-separator {
-  color: #0b2252; /* 分隔符保持藏青色 */
-  font-weight: 700;
+  color: var(--cyan); /* 修改为跟链接相同的亮青色 */
   margin: 0 4px;
+  opacity: 0.6; /* 稍微降低一点透明度，让它作为分隔符不抢戏 */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -466,7 +467,7 @@ tbody tr:hover td { color: #ffffff; }
   th:nth-child(7), td:nth-child(7) { width: 15%; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
-  /* 手机端页脚：限制宽度确保 QTH 前折行 */
+  /* 手机端页脚：限制宽度确保自动换行 */
   .site-footer { height: 72px; padding: 0 12px; align-items: flex-start; }
   .site-footer .footer-content { 
     font-size: 12px; 
