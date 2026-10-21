@@ -46,7 +46,7 @@ body::before {
 }
 
 .hero {
-  min-height: 150px; 
+  min-height: 160px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +70,7 @@ body::before {
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
 .hero-title h1 .crac-logo {
-  height: 120px; 
+  height: 140px; /* 电脑端 Logo 放大 */
   width: auto;
   flex-shrink: 0;
   opacity: 1;
@@ -80,15 +80,17 @@ body::before {
   flex-direction: column;
   align-items: center;
 }
+/* 英文副标题：字距拉宽，长度完美匹配中文 */
 .hero-title h1 .title-text small {
-  font-size: 16px; 
+  font-size: 18px; 
   font-weight: 700; 
-  letter-spacing: .25em; 
+  letter-spacing: .38em; 
   color: inherit; 
-  margin-top: 12px;
+  margin-top: 14px;
   text-shadow: inherit; 
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif; 
   text-transform: uppercase; 
+  margin-right: -.38em; /* 补偿字距导致的不居中 */
 }
 
 @keyframes pulse { 50% { opacity: .3; } }
@@ -253,7 +255,6 @@ th small {
   opacity: 0.8; 
 }
 
-/* ===== 列宽比例分配 ===== */
 th:nth-child(1), td:nth-child(1) { width: 15%; }
 th:nth-child(2), td:nth-child(2) { width: 14%; }
 th:nth-child(3), td:nth-child(3) { width: 10%; }
@@ -281,7 +282,6 @@ tbody tr { transition: .18s ease; }
 tbody tr:hover { background: rgba(111, 247, 234, 0.08); }
 tbody tr:hover td { color: #ffffff; }
 
-/* 去除了多余的 color，继承了父级的白色 */
 .time-cell { font-family: Consolas, monospace; font-size: 15px; }
 .call-cell { font: 600 16px Consolas, monospace; letter-spacing: .08em; }
 .freq-cell { font-family: Consolas, monospace; font-weight: 600; font-size: 16px; }
@@ -360,7 +360,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
-/* ===== 底部页脚 ===== */
+/* ===== 底部页脚：恢复高清晰度亮青色方案 ===== */
 .site-footer {
   position: fixed;
   z-index: 10;
@@ -375,12 +375,11 @@ tbody tr:hover td { color: #ffffff; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px; 
-  color: #0b2252; 
-  font-size: 15px;
-  font-weight: 600; 
+  gap: 16px; 
+  color: #ffffff;
+  font-size: 14px;
   letter-spacing: .08em;
-  text-shadow: 0 0 3px rgba(255,255,255,.9), 0 0 10px rgba(255,255,255,.4); 
+  text-shadow: 0 1px 3px rgba(0,0,0,.9);
 }
 .site-footer .footer-content .footer-dot {
   display: inline-block;
@@ -393,18 +392,17 @@ tbody tr:hover td { color: #ffffff; }
   flex-shrink: 0;
 }
 .site-footer .footer-content a {
-  color: #0b2252; 
+  color: var(--cyan);
   text-decoration: none;
   transition: color .2s ease, text-shadow .2s ease;
 }
 .site-footer .footer-content a:hover {
-  color: #1e4b8f;
+  color: #8ff4ff;
+  text-shadow: 0 0 12px rgba(85, 233, 255, 0.4);
   text-decoration: underline;
 }
 .site-footer .footer-separator {
-  color: #0b2252; 
-  margin: 0 8px; 
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -425,15 +423,23 @@ tbody tr:hover td { color: #ffffff; }
     flex-direction: column;
     gap: 12px;
     min-height: auto;
-    padding: 12px 0;
+    padding: 16px 0;
   }
 
   .hero-title h1 {
     font-size: 22px; 
-    gap: 12px;
+    flex-direction: column; 
+    gap: 16px;
   }
-  .hero-title h1 .crac-logo { height: 60px; }
-  .hero-title h1 .title-text small { font-size: 12px; margin-top: 6px; }
+  .hero-title h1 .crac-logo { 
+    height: 75px; 
+  }
+  .hero-title h1 .title-text small { 
+    font-size: 11px; 
+    letter-spacing: .15em;
+    margin-right: -.15em;
+    margin-top: 8px; 
+  }
 
   .panel-head {
     flex-wrap: wrap;
