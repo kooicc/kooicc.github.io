@@ -70,7 +70,7 @@ body::before {
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
 .hero-title h1 .crac-logo {
-  height: 140px; /* 电脑端 Logo 放大 */
+  height: 140px; 
   width: auto;
   flex-shrink: 0;
   opacity: 1;
@@ -80,17 +80,17 @@ body::before {
   flex-direction: column;
   align-items: center;
 }
-/* 英文副标题：字距拉宽，长度完美匹配中文 */
+/* 英文副标题：间距稍微缩小一点点 */
 .hero-title h1 .title-text small {
   font-size: 18px; 
   font-weight: 700; 
-  letter-spacing: .38em; 
+  letter-spacing: .3em; /* 从 .38 调整为 .3 */
   color: inherit; 
   margin-top: 14px;
   text-shadow: inherit; 
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif; 
   text-transform: uppercase; 
-  margin-right: -.38em; /* 补偿字距导致的不居中 */
+  margin-right: -.3em; 
 }
 
 @keyframes pulse { 50% { opacity: .3; } }
@@ -360,7 +360,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
-/* ===== 底部页脚：恢复高清晰度亮青色方案 ===== */
+/* ===== 底部页脚 ===== */
 .site-footer {
   position: fixed;
   z-index: 10;
@@ -375,7 +375,7 @@ tbody tr:hover td { color: #ffffff; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px; 
+  gap: 32px; /* 间距加大 */
   color: #ffffff;
   font-size: 14px;
   letter-spacing: .08em;
@@ -402,7 +402,8 @@ tbody tr:hover td { color: #ffffff; }
   text-decoration: underline;
 }
 .site-footer .footer-separator {
-  color: rgba(255, 255, 255, 0.3);
+  color: #0b2252; /* 分隔符用藏青色 */
+  font-weight: 700;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -472,6 +473,20 @@ tbody tr:hover td { color: #ffffff; }
   th:nth-child(7), td:nth-child(7) { width: 15%; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
-  .site-footer { height: 56px; padding: 0 12px; }
-  .site-footer .footer-content { font-size: 11px; flex-wrap: wrap; gap: 8px; text-align: center; }
+  /* 手机端页脚：限制宽度强制 APRS Info 后换行 */
+  .site-footer { 
+    height: 72px; 
+    padding: 0 12px; 
+    align-items: flex-start;
+  }
+  .site-footer .footer-content { 
+    font-size: 12px; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    max-width: 90%; /* 限制最大宽度 */
+    text-align: center; 
+  }
+  .site-footer .footer-separator {
+    margin: 0 4px;
+  }
 }
