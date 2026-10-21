@@ -51,7 +51,7 @@ body::before {
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-top: 20px; /* 整体下移 */
+  padding-top: 20px;
 }
 
 .hero-title { text-align: center; }
@@ -65,18 +65,19 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px; /* 间距缩小 */
+  gap: 0; /* Logo 与文字之间的 gap 设为 0 */
   line-height: 1.2;
   flex-wrap: wrap;
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
 .hero-title h1 .crac-logo {
-  height: 155px; /* Logo 再次放大 */
+  height: 155px; 
   width: auto;
   flex-shrink: 0;
   opacity: 1;
   margin-top: -10px; 
   margin-bottom: -10px;
+  margin-right: 16px; /* 单独控制 Logo 靠右的距离 */
 }
 .hero-title h1 .title-text {
   display: flex;
@@ -384,10 +385,14 @@ tbody tr:hover td { color: #ffffff; }
   text-shadow: 0 1px 3px rgba(0,0,0,.9);
 }
 
-/* 专门缩小版权文本里的小人前面的间距 */
 .site-footer .footer-emoji {
   margin-left: -12px;
   margin-right: -8px;
+}
+
+/* 隐藏用于手机端换行的 <br> */
+.mobile-br {
+  display: none;
 }
 
 .site-footer .footer-content .footer-dot {
@@ -447,6 +452,7 @@ tbody tr:hover td { color: #ffffff; }
     height: 90px; 
     margin-top: 0;
     margin-bottom: 0;
+    margin-right: 0; /* 手机端取消右侧距离 */
   }
   .hero-title h1 .title-text small { font-size: 11px; letter-spacing: .15em; margin-right: -.15em; margin-top: 8px; }
 
@@ -482,7 +488,7 @@ tbody tr:hover td { color: #ffffff; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
   /* 手机端页脚 */
-  .site-footer { height: 72px; padding: 0 12px; align-items: flex-start; }
+  .site-footer { height: 80px; padding: 0 12px; align-items: flex-start; }
   .site-footer .footer-content { 
     font-size: 12px; 
     flex-wrap: wrap; 
@@ -497,5 +503,14 @@ tbody tr:hover td { color: #ffffff; }
   }
   .site-footer .footer-separator {
     margin: 0 2px;
+  }
+  
+  /* 显示换行，并隐藏第一行后面的 PC 竖线 */
+  .mobile-br {
+    display: block;
+    width: 100%;
+  }
+  .pc-sep {
+    display: none;
   }
 }
