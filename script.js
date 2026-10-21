@@ -51,7 +51,6 @@ const qsoLogs = [
   ["2026-09-20 01:31", "BI4BDC", "14.074", "FT8", "-01", "上海-虹口", "2026-09-20", ""],
   ["2026-10-10 14:09", "BI4BJI", "145.725", "FM", "59", "上海-普陀", "2026-10-15", "2026-10-13"],
   ["2026-10-11 23:26", "BI4BNW", "145.100", "FM", "59", "上海-普陀", "2026-10-17", "2026-10-15"]
-
 ]
 .sort((a, b) => {
   if (a[0] > b[0]) return -1;
@@ -191,14 +190,3 @@ nextBtn.addEventListener("click", () => {
 
 logContainer.classList.add("collapsed");
 renderLogs();
-
-const stars = document.createElement("div");
-stars.className = "stars";
-for (let i = 0; i < 120; i++) {
-  let star = document.createElement("span");
-  star.style.left = Math.random() * 100 + "%";
-  star.style.top = Math.random() * 70 + "%";
-  star.style.animationDelay = Math.random() * 5 + "s";
-  stars.appendChild(star);
-}
-document.body.appendChild(stars);
