@@ -39,7 +39,6 @@ body::before {
   mask-image: linear-gradient(transparent, #000);
 }
 
-/* 核心：整体容器完美居中 */
 .app-shell {
   width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
@@ -60,10 +59,8 @@ body::before {
   font-size: 42px; 
   font-weight: 700; 
   letter-spacing: .15em; 
-  color: #0b2252; /* 藏青色 */
-  text-shadow:
-    0 0 4px rgba(255,255,255,.95),
-    0 0 12px rgba(255,255,255,.5);
+  color: #0b2252;
+  text-shadow: 0 0 4px rgba(255,255,255,.95), 0 0 12px rgba(255,255,255,.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,9 +102,7 @@ body::before {
   box-shadow: none;
   backdrop-filter: none;
 }
-.log-panel::before {
-  display: none;
-}
+.log-panel::before { display: none; }
 
 .panel-head {
   display: flex;
@@ -117,9 +112,7 @@ body::before {
   border-bottom: none;
   background: transparent;
 }
-.panel-head-left {
-  flex: 1;
-}
+.panel-head-left { flex: 1; }
 .panel-head .title-row {
   display: flex;
   align-items: baseline;
@@ -288,34 +281,16 @@ tbody tr { transition: .18s ease; }
 tbody tr:hover { background: rgba(111, 247, 234, 0.08); }
 tbody tr:hover td { color: #ffffff; }
 
-.time-cell { font-family: Consolas, monospace; color: #ffffff; font-size: 15px; }
-.call-cell {
-  color: #ffffff;
-  font: 600 16px Consolas, monospace;
-  letter-spacing: .08em;
-}
-.freq-cell {
-  font-family: Consolas, monospace;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 16px;
-}
+/* 去除了多余的 color，继承了父级的白色 */
+.time-cell { font-family: Consolas, monospace; font-size: 15px; }
+.call-cell { font: 600 16px Consolas, monospace; letter-spacing: .08em; }
+.freq-cell { font-family: Consolas, monospace; font-weight: 600; font-size: 16px; }
+.mode-pill { display: inline; padding: 0; border: none; background: transparent; font: 15px Consolas, monospace; text-align: left; }
+.rst { font: 15px Consolas, monospace; }
 
-.mode-pill {
-  display: inline;
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: #ffffff;
-  font: 15px Consolas, monospace;
-  text-align: left;
-}
-.rst { color: #ffffff; font: 15px Consolas, monospace; }
-
-/* ===== QSL 日期统一白色 ===== */
-.sent-date { color: #ffffff; font-weight: 500; }
-.received-date { color: #ffffff; font-weight: 500; }
-.empty-date { color: #ffffff; opacity: 0.5; } 
+.sent-date { font-weight: 500; }
+.received-date { font-weight: 500; }
+.empty-date { opacity: 0.5; } 
 
 .empty-state {
   position: absolute;
@@ -385,7 +360,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
-/* ===== 底部页脚：颜色与标题完全一致 ===== */
+/* ===== 底部页脚 ===== */
 .site-footer {
   position: fixed;
   z-index: 10;
@@ -401,11 +376,10 @@ tbody tr:hover td { color: #ffffff; }
   align-items: center;
   justify-content: center;
   gap: 24px; 
-  color: #0b2252; /* 底色与标题统一为藏青色 */
+  color: #0b2252; 
   font-size: 15px;
-  font-weight: 600; /* 稍微加粗一点 */
+  font-weight: 600; 
   letter-spacing: .08em;
-  /* 白色发光描边，保证深色背景可读 */
   text-shadow: 0 0 3px rgba(255,255,255,.9), 0 0 10px rgba(255,255,255,.4); 
 }
 .site-footer .footer-content .footer-dot {
@@ -419,16 +393,16 @@ tbody tr:hover td { color: #ffffff; }
   flex-shrink: 0;
 }
 .site-footer .footer-content a {
-  color: #0b2252; /* 链接颜色与标题一致 */
+  color: #0b2252; 
   text-decoration: none;
   transition: color .2s ease, text-shadow .2s ease;
 }
 .site-footer .footer-content a:hover {
-  color: #1e4b8f; /* hover 稍微亮一点的藏青 */
+  color: #1e4b8f;
   text-decoration: underline;
 }
 .site-footer .footer-separator {
-  color: #0b2252; /* 分隔符也统一 */
+  color: #0b2252; 
   margin: 0 8px; 
   opacity: 0.7;
 }
@@ -458,72 +432,30 @@ tbody tr:hover td { color: #ffffff; }
     font-size: 22px; 
     gap: 12px;
   }
-  .hero-title h1 .crac-logo {
-    height: 60px; 
-  }
-  .hero-title h1 .title-text small {
-    font-size: 12px; 
-    margin-top: 6px;
-  }
+  .hero-title h1 .crac-logo { height: 60px; }
+  .hero-title h1 .title-text small { font-size: 12px; margin-top: 6px; }
 
   .panel-head {
     flex-wrap: wrap;
     gap: 10px;
   }
-  .panel-head .title-row {
-    padding-left: 0;
-  }
-  .panel-head .title-row .title-log {
-    font-size: 12px;
-    height: 34px;
-    padding: 0 12px;
-  }
+  .panel-head .title-row { padding-left: 0; }
+  .panel-head .title-row .title-log { font-size: 12px; height: 34px; padding: 0 12px; }
 
-  .search-box {
-    width: 100%;
-  }
+  .search-box { width: 100%; }
 
-  .table-frame {
-    overflow-x: auto;
-    padding: 4px 0;
-  }
-  table {
-    min-width: 820px;
-  }
-  th {
-    font-size: 14px;
-    height: 44px;
-    padding: 0 8px;
-  }
-  th small {
-    font-size: 9px;
-  }
-  td {
-    font-size: 13px;
-    height: 36px;
-    padding: 0 8px;
-  }
-  .time-cell {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: visible;
-    text-overflow: clip;
-  }
-  .call-cell {
-    font-size: 13px;
-  }
-  .freq-cell {
-    font-size: 13px;
-  }
-  .mode-pill {
-    font-size: 11px;
-  }
-  .rst {
-    font-size: 11px;
-  }
-  .sent-date, .received-date, .empty-date {
-    font-size: 12px;
-  }
+  .table-frame { overflow-x: auto; padding: 4px 0; }
+  table { min-width: 820px; }
+  th { font-size: 14px; height: 44px; padding: 0 8px; }
+  th small { font-size: 9px; }
+  td { font-size: 13px; height: 36px; padding: 0 8px; }
+  
+  .time-cell { font-size: 12px; white-space: nowrap; overflow: visible; text-overflow: clip; }
+  .call-cell { font-size: 13px; }
+  .freq-cell { font-size: 13px; }
+  .mode-pill { font-size: 11px; }
+  .rst { font-size: 11px; }
+  .sent-date, .received-date, .empty-date { font-size: 12px; }
 
   th:nth-child(1), td:nth-child(1) { width: 18%; }
   th:nth-child(2), td:nth-child(2) { width: 13%; }
@@ -534,14 +466,6 @@ tbody tr:hover td { color: #ffffff; }
   th:nth-child(7), td:nth-child(7) { width: 15%; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
-  .site-footer {
-    height: 56px;
-    padding: 0 12px;
-  }
-  .site-footer .footer-content {
-    font-size: 11px;
-    flex-wrap: wrap;
-    gap: 8px; 
-    text-align: center;
-  }
+  .site-footer { height: 56px; padding: 0 12px; }
+  .site-footer .footer-content { font-size: 11px; flex-wrap: wrap; gap: 8px; text-align: center; }
 }

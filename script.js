@@ -94,7 +94,11 @@ function renderLogs() {
   const start = (currentPage - 1) * pageSize;
   const visibleLogs = filteredLogs.slice(start, start + pageSize);
 
-  logBody.innerHTML = visibleLogs.map(log => {
+  // 性能优化：使用 DocumentFragment 批量渲染
+  const fragment = document.createDocumentFragment();
+  
+  visibleLogs.forEach(log => {
+    const tr = document.createElement("tr");
     const sentDisplay = formatDate(log.sent_date);
     const receivedDisplay = formatDate(log.received_date);
     
@@ -110,8 +114,7 @@ function renderLogs() {
     const modeDisplay = log.mode && log.mode.trim() !== '' ? log.mode : '/';
     const rstDisplay = log.rst && log.rst.trim() !== '' ? log.rst : '/';
 
-    return `
-    <tr>
+    tr.innerHTML = `
       <td class="time-cell">${escapeHTML(log.time)}</td>
       <td class="call-cell">${escapeHTML(log.call)}</td>
       <td class="freq-cell">${escapeHTML(freqDisplay)}</td>
@@ -120,8 +123,12 @@ function renderLogs() {
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth)}</td>
       <td>${sentHtml}</td>
       <td>${receivedHtml}</td>
-    </tr>`;
-  }).join("");
+    `;
+    fragment.appendChild(tr);
+  });
+
+  logBody.innerHTML = "";
+  logBody.appendChild(fragment);
 
   emptyState.hidden = filteredLogs.length !== 0;
   totalInfo.textContent = filteredLogs.length;
@@ -158,21 +165,28 @@ searchInput.addEventListener("focus", () => {
   }
 });
 
+// 增加 Esc 键快速清空与折叠
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    searchInput.value = "";
+    filteredLogs = [...qsoLogs];
+    currentPage = 1;
+    renderLogs();
+    searchInput.blur();
+  }
+});
+
 searchInput.addEventListener("input", event => {
   const keyword = event.target.value.trim().toUpperCase();
   if (!keyword) {
     filteredLogs = [...qsoLogs];
   } else {
     filteredLogs = qsoLogs.filter(log => {
+      // 容错处理：防止 null 或 undefined 导致搜索卡死
       const searchable = [
-        log.call,
-        log.freq,
-        log.mode,
-        log.qth,
-        log.sent_date,
-        log.received_date,
-        log.time
-      ].join(" ").toUpperCase();
+        log.call, log.freq, log.mode, log.qth, 
+        log.sent_date, log.received_date, log.time
+      ].map(val => String(val || "")).join(" ").toUpperCase();
       return searchable.includes(keyword);
     });
   }
