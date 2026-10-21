@@ -39,9 +39,9 @@ body::before {
   mask-image: linear-gradient(transparent, #000);
 }
 
-/* 整体内容区宽度调整，并强制居中 */
+/* 核心：整体容器完美居中 */
 .app-shell {
-  width: 1300px; /* 固定宽度确保表格居中 */
+  width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
   padding: 32px 0 96px;
 }
@@ -59,22 +59,21 @@ body::before {
   margin: 0;
   font-size: 34px; 
   font-weight: 700; 
-  letter-spacing: .15em; /* 宋体字距稍微拉大更显高级 */
-  color: #0b2252; 
+  letter-spacing: .12em; 
+  color: #0b2252; /* 藏青色 */
   text-shadow:
     0 0 3px rgba(255,255,255,.9),
     0 0 10px rgba(255,255,255,.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px; 
+  gap: 24px; 
   line-height: 1.3;
-  flex-wrap: wrap; 
-  /* 改为思源宋体 */
-  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif; 
+  flex-wrap: wrap;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif; /* 思源宋体 */
 }
 .hero-title h1 .crac-logo {
-  height: 95px; /* 图标放大，与文字更协调 */
+  height: 95px; 
   width: auto;
   flex-shrink: 0;
   opacity: 1;
@@ -84,13 +83,16 @@ body::before {
   flex-direction: column;
   align-items: center;
 }
+/* 英文副标题：继承主标题颜色，调整粗细和间距 */
 .hero-title h1 .title-text small {
-  font-size: 15px; /* 调小英文字体 */
-  font-weight: 400;
-  letter-spacing: .2em; /* 加大英文字距 */
-  color: #a0b8cc; /* 改为银灰色，与深色背景和藏青色标题更搭配 */
-  margin-top: 8px;
-  text-shadow: 0 0 6px rgba(0,0,0,.5);
+  font-size: 13px; 
+  font-weight: 700; 
+  letter-spacing: .18em; 
+  color: inherit; /* 关键：直接继承藏青色 */
+  margin-top: 6px;
+  text-shadow: inherit; /* 继承白色发光 */
+  font-family: "Montserrat", "Segoe UI", Arial, sans-serif; 
+  text-transform: uppercase; 
 }
 
 @keyframes pulse { 50% { opacity: .3; } }
@@ -226,23 +228,23 @@ body::before {
   -webkit-backdrop-filter: blur(8px);
   border-radius: 8px;
   margin-top: 4px;
-  width: 100%; /* 占满父容器，父容器已固定居中 */
+  width: 100%;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: fixed; /* 保证严格对齐 */
 }
 
 thead { background: rgba(8, 45, 70, 0.22); }
 
-/* 表头统一使用青色 */
+/* 表头统一使用青色，稍微缩小字号 */
 th {
-  height: 60px;
-  padding: 0 12px;
+  height: 56px;
+  padding: 0 16px; /* 增加内边距 */
   color: #55e9ff;
-  font-size: 19px;
+  font-size: 17px; /* 从19px调小 */
   font-weight: 600;
   text-align: left;
   letter-spacing: .06em;
@@ -252,9 +254,9 @@ th {
 }
 th small {
   display: block;
-  margin-top: 3px;
+  margin-top: 4px;
   color: #55e9ff;
-  font: 12px Consolas, monospace;
+  font: 11px Consolas, monospace; /* 英文也稍微缩小 */
   letter-spacing: .10em;
   text-shadow: none;
   opacity: 0.8; 
@@ -270,13 +272,13 @@ th:nth-child(6), td:nth-child(6) { width: 17%; }
 th:nth-child(7), td:nth-child(7) { width: 13%; }
 th:nth-child(8), td:nth-child(8) { width: 13%; }
 
-/* 表格内的数据全部用白色 */
+/* 表格数据，padding 与 th 完全一致，保证左对齐 */
 td {
   height: 48px;
-  padding: 0 12px;
+  padding: 0 16px; /* 与表头完全一致 */
   border-bottom: 1px solid rgba(109, 220, 255, 0.05);
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px; /* 数据字号稍小于表头 */
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
@@ -289,7 +291,7 @@ tbody tr { transition: .18s ease; }
 tbody tr:hover { background: rgba(111, 247, 234, 0.08); }
 tbody tr:hover td { color: #ffffff; }
 
-.time-cell { font-family: Consolas, monospace; color: #ffffff; font-size: 16px; }
+.time-cell { font-family: Consolas, monospace; color: #ffffff; font-size: 15px; }
 .call-cell {
   color: #ffffff;
   font: 600 16px Consolas, monospace;
@@ -299,7 +301,7 @@ tbody tr:hover td { color: #ffffff; }
   font-family: Consolas, monospace;
   color: #ffffff;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 /* 模式列去掉边框和底色 */
@@ -436,7 +438,6 @@ tbody tr:hover td { color: #ffffff; }
 @media (max-width: 768px) {
   html { min-width: auto; }
   
-  /* 手机端取消固定宽度，改为自适应 */
   .app-shell {
     width: calc(100% - 20px);
     padding: 16px 0 80px;
@@ -455,7 +456,7 @@ tbody tr:hover td { color: #ffffff; }
     gap: 12px;
   }
   .hero-title h1 .crac-logo {
-    height: 50px; /* 手机端图标同步调整 */
+    height: 50px; 
   }
   .hero-title h1 .title-text small {
     font-size: 11px;
