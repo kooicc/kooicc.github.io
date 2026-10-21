@@ -99,19 +99,23 @@
     </section>
   </main>
 
-  <!-- 调整了文字顺序，删除了 Info，加入了 <br class="mobile-br"> 用于手机端强制换行 -->
+  <!-- 底部页脚：重构 DOM 结构以完美支持手机端强制换行 -->
   <footer class="site-footer">
     <div class="footer-content">
-      <span>Copyright © 1996-2026 <a href="https://github.com/kooicc/kooicc.github.io" target="_blank" rel="noopener noreferrer">BI4BOB</a></span>
-      <span class="footer-emoji">🏃‍♂️</span>
-      <br class="mobile-br">
-      <span class="footer-separator pc-sep">|</span>
-      <a href="https://www.qrz.com/db/BI4BOB" target="_blank" rel="noopener noreferrer">QRZ</a>
-      <span class="footer-separator">|</span>
-      <a href="https://www.shanghai.gov.cn/nw2318/index.html" target="_blank" rel="noopener noreferrer">QTH: Shanghai China</a>
-      <span class="footer-separator">|</span>
-      <a href="https://aprs.fi/#!call=BI4BOB-10" target="_blank" rel="noopener noreferrer">APRS</a>
-      <span class="footer-dot"></span>
+      <div class="footer-line-1">
+        <span>Copyright © 1996-2026 </span>
+        <a href="https://github.com/kooicc/kooicc.github.io" target="_blank" rel="noopener noreferrer">BI4BOB</a>
+        <span class="footer-emoji">🏃‍♂️</span>
+      </div>
+      <div class="footer-line-2">
+        <span class="footer-separator pc-sep">|</span>
+        <a href="https://www.qrz.com/db/BI4BOB" target="_blank" rel="noopener noreferrer">QRZ</a>
+        <span class="footer-separator">|</span>
+        <a href="https://www.shanghai.gov.cn/nw2318/index.html" target="_blank" rel="noopener noreferrer">QTH: Shanghai China</a>
+        <span class="footer-separator">|</span>
+        <a href="https://aprs.fi/#!call=BI4BOB-10" target="_blank" rel="noopener noreferrer">APRS</a>
+        <span class="footer-dot"></span>
+      </div>
     </div>
   </footer>
 

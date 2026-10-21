@@ -65,7 +65,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0; /* Logo 与文字之间的 gap 设为 0 */
+  gap: 0;
   line-height: 1.2;
   flex-wrap: wrap;
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
@@ -77,7 +77,7 @@ body::before {
   opacity: 1;
   margin-top: -10px; 
   margin-bottom: -10px;
-  margin-right: 16px; /* 单独控制 Logo 靠右的距离 */
+  margin-right: 32px; /* 加大了靠右的距离 */
 }
 .hero-title h1 .title-text {
   display: flex;
@@ -378,21 +378,23 @@ tbody tr:hover td { color: #ffffff; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px; 
+  gap: 8px; /* 大幅缩小间距，解决圆点太远的问题 */
   color: var(--cyan); 
   font-size: 14px;
   letter-spacing: .05em;
   text-shadow: 0 1px 3px rgba(0,0,0,.9);
 }
 
-.site-footer .footer-emoji {
-  margin-left: -12px;
-  margin-right: -8px;
+/* 电脑端两行都在一行显示 */
+.footer-line-1, .footer-line-2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* 隐藏用于手机端换行的 <br> */
-.mobile-br {
-  display: none;
+.site-footer .footer-emoji {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .site-footer .footer-content .footer-dot {
@@ -404,7 +406,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: 0 0 10px #31f2ba;
   animation: pulse 2s ease-in-out infinite;
   flex-shrink: 0;
-  margin-left: 4px; 
+  margin-left: 2px; /* 保证圆点紧贴 APRS */
 }
 .site-footer .footer-content a {
   color: var(--cyan);
@@ -420,6 +422,11 @@ tbody tr:hover td { color: #ffffff; }
   color: var(--cyan); 
   margin: 0 4px;
   opacity: 0.6; 
+}
+
+/* 默认隐藏用于控制手机换行的分隔符 */
+.pc-sep {
+  display: inline-block;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -452,7 +459,7 @@ tbody tr:hover td { color: #ffffff; }
     height: 90px; 
     margin-top: 0;
     margin-bottom: 0;
-    margin-right: 0; /* 手机端取消右侧距离 */
+    margin-right: 0;
   }
   .hero-title h1 .title-text small { font-size: 11px; letter-spacing: .15em; margin-right: -.15em; margin-top: 8px; }
 
@@ -487,29 +494,15 @@ tbody tr:hover td { color: #ffffff; }
   th:nth-child(7), td:nth-child(7) { width: 15%; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
-  /* 手机端页脚 */
+  /* 手机端页脚：强制变成两行 */
   .site-footer { height: 80px; padding: 0 12px; align-items: flex-start; }
   .site-footer .footer-content { 
-    font-size: 12px; 
-    flex-wrap: wrap; 
-    gap: 8px; 
-    max-width: 320px; 
-    text-align: center; 
-    justify-content: center;
-  }
-  .site-footer .footer-emoji {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .site-footer .footer-separator {
-    margin: 0 2px;
-  }
-  
-  /* 显示换行，并隐藏第一行后面的 PC 竖线 */
-  .mobile-br {
-    display: block;
+    flex-direction: column; /* 强制垂直排列 */
+    gap: 6px; 
     width: 100%;
   }
+  
+  /* 隐藏第一行前面的 PC 分隔符 */
   .pc-sep {
     display: none;
   }
