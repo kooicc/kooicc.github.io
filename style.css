@@ -47,7 +47,7 @@ body::before {
 }
 
 .hero {
-  min-height: 120px;
+  min-height: 150px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,23 +57,23 @@ body::before {
 .hero-title { text-align: center; }
 .hero-title h1 {
   margin: 0;
-  font-size: 34px; 
+  font-size: 42px; 
   font-weight: 700; 
-  letter-spacing: .12em; 
+  letter-spacing: .15em; 
   color: #0b2252; /* 藏青色 */
   text-shadow:
-    0 0 3px rgba(255,255,255,.9),
-    0 0 10px rgba(255,255,255,.4);
+    0 0 4px rgba(255,255,255,.95),
+    0 0 12px rgba(255,255,255,.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px; 
-  line-height: 1.3;
+  gap: 32px; 
+  line-height: 1.2;
   flex-wrap: wrap;
-  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif; /* 思源宋体 */
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
 .hero-title h1 .crac-logo {
-  height: 95px; 
+  height: 120px; 
   width: auto;
   flex-shrink: 0;
   opacity: 1;
@@ -83,14 +83,13 @@ body::before {
   flex-direction: column;
   align-items: center;
 }
-/* 英文副标题：继承主标题颜色，调整粗细和间距 */
 .hero-title h1 .title-text small {
-  font-size: 13px; 
+  font-size: 16px; 
   font-weight: 700; 
-  letter-spacing: .18em; 
-  color: inherit; /* 关键：直接继承藏青色 */
-  margin-top: 6px;
-  text-shadow: inherit; /* 继承白色发光 */
+  letter-spacing: .25em; 
+  color: inherit; 
+  margin-top: 12px;
+  text-shadow: inherit; 
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif; 
   text-transform: uppercase; 
 }
@@ -234,17 +233,16 @@ body::before {
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* 保证严格对齐 */
+  table-layout: fixed;
 }
 
 thead { background: rgba(8, 45, 70, 0.22); }
 
-/* 表头统一使用青色，稍微缩小字号 */
 th {
   height: 56px;
-  padding: 0 16px; /* 增加内边距 */
+  padding: 0 16px;
   color: #55e9ff;
-  font-size: 17px; /* 从19px调小 */
+  font-size: 17px;
   font-weight: 600;
   text-align: left;
   letter-spacing: .06em;
@@ -256,7 +254,7 @@ th small {
   display: block;
   margin-top: 4px;
   color: #55e9ff;
-  font: 11px Consolas, monospace; /* 英文也稍微缩小 */
+  font: 11px Consolas, monospace;
   letter-spacing: .10em;
   text-shadow: none;
   opacity: 0.8; 
@@ -272,13 +270,12 @@ th:nth-child(6), td:nth-child(6) { width: 17%; }
 th:nth-child(7), td:nth-child(7) { width: 13%; }
 th:nth-child(8), td:nth-child(8) { width: 13%; }
 
-/* 表格数据，padding 与 th 完全一致，保证左对齐 */
 td {
   height: 48px;
-  padding: 0 16px; /* 与表头完全一致 */
+  padding: 0 16px;
   border-bottom: 1px solid rgba(109, 220, 255, 0.05);
   color: #ffffff;
-  font-size: 16px; /* 数据字号稍小于表头 */
+  font-size: 16px;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
@@ -304,7 +301,6 @@ tbody tr:hover td { color: #ffffff; }
   font-size: 16px;
 }
 
-/* 模式列去掉边框和底色 */
 .mode-pill {
   display: inline;
   padding: 0;
@@ -389,6 +385,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
+/* ===== 底部页脚：颜色与标题完全一致 ===== */
 .site-footer {
   position: fixed;
   z-index: 10;
@@ -403,11 +400,13 @@ tbody tr:hover td { color: #ffffff; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  color: #ffffff;
+  gap: 24px; 
+  color: #0b2252; /* 底色与标题统一为藏青色 */
   font-size: 15px;
+  font-weight: 600; /* 稍微加粗一点 */
   letter-spacing: .08em;
-  text-shadow: 0 1px 3px rgba(0,0,0,.8);
+  /* 白色发光描边，保证深色背景可读 */
+  text-shadow: 0 0 3px rgba(255,255,255,.9), 0 0 10px rgba(255,255,255,.4); 
 }
 .site-footer .footer-content .footer-dot {
   display: inline-block;
@@ -420,14 +419,18 @@ tbody tr:hover td { color: #ffffff; }
   flex-shrink: 0;
 }
 .site-footer .footer-content a {
-  color: var(--cyan);
+  color: #0b2252; /* 链接颜色与标题一致 */
   text-decoration: none;
   transition: color .2s ease, text-shadow .2s ease;
 }
 .site-footer .footer-content a:hover {
-  color: #8ff4ff;
-  text-shadow: 0 0 12px rgba(85, 233, 255, 0.4);
+  color: #1e4b8f; /* hover 稍微亮一点的藏青 */
   text-decoration: underline;
+}
+.site-footer .footer-separator {
+  color: #0b2252; /* 分隔符也统一 */
+  margin: 0 8px; 
+  opacity: 0.7;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -452,15 +455,15 @@ tbody tr:hover td { color: #ffffff; }
   }
 
   .hero-title h1 {
-    font-size: 20px;
+    font-size: 22px; 
     gap: 12px;
   }
   .hero-title h1 .crac-logo {
-    height: 50px; 
+    height: 60px; 
   }
   .hero-title h1 .title-text small {
-    font-size: 11px;
-    margin-top: 4px;
+    font-size: 12px; 
+    margin-top: 6px;
   }
 
   .panel-head {
@@ -538,7 +541,7 @@ tbody tr:hover td { color: #ffffff; }
   .site-footer .footer-content {
     font-size: 11px;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px; 
     text-align: center;
   }
 }
