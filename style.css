@@ -77,7 +77,7 @@ body::before {
   opacity: 1;
   margin-top: -10px; 
   margin-bottom: -10px;
-  margin-right: 32px; /* 加大了靠右的距离 */
+  margin-right: 5px; /* 加大了靠右的距离 */
 }
 .hero-title h1 .title-text {
   display: flex;
@@ -420,7 +420,7 @@ tbody tr:hover td { color: #ffffff; }
 }
 .site-footer .footer-separator {
   color: var(--cyan); 
-  margin: 0 4px;
+  margin: 0 10px;
   opacity: 0.6; 
 }
 
