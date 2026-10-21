@@ -39,14 +39,15 @@ body::before {
   mask-image: linear-gradient(transparent, #000);
 }
 
+/* 整体内容区宽度调整，并强制居中 */
 .app-shell {
-  width: min(1500px, calc(100% - 90px));
+  width: 1300px; /* 固定宽度确保表格居中 */
   margin: 0 auto;
   padding: 32px 0 96px;
 }
 
 .hero {
-  min-height: 100px;
+  min-height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,22 +57,24 @@ body::before {
 .hero-title { text-align: center; }
 .hero-title h1 {
   margin: 0;
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  color: #0b2252; /* 修改为藏青色 */
+  font-size: 34px; 
+  font-weight: 700; 
+  letter-spacing: .15em; /* 宋体字距稍微拉大更显高级 */
+  color: #0b2252; 
   text-shadow:
-    0 0 2px rgba(255,255,255,.85),
-    0 0 8px rgba(255,255,255,.35);
+    0 0 3px rgba(255,255,255,.9),
+    0 0 10px rgba(255,255,255,.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  line-height: 1.4;
-  flex-wrap: wrap;
+  gap: 28px; 
+  line-height: 1.3;
+  flex-wrap: wrap; 
+  /* 改为思源宋体 */
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif; 
 }
 .hero-title h1 .crac-logo {
-  height: 70px;
+  height: 95px; /* 图标放大，与文字更协调 */
   width: auto;
   flex-shrink: 0;
   opacity: 1;
@@ -82,13 +85,12 @@ body::before {
   align-items: center;
 }
 .hero-title h1 .title-text small {
-  font-size: 16px;
+  font-size: 15px; /* 调小英文字体 */
   font-weight: 400;
-  letter-spacing: .15em;
-  color: #2c5282;
-  text-shadow:
-    0 0 2px rgba(255,255,255,.7),
-    0 0 6px rgba(255,255,255,.25);
+  letter-spacing: .2em; /* 加大英文字距 */
+  color: #a0b8cc; /* 改为银灰色，与深色背景和藏青色标题更搭配 */
+  margin-top: 8px;
+  text-shadow: 0 0 6px rgba(0,0,0,.5);
 }
 
 @keyframes pulse { 50% { opacity: .3; } }
@@ -224,6 +226,7 @@ body::before {
   -webkit-backdrop-filter: blur(8px);
   border-radius: 8px;
   margin-top: 4px;
+  width: 100%; /* 占满父容器，父容器已固定居中 */
 }
 
 table {
@@ -254,10 +257,10 @@ th small {
   font: 12px Consolas, monospace;
   letter-spacing: .10em;
   text-shadow: none;
-  opacity: 0.8; /* 让英文小字稍微弱化一点，不抢中文风头 */
+  opacity: 0.8; 
 }
 
-/* ===== 电脑端列宽 ===== */
+/* ===== 列宽比例分配 ===== */
 th:nth-child(1), td:nth-child(1) { width: 15%; }
 th:nth-child(2), td:nth-child(2) { width: 14%; }
 th:nth-child(3), td:nth-child(3) { width: 10%; }
@@ -286,7 +289,6 @@ tbody tr { transition: .18s ease; }
 tbody tr:hover { background: rgba(111, 247, 234, 0.08); }
 tbody tr:hover td { color: #ffffff; }
 
-/* 去除原来呼号和频率的青色，统一白色 */
 .time-cell { font-family: Consolas, monospace; color: #ffffff; font-size: 16px; }
 .call-cell {
   color: #ffffff;
@@ -300,7 +302,7 @@ tbody tr:hover td { color: #ffffff; }
   font-size: 17px;
 }
 
-/* 模式列去掉边框和底色，文字统一白色 */
+/* 模式列去掉边框和底色 */
 .mode-pill {
   display: inline;
   padding: 0;
@@ -315,7 +317,7 @@ tbody tr:hover td { color: #ffffff; }
 /* ===== QSL 日期统一白色 ===== */
 .sent-date { color: #ffffff; font-weight: 500; }
 .received-date { color: #ffffff; font-weight: 500; }
-.empty-date { color: #ffffff; opacity: 0.5; } /* 空值稍微淡一点 */
+.empty-date { color: #ffffff; opacity: 0.5; } 
 
 .empty-state {
   position: absolute;
@@ -433,7 +435,8 @@ tbody tr:hover td { color: #ffffff; }
 /* ===== 手机端适配 ===== */
 @media (max-width: 768px) {
   html { min-width: auto; }
-
+  
+  /* 手机端取消固定宽度，改为自适应 */
   .app-shell {
     width: calc(100% - 20px);
     padding: 16px 0 80px;
@@ -449,13 +452,14 @@ tbody tr:hover td { color: #ffffff; }
 
   .hero-title h1 {
     font-size: 20px;
-    gap: 10px;
+    gap: 12px;
   }
   .hero-title h1 .crac-logo {
-    height: 40px;
+    height: 50px; /* 手机端图标同步调整 */
   }
   .hero-title h1 .title-text small {
     font-size: 11px;
+    margin-top: 4px;
   }
 
   .panel-head {
