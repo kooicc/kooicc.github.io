@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#031428">
   <title>BI4BOB业余无线电台</title>
   
-  <!-- 纯代码绘制的 CRAC 风格徽标图标 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ffffff'/><circle cx='50' cy='50' r='42' fill='none' stroke='%231e66d0' stroke-width='4'/><path d='M50 15 L25 75 L75 75 Z' fill='none' stroke='%231e66d0' stroke-width='4' stroke-linejoin='round'/><path d='M50 25 L50 40' stroke='%231e66d0' stroke-width='4'/><path d='M43 30 L57 30' stroke='%231e66d0' stroke-width='3'/><path d='M50 40 C 40 45, 60 55, 50 60' fill='none' stroke='%231e66d0' stroke-width='3'/><circle cx='50' cy='50' r='12' fill='%23ffffff' stroke='%231e66d0' stroke-width='3'/><path d='M40 52 Q 50 42 62 50' fill='none' stroke='%23e63946' stroke-width='3' stroke-linecap='round'/><rect x='32' y='60' width='36' height='10' rx='4' fill='%23ffffff' stroke='%231e66d0' stroke-width='2'/><text x='50' y='68' font-family='Arial, sans-serif' font-size='8' font-weight='bold' fill='%231e66d0' text-anchor='middle'>CRAC</text><path d='M40 75 L40 85 M50 75 L50 85 M60 75 L60 85' stroke='%231e66d0' stroke-width='3'/></svg>" type="image/svg+xml">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,18 +39,18 @@
       <div class="panel-head">
         <div class="panel-head-left">
           <div class="title-row">
-            <!-- 调换位置：卡片墙在左，收发记录在右 -->
-            <button id="tabQsl" class="title-log active" type="button">
-              🖼️ QSL 卡片墙
+            <!-- 左边卡片墙，右边收发记录 -->
+            <button id="tabQsl" class="title-log" type="button">
+              🖼️ QSL卡片
             </button>
             <button id="tabQso" class="title-log" type="button">
               <span class="btn-icon" aria-hidden="true">▼</span>
-              📋 QSL 收发记录
+              📋 QSL收发
             </button>
           </div>
         </div>
 
-        <div id="searchContainer" class="panel-head-actions">
+        <div id="searchContainer" class="panel-head-actions hidden">
           <label class="search-box" for="callsignSearch">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
             <input id="callsignSearch" type="search" placeholder="搜索呼号、频率、模式、位置等" autocomplete="off">
@@ -60,17 +59,17 @@
         </div>
       </div>
 
-      <!-- 默认折叠的内容区 -->
+      <!-- 外层折叠容器 -->
       <div id="logContainer" class="log-container collapsed">
         
-        <!-- QSL 卡片墙内容面板 -->
-        <div id="qslContent" class="wall-container">
+        <!-- QSL 卡片墙 -->
+        <div id="qslContent" class="wall-container hidden">
           <div id="wallGrid" class="wall-grid">
             <!-- 图片由 JS 自动渲染到这里 -->
           </div>
         </div>
 
-        <!-- QSO 内容面板 -->
+        <!-- QSO 收发记录 -->
         <div id="qsoContent" class="table-wrapper hidden">
           <div class="table-frame">
             <table>
@@ -144,11 +143,14 @@
     const logContainer = document.getElementById("logContainer"); 
     const searchContainer = document.getElementById("searchContainer");
     const wallGrid = document.getElementById("wallGrid");
+    const tabQsoIcon = tabQso.querySelector(".btn-icon");
 
-    let isExpanded = false;
-    let currentTab = 'qsl'; // 默认当前标签是卡片墙
+    // 默认收起状态
+    let isExpanded = false; 
+    // 当前在哪个标签
+    let currentTab = ''; 
 
-    // 默认加载卡片墙图片
+    // 你的 Cloudflare 图床链接
     const qslImages = [
       "https://img.244056614.xyz/BH3NZN.jpg",
       "https://img.244056614.xyz/BI4AJF.jpg",
@@ -168,56 +170,50 @@
       });
     }
 
-    function updateUI() {
-      if (currentTab === 'qsl') {
-        qslContent.classList.remove("hidden");
-        qsoContent.classList.add("hidden");
-        searchContainer.style.display = "none";
-        renderWall();
+    function switchTab(tabName) {
+      if (currentTab === tabName) {
+        // 如果点击的是当前已激活的标签，则切换折叠状态
+        isExpanded = !isExpanded;
       } else {
-        qsoContent.classList.remove("hidden");
-        qslContent.classList.add("hidden");
-        searchContainer.style.display = "flex";
+        // 如果点击的是另一个标签，切换到该标签并自动展开
+        currentTab = tabName;
+        isExpanded = true;
+        
+        // 更新按钮的高亮样式
+        tabQso.classList.toggle("active", tabName === 'qso');
+        tabQsl.classList.toggle("active", tabName === 'qsl');
+
+        // 切换显示的内容区
+        if (tabName === 'qso') {
+          qsoContent.classList.remove("hidden");
+          qslContent.classList.add("hidden");
+        } else {
+          qslContent.classList.remove("hidden");
+          qsoContent.classList.add("hidden");
+          renderWall();
+        }
       }
 
+      // 处理折叠动画和搜索框显隐
       if (isExpanded) {
         logContainer.classList.remove("collapsed");
+        // 如果是表格就显示搜索框，否则隐藏
+        searchContainer.classList.toggle("hidden", currentTab !== 'qso');
       } else {
         logContainer.classList.add("collapsed");
+        searchContainer.classList.add("hidden");
       }
     }
 
-    tabQsl.addEventListener("click", () => {
-      if (currentTab === 'qsl') {
-        isExpanded = !isExpanded; 
-      } else {
-        currentTab = 'qsl';
-        isExpanded = true; 
-        tabQsl.classList.add("active");
-        tabQso.classList.remove("active");
-      }
-      updateUI();
-    });
+    tabQsl.addEventListener("click", () => switchTab('qsl'));
+    tabQso.addEventListener("click", () => switchTab('qso'));
 
-    tabQso.addEventListener("click", () => {
-      if (currentTab === 'qso') {
-        isExpanded = !isExpanded; 
-      } else {
-        currentTab = 'qso';
-        isExpanded = true; 
-        tabQso.classList.add("active");
-        tabQsl.classList.remove("active");
-      }
-      updateUI();
-    });
-
-    // 更新箭头方向
+    // 监听折叠状态，更新箭头方向
     const observer = new MutationObserver(() => {
-      const icon = tabQso.querySelector(".btn-icon");
       if (logContainer.classList.contains("collapsed")) {
-        icon.textContent = '▼';
+        tabQsoIcon.textContent = '▼';
       } else {
-        icon.textContent = '▲';
+        tabQsoIcon.textContent = '▲';
       }
     });
     observer.observe(logContainer, { attributes: true, attributeFilter: ['class'] });

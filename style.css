@@ -126,7 +126,6 @@ body::before {
   padding-left: 0;
 }
 
-/* 标签页按钮样式 */
 .panel-head .title-row .title-log {
   display: inline-flex;
   align-items: center;
@@ -225,7 +224,7 @@ body::before {
   display: none !important;
 }
 
-/* 加深整个表框背景底色 */
+/* ===== 表格样式（加深背景底色） ===== */
 .table-frame {
   min-height: 420px;
   position: relative;
@@ -297,6 +296,10 @@ tbody tr:hover td { color: #ffffff; }
 
 .time-cell { font-family: Consolas, monospace; font-size: 15px; }
 .call-cell { font: 600 16px Consolas, monospace; letter-spacing: .08em; }
+/* 呼号超链接样式 */
+.call-cell a { color: #ffffff; text-decoration: none; transition: color .2s ease; }
+.call-cell a:hover { color: var(--cyan); text-decoration: underline; }
+
 .freq-cell { font-family: Consolas, monospace; font-weight: 600; font-size: 16px; }
 .mode-pill { display: inline; padding: 0; border: none; background: transparent; font: 15px Consolas, monospace; text-align: left; }
 .rst { font: 15px Consolas, monospace; }
@@ -373,7 +376,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
-/* ===== QSL 卡片墙样式 ===== */
+/* ===== QSL 卡片墙样式（去除了黑色方块） ===== */
 .wall-container {
   margin-top: 4px;
   padding: 8px 0;
@@ -394,7 +397,7 @@ tbody tr:hover td { color: #ffffff; }
   overflow: hidden; 
   box-shadow: 0 4px 15px rgba(0,0,0,.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* 去除内边距和深色小方块 */
+  /* 去除内边距和背景色 */
   background: transparent;
   padding: 0; 
 }
@@ -534,14 +537,12 @@ tbody tr:hover td { color: #ffffff; }
   th:nth-child(7), td:nth-child(7) { width: 15%; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
-  /* 手机端卡片墙变成两列 */
   .wall-grid {
     grid-template-columns: repeat(2, 1fr);
     padding: 12px;
     gap: 12px;
   }
 
-  /* 手机端页脚 */
   .site-footer { height: 80px; padding: 0 12px; align-items: flex-start; }
   .site-footer .footer-content { 
     flex-direction: column; 
