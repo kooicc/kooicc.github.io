@@ -7,16 +7,12 @@ let filteredLogs = [];
 let wallRendered = false;
 const PAGE_SIZE = 10;
 
-// 【修改点 1】图床基础 URL，之后加呼号即可
 const QSL_IMAGE_BASE_URL = "https://img.244056614.xyz/"; 
 
 let qsoElements = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // 动态年份
   document.querySelector(".footer-line-1 span").textContent = `Copyright © 1996-${new Date().getFullYear()} `;
-
-  // 【修改点 2】获取必应壁纸信息
   fetchBingWallpaperInfo();
 
   qsoElements = {
@@ -36,7 +32,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     rangeInfo: document.getElementById("rangeInfo"),
     totalInfo: document.getElementById("totalInfo"),
     emptyState: document.getElementById("emptyState"),
-    // 新增大图元素
     imageModal: document.getElementById("imageModal"),
     modalImage: document.getElementById("modalImage"),
     modalClose: document.querySelector(".modal-close")
@@ -49,7 +44,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!response.ok) throw new Error("网络请求失败");
     const rawData = await response.json();
     
-    // 数据映射
     qsoLogs = rawData
       .sort((a, b) => (b[0] || "").localeCompare(a[0] || ""))
       .map(([time, call, freq, mode, rst, qth, received, sent]) => ({
@@ -66,16 +60,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// 【修改点 2】抓取必应壁纸信息的函数
 async function fetchBingWallpaperInfo() {
   try {
-    // 使用免费的必应壁纸 API
     const res = await fetch('https://bing.img.newfuture.cc/api/v1/bing');
     if (!res.ok) return;
     const data = await res.json();
     if (data && data.data && data.data.length > 0) {
       const today = data.data[0];
-      // API 返回的数据里包含 title 和 copyright
       const copyrightText = today.copyright || "";
       const titleText = today.title || "";
       
@@ -167,16 +158,22 @@ function toggleTab(tab) {
   updateUI();
 }
 
-// 【修改点 1】自动匹配逻辑
 function renderWall() {
   if (wallRendered) return;
   const fragment = document.createDocumentFragment();
 
-  // 找出有寄出或收到记录的呼号，并去重
-  const qslCallsigns = [...new Set(qsoLogs
-    .filter(log => log.receivedDate || log.sentDate)
-    .map(log => log.call)
-  )];
+  // 1. 过滤出有 QSL 状态的记录
+  const qslRecords = qsoLogs.filter(log => log.receivedDate || log.sentDate);
+  
+  // 2. 按照 QSL 收到时间倒序（最新收到的排最前），若没有收到时间则按寄出时间
+  qslRecords.sort((a, b) => {
+    const dateA = a.receivedDate || a.sentDate || "";
+    const dateB = b.receivedDate || b.sentDate || "";
+    return dateB.localeCompare(dateA);
+  });
+
+  // 3. 去重
+  const qslCallsigns = [...new Set(qslRecords.map(log => log.call))];
 
   if (qslCallsigns.length === 0) {
     qsoElements.wallGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--muted);">暂无 QSL 记录</div>';
@@ -185,7 +182,9 @@ function renderWall() {
   }
 
   qslCallsigns.forEach((call) => {
-    // 自动拼接图片 URL（注意这里默认你用 .jpg 格式，如果用 .png 请自行修改）
+    // 懒加载机制：只有呼号生成了图片 URL 才会创建节点
+    if (!call) return;
+
     const url = `${QSL_IMAGE_BASE_URL}${call}.jpg`; 
     
     const item = document.createElement("figure");
@@ -197,7 +196,7 @@ function renderWall() {
     const image = document.createElement("img");
     image.src = url;
     image.alt = `${call} QSL 卡片`;
-    image.loading = "lazy";
+    image.loading = "lazy"; // 浏览器原生懒加载
     image.decoding = "async";
 
     item.addEventListener("click", () => {
@@ -212,7 +211,7 @@ function renderWall() {
       }
     });
 
-    // 如果图床里没有这张图，直接把这整张卡片隐藏掉，不影响美观
+    // 图床没图直接隐藏卡片
     image.addEventListener("error", () => {
       item.style.display = 'none'; 
     }, { once: true });

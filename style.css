@@ -122,7 +122,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
 }
 @media (max-width: 900px) {
-  .table-scroll-wrapper::after { opacity: 1; } /* 手机端才显示 */
+  .table-scroll-wrapper::after { opacity: 1; } 
 }
 
 .table-scroll { width: 100%; overflow-x: auto; }
@@ -171,7 +171,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   border: none; background: transparent;
   box-shadow: 0 4px 15px rgba(0,0,0,.3);
   transition: transform .25s ease, box-shadow .25s ease; 
-  cursor: zoom-in; /* 提示可点击 */
+  cursor: zoom-in;
 }
 .wall-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(85,233,255,.2); }
 .wall-item img { width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: cover; background: transparent; }
@@ -259,7 +259,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
-/* 追加在 style.css 的最末尾 */
+
 .bing-info {
   text-align: center;
   font-size: 12px;
@@ -275,5 +275,5 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   text-overflow: ellipsis;
 }
 @media (max-width: 600px) {
-  .bing-info { display: none; } /* 手机端由于空间有限，隐藏壁纸信息，让底部更清爽 */
+  .bing-info { display: none; }
 }
