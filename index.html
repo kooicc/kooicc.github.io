@@ -56,14 +56,6 @@
             <input id="callsignSearch" type="search" placeholder="搜索呼号、频率、位置等" autocomplete="off" aria-label="搜索通联日志">
             <button id="clearSearch" class="clear-search" type="button" aria-label="清空搜索" title="清空搜索" hidden>×</button>
           </label>
-          
-          <!-- 修改了默认显示的字为 QSL状态 -->
-          <select id="qslFilter" class="qsl-filter" aria-label="QSL状态过滤">
-            <option value="all">QSL状态</option>
-            <option value="sent">已寄出</option>
-            <option value="received">已收到</option>
-            <option value="missing">未收到</option>
-          </select>
         </div>
       </div>
 
@@ -97,7 +89,7 @@
             <div id="emptyState" class="empty-state" hidden>
               <span>⌁</span>
               <strong>未找到匹配的记录</strong>
-              <small>请尝试调整搜索词或过滤条件</small>
+              <small>请尝试调整搜索词</small>
             </div>
           </div>
 

@@ -16,7 +16,7 @@ const qslImages = [
   "https://img.244056614.xyz/BI4BRD.jpg"
 ];
 
-// DOM 元素引用（延迟到 DOMContentLoaded 获取）
+// DOM 元素引用
 let qsoElements = {};
 
 // 初始化入口
@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     wallGrid: document.getElementById("wallGrid"),
     searchInput: document.getElementById("callsignSearch"),
     clearSearch: document.getElementById("clearSearch"),
-    qslFilter: document.getElementById("qslFilter"),
     logBody: document.getElementById("logBody"),
     prevBtn: document.getElementById("prevBtn"),
     nextBtn: document.getElementById("nextBtn"),
@@ -72,12 +71,10 @@ function bindEvents() {
   qsoElements.tabQsl.addEventListener("click", () => toggleTab("qsl"));
   qsoElements.tabQso.addEventListener("click", () => toggleTab("qso"));
   qsoElements.searchInput.addEventListener("input", applyFilters);
-  qsoElements.qslFilter.addEventListener("change", applyFilters);
   
   qsoElements.searchInput.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       qsoElements.searchInput.value = "";
-      qsoElements.qslFilter.value = "all";
       applyFilters();
       qsoElements.searchInput.blur();
     }
@@ -85,7 +82,6 @@ function bindEvents() {
   
   qsoElements.clearSearch.addEventListener("click", () => {
     qsoElements.searchInput.value = "";
-    qsoElements.qslFilter.value = "all";
     applyFilters();
     qsoElements.searchInput.focus();
   });
@@ -181,7 +177,7 @@ function renderLogs() {
   visibleLogs.forEach(log => {
     const tr = document.createElement("tr");
     
-    // 注意这里：把收到日期和寄出日期正确对应
+    // 修正后的数据填充
     const received = log.qslReceivedDate
       ? `<span class="received-date">${escapeHTML(log.qslReceivedDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
@@ -196,8 +192,8 @@ function renderLogs() {
       <td><span class="mode-pill">${escapeHTML(log.mode || "—")}</span></td>
       <td class="rst">${escapeHTML(log.rst || "—")}</td>
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth || "—")}</td>
-      <td>${received}</td> <!-- 这里填收到时间 -->
-      <td>${sent}</td>     <!-- 这里填寄出时间 -->
+      <td>${received}</td>
+      <td>${sent}</td>
     `;
     fragment.appendChild(tr);
   });
@@ -215,24 +211,12 @@ function renderLogs() {
 
 function applyFilters() {
   const keyword = qsoElements.searchInput.value.trim().toLocaleUpperCase();
-  const filterType = qsoElements.qslFilter.value;
 
   filteredLogs = qsoLogs.filter(log => {
-    const matchesKeyword = keyword
+    return keyword
       ? [log.call, log.freq, log.mode, log.rst, log.qth, log.qslReceivedDate, log.qslSentDate, log.time]
           .some(value => String(value || "").toLocaleUpperCase().includes(keyword))
       : true;
-
-    let matchesFilter = true;
-    if (filterType === "sent") {
-      matchesFilter = !!log.qslSentDate;
-    } else if (filterType === "received") {
-      matchesFilter = !!log.qslReceivedDate;
-    } else if (filterType === "missing") {
-      matchesFilter = !log.qslReceivedDate;
-    }
-
-    return matchesKeyword && matchesFilter;
   });
 
   qsoElements.clearSearch.hidden = !qsoElements.searchInput.value;
