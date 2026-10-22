@@ -98,6 +98,13 @@ body::after {
 .search-box input { min-width: 0; flex: 1; height: 34px; border: 0; outline: 0; color: #dffbff; background: transparent; font-family: inherit; font-size: 13px; }
 .search-box input::placeholder { color: #8ba9b8; }
 .clear-search { border: 0; padding: 0 3px; color: var(--cyan); background: transparent; font-size: 22px; cursor: pointer; line-height: 1; }
+
+/* 修复搜索框点击出现外边框的问题 */
+.search-box input:focus-visible,
+.search-box:focus-within {
+  outline: none !important;
+}
+
 .hidden { display: none !important; }
 button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
@@ -154,15 +161,14 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   min-width: 0; 
   border-radius: 8px; 
   overflow: hidden; 
-  /* 移除了 border 和 background */
   border: none;
   background: transparent;
-  box-shadow: 0 4px 15px rgba(0,0,0,.3); /* 保留阴影作为浮雕效果 */
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
   transition: transform .25s ease, box-shadow .25s ease; 
 }
 .wall-item:hover { 
   transform: translateY(-3px); 
-  box-shadow: 0 8px 25px rgba(85,233,255,.2); /* 悬浮时阴影变亮 */
+  box-shadow: 0 8px 25px rgba(85,233,255,.2);
 }
 
 /* 图片去掉黑色填充 */
@@ -171,14 +177,23 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   height: auto; 
   display: block; 
   aspect-ratio: 3 / 2; 
-  object-fit: cover; /* 改为 cover 填满 */
-  background: transparent; /* 移除黑色填充 */
+  object-fit: cover;
+  background: transparent;
 }
 .wall-item img[hidden] { display: none; }
 .image-fallback { min-height: 150px; display: grid; place-items: center; padding: 16px; color: var(--muted); font-size: 13px; text-align: center; }
 
-.site-footer { position: fixed; z-index: 10; bottom: 0; left: 0; right: 0; min-height: 48px; display: grid; place-items: center; padding: 8px 12px; background: linear-gradient(180deg, transparent, rgba(1,8,19,.82)); }
-.site-footer .footer-content { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; color: var(--cyan); font-size: 12px; text-shadow: 0 1px 3px rgba(0,0,0,.9); }
+/* ================= 底部版权字体放大 ================= */
+.site-footer { 
+  position: fixed; z-index: 10; bottom: 0; left: 0; right: 0; min-height: 48px; 
+  display: grid; place-items: center; padding: 8px 12px; 
+  background: linear-gradient(180deg, transparent, rgba(1,8,19,.82)); 
+}
+.site-footer .footer-content { 
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; 
+  color: var(--cyan); font-size: 14px; /* 字号从 12px 放大到 14px */
+  text-shadow: 0 1px 3px rgba(0,0,0,.9); 
+}
 .footer-line-1, .footer-line-2 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .site-footer .footer-emoji { margin: 0; }
 .site-footer .footer-content .footer-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #31f2ba; box-shadow: 0 0 10px #31f2ba; animation: pulse 2s ease-in-out infinite; margin-left: 2px; }
@@ -219,7 +234,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   .wall-container { padding: 6px; }
   .image-fallback { min-height: 100px; font-size: 12px; }
   .site-footer { position: relative; min-height: 72px; padding: 12px 10px; background: rgba(1,8,19,.65); }
-  .site-footer .footer-content { flex-direction: column; gap: 6px; text-align: center; font-size: 11px; }
+  .site-footer .footer-content { flex-direction: column; gap: 6px; text-align: center; font-size: 12px; }
   .footer-line-1, .footer-line-2 { justify-content: center; gap: 6px; }
   .pc-sep { display: none; }
 }
