@@ -53,16 +53,25 @@
         <div id="searchContainer" class="panel-head-actions hidden">
           <label class="search-box" for="callsignSearch">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-            <input id="callsignSearch" type="search" placeholder="搜索呼号、频率、模式、位置或日期" autocomplete="off" aria-label="搜索通联日志">
+            <input id="callsignSearch" type="search" placeholder="搜索呼号、频率、位置等" autocomplete="off" aria-label="搜索通联日志">
             <button id="clearSearch" class="clear-search" type="button" aria-label="清空搜索" title="清空搜索" hidden>×</button>
           </label>
+          
+          <select id="qslFilter" class="qsl-filter" aria-label="QSL状态过滤">
+            <option value="all">全部状态</option>
+            <option value="sent">已寄出</option>
+            <option value="received">已收到</option>
+            <option value="missing">未收到</option>
+          </select>
         </div>
       </div>
 
       <div id="logContainer" class="log-container hidden">
         
         <div id="qslContent" class="wall-container hidden" aria-label="QSL 卡片展示">
-          <div id="wallGrid" class="wall-grid"></div>
+          <div id="wallGrid" class="wall-grid">
+            <!-- 由 JS 动态加载 -->
+          </div>
         </div>
 
         <div id="qsoContent" class="table-wrapper hidden" aria-label="QSO 通联日志">
@@ -81,24 +90,27 @@
                   <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
                 </tr>
               </thead>
-              <tbody id="logBody"></tbody>
+              <tbody id="logBody">
+                <!-- 加载状态提示 -->
+                <tr><td colspan="8" style="text-align: center; padding: 40px;">正在加载日志数据...</td></tr>
+              </tbody>
             </table>
             </div>
             <div id="emptyState" class="empty-state" hidden>
               <span>⌁</span>
               <strong>未找到匹配的记录</strong>
-              <small>请尝试输入其他关键字</small>
+              <small>请尝试调整搜索词或过滤条件</small>
             </div>
           </div>
 
           <div class="panel-footer">
             <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
             <nav class="pagination" aria-label="通联日志分页">
-              <button id="prevBtn" type="button" aria-label="上一页">
+              <button id="prevBtn" type="button" aria-label="上一页" disabled>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>上一页
               </button>
               <span id="pageInfo">01 / 01</span>
-              <button id="nextBtn" type="button" aria-label="下一页">
+              <button id="nextBtn" type="button" aria-label="下一页" disabled>
                 下一页<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
               </button>
             </nav>
