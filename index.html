@@ -53,61 +53,58 @@
         <div id="searchContainer" class="panel-head-actions hidden">
           <label class="search-box" for="callsignSearch">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-            <input id="callsignSearch" type="search" placeholder="搜索呼号、频率、模式、位置等" autocomplete="off">
+            <input id="callsignSearch" type="search" placeholder="搜索呼号、频率等" autocomplete="off">
             <kbd>SEARCH</kbd>
           </label>
         </div>
       </div>
 
-      <!-- 将容器改为 grid 以实现丝滑的 0fr -> 1fr 动画，彻底杜绝手机抽搐 -->
       <div id="logContainer" class="log-container collapsed">
-        <div class="log-inner">
-          <!-- QSL 卡片墙面板 -->
-          <div id="qslContent" class="wall-container hidden">
-            <div id="wallGrid" class="wall-grid"></div>
+        
+        <!-- QSL 卡片墙 -->
+        <div id="qslContent" class="wall-container hidden">
+          <div id="wallGrid" class="wall-grid"></div>
+        </div>
+
+        <!-- QSO 收发记录 -->
+        <div id="qsoContent" class="table-wrapper hidden">
+          <div class="table-frame">
+            <table>
+              <thead>
+                <tr>
+                  <th>通联时间 <small>DATE / TIME (UTC)</small></th>
+                  <th>呼号 <small>CALLSIGN</small></th>
+                  <th>频率 <small>FREQ (MHz)</small></th>
+                  <th>模式 <small>MODE</small></th>
+                  <th>信号 <small>RST</small></th>
+                  <th>位置 <small>QTH</small></th>
+                  <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
+                  <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
+                </tr>
+              </thead>
+              <tbody id="logBody"></tbody>
+            </table>
+            <div id="emptyState" class="empty-state" hidden>
+              <span>⌁</span>
+              <strong>未找到匹配的记录</strong>
+              <small>请尝试输入其他关键字</small>
+            </div>
           </div>
 
-          <!-- QSO 收发记录面板 -->
-          <div id="qsoContent" class="table-wrapper hidden">
-            <div class="table-frame">
-              <table>
-                <thead>
-                  <tr>
-                    <th>通联时间 <small>DATE / TIME (UTC)</small></th>
-                    <th>呼号 <small>CALLSIGN</small></th>
-                    <th>频率 <small>FREQ (MHz)</small></th>
-                    <th>模式 <small>MODE</small></th>
-                    <th>信号 <small>RST</small></th>
-                    <th>位置 <small>QTH</small></th>
-                    <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
-                    <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
-                  </tr>
-                </thead>
-                <tbody id="logBody"></tbody>
-              </table>
-              <div id="emptyState" class="empty-state" hidden>
-                <span>⌁</span>
-                <strong>未找到匹配的记录</strong>
-                <small>请尝试输入其他关键字</small>
-              </div>
-            </div>
-
-            <div class="panel-footer">
-              <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
-              <nav class="pagination" aria-label="通联日志分页">
-                <button id="prevBtn" type="button" aria-label="上一页">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-                  上一页
-                </button>
-                <span id="pageInfo">01 / 01</span>
-                <button id="nextBtn" type="button" aria-label="下一页">
-                  下一页
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-                </button>
-              </nav>
-            </div>
+          <div class="panel-footer">
+            <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
+            <nav class="pagination" aria-label="通联日志分页">
+              <button id="prevBtn" type="button" aria-label="上一页">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>上一页
+              </button>
+              <span id="pageInfo">01 / 01</span>
+              <button id="nextBtn" type="button" aria-label="下一页">
+                下一页<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </nav>
           </div>
         </div>
+
       </div>
     </section>
   </main>
