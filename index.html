@@ -67,7 +67,6 @@
 
         <div id="qsoContent" class="table-wrapper hidden" aria-label="QSO 通联日志">
           <div class="table-frame">
-            <!-- 添加了滚动提示阴影 -->
             <div class="table-scroll-wrapper">
               <div class="table-scroll">
                 <table>
@@ -115,9 +114,11 @@
   </main>
 
   <footer class="site-footer">
+    <!-- 新增：必应壁纸信息 -->
+    <div id="bingInfo" class="bing-info hidden"></div>
+    
     <div class="footer-content">
       <div class="footer-line-1">
-        <!-- 动态年份将由 JS 自动渲染 -->
         <span>Copyright © 1996-2026 </span>
         <a href="https://github.com/kooicc/kooicc.github.io" target="_blank" rel="noopener noreferrer">BI4BOB</a>
         <span class="footer-emoji">🏃‍♂️</span>
@@ -134,7 +135,6 @@
     </div>
   </footer>
 
-  <!-- 新增：QSL 大图预览层 -->
   <div id="imageModal" class="image-modal hidden">
     <button class="modal-close" aria-label="关闭预览">&times;</button>
     <img id="modalImage" src="" alt="QSL 大图预览">

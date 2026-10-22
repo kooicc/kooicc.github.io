@@ -7,20 +7,17 @@ let filteredLogs = [];
 let wallRendered = false;
 const PAGE_SIZE = 10;
 
-const qslImages = [
-  "https://img.244056614.xyz/BH3NZN.jpg",
-  "https://img.244056614.xyz/BI4AJF.jpg",
-  "https://img.244056614.xyz/BG3NQT.jpg",
-  "https://img.244056614.xyz/BH8GTW.jpg",
-  "https://img.244056614.xyz/BH4GWF.jpg",
-  "https://img.244056614.xyz/BI4BRD.jpg"
-];
+// 【修改点 1】图床基础 URL，之后加呼号即可
+const QSL_IMAGE_BASE_URL = "https://img.244056614.xyz/"; 
 
 let qsoElements = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
   // 动态年份
   document.querySelector(".footer-line-1 span").textContent = `Copyright © 1996-${new Date().getFullYear()} `;
+
+  // 【修改点 2】获取必应壁纸信息
+  fetchBingWallpaperInfo();
 
   qsoElements = {
     tabQso: document.getElementById("tabQso"),
@@ -52,16 +49,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!response.ok) throw new Error("网络请求失败");
     const rawData = await response.json();
     
-    // 数据映射：倒数第二是收到时间，最后是寄出时间
+    // 数据映射
     qsoLogs = rawData
       .sort((a, b) => (b[0] || "").localeCompare(a[0] || ""))
       .map(([time, call, freq, mode, rst, qth, received, sent]) => ({
-        time, 
-        call, 
-        freq, 
-        mode, 
-        rst, 
-        qth, 
+        time, call, freq, mode, rst, qth, 
         receivedDate: received, 
         sentDate: sent
       }));
@@ -73,6 +65,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     qsoElements.logBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #ff6b6b; padding: 40px;">数据加载失败。</td></tr>`;
   }
 });
+
+// 【修改点 2】抓取必应壁纸信息的函数
+async function fetchBingWallpaperInfo() {
+  try {
+    // 使用免费的必应壁纸 API
+    const res = await fetch('https://bing.img.newfuture.cc/api/v1/bing');
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data && data.data && data.data.length > 0) {
+      const today = data.data[0];
+      // API 返回的数据里包含 title 和 copyright
+      const copyrightText = today.copyright || "";
+      const titleText = today.title || "";
+      
+      const bingInfoEl = document.getElementById("bingInfo");
+      if (bingInfoEl) {
+        bingInfoEl.innerHTML = `<span>📷 ${titleText} (${copyrightText})</span>`;
+        bingInfoEl.classList.remove("hidden");
+      }
+    }
+  } catch (e) {
+    console.log("必应壁纸信息获取失败", e);
+  }
+}
 
 function bindEvents() {
   qsoElements.tabQsl.addEventListener("click", () => toggleTab("qsl"));
@@ -106,7 +122,6 @@ function bindEvents() {
     }
   });
 
-  // 大图预览关闭事件
   qsoElements.modalClose.addEventListener("click", closeModal);
   qsoElements.imageModal.addEventListener("click", (e) => {
     if (e.target === qsoElements.imageModal) closeModal();
@@ -152,20 +167,36 @@ function toggleTab(tab) {
   updateUI();
 }
 
+// 【修改点 1】自动匹配逻辑
 function renderWall() {
   if (wallRendered) return;
   const fragment = document.createDocumentFragment();
 
-  qslImages.forEach((url, index) => {
+  // 找出有寄出或收到记录的呼号，并去重
+  const qslCallsigns = [...new Set(qsoLogs
+    .filter(log => log.receivedDate || log.sentDate)
+    .map(log => log.call)
+  )];
+
+  if (qslCallsigns.length === 0) {
+    qsoElements.wallGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--muted);">暂无 QSL 记录</div>';
+    wallRendered = true;
+    return;
+  }
+
+  qslCallsigns.forEach((call) => {
+    // 自动拼接图片 URL（注意这里默认你用 .jpg 格式，如果用 .png 请自行修改）
+    const url = `${QSL_IMAGE_BASE_URL}${call}.jpg`; 
+    
     const item = document.createElement("figure");
     item.className = "wall-item";
     item.setAttribute("role", "button");
     item.setAttribute("tabindex", "0");
-    item.title = "点击查看大图";
+    item.title = `点击查看 ${call} 的大图`;
 
     const image = document.createElement("img");
     image.src = url;
-    image.alt = `QSL 卡片 ${index + 1}`;
+    image.alt = `${call} QSL 卡片`;
     image.loading = "lazy";
     image.decoding = "async";
 
@@ -181,12 +212,9 @@ function renderWall() {
       }
     });
 
+    // 如果图床里没有这张图，直接把这整张卡片隐藏掉，不影响美观
     image.addEventListener("error", () => {
-      image.hidden = true;
-      const fallback = document.createElement("div");
-      fallback.className = "image-fallback";
-      fallback.textContent = "图片暂时无法加载";
-      item.appendChild(fallback);
+      item.style.display = 'none'; 
     }, { once: true });
 
     item.appendChild(image);
@@ -213,12 +241,10 @@ function renderLogs() {
   visibleLogs.forEach(log => {
     const tr = document.createElement("tr");
     
-    // 收到时间
     const received = log.receivedDate
       ? `<span class="received-date">${escapeHTML(log.receivedDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
       
-    // 寄出时间
     const sent = log.sentDate
       ? `<span class="sent-date">${escapeHTML(log.sentDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
@@ -230,8 +256,8 @@ function renderLogs() {
       <td><span class="mode-pill">${escapeHTML(log.mode || "—")}</span></td>
       <td class="rst">${escapeHTML(log.rst || "—")}</td>
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth || "—")}</td>
-      <td>${received}</td>  <!-- 第 7 列：QSL 收到时间 -->
-      <td>${sent}</td>      <!-- 第 8 列：QSL 寄出时间 -->
+      <td>${received}</td>
+      <td>${sent}</td>
     `;
     fragment.appendChild(tr);
   });
@@ -258,6 +284,6 @@ function applyFilters() {
   });
 
   qsoElements.clearSearch.hidden = !qsoElements.searchInput.value;
-  currentPage = 1; // 切换搜索自动回到第 1 页
+  currentPage = 1;
   renderLogs();
 }
