@@ -1,7 +1,6 @@
 :root {
   --cyan: #55e9ff;
   --ink: #dff8ff;
-  /* 背景底色与按钮完全一致 */
   --panel-bg: rgba(15, 35, 60, 0.6); 
   --panel-border: 1px solid rgba(85, 233, 255, 0.2);
 }
@@ -20,7 +19,7 @@ body {
   background-color: #020b17; 
 }
 
-/* 彻底锁定背景，解决手机抽搐 */
+/* 锁定背景，解决手机抽搐 */
 body::before {
   content: "";
   position: fixed;
@@ -70,12 +69,13 @@ body::after {
 }
 
 .hero-title { text-align: center; }
+/* ================= 修改了标题颜色 ================= */
 .hero-title h1 {
   margin: 0;
   font-size: 42px; 
   font-weight: 700; 
   letter-spacing: .15em; 
-  color: #0b2252;
+  color: #006db4; /* 这里的颜色改成了你要求的 #006db4 */
   text-shadow: 0 0 4px rgba(255,255,255,.95), 0 0 12px rgba(255,255,255,.5);
   display: flex;
   align-items: center;
@@ -103,7 +103,7 @@ body::after {
   font-size: 18px; 
   font-weight: 700; 
   letter-spacing: .3em; 
-  color: inherit; 
+  color: inherit; /* 继承主标题颜色 */
   margin-top: 14px;
   text-shadow: inherit; 
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif; 
@@ -200,28 +200,12 @@ body::after {
 .search-box input::placeholder { color: #6f97a8; }
 .search-box kbd { display: none; }
 
-/* 完美动画：防止手机抽搐 */
-.log-container {
-  display: grid;
-  grid-template-rows: 1fr;
-  transition: grid-template-rows 0.4s ease, opacity 0.4s ease;
-  opacity: 1;
-}
-.log-container.collapsed {
-  grid-template-rows: 0fr;
-  opacity: 0;
-}
+/* 彻底放弃动画，用 display 切换，保证数据出来 */
 .hidden {
   display: none !important;
 }
 
-/* 修复无法显示数据的问题：独立包一层 */
-.table-wrapper {
-  overflow: hidden;
-  min-height: 0;
-}
-
-/* 统一大背景颜色：跟小按钮完全一样 */
+/* 统一大背景颜色 */
 .table-frame, .wall-container {
   background: var(--panel-bg); 
   backdrop-filter: blur(16px);
@@ -237,6 +221,7 @@ body::after {
   min-height: 420px;
   position: relative;
   padding: 8px 0;
+  overflow-x: auto; /* 允许表格横向滑动 */
 }
 
 table {
@@ -305,7 +290,7 @@ tbody tr:hover { background: rgba(111, 247, 234, 0.15); }
   min-height: 54px; padding: 8px 16px;
   display: flex; align-items: center; justify-content: space-between;
   border-top: 1px solid rgba(109, 220, 255, 0.08);
-  background: rgba(15, 35, 60, 0.6); /* 与表头同底 */
+  background: rgba(15, 35, 60, 0.6); 
 }
 .panel-footer p { color: #9fc3d4; font-size: 12px; }
 .panel-footer p strong { color: #eaf7ff; font: 500 12px Consolas, monospace; }
@@ -328,7 +313,7 @@ tbody tr:hover { background: rgba(111, 247, 234, 0.15); }
 .wall-container { min-height: 420px; padding: 8px 0; }
 .wall-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 电脑端强制 4 列 */
+  grid-template-columns: repeat(4, 1fr); /* 电脑端一排 4 个 */
   gap: 16px;
   padding: 16px;
 }
@@ -398,7 +383,7 @@ tbody tr:hover { background: rgba(111, 247, 234, 0.15); }
   th:nth-child(7), td:nth-child(7) { width: 15%; }
   th:nth-child(8), td:nth-child(8) { width: 15%; }
 
-  /* 手机端强制 2 列 */
+  /* 手机端 2 列 */
   .wall-grid {
     grid-template-columns: repeat(2, 1fr);
     padding: 12px;

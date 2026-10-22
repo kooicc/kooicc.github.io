@@ -59,7 +59,8 @@
         </div>
       </div>
 
-      <div id="logContainer" class="log-container collapsed">
+      <!-- 回归最稳定的 display 切换 -->
+      <div id="logContainer" class="log-container hidden">
         
         <!-- QSL 卡片墙 -->
         <div id="qslContent" class="wall-container hidden">
@@ -165,10 +166,11 @@
     }
 
     function updateUI() {
+      // 使用最稳定的 block / none 显隐
       if (isExpanded) {
-        logContainer.classList.remove("collapsed");
+        logContainer.classList.remove("hidden");
       } else {
-        logContainer.classList.add("collapsed");
+        logContainer.classList.add("hidden");
       }
 
       if (currentTab === 'qsl') iconQsl.textContent = isExpanded ? '▲' : '▼';
