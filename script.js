@@ -1,67 +1,4 @@
-const qsoLogs = [
-  ["2026-08-27 14:13", "BD8ENX", "14.074", "FT8", "-05", "四川-成都", "2026-09-03", "2026-09-02"],
-  ["", "BH4GDY", "14.074", "FT8", "", "上海-浦东", "2026-08-22", ""],
-  ["", "BH4GUW", "14.074", "FT8", "", "上海", "2026-08-22", ""],
-  ["2026-09-03 12:00", "BI4AVZ", "", "", "", "上海-徐汇", "2026-09-03", "2026-10-03"],
-  ["2026-08-19 09:49", "BG2MGR", "14.074", "FT8", "", "吉林-长春", "2026-08-22", ""],
-  ["2026-08-17 16:40", "BI4AEL", "14.074", "FT8", "-05", "上海", "2026-08-22", ""],
-  ["2026-08-17 00:52", "BH6AWZ", "14.074", "FT8", "-03", "安徽-六安", "2026-08-22", "2026-09-11"],
-  ["2026-08-17 00:40", "BI4IXO", "14.074", "FT8", "-15", "山东-威海", "2026-08-22", "2026-09-02"],
-  ["2026-08-17 17:55", "BG7JPT", "14.074", "FT8", "+01", "广东-广州", "2026-09-22", ""],
-  ["2026-08-16 14:29", "BD8FOD", "14.074", "FT8", "-19", "四川-成都", "2026-08-22", "2026-09-08"],
-  ["2026-08-16 13:36", "BI4BGJ", "14.074", "FT8", "-18", "上海", "2026-08-22", ""],
-  ["2026-08-16 12:48", "BA7SAY", "14.074", "FT8", "-08", "广西-梧州", "2026-08-22", ""],
-  ["2026-08-16 12:00", "BH4ECL", "14.074", "FT8", "-04", "上海-虹口", "2026-08-22", ""],
-  ["2026-08-22 10:28", "BG8AOI", "14.074", "FT8", "-10", "四川-成都", "2026-09-10", ""],
-  ["2026-08-22 10:54", "BI6PWL", "14.074", "FT8", "-05", "河南-郑州", "2026-09-10", "2026-09-17"],
-  ["2026-08-22 13:26", "BH4GWF", "14.074", "FT8", "+01", "上海", "2026-09-10", "2026-09-30"],
-  ["2026-08-22 10:32", "BH8GTW", "14.074", "FT8", "+04", "重庆-涪陵", "2026-09-10", "2026-10-03"],
-  ["2026-08-22 10:33", "BD6JJP", "14.074", "FT8", "-12", "河南-开封", "2026-09-10", "2026-09-17"],
-  ["2026-08-22 16:08", "BH4GCQ", "14.074", "FT8", "-13", "上海-宝山", "2026-09-10", ""],
-  ["2026-08-22 13:58", "BD8DRU", "14.074", "FT8", "-13", "四川-凉山", "2026-09-10", ""],
-  ["2026-08-23 10:49", "BG5JGG", "14.074", "FT8", "+16", "江西-九江", "2026-09-10", "2026-09-24"],
-  ["2026-08-23 10:30", "BI4AUW", "14.074", "FT8", "-04", "上海", "2026-09-12", ""],
-  ["2026-08-23 11:49", "BA4IAW", "14.074", "FT8", "-11", "山东-滨州", "2026-09-12", "2026-09-17"],
-  ["2026-08-27 01:56", "BA7LUI", "14.074", "FT8", "-03", "广东-广州", "2026-09-12", ""],
-  ["2026-08-27 02:07", "BG7LMW", "14.074", "FT8", "+00", "广东-茂名", "2026-09-12", "2026-09-19"],
-  ["2026-08-27 09:46", "BI1AFK", "14.074", "FT8", "-07", "北京-朝阳", "2026-09-12", ""],
-  ["2026-08-27 10:20", "BG7SSA", "14.074", "FT8", "-13", "广西-南宁", "2026-09-12", ""],
-  ["2026-08-27 10:58", "BG7BVP", "14.074", "FT8", "+05", "湖南-长沙", "2026-09-12", ""],
-  ["2026-08-27 11:01", "BD8FBI", "14.074", "FT8", "-08", "陕西-西安", "2026-09-12", ""],
-  ["2026-08-27 11:32", "BG7HFE", "14.074", "FT8", "-02", "湖南-长沙", "2026-09-12", ""],
-  ["2026-08-27 11:41", "BI4BKX", "14.074", "FT8", "-10", "上海", "2026-09-12", "2026-10-18"],
-  ["2026-08-27 13:49", "BH8WWP", "14.074", "FT8", "-03", "云南-楚雄", "2026-09-21", "2026-10-14"],
-  ["2026-08-28 12:27", "BA7LNJ", "14.074", "FT8", "-11", "广东-河源", "2026-09-14", "2026-10-02"],
-  ["2026-08-28 08:36", "BG5JKZ", "14.074", "FT8", "+11", "江西-宜春", "2026-09-21", "2026-10-17"],
-  ["2026-08-29 07:05", "BD1ANO", "14.074", "FT8", "+07", "北京-通州", "2026-09-21", ""],
-  ["2026-08-29 07:12", "BA7LUO", "14.074", "FT8", "+01", "广东-佛山", "2026-09-21", "2026-10-09"],
-  ["2026-08-29 07:37", "BG3NQT", "14.074", "FT8", "+09", "河北-唐山", "2026-09-21", "2026-10-03"],
-  ["2026-09-16 10:22", "BY1QH", "14.074", "FT8", "-06", "北京-海淀", "2026-09-18", ""],
-  ["2026-09-16 10:22", "BD8ENU", "14.074", "FT8", "-12", "四川-绵阳", "2026-09-18", ""],
-  ["2026-09-16 01:36", "BI3BIE", "14.074", "FT8", "+01", "天津-津南", "2026-09-18", "2026-10-04"],
-  ["2026-09-15 01:49", "BG9EQM", "14.074", "FT8", "-06", "陕西-西安", "2026-09-18", ""],
-  ["2026-09-15 01:18", "VR2VGM", "14.074", "FT8", "-04", "香港-香港岛", "2026-09-18", ""],
-  ["2026-09-15 01:16", "BI1GHZ", "14.074", "FT8", "-11", "北京-海淀", "2026-09-18", ""],
-  ["2026-09-15 01:09", "BA3NU", "14.074", "FT8", "+06", "河北-秦皇岛", "2026-09-18", ""],
-  ["2026-09-15 00:51", "BH3NZN", "14.074", "FT8", "-06", "河北-唐山", "2026-09-18", "2026-10-03"],
-  ["2026-09-14 14:01", "E20SJC", "14.074", "FT8", "-09", "泰国-北标", "2026-09-18", ""],
-  ["2026-09-06 06:12", "JO1SIM", "14.074", "FT8", "-05", "日本-东京", "2026-09-18", ""],
-  ["2026-09-06 03:27", "BI1RKA", "14.074", "FT8", "-04", "北京-门头沟", "2026-09-21", "2026-10-04"],
-  ["2026-09-05 09:31", "VR2VHI", "14.074", "FT8", "+00", "香港-香港岛", "2026-09-18", ""],
-  ["2026-09-20 01:31", "BI4BDC", "14.074", "FT8", "-01", "上海-虹口", "2026-09-20", ""],
-  ["2026-10-10 14:09", "BI4BJI", "145.725", "FM", "59", "上海-普陀", "2026-10-15", "2026-10-13"],
-  ["2026-10-11 23:26", "BI4BNW", "145.100", "FM", "59", "上海-普陀", "2026-10-17", "2026-10-15"],
-  ["2026-10-11 17:51", "BI4BRD", "145.775", "FM", "59", "上海-松江", "2026-10-22", "2026-10-18"],
-  ["2026-10-11 16:43", "BI4AJF", "145.775", "FM", "58", "上海-宝山", "2026-10-22", "2026-10-19"]
-]
-.sort((a, b) => {
-  if (a[0] > b[0]) return -1;
-  if (a[0] < b[0]) return 1;
-  return 0;
-})
-.map(([time, call, freq, mode, rst, qth, sent_date, received_date]) => ({
-  time, call, freq, mode, rst, qth, sent_date, received_date
-}));
+// ... 你的 qsoLogs 数据保持不变 ...
 
 const pageSize = 10;
 let currentPage = 1;
@@ -69,7 +6,7 @@ let filteredLogs = [...qsoLogs];
 
 const logBody = document.getElementById("logBody");
 const searchInput = document.getElementById("callsignSearch");
-const logTitle = document.getElementById("logTitle");
+const logTitle = document.getElementById("tabQso"); // 现在点击 tabQso 即可触发
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const pageInfo = document.getElementById("pageInfo");
@@ -77,7 +14,6 @@ const rangeInfo = document.getElementById("rangeInfo");
 const totalInfo = document.getElementById("totalInfo");
 const emptyState = document.getElementById("emptyState");
 const logContainer = document.getElementById("logContainer");
-let isLogExpanded = false;
 
 function escapeHTML(value) {
   return String(value).replace(/[&<>'"]/g, char => ({
@@ -122,8 +58,8 @@ function renderLogs() {
       <td><span class="mode-pill">${escapeHTML(modeDisplay)}</span></td>
       <td class="rst">${escapeHTML(rstDisplay)}</td>
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth)}</td>
-      <td>${receivedHtml}</td> <!-- 互换后：先渲染收到时间 -->
-      <td>${sentHtml}</td>     <!-- 互换后：后渲染寄出时间 -->
+      <td>${receivedHtml}</td>
+      <td>${sentHtml}</td>
     `;
     fragment.appendChild(tr);
   });
@@ -138,33 +74,6 @@ function renderLogs() {
   prevBtn.disabled = currentPage === 1;
   nextBtn.disabled = currentPage === totalPages || filteredLogs.length === 0;
 }
-
-function toggleLog() {
-  isLogExpanded = !isLogExpanded;
-  logContainer.classList.toggle("collapsed", !isLogExpanded);
-  logTitle.classList.toggle("expanded", isLogExpanded);
-
-  const icon = logTitle.querySelector(".btn-icon");
-  icon.textContent = isLogExpanded ? '▲' : '▼';
-
-  searchInput.value = "";
-  filteredLogs = [...qsoLogs];
-  currentPage = 1;
-  renderLogs();
-  searchInput.blur();
-
-  if (isLogExpanded && logBody.children.length === 0) {
-    renderLogs();
-  }
-}
-
-logTitle.addEventListener("click", toggleLog);
-
-searchInput.addEventListener("focus", () => {
-  if (!isLogExpanded) {
-    toggleLog();
-  }
-});
 
 searchInput.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
@@ -201,5 +110,5 @@ nextBtn.addEventListener("click", () => {
   if (currentPage * pageSize < filteredLogs.length) { currentPage += 1; renderLogs(); }
 });
 
-logContainer.classList.add("collapsed");
+// 默认折叠（因为 HTML 里已经有 collapsed 类，这里直接渲染即可）
 renderLogs();

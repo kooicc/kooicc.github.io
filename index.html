@@ -40,11 +40,13 @@
       <div class="panel-head">
         <div class="panel-head-left">
           <div class="title-row">
-            <button id="tabQso" class="title-log active" type="button">
-              📋 QSO 日志
-            </button>
-            <button id="tabQsl" class="title-log" type="button">
+            <!-- 调换位置：卡片墙在左，收发记录在右 -->
+            <button id="tabQsl" class="title-log active" type="button">
               🖼️ QSL 卡片墙
+            </button>
+            <button id="tabQso" class="title-log" type="button">
+              <span class="btn-icon" aria-hidden="true">▼</span>
+              📋 QSL 收发记录
             </button>
           </div>
         </div>
@@ -58,54 +60,58 @@
         </div>
       </div>
 
-      <!-- QSO 内容面板 -->
-      <div id="qsoContent" class="log-container">
-        <div class="table-frame">
-          <table>
-            <thead>
-              <tr>
-                <th>通联时间 <small>DATE / TIME (UTC)</small></th>
-                <th>呼号 <small>CALLSIGN</small></th>
-                <th>频率 <small>FREQ (MHz)</small></th>
-                <th>模式 <small>MODE</small></th>
-                <th>信号 <small>RST</small></th>
-                <th>位置 <small>QTH</small></th>
-                <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
-                <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
-              </tr>
-            </thead>
-            <tbody id="logBody"></tbody>
-          </table>
-          <div id="emptyState" class="empty-state" hidden>
-            <span>⌁</span>
-            <strong>未找到匹配的记录</strong>
-            <small>请尝试输入其他关键字</small>
+      <!-- 默认折叠的内容区 -->
+      <div id="logContainer" class="log-container collapsed">
+        
+        <!-- QSL 卡片墙内容面板 -->
+        <div id="qslContent" class="wall-container">
+          <div id="wallGrid" class="wall-grid">
+            <!-- 图片由 JS 自动渲染到这里 -->
           </div>
         </div>
 
-        <div class="panel-footer">
-          <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
-          <nav class="pagination" aria-label="通联日志分页">
-            <button id="prevBtn" type="button" aria-label="上一页">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-              上一页
-            </button>
-            <span id="pageInfo">01 / 01</span>
-            <button id="nextBtn" type="button" aria-label="下一页">
-              下一页
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-          </nav>
-        </div>
-      </div>
+        <!-- QSO 内容面板 -->
+        <div id="qsoContent" class="table-wrapper hidden">
+          <div class="table-frame">
+            <table>
+              <thead>
+                <tr>
+                  <th>通联时间 <small>DATE / TIME (UTC)</small></th>
+                  <th>呼号 <small>CALLSIGN</small></th>
+                  <th>频率 <small>FREQ (MHz)</small></th>
+                  <th>模式 <small>MODE</small></th>
+                  <th>信号 <small>RST</small></th>
+                  <th>位置 <small>QTH</small></th>
+                  <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
+                  <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
+                </tr>
+              </thead>
+              <tbody id="logBody"></tbody>
+            </table>
+            <div id="emptyState" class="empty-state" hidden>
+              <span>⌁</span>
+              <strong>未找到匹配的记录</strong>
+              <small>请尝试输入其他关键字</small>
+            </div>
+          </div>
 
-      <!-- QSL 卡片墙内容面板 -->
-      <div id="qslContent" class="wall-container hidden">
-        <div id="wallGrid" class="wall-grid">
-          <!-- 图片由下面的 JS 自动渲染到这里 -->
+          <div class="panel-footer">
+            <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
+            <nav class="pagination" aria-label="通联日志分页">
+              <button id="prevBtn" type="button" aria-label="上一页">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                上一页
+              </button>
+              <span id="pageInfo">01 / 01</span>
+              <button id="nextBtn" type="button" aria-label="下一页">
+                下一页
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </nav>
+          </div>
         </div>
-      </div>
 
+      </div>
     </section>
   </main>
 
@@ -130,75 +136,91 @@
 
   <script src="script.js"></script>
   
-  <!-- 标签页切换与 QSL 卡片墙逻辑 -->
   <script>
     const tabQso = document.getElementById("tabQso");
     const tabQsl = document.getElementById("tabQsl");
-    const qsoContent = document.getElementById("qsoContent");
-    const qslContent = document.getElementById("qslContent");
+    const qsoContent = document.getElementById("qsoContent"); 
+    const qslContent = document.getElementById("qslContent"); 
+    const logContainer = document.getElementById("logContainer"); 
     const searchContainer = document.getElementById("searchContainer");
     const wallGrid = document.getElementById("wallGrid");
 
-    // 切换标签页
-    tabQso.addEventListener("click", () => {
-      tabQso.classList.add("active");
-      tabQsl.classList.remove("active");
-      qsoContent.classList.remove("hidden");
-      qslContent.classList.add("hidden");
-      searchContainer.style.display = "flex";
-    });
+    let isExpanded = false;
+    let currentTab = 'qsl'; // 默认当前标签是卡片墙
 
-    tabQsl.addEventListener("click", () => {
-      tabQsl.classList.add("active");
-      tabQso.classList.remove("active");
-      qslContent.classList.remove("hidden");
-      qsoContent.classList.add("hidden");
-      searchContainer.style.display = "none";
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(() => {
-        qsoContent.classList.remove("collapsed");
-        qsoContent.style.maxHeight = "none";
-        qsoContent.style.opacity = "1";
-      }, 100);
-    });
-
-    // ==========================================
-    // ⚠️ 在这里填入你的 Cloudflare 图床链接 ⚠️
-    // ==========================================
+    // 默认加载卡片墙图片
     const qslImages = [
-      // 把下面的链接换成你图床上的真实链接，用逗号隔开
       "https://img.244056614.xyz/BH3NZN.jpg",
       "https://img.244056614.xyz/BI4AJF.jpg",
       "https://img.244056614.xyz/BG3NQT.jpg",
       "https://img.244056614.xyz/BH8GTW.jpg",
       "https://img.244056614.xyz/BH4GWF.jpg",
       "https://img.244056614.xyz/BI4BRD.jpg",
-      // 在这里继续添加...
     ];
 
-    let hasRendered = false;
-
-    // 渲染卡片墙
-    tabQsl.addEventListener("click", () => {
-      if (hasRendered) return;
-      
-      if (qslImages.length === 0) {
-        wallGrid.innerHTML = `<div style="color: #9fc3d4; grid-column: 1 / -1; text-align: center; padding: 40px;">暂无 QSL 卡片</div>`;
-        return;
-      }
-
-      wallGrid.innerHTML = "";
+    function renderWall() {
+      if (wallGrid.innerHTML !== "") return;
       qslImages.forEach(url => {
         const div = document.createElement("div");
         div.className = "wall-item";
         div.innerHTML = `<img src="${url}" alt="QSL Card" loading="lazy">`;
         wallGrid.appendChild(div);
       });
+    }
 
-      hasRendered = true;
+    function updateUI() {
+      if (currentTab === 'qsl') {
+        qslContent.classList.remove("hidden");
+        qsoContent.classList.add("hidden");
+        searchContainer.style.display = "none";
+        renderWall();
+      } else {
+        qsoContent.classList.remove("hidden");
+        qslContent.classList.add("hidden");
+        searchContainer.style.display = "flex";
+      }
+
+      if (isExpanded) {
+        logContainer.classList.remove("collapsed");
+      } else {
+        logContainer.classList.add("collapsed");
+      }
+    }
+
+    tabQsl.addEventListener("click", () => {
+      if (currentTab === 'qsl') {
+        isExpanded = !isExpanded; 
+      } else {
+        currentTab = 'qsl';
+        isExpanded = true; 
+        tabQsl.classList.add("active");
+        tabQso.classList.remove("active");
+      }
+      updateUI();
     });
+
+    tabQso.addEventListener("click", () => {
+      if (currentTab === 'qso') {
+        isExpanded = !isExpanded; 
+      } else {
+        currentTab = 'qso';
+        isExpanded = true; 
+        tabQso.classList.add("active");
+        tabQsl.classList.remove("active");
+      }
+      updateUI();
+    });
+
+    // 更新箭头方向
+    const observer = new MutationObserver(() => {
+      const icon = tabQso.querySelector(".btn-icon");
+      if (logContainer.classList.contains("collapsed")) {
+        icon.textContent = '▼';
+      } else {
+        icon.textContent = '▲';
+      }
+    });
+    observer.observe(logContainer, { attributes: true, attributeFilter: ['class'] });
   </script>
 </body>
 </html>
