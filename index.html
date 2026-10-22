@@ -39,7 +39,6 @@
       <div class="panel-head">
         <div class="panel-head-left">
           <div class="title-row">
-            <!-- 默认把箭头全放上，状态在折叠时是 ▼ -->
             <button id="tabQsl" class="title-log" type="button">
               <span class="btn-icon" aria-hidden="true">▼</span>
               🖼️ QSL
@@ -60,57 +59,55 @@
         </div>
       </div>
 
-      <!-- 折叠动画容器 -->
+      <!-- 将容器改为 grid 以实现丝滑的 0fr -> 1fr 动画，彻底杜绝手机抽搐 -->
       <div id="logContainer" class="log-container collapsed">
-        
-        <!-- QSL 卡片墙面板（默认隐藏） -->
-        <div id="qslContent" class="wall-container hidden">
-          <div id="wallGrid" class="wall-grid">
-            <!-- 图片由 JS 渲染 -->
+        <div class="log-inner">
+          <!-- QSL 卡片墙面板 -->
+          <div id="qslContent" class="wall-container hidden">
+            <div id="wallGrid" class="wall-grid"></div>
           </div>
-        </div>
 
-        <!-- QSO 收发记录面板（默认隐藏） -->
-        <div id="qsoContent" class="table-wrapper hidden">
-          <div class="table-frame">
-            <table>
-              <thead>
-                <tr>
-                  <th>通联时间 <small>DATE / TIME (UTC)</small></th>
-                  <th>呼号 <small>CALLSIGN</small></th>
-                  <th>频率 <small>FREQ (MHz)</small></th>
-                  <th>模式 <small>MODE</small></th>
-                  <th>信号 <small>RST</small></th>
-                  <th>位置 <small>QTH</small></th>
-                  <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
-                  <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
-                </tr>
-              </thead>
-              <tbody id="logBody"></tbody>
-            </table>
-            <div id="emptyState" class="empty-state" hidden>
-              <span>⌁</span>
-              <strong>未找到匹配的记录</strong>
-              <small>请尝试输入其他关键字</small>
+          <!-- QSO 收发记录面板 -->
+          <div id="qsoContent" class="table-wrapper hidden">
+            <div class="table-frame">
+              <table>
+                <thead>
+                  <tr>
+                    <th>通联时间 <small>DATE / TIME (UTC)</small></th>
+                    <th>呼号 <small>CALLSIGN</small></th>
+                    <th>频率 <small>FREQ (MHz)</small></th>
+                    <th>模式 <small>MODE</small></th>
+                    <th>信号 <small>RST</small></th>
+                    <th>位置 <small>QTH</small></th>
+                    <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
+                    <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
+                  </tr>
+                </thead>
+                <tbody id="logBody"></tbody>
+              </table>
+              <div id="emptyState" class="empty-state" hidden>
+                <span>⌁</span>
+                <strong>未找到匹配的记录</strong>
+                <small>请尝试输入其他关键字</small>
+              </div>
+            </div>
+
+            <div class="panel-footer">
+              <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
+              <nav class="pagination" aria-label="通联日志分页">
+                <button id="prevBtn" type="button" aria-label="上一页">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                  上一页
+                </button>
+                <span id="pageInfo">01 / 01</span>
+                <button id="nextBtn" type="button" aria-label="下一页">
+                  下一页
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </nav>
             </div>
           </div>
-
-          <div class="panel-footer">
-            <p>已显示 <strong id="rangeInfo">0–0</strong> 条，共 <strong id="totalInfo">0</strong> 条记录</p>
-            <nav class="pagination" aria-label="通联日志分页">
-              <button id="prevBtn" type="button" aria-label="上一页">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-                上一页
-              </button>
-              <span id="pageInfo">01 / 01</span>
-              <button id="nextBtn" type="button" aria-label="下一页">
-                下一页
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-              </button>
-            </nav>
-          </div>
         </div>
-
       </div>
     </section>
   </main>
@@ -151,7 +148,6 @@
     let currentTab = ''; 
     let isExpanded = false;
 
-    // 你的图床链接
     const qslImages = [
       "https://img.244056614.xyz/BH3NZN.jpg",
       "https://img.244056614.xyz/BI4AJF.jpg",
@@ -161,7 +157,6 @@
       "https://img.244056614.xyz/BI4BRD.jpg",
     ];
 
-    // 渲染卡片墙
     function renderWall() {
       if (wallGrid.children.length > 0) return;
       qslImages.forEach(url => {
@@ -172,49 +167,43 @@
       });
     }
 
-    // 统一的状态更新函数
     function updateUI() {
-      // 1. 处理容器的折叠
       if (isExpanded) {
         logContainer.classList.remove("collapsed");
       } else {
         logContainer.classList.add("collapsed");
       }
 
-      // 2. 处理箭头方向（只变当前激活的）
       if (currentTab === 'qsl') iconQsl.textContent = isExpanded ? '▲' : '▼';
       if (currentTab === 'qso') iconQso.textContent = isExpanded ? '▲' : '▼';
 
-      // 3. 处理面板显隐
       if (isExpanded) {
         if (currentTab === 'qsl') {
           qslContent.classList.remove("hidden");
           qsoContent.classList.add("hidden");
           searchContainer.classList.add("hidden");
-          renderWall(); // 展开时才渲染
+          renderWall();
         } else if (currentTab === 'qso') {
           qsoContent.classList.remove("hidden");
           qslContent.classList.add("hidden");
           searchContainer.classList.remove("hidden");
         }
       } else {
-        // 折叠状态下，隐藏所有面板
         qslContent.classList.add("hidden");
         qsoContent.classList.add("hidden");
         searchContainer.classList.add("hidden");
       }
     }
 
-    // 标签点击逻辑
     tabQsl.addEventListener("click", () => {
       if (currentTab === 'qsl') {
-        isExpanded = !isExpanded; // 点自己就折叠/展开
+        isExpanded = !isExpanded;
       } else {
         currentTab = 'qsl';
-        isExpanded = true; // 换标签就展开
+        isExpanded = true;
         tabQsl.classList.add("active");
         tabQso.classList.remove("active");
-        iconQso.textContent = '▼'; // 重置另一个箭头
+        iconQso.textContent = '▼';
       }
       updateUI();
     });
