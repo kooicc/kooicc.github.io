@@ -54,126 +54,203 @@ const qsoLogs = [
   ["2026-10-11 17:51", "BI4BRD", "145.775", "FM", "59", "上海-松江", "2026-10-22", "2026-10-18"],
   ["2026-10-11 16:43", "BI4AJF", "145.775", "FM", "58", "上海-宝山", "2026-10-22", "2026-10-19"]
 ]
-.sort((a, b) => {
-  if (a[0] > b[0]) return -1;
-  if (a[0] < b[0]) return 1;
-  return 0;
-})
-.map(([time, call, freq, mode, rst, qth, sent_date, received_date]) => ({
-  time, call, freq, mode, rst, qth, sent_date, received_date
+
+/*
+ * BI4BOB QSO / QSL page
+ * Original QSO records are retained. Array fields:
+ * [time, callsign, frequency, mode, RST, QTH, QSL received date, QSL sent date]
+ */
+.sort((a, b) => (b[0] || "").localeCompare(a[0] || ""))
+.map(([time, call, freq, mode, rst, qth, qslReceivedDate, qslSentDate]) => ({
+  time, call, freq, mode, rst, qth, qslReceivedDate, qslSentDate
 }));
 
-const pageSize = 10;
+const PAGE_SIZE = 10;
+const qsoElements = {
+  tabQso: document.getElementById("tabQso"),
+  tabQsl: document.getElementById("tabQsl"),
+  qsoContent: document.getElementById("qsoContent"),
+  qslContent: document.getElementById("qslContent"),
+  logContainer: document.getElementById("logContainer"),
+  searchContainer: document.getElementById("searchContainer"),
+  wallGrid: document.getElementById("wallGrid"),
+  searchInput: document.getElementById("callsignSearch"),
+  clearSearch: document.getElementById("clearSearch"),
+  logBody: document.getElementById("logBody"),
+  prevBtn: document.getElementById("prevBtn"),
+  nextBtn: document.getElementById("nextBtn"),
+  pageInfo: document.getElementById("pageInfo"),
+  rangeInfo: document.getElementById("rangeInfo"),
+  totalInfo: document.getElementById("totalInfo"),
+  emptyState: document.getElementById("emptyState")
+};
+
+let currentTab = "";
+let isExpanded = false;
 let currentPage = 1;
 let filteredLogs = [...qsoLogs];
+let wallRendered = false;
 
-const logBody = document.getElementById("logBody");
-const searchInput = document.getElementById("callsignSearch");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const pageInfo = document.getElementById("pageInfo");
-const rangeInfo = document.getElementById("rangeInfo");
-const totalInfo = document.getElementById("totalInfo");
-const emptyState = document.getElementById("emptyState");
+const qslImages = [
+  "https://img.244056614.xyz/BH3NZN.jpg",
+  "https://img.244056614.xyz/BI4AJF.jpg",
+  "https://img.244056614.xyz/BG3NQT.jpg",
+  "https://img.244056614.xyz/BH8GTW.jpg",
+  "https://img.244056614.xyz/BH4GWF.jpg",
+  "https://img.244056614.xyz/BI4BRD.jpg"
+];
+
+function setTab(tab) {
+  currentTab = tab;
+  isExpanded = currentTab !== "" && isExpanded;
+  updateUI();
+}
+
+function updateUI() {
+  const { tabQso, tabQsl, qsoContent, qslContent, logContainer, searchContainer } = qsoElements;
+  logContainer.classList.toggle("hidden", !isExpanded);
+  qsoContent.classList.toggle("hidden", !(isExpanded && currentTab === "qso"));
+  qslContent.classList.toggle("hidden", !(isExpanded && currentTab === "qsl"));
+  searchContainer.classList.toggle("hidden", !(isExpanded && currentTab === "qso"));
+
+  tabQso.classList.toggle("active", currentTab === "qso");
+  tabQsl.classList.toggle("active", currentTab === "qsl");
+  tabQso.setAttribute("aria-expanded", String(isExpanded && currentTab === "qso"));
+  tabQsl.setAttribute("aria-expanded", String(isExpanded && currentTab === "qsl"));
+
+  tabQso.querySelector(".btn-icon").textContent = currentTab === "qso" && isExpanded ? "▲" : "▼";
+  tabQsl.querySelector(".btn-icon").textContent = currentTab === "qsl" && isExpanded ? "▲" : "▼";
+
+  if (isExpanded && currentTab === "qsl") renderWall();
+}
+
+function toggleTab(tab) {
+  if (currentTab === tab) {
+    isExpanded = !isExpanded;
+  } else {
+    currentTab = tab;
+    isExpanded = true;
+  }
+  updateUI();
+}
+
+function renderWall() {
+  if (wallRendered) return;
+  const fragment = document.createDocumentFragment();
+
+  qslImages.forEach((url, index) => {
+    const item = document.createElement("figure");
+    item.className = "wall-item";
+
+    const image = document.createElement("img");
+    image.src = url;
+    image.alt = `QSL 卡片 ${index + 1}`;
+    image.loading = "lazy";
+    image.decoding = "async";
+
+    image.addEventListener("error", () => {
+      image.hidden = true;
+      const fallback = document.createElement("div");
+      fallback.className = "image-fallback";
+      fallback.textContent = "图片暂时无法加载";
+      item.appendChild(fallback);
+    }, { once: true });
+
+    item.appendChild(image);
+    fragment.appendChild(item);
+  });
+
+  qsoElements.wallGrid.replaceChildren(fragment);
+  wallRendered = true;
+}
 
 function escapeHTML(value) {
-  return String(value).replace(/[&<>'"]/g, char => ({
+  return String(value ?? "").replace(/[&<>'"]/g, char => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
   })[char]);
 }
 
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  return dateStr;
-}
-
 function renderLogs() {
-  const totalPages = Math.max(1, Math.ceil(filteredLogs.length / pageSize));
-  currentPage = Math.min(currentPage, totalPages);
-  const start = (currentPage - 1) * pageSize;
-  const visibleLogs = filteredLogs.slice(start, start + pageSize);
-
+  const totalPages = Math.max(1, Math.ceil(filteredLogs.length / PAGE_SIZE));
+  currentPage = Math.min(Math.max(1, currentPage), totalPages);
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const visibleLogs = filteredLogs.slice(start, start + PAGE_SIZE);
   const fragment = document.createDocumentFragment();
-  
+
   visibleLogs.forEach(log => {
     const tr = document.createElement("tr");
-    const sentDisplay = formatDate(log.sent_date);
-    const receivedDisplay = formatDate(log.received_date);
-    
-    const sentHtml = sentDisplay !== '' 
-      ? `<span class="sent-date">${sentDisplay}</span>` 
-      : `<span class="empty-date"></span>`;
-    
-    const receivedHtml = receivedDisplay !== '' 
-      ? `<span class="received-date">${receivedDisplay}</span>` 
-      : `<span class="empty-date"></span>`;
-
-    const freqDisplay = log.freq && log.freq.trim() !== '' ? log.freq : '';
-    const modeDisplay = log.mode && log.mode.trim() !== '' ? log.mode : '';
-    const rstDisplay = log.rst && log.rst.trim() !== '' ? log.rst : '';
+    const received = log.qslReceivedDate
+      ? `<span class="received-date">${escapeHTML(log.qslReceivedDate)}</span>`
+      : '<span class="empty-date" aria-label="暂无日期">—</span>';
+    const sent = log.qslSentDate
+      ? `<span class="sent-date">${escapeHTML(log.qslSentDate)}</span>`
+      : '<span class="empty-date" aria-label="暂无日期">—</span>';
 
     tr.innerHTML = `
-      <td class="time-cell">${escapeHTML(log.time)}</td>
-      <td class="call-cell">
-        <a href="https://www.qrz.com/db/${escapeHTML(log.call)}" target="_blank" rel="noopener noreferrer">
-          ${escapeHTML(log.call)}
-        </a>
-      </td>
-      <td class="freq-cell">${escapeHTML(freqDisplay)}</td>
-      <td><span class="mode-pill">${escapeHTML(modeDisplay)}</span></td>
-      <td class="rst">${escapeHTML(rstDisplay)}</td>
-      <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth)}</td>
-      <td>${receivedHtml}</td>
-      <td>${sentHtml}</td>
+      <td class="time-cell" title="${escapeHTML(log.time)}">${escapeHTML(log.time || "—")}</td>
+      <td class="call-cell"><a href="https://www.qrz.com/db/${encodeURIComponent(log.call)}" target="_blank" rel="noopener noreferrer">${escapeHTML(log.call)}</a></td>
+      <td class="freq-cell">${escapeHTML(log.freq || "—")}</td>
+      <td><span class="mode-pill">${escapeHTML(log.mode || "—")}</span></td>
+      <td class="rst">${escapeHTML(log.rst || "—")}</td>
+      <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth || "—")}</td>
+      <td>${received}</td>
+      <td>${sent}</td>
     `;
     fragment.appendChild(tr);
   });
 
-  logBody.innerHTML = "";
-  logBody.appendChild(fragment);
-
-  emptyState.hidden = filteredLogs.length !== 0;
-  totalInfo.textContent = filteredLogs.length;
-  rangeInfo.textContent = filteredLogs.length ? `${start + 1}–${start + visibleLogs.length}` : "0–0";
-  pageInfo.textContent = `${String(currentPage).padStart(2, "0")} / ${String(totalPages).padStart(2, "0")}`;
-  prevBtn.disabled = currentPage === 1;
-  nextBtn.disabled = currentPage === totalPages || filteredLogs.length === 0;
+  qsoElements.logBody.replaceChildren(fragment);
+  qsoElements.emptyState.hidden = filteredLogs.length !== 0;
+  qsoElements.totalInfo.textContent = String(filteredLogs.length);
+  qsoElements.rangeInfo.textContent = filteredLogs.length
+    ? `${start + 1}–${start + visibleLogs.length}`
+    : "0–0";
+  qsoElements.pageInfo.textContent = `${String(currentPage).padStart(2, "0")} / ${String(totalPages).padStart(2, "0")}`;
+  qsoElements.prevBtn.disabled = currentPage <= 1;
+  qsoElements.nextBtn.disabled = currentPage >= totalPages || filteredLogs.length === 0;
 }
 
-searchInput.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    searchInput.value = "";
-    filteredLogs = [...qsoLogs];
-    currentPage = 1;
-    renderLogs();
-    searchInput.blur();
-  }
-});
+function applySearch() {
+  const keyword = qsoElements.searchInput.value.trim().toLocaleUpperCase();
+  filteredLogs = keyword
+    ? qsoLogs.filter(log => [
+        log.call, log.freq, log.mode, log.rst, log.qth,
+        log.qslReceivedDate, log.qslSentDate, log.time
+      ].some(value => String(value || "").toLocaleUpperCase().includes(keyword)))
+    : [...qsoLogs];
 
-searchInput.addEventListener("input", event => {
-  const keyword = event.target.value.trim().toUpperCase();
-  if (!keyword) {
-    filteredLogs = [...qsoLogs];
-  } else {
-    filteredLogs = qsoLogs.filter(log => {
-      const searchable = [
-        log.call, log.freq, log.mode, log.qth, 
-        log.sent_date, log.received_date, log.time
-      ].map(val => String(val || "")).join(" ").toUpperCase();
-      return searchable.includes(keyword);
-    });
-  }
+  qsoElements.clearSearch.hidden = !qsoElements.searchInput.value;
   currentPage = 1;
   renderLogs();
+}
+
+qsoElements.tabQsl.addEventListener("click", () => toggleTab("qsl"));
+qsoElements.tabQso.addEventListener("click", () => toggleTab("qso"));
+qsoElements.searchInput.addEventListener("input", applySearch);
+qsoElements.searchInput.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    qsoElements.searchInput.value = "";
+    applySearch();
+    qsoElements.searchInput.blur();
+  }
+});
+qsoElements.clearSearch.addEventListener("click", () => {
+  qsoElements.searchInput.value = "";
+  applySearch();
+  qsoElements.searchInput.focus();
+});
+qsoElements.prevBtn.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderLogs();
+  }
+});
+qsoElements.nextBtn.addEventListener("click", () => {
+  const totalPages = Math.max(1, Math.ceil(filteredLogs.length / PAGE_SIZE));
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderLogs();
+  }
 });
 
-prevBtn.addEventListener("click", () => {
-  if (currentPage > 1) { currentPage -= 1; renderLogs(); }
-});
-
-nextBtn.addEventListener("click", () => {
-  if (currentPage * pageSize < filteredLogs.length) { currentPage += 1; renderLogs(); }
-});
-
-// 初始化渲染
 renderLogs();
