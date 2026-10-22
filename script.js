@@ -52,11 +52,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!response.ok) throw new Error("网络请求失败");
     const rawData = await response.json();
     
-    // 数据映射：倒数第二是收到，最后是寄出
+    // 数据映射：倒数第二是收到时间，最后是寄出时间
     qsoLogs = rawData
       .sort((a, b) => (b[0] || "").localeCompare(a[0] || ""))
-      .map(([time, call, freq, mode, rst, qth, qslReceivedDate, qslSentDate]) => ({
-        time, call, freq, mode, rst, qth, qslReceivedDate, qslSentDate
+      .map(([time, call, freq, mode, rst, qth, received, sent]) => ({
+        time, 
+        call, 
+        freq, 
+        mode, 
+        rst, 
+        qth, 
+        receivedDate: received, 
+        sentDate: sent
       }));
 
     filteredLogs = [...qsoLogs];
@@ -132,7 +139,6 @@ function updateUI() {
   tabQso.querySelector(".btn-icon").textContent = currentTab === "qso" && isExpanded ? "▲" : "▼";
   tabQsl.querySelector(".btn-icon").textContent = currentTab === "qsl" && isExpanded ? "▲" : "▼";
 
-  // 修复切换空白问题：只要展开且当前是 QSL，就确保图片渲染完成
   if (isExpanded && currentTab === "qsl") renderWall();
 }
 
@@ -163,7 +169,6 @@ function renderWall() {
     image.loading = "lazy";
     image.decoding = "async";
 
-    // 点击大图
     item.addEventListener("click", () => {
       qsoElements.modalImage.src = url;
       qsoElements.imageModal.classList.remove("hidden");
@@ -209,13 +214,13 @@ function renderLogs() {
     const tr = document.createElement("tr");
     
     // 收到时间
-    const received = log.qslReceivedDate
-      ? `<span class="received-date">${escapeHTML(log.qslReceivedDate)}</span>`
+    const received = log.receivedDate
+      ? `<span class="received-date">${escapeHTML(log.receivedDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
       
     // 寄出时间
-    const sent = log.qslSentDate
-      ? `<span class="sent-date">${escapeHTML(log.qslSentDate)}</span>`
+    const sent = log.sentDate
+      ? `<span class="sent-date">${escapeHTML(log.sentDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
 
     tr.innerHTML = `
@@ -225,8 +230,8 @@ function renderLogs() {
       <td><span class="mode-pill">${escapeHTML(log.mode || "—")}</span></td>
       <td class="rst">${escapeHTML(log.rst || "—")}</td>
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth || "—")}</td>
-      <td>${received}</td>  <!-- 7th column: QSL Received -->
-      <td>${sent}</td>      <!-- 8th column: QSL Sent -->
+      <td>${received}</td>  <!-- 第 7 列：QSL 收到时间 -->
+      <td>${sent}</td>      <!-- 第 8 列：QSL 寄出时间 -->
     `;
     fragment.appendChild(tr);
   });
@@ -247,7 +252,7 @@ function applyFilters() {
 
   filteredLogs = qsoLogs.filter(log => {
     return keyword
-      ? [log.call, log.freq, log.mode, log.rst, log.qth, log.qslReceivedDate, log.qslSentDate, log.time]
+      ? [log.call, log.freq, log.mode, log.rst, log.qth, log.receivedDate, log.sentDate, log.time]
           .some(value => String(value || "").toLocaleUpperCase().includes(keyword))
       : true;
   });
