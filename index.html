@@ -67,24 +67,27 @@
 
         <div id="qsoContent" class="table-wrapper hidden" aria-label="QSO 通联日志">
           <div class="table-frame">
-            <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th>通联时间 <small>DATE / TIME (UTC)</small></th>
-                  <th>呼号 <small>CALLSIGN</small></th>
-                  <th>频率 <small>FREQ (MHz)</small></th>
-                  <th>模式 <small>MODE</small></th>
-                  <th>信号 <small>RST</small></th>
-                  <th>位置 <small>QTH</small></th>
-                  <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
-                  <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
-                </tr>
-              </thead>
-              <tbody id="logBody">
-                <tr><td colspan="8" style="text-align: center; padding: 40px;">正在加载日志数据...</td></tr>
-              </tbody>
-            </table>
+            <!-- 添加了滚动提示阴影 -->
+            <div class="table-scroll-wrapper">
+              <div class="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>通联时间 <small>DATE / TIME (UTC)</small></th>
+                      <th>呼号 <small>CALLSIGN</small></th>
+                      <th>频率 <small>FREQ (MHz)</small></th>
+                      <th>模式 <small>MODE</small></th>
+                      <th>信号 <small>RST</small></th>
+                      <th>位置 <small>QTH</small></th>
+                      <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
+                      <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
+                    </tr>
+                  </thead>
+                  <tbody id="logBody">
+                    <tr><td colspan="8" style="text-align: center; padding: 40px;">正在加载日志数据...</td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div id="emptyState" class="empty-state" hidden>
               <span>⌁</span>
@@ -114,6 +117,7 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-line-1">
+        <!-- 动态年份将由 JS 自动渲染 -->
         <span>Copyright © 1996-2026 </span>
         <a href="https://github.com/kooicc/kooicc.github.io" target="_blank" rel="noopener noreferrer">BI4BOB</a>
         <span class="footer-emoji">🏃‍♂️</span>
@@ -129,6 +133,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- 新增：QSL 大图预览层 -->
+  <div id="imageModal" class="image-modal hidden">
+    <button class="modal-close" aria-label="关闭预览">&times;</button>
+    <img id="modalImage" src="" alt="QSL 大图预览">
+  </div>
 
   <script src="script.js" defer></script>
 </body>

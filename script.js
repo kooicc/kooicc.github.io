@@ -16,12 +16,12 @@ const qslImages = [
   "https://img.244056614.xyz/BI4BRD.jpg"
 ];
 
-// DOM 元素引用
 let qsoElements = {};
 
-// 初始化入口
 document.addEventListener("DOMContentLoaded", async () => {
-  // 1. 获取 DOM 元素
+  // 动态年份
+  document.querySelector(".footer-line-1 span").textContent = `Copyright © 1996-${new Date().getFullYear()} `;
+
   qsoElements = {
     tabQso: document.getElementById("tabQso"),
     tabQsl: document.getElementById("tabQsl"),
@@ -38,20 +38,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     pageInfo: document.getElementById("pageInfo"),
     rangeInfo: document.getElementById("rangeInfo"),
     totalInfo: document.getElementById("totalInfo"),
-    emptyState: document.getElementById("emptyState")
+    emptyState: document.getElementById("emptyState"),
+    // 新增大图元素
+    imageModal: document.getElementById("imageModal"),
+    modalImage: document.getElementById("modalImage"),
+    modalClose: document.querySelector(".modal-close")
   };
 
-  // 2. 绑定事件监听器
   bindEvents();
 
-  // 3. 请求 JSON 数据并初始化渲染
   try {
     const response = await fetch('./qso_data.json');
     if (!response.ok) throw new Error("网络请求失败");
-    
     const rawData = await response.json();
     
-    // 数据转换与排序
+    // 数据映射：倒数第二是收到，最后是寄出
     qsoLogs = rawData
       .sort((a, b) => (b[0] || "").localeCompare(a[0] || ""))
       .map(([time, call, freq, mode, rst, qth, qslReceivedDate, qslSentDate]) => ({
@@ -60,18 +61,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     filteredLogs = [...qsoLogs];
     renderLogs();
-
   } catch (error) {
     console.error("获取数据失败:", error);
-    qsoElements.logBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #ff6b6b; padding: 40px;">数据加载失败，请检查网络或 qso_data.json 文件是否存在。</td></tr>`;
+    qsoElements.logBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #ff6b6b; padding: 40px;">数据加载失败。</td></tr>`;
   }
 });
 
 function bindEvents() {
   qsoElements.tabQsl.addEventListener("click", () => toggleTab("qsl"));
   qsoElements.tabQso.addEventListener("click", () => toggleTab("qso"));
-  qsoElements.searchInput.addEventListener("input", applyFilters);
   
+  qsoElements.searchInput.addEventListener("input", applyFilters);
   qsoElements.searchInput.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       qsoElements.searchInput.value = "";
@@ -79,7 +79,6 @@ function bindEvents() {
       qsoElements.searchInput.blur();
     }
   });
-  
   qsoElements.clearSearch.addEventListener("click", () => {
     qsoElements.searchInput.value = "";
     applyFilters();
@@ -92,7 +91,6 @@ function bindEvents() {
       renderLogs();
     }
   });
-
   qsoElements.nextBtn.addEventListener("click", () => {
     const totalPages = Math.max(1, Math.ceil(filteredLogs.length / PAGE_SIZE));
     if (currentPage < totalPages) {
@@ -100,6 +98,22 @@ function bindEvents() {
       renderLogs();
     }
   });
+
+  // 大图预览关闭事件
+  qsoElements.modalClose.addEventListener("click", closeModal);
+  qsoElements.imageModal.addEventListener("click", (e) => {
+    if (e.target === qsoElements.imageModal) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !qsoElements.imageModal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+}
+
+function closeModal() {
+  qsoElements.imageModal.classList.add("hidden");
+  qsoElements.modalImage.src = "";
 }
 
 function updateUI() {
@@ -118,6 +132,7 @@ function updateUI() {
   tabQso.querySelector(".btn-icon").textContent = currentTab === "qso" && isExpanded ? "▲" : "▼";
   tabQsl.querySelector(".btn-icon").textContent = currentTab === "qsl" && isExpanded ? "▲" : "▼";
 
+  // 修复切换空白问题：只要展开且当前是 QSL，就确保图片渲染完成
   if (isExpanded && currentTab === "qsl") renderWall();
 }
 
@@ -138,12 +153,28 @@ function renderWall() {
   qslImages.forEach((url, index) => {
     const item = document.createElement("figure");
     item.className = "wall-item";
+    item.setAttribute("role", "button");
+    item.setAttribute("tabindex", "0");
+    item.title = "点击查看大图";
 
     const image = document.createElement("img");
     image.src = url;
     image.alt = `QSL 卡片 ${index + 1}`;
     image.loading = "lazy";
     image.decoding = "async";
+
+    // 点击大图
+    item.addEventListener("click", () => {
+      qsoElements.modalImage.src = url;
+      qsoElements.imageModal.classList.remove("hidden");
+    });
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        qsoElements.modalImage.src = url;
+        qsoElements.imageModal.classList.remove("hidden");
+      }
+    });
 
     image.addEventListener("error", () => {
       image.hidden = true;
@@ -177,10 +208,12 @@ function renderLogs() {
   visibleLogs.forEach(log => {
     const tr = document.createElement("tr");
     
-    // 修正后的数据填充
+    // 收到时间
     const received = log.qslReceivedDate
       ? `<span class="received-date">${escapeHTML(log.qslReceivedDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
+      
+    // 寄出时间
     const sent = log.qslSentDate
       ? `<span class="sent-date">${escapeHTML(log.qslSentDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
@@ -192,8 +225,8 @@ function renderLogs() {
       <td><span class="mode-pill">${escapeHTML(log.mode || "—")}</span></td>
       <td class="rst">${escapeHTML(log.rst || "—")}</td>
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth || "—")}</td>
-      <td>${received}</td>
-      <td>${sent}</td>
+      <td>${received}</td>  <!-- 7th column: QSL Received -->
+      <td>${sent}</td>      <!-- 8th column: QSL Sent -->
     `;
     fragment.appendChild(tr);
   });
@@ -220,6 +253,6 @@ function applyFilters() {
   });
 
   qsoElements.clearSearch.hidden = !qsoElements.searchInput.value;
-  currentPage = 1;
+  currentPage = 1; // 切换搜索自动回到第 1 页
   renderLogs();
 }

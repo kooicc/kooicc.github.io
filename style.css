@@ -100,53 +100,31 @@ body::after {
 .search-box input::placeholder { color: #8ba9b8; }
 .clear-search { border: 0; padding: 0 3px; color: var(--cyan); background: transparent; font-size: 22px; cursor: pointer; line-height: 1; }
 
-/* ================= 重绘了 QSL 下拉框的样式 ================= */
-.qsl-filter {
-  height: 36px; 
-  padding: 0 32px 0 12px;
-  border: var(--panel-border); 
-  border-radius: 7px;
-  background-color: var(--panel-bg); 
-  color: #b1d1df;
-  font-family: inherit; 
-  font-size: 13px; 
-  font-weight: 600;
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px);
-  cursor: pointer; 
-  outline: none; 
-  appearance: none;
-  -webkit-appearance: none;
-  
-  /* 自定义下拉箭头，用浅青色 */
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2375cde2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat; 
-  background-position: right 12px center; 
-  background-size: 10px auto;
-  transition: border-color .2s ease, color .2s ease;
-}
-.qsl-filter:hover, .qsl-filter:focus { 
-  border-color: rgba(85,233,255,.58); 
-  color: var(--cyan); 
-}
-.qsl-filter option { 
-  background: #0a1f36; 
-  color: #fff; 
-}
-
 .search-box input:focus-visible,
 .search-box:focus-within {
   outline: none !important;
 }
 
 .hidden { display: none !important; }
-button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
 .table-frame, .wall-container {
   background: var(--panel-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   border: var(--panel-border); border-radius: 10px; margin-top: 4px; width: 100%; overflow: hidden;
 }
 .table-frame { min-height: 420px; position: relative; padding: 8px 0; }
+
+/* ====== 手机端滚动提示 ====== */
+.table-scroll-wrapper { position: relative; width: 100%; }
+.table-scroll-wrapper::after {
+  content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 20px;
+  background: linear-gradient(to right, transparent, rgba(8, 28, 49, 0.8));
+  pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
+}
+@media (max-width: 900px) {
+  .table-scroll-wrapper::after { opacity: 1; } /* 手机端才显示 */
+}
+
 .table-scroll { width: 100%; overflow-x: auto; }
 table { width: 100%; min-width: 900px; border-collapse: collapse; table-layout: fixed; }
 thead { background: rgba(8, 45, 70, .48); }
@@ -184,7 +162,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
 .pagination button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .pagination span { min-width: 72px; min-height: 34px; display: grid; place-items: center; border: 1px solid rgba(91,219,250,.15); border-radius: 6px; color: #eaf7ff; background: rgba(41,178,216,.1); font: 12px Consolas, monospace; }
 
-/* QSL 卡片墙 */
+/* ================= 修改了 QSL 卡片的样式 ================= */
 .wall-container { min-height: 260px; padding: 8px; }
 .wall-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 12px; }
 
@@ -193,11 +171,34 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   border: none; background: transparent;
   box-shadow: 0 4px 15px rgba(0,0,0,.3);
   transition: transform .25s ease, box-shadow .25s ease; 
+  cursor: zoom-in; /* 提示可点击 */
 }
 .wall-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(85,233,255,.2); }
 .wall-item img { width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: cover; background: transparent; }
 .wall-item img[hidden] { display: none; }
 .image-fallback { min-height: 150px; display: grid; place-items: center; padding: 16px; color: var(--muted); font-size: 13px; text-align: center; }
+
+/* ================= 大图预览层 ================= */
+.image-modal {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(2, 8, 16, 0.9);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.image-modal:not(.hidden) { opacity: 1; pointer-events: auto; }
+.image-modal img {
+  max-width: 90vw; max-height: 90vh; border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 20px rgba(85,233,255,0.2);
+  object-fit: contain; transform: scale(0.95); transition: transform 0.3s ease;
+}
+.image-modal:not(.hidden) img { transform: scale(1); }
+.modal-close {
+  position: absolute; top: 20px; right: 24px;
+  background: transparent; border: none; color: rgba(255,255,255,0.7);
+  font-size: 40px; line-height: 1; cursor: pointer; transition: color 0.2s ease;
+}
+.modal-close:hover { color: var(--cyan); }
 
 /* 底部版权信息 */
 .site-footer { 
@@ -222,9 +223,8 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   .app-shell { width: calc(100% - 28px); }
   .hero { min-height: 135px; }
   .panel-head { align-items: stretch; flex-direction: column; }
-  .panel-head-actions { width: 100%; flex-wrap: wrap; }
-  .search-box { width: 100%; flex: 1 1 100%; min-width: 0; }
-  .qsl-filter { flex: 1 1 100%; width: 100%; }
+  .panel-head-actions { width: 100%; }
+  .search-box { width: 100%; min-width: 0; }
   .wall-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
