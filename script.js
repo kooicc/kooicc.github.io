@@ -180,6 +180,8 @@ function renderLogs() {
 
   visibleLogs.forEach(log => {
     const tr = document.createElement("tr");
+    
+    // 注意这里：把收到日期和寄出日期正确对应
     const received = log.qslReceivedDate
       ? `<span class="received-date">${escapeHTML(log.qslReceivedDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
@@ -194,8 +196,8 @@ function renderLogs() {
       <td><span class="mode-pill">${escapeHTML(log.mode || "—")}</span></td>
       <td class="rst">${escapeHTML(log.rst || "—")}</td>
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth || "—")}</td>
-      <td>${received}</td>
-      <td>${sent}</td>
+      <td>${received}</td> <!-- 这里填收到时间 -->
+      <td>${sent}</td>     <!-- 这里填寄出时间 -->
     `;
     fragment.appendChild(tr);
   });

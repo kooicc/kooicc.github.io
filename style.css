@@ -88,8 +88,9 @@ body::after {
 .title-log.active { box-shadow: 0 0 15px rgba(85,233,255,.12); }
 .btn-icon { display: inline-block; font-size: 9px; }
 .panel-head-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+
 .search-box {
-  width: min(360px, 100%); min-width: 250px; min-height: 36px; padding: 0 10px;
+  width: min(320px, 100%); min-width: 200px; min-height: 36px; padding: 0 10px;
   display: flex; align-items: center; gap: 8px; border: var(--panel-border); border-radius: 7px;
   background: var(--panel-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
 }
@@ -99,14 +100,47 @@ body::after {
 .search-box input::placeholder { color: #8ba9b8; }
 .clear-search { border: 0; padding: 0 3px; color: var(--cyan); background: transparent; font-size: 22px; cursor: pointer; line-height: 1; }
 
-/* 修复搜索框点击出现外边框的问题 */
+/* ================= 重绘了 QSL 下拉框的样式 ================= */
+.qsl-filter {
+  height: 36px; 
+  padding: 0 32px 0 12px;
+  border: var(--panel-border); 
+  border-radius: 7px;
+  background-color: var(--panel-bg); 
+  color: #b1d1df;
+  font-family: inherit; 
+  font-size: 13px; 
+  font-weight: 600;
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer; 
+  outline: none; 
+  appearance: none;
+  -webkit-appearance: none;
+  
+  /* 自定义下拉箭头，用浅青色 */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2375cde2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat; 
+  background-position: right 12px center; 
+  background-size: 10px auto;
+  transition: border-color .2s ease, color .2s ease;
+}
+.qsl-filter:hover, .qsl-filter:focus { 
+  border-color: rgba(85,233,255,.58); 
+  color: var(--cyan); 
+}
+.qsl-filter option { 
+  background: #0a1f36; 
+  color: #fff; 
+}
+
 .search-box input:focus-visible,
 .search-box:focus-within {
   outline: none !important;
 }
 
 .hidden { display: none !important; }
-button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 
 .table-frame, .wall-container {
   background: var(--panel-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
@@ -150,40 +184,22 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
 .pagination button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .pagination span { min-width: 72px; min-height: 34px; display: grid; place-items: center; border: 1px solid rgba(91,219,250,.15); border-radius: 6px; color: #eaf7ff; background: rgba(41,178,216,.1); font: 12px Consolas, monospace; }
 
-/* ================= 修改了 QSL 卡片的样式 ================= */
+/* QSL 卡片墙 */
 .wall-container { min-height: 260px; padding: 8px; }
 .wall-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 12px; }
 
-/* 去掉边框和黑色背景 */
 .wall-item { 
-  position: relative; 
-  margin: 0; 
-  min-width: 0; 
-  border-radius: 8px; 
-  overflow: hidden; 
-  border: none;
-  background: transparent;
+  position: relative; margin: 0; min-width: 0; border-radius: 8px; overflow: hidden; 
+  border: none; background: transparent;
   box-shadow: 0 4px 15px rgba(0,0,0,.3);
   transition: transform .25s ease, box-shadow .25s ease; 
 }
-.wall-item:hover { 
-  transform: translateY(-3px); 
-  box-shadow: 0 8px 25px rgba(85,233,255,.2);
-}
-
-/* 图片去掉黑色填充 */
-.wall-item img { 
-  width: 100%; 
-  height: auto; 
-  display: block; 
-  aspect-ratio: 3 / 2; 
-  object-fit: cover;
-  background: transparent;
-}
+.wall-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(85,233,255,.2); }
+.wall-item img { width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: cover; background: transparent; }
 .wall-item img[hidden] { display: none; }
 .image-fallback { min-height: 150px; display: grid; place-items: center; padding: 16px; color: var(--muted); font-size: 13px; text-align: center; }
 
-/* ================= 底部版权字体放大 ================= */
+/* 底部版权信息 */
 .site-footer { 
   position: fixed; z-index: 10; bottom: 0; left: 0; right: 0; min-height: 48px; 
   display: grid; place-items: center; padding: 8px 12px; 
@@ -191,7 +207,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
 }
 .site-footer .footer-content { 
   display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; 
-  color: var(--cyan); font-size: 14px; /* 字号从 12px 放大到 14px */
+  color: var(--cyan); font-size: 14px; 
   text-shadow: 0 1px 3px rgba(0,0,0,.9); 
 }
 .footer-line-1, .footer-line-2 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
@@ -206,8 +222,9 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   .app-shell { width: calc(100% - 28px); }
   .hero { min-height: 135px; }
   .panel-head { align-items: stretch; flex-direction: column; }
-  .panel-head-actions { width: 100%; }
-  .search-box { width: 100%; min-width: 0; }
+  .panel-head-actions { width: 100%; flex-wrap: wrap; }
+  .search-box { width: 100%; flex: 1 1 100%; min-width: 0; }
+  .qsl-filter { flex: 1 1 100%; width: 100%; }
   .wall-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 

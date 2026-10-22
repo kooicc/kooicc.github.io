@@ -57,8 +57,9 @@
             <button id="clearSearch" class="clear-search" type="button" aria-label="清空搜索" title="清空搜索" hidden>×</button>
           </label>
           
+          <!-- 修改了默认显示的字为 QSL状态 -->
           <select id="qslFilter" class="qsl-filter" aria-label="QSL状态过滤">
-            <option value="all">全部状态</option>
+            <option value="all">QSL状态</option>
             <option value="sent">已寄出</option>
             <option value="received">已收到</option>
             <option value="missing">未收到</option>
@@ -69,9 +70,7 @@
       <div id="logContainer" class="log-container hidden">
         
         <div id="qslContent" class="wall-container hidden" aria-label="QSL 卡片展示">
-          <div id="wallGrid" class="wall-grid">
-            <!-- 由 JS 动态加载 -->
-          </div>
+          <div id="wallGrid" class="wall-grid"></div>
         </div>
 
         <div id="qsoContent" class="table-wrapper hidden" aria-label="QSO 通联日志">
@@ -91,7 +90,6 @@
                 </tr>
               </thead>
               <tbody id="logBody">
-                <!-- 加载状态提示 -->
                 <tr><td colspan="8" style="text-align: center; padding: 40px;">正在加载日志数据...</td></tr>
               </tbody>
             </table>
