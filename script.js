@@ -1,178 +1,559 @@
-const qsoLogs = [
-  ["2026-08-27 14:13", "BD8ENX", "14.074", "FT8", "-05", "四川-成都", "2026-09-03", "2026-09-02"],
-  ["", "BH4GDY", "14.074", "FT8", "", "上海-浦东", "2026-08-22", ""],
-  ["", "BH4GUW", "14.074", "FT8", "", "上海", "2026-08-22", ""],
-  ["2026-09-03 12:00", "BI4AVZ", "", "", "", "上海-徐汇", "2026-09-03", "2026-10-03"],
-  ["2026-08-19 09:49", "BG2MGR", "14.074", "FT8", "", "吉林-长春", "2026-08-22", ""],
-  ["2026-08-17 16:40", "BI4AEL", "14.074", "FT8", "-05", "上海", "2026-08-22", ""],
-  ["2026-08-17 00:52", "BH6AWZ", "14.074", "FT8", "-03", "安徽-六安", "2026-08-22", "2026-09-11"],
-  ["2026-08-17 00:40", "BI4IXO", "14.074", "FT8", "-15", "山东-威海", "2026-08-22", "2026-09-02"],
-  ["2026-08-17 17:55", "BG7JPT", "14.074", "FT8", "+01", "广东-广州", "2026-09-22", ""],
-  ["2026-08-16 14:29", "BD8FOD", "14.074", "FT8", "-19", "四川-成都", "2026-08-22", "2026-09-08"],
-  ["2026-08-16 13:36", "BI4BGJ", "14.074", "FT8", "-18", "上海", "2026-08-22", ""],
-  ["2026-08-16 12:48", "BA7SAY", "14.074", "FT8", "-08", "广西-梧州", "2026-08-22", ""],
-  ["2026-08-16 12:00", "BH4ECL", "14.074", "FT8", "-04", "上海-虹口", "2026-08-22", ""],
-  ["2026-08-22 10:28", "BG8AOI", "14.074", "FT8", "-10", "四川-成都", "2026-09-10", ""],
-  ["2026-08-22 10:54", "BI6PWL", "14.074", "FT8", "-05", "河南-郑州", "2026-09-10", "2026-09-17"],
-  ["2026-08-22 13:26", "BH4GWF", "14.074", "FT8", "+01", "上海", "2026-09-10", "2026-09-30"],
-  ["2026-08-22 10:32", "BH8GTW", "14.074", "FT8", "+04", "重庆-涪陵", "2026-09-10", "2026-10-03"],
-  ["2026-08-22 10:33", "BD6JJP", "14.074", "FT8", "-12", "河南-开封", "2026-09-10", "2026-09-17"],
-  ["2026-08-22 16:08", "BH4GCQ", "14.074", "FT8", "-13", "上海-宝山", "2026-09-10", ""],
-  ["2026-08-22 13:58", "BD8DRU", "14.074", "FT8", "-13", "四川-凉山", "2026-09-10", ""],
-  ["2026-08-23 10:49", "BG5JGG", "14.074", "FT8", "+16", "江西-九江", "2026-09-10", "2026-09-24"],
-  ["2026-08-23 10:30", "BI4AUW", "14.074", "FT8", "-04", "上海", "2026-09-12", ""],
-  ["2026-08-23 11:49", "BA4IAW", "14.074", "FT8", "-11", "山东-滨州", "2026-09-12", "2026-09-17"],
-  ["2026-08-27 01:56", "BA7LUI", "14.074", "FT8", "-03", "广东-广州", "2026-09-12", ""],
-  ["2026-08-27 02:07", "BG7LMW", "14.074", "FT8", "+00", "广东-茂名", "2026-09-12", "2026-09-19"],
-  ["2026-08-27 09:46", "BI1AFK", "14.074", "FT8", "-07", "北京-朝阳", "2026-09-12", ""],
-  ["2026-08-27 10:20", "BG7SSA", "14.074", "FT8", "-13", "广西-南宁", "2026-09-12", ""],
-  ["2026-08-27 10:58", "BG7BVP", "14.074", "FT8", "+05", "湖南-长沙", "2026-09-12", ""],
-  ["2026-08-27 11:01", "BD8FBI", "14.074", "FT8", "-08", "陕西-西安", "2026-09-12", ""],
-  ["2026-08-27 11:32", "BG7HFE", "14.074", "FT8", "-02", "湖南-长沙", "2026-09-12", ""],
-  ["2026-08-27 11:41", "BI4BKX", "14.074", "FT8", "-10", "上海", "2026-09-12", "2026-10-18"],
-  ["2026-08-27 13:49", "BH8WWP", "14.074", "FT8", "-03", "云南-楚雄", "2026-09-21", "2026-10-14"],
-  ["2026-08-28 12:27", "BA7LNJ", "14.074", "FT8", "-11", "广东-河源", "2026-09-14", "2026-10-02"],
-  ["2026-08-28 08:36", "BG5JKZ", "14.074", "FT8", "+11", "江西-宜春", "2026-09-21", "2026-10-17"],
-  ["2026-08-29 07:05", "BD1ANO", "14.074", "FT8", "+07", "北京-通州", "2026-09-21", ""],
-  ["2026-08-29 07:12", "BA7LUO", "14.074", "FT8", "+01", "广东-佛山", "2026-09-21", "2026-10-09"],
-  ["2026-08-29 07:37", "BG3NQT", "14.074", "FT8", "+09", "河北-唐山", "2026-09-21", "2026-10-03"],
-  ["2026-09-16 10:22", "BY1QH", "14.074", "FT8", "-06", "北京-海淀", "2026-09-18", ""],
-  ["2026-09-16 10:22", "BD8ENU", "14.074", "FT8", "-12", "四川-绵阳", "2026-09-18", ""],
-  ["2026-09-16 01:36", "BI3BIE", "14.074", "FT8", "+01", "天津-津南", "2026-09-18", "2026-10-04"],
-  ["2026-09-15 01:49", "BG9EQM", "14.074", "FT8", "-06", "陕西-西安", "2026-09-18", ""],
-  ["2026-09-15 01:18", "VR2VGM", "14.074", "FT8", "-04", "香港-香港岛", "2026-09-18", ""],
-  ["2026-09-15 01:16", "BI1GHZ", "14.074", "FT8", "-11", "北京-海淀", "2026-09-18", ""],
-  ["2026-09-15 01:09", "BA3NU", "14.074", "FT8", "+06", "河北-秦皇岛", "2026-09-18", ""],
-  ["2026-09-15 00:51", "BH3NZN", "14.074", "FT8", "-06", "河北-唐山", "2026-09-18", "2026-10-03"],
-  ["2026-09-14 14:01", "E20SJC", "14.074", "FT8", "-09", "泰国-北标", "2026-09-18", ""],
-  ["2026-09-06 06:12", "JO1SIM", "14.074", "FT8", "-05", "日本-东京", "2026-09-18", ""],
-  ["2026-09-06 03:27", "BI1RKA", "14.074", "FT8", "-04", "北京-门头沟", "2026-09-21", "2026-10-04"],
-  ["2026-09-05 09:31", "VR2VHI", "14.074", "FT8", "+00", "香港-香港岛", "2026-09-18", ""],
-  ["2026-09-20 01:31", "BI4BDC", "14.074", "FT8", "-01", "上海-虹口", "2026-09-20", ""],
-  ["2026-10-10 14:09", "BI4BJI", "145.725", "FM", "59", "上海-普陀", "2026-10-15", "2026-10-13"],
-  ["2026-10-11 23:26", "BI4BNW", "145.100", "FM", "59", "上海-普陀", "2026-10-17", "2026-10-15"],
-  ["2026-10-11 17:51", "BI4BRD", "145.775", "FM", "59", "上海-松江", "2026-10-22", "2026-10-18"],
-  ["2026-10-11 16:43", "BI4AJF", "145.775", "FM", "58", "上海-宝山", "2026-10-22", "2026-10-19"]
-]
-.sort((a, b) => {
-  if (a[0] > b[0]) return -1;
-  if (a[0] < b[0]) return 1;
-  return 0;
-})
-.map(([time, call, freq, mode, rst, qth, sent_date, received_date]) => ({
-  time, call, freq, mode, rst, qth, sent_date, received_date
-}));
-
-const pageSize = 10;
-let currentPage = 1;
-let filteredLogs = [...qsoLogs];
-
-const logBody = document.getElementById("logBody");
-const searchInput = document.getElementById("callsignSearch");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const pageInfo = document.getElementById("pageInfo");
-const rangeInfo = document.getElementById("rangeInfo");
-const totalInfo = document.getElementById("totalInfo");
-const emptyState = document.getElementById("emptyState");
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>'"]/g, char => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
-  })[char]);
+:root {
+  --cyan: #55e9ff;
+  --ink: #dff8ff;
 }
 
-function formatDate(dateStr) {
-  if (!dateStr || dateStr.trim() === '') return '';
-  return dateStr;
+* { box-sizing: border-box; }
+
+html { min-width: 1100px; color-scheme: dark; height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100%;
+  overflow-x: auto;
+  color: var(--ink);
+  background: #020b17 url("https://bing.ee123.net/img/") center / cover fixed no-repeat;
+  font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", Arial, sans-serif;
+  letter-spacing: .02em;
 }
 
-function renderLogs() {
-  const totalPages = Math.max(1, Math.ceil(filteredLogs.length / pageSize));
-  currentPage = Math.min(currentPage, totalPages);
-  const start = (currentPage - 1) * pageSize;
-  const visibleLogs = filteredLogs.slice(start, start + pageSize);
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(1, 8, 19, .18), rgba(2, 11, 23, .08) 42%, rgba(1, 10, 21, .35));
+}
 
-  const fragment = document.createDocumentFragment();
+.scene { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.aurora { position: absolute; width: 42vw; height: 42vw; border-radius: 50%; filter: blur(100px); opacity: .1; }
+.aurora-one { left: -13vw; top: -16vw; background: #0f72ff; }
+.aurora-two { right: -18vw; top: 2vw; background: #00d9ff; }
+
+.grid-horizon {
+  position: absolute;
+  left: 0; right: 0; bottom: 0; height: 22%;
+  opacity: .1;
+  background-image: linear-gradient(rgba(75, 205, 255, .35) 1px, transparent 1px), linear-gradient(90deg, rgba(75, 205, 255, .35) 1px, transparent 1px);
+  background-size: 52px 30px;
+  mask-image: linear-gradient(transparent, #000);
+}
+
+.app-shell {
+  width: min(1300px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 32px 0 96px;
+}
+
+.hero {
+  min-height: 160px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 20px;
+}
+
+.hero-title { text-align: center; }
+.hero-title h1 {
+  margin: 0;
+  font-size: 42px; 
+  font-weight: 700; 
+  letter-spacing: .15em; 
+  color: #0b2252;
+  text-shadow: 0 0 4px rgba(255,255,255,.95), 0 0 12px rgba(255,255,255,.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  line-height: 1.2;
+  flex-wrap: wrap;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+}
+.hero-title h1 .crac-logo {
+  height: 155px; 
+  width: auto;
+  flex-shrink: 0;
+  opacity: 1;
+  margin-top: -10px; 
+  margin-bottom: -10px;
+  margin-right: 5px;
+}
+.hero-title h1 .title-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-title h1 .title-text small {
+  font-size: 18px; 
+  font-weight: 700; 
+  letter-spacing: .3em; 
+  color: inherit; 
+  margin-top: 14px;
+  text-shadow: inherit; 
+  font-family: "Montserrat", "Segoe UI", Arial, sans-serif; 
+  text-transform: uppercase; 
+  margin-right: -.3em; 
+}
+
+@keyframes pulse { 50% { opacity: .3; } }
+
+.log-panel {
+  margin-top: 24px;
+  overflow: visible;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0 12px 0;
+  border-bottom: none;
+  background: transparent;
+}
+.panel-head-left { flex: 1; }
+.panel-head .title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding-left: 0;
+}
+
+/* 按钮缩小 + 磨砂浅色背景 */
+.panel-head .title-row .title-log {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px; /* 尺寸减小 */
+  padding: 0 16px; /* 内边距减小 */
+  border: 1px solid rgba(85, 233, 255, 0.2);
+  border-radius: 6px;
+  color: #9fc3d4;
+  background: rgba(15, 35, 60, 0.4); /* 磨砂浅色 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: 500 13px inherit; /* 字号减小 */
+  letter-spacing: .08em;
+  cursor: pointer;
+  transition: .25s ease;
+  white-space: nowrap;
+}
+.panel-head .title-row .title-log:hover {
+  background: rgba(15, 35, 60, 0.6);
+}
+.panel-head .title-row .title-log.active {
+  color: var(--cyan);
+  border-color: rgba(85, 233, 255, 0.6);
+  background: rgba(15, 35, 60, 0.7);
+  box-shadow: 0 0 15px rgba(85, 233, 255, 0.15);
+}
+
+.btn-icon {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 10px;
+}
+
+.panel-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.search-box {
+  width: 280px;
+  height: 34px;
+  padding: 0 12px 0 14px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(99, 218, 255, 0.15);
+  border-radius: 6px;
+  background: rgba(15, 35, 60, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: .25s ease;
+}
+.search-box:focus-within {
+  border-color: rgba(83, 229, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(66, 221, 255, 0.05);
+}
+.search-box svg {
+  width: 16px;
+  fill: none;
+  stroke: #5cb9d0;
+  stroke-width: 1.7;
+}
+.search-box input {
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  margin-left: 10px;
+  border: 0;
+  outline: 0;
+  color: #dffbff;
+  background: transparent;
+  font: 12px inherit;
+}
+.search-box input::placeholder { color: #6f97a8; }
+.search-box kbd {
+  padding: 3px 5px;
+  border: 1px solid rgba(118, 206, 230, .12);
+  border-radius: 4px;
+  color: #5a8496;
+  background: rgba(80, 155, 180, 0.06);
+  font: 7px Consolas, monospace;
+  letter-spacing: .12em;
+}
+
+/* 折叠动画 */
+.log-container {
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+  max-height: 2000px;
+  opacity: 1;
+}
+.log-container.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+.hidden {
+  display: none !important;
+}
+
+/* 展开后的背景颜色变浅：使用深蓝+磨砂 */
+.table-frame {
+  min-height: 420px;
+  position: relative;
+  padding: 8px 0;
+  background: rgba(10, 25, 45, 0.55); /* 调浅了透明度 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  margin-top: 4px;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.05); /* 加一圈极淡的边框更好看 */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+thead { background: rgba(8, 45, 70, 0.3); }
+
+th {
+  height: 56px;
+  padding: 0 16px;
+  color: #55e9ff;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: .06em;
+  border-bottom: 1px solid rgba(109, 220, 255, 0.15);
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8);
+}
+th small {
+  display: block;
+  margin-top: 4px;
+  color: #55e9ff;
+  font: 11px Consolas, monospace;
+  letter-spacing: .10em;
+  text-shadow: none;
+  opacity: 0.8; 
+}
+
+th:nth-child(1), td:nth-child(1) { width: 15%; }
+th:nth-child(2), td:nth-child(2) { width: 14%; }
+th:nth-child(3), td:nth-child(3) { width: 10%; }
+th:nth-child(4), td:nth-child(4) { width: 10%; }
+th:nth-child(5), td:nth-child(5) { width: 8%; }
+th:nth-child(6), td:nth-child(6) { width: 17%; }
+th:nth-child(7), td:nth-child(7) { width: 13%; }
+th:nth-child(8), td:nth-child(8) { width: 13%; }
+
+td {
+  height: 48px;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(109, 220, 255, 0.08);
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: .18s ease;
+  text-shadow: 0 1px 2px rgba(0,0,0,.8), 0 0 4px rgba(0,0,0,.5);
+}
+
+tbody tr { transition: .18s ease; }
+tbody tr:hover { background: rgba(111, 247, 234, 0.1); }
+tbody tr:hover td { color: #ffffff; }
+
+.time-cell { font-family: Consolas, monospace; font-size: 15px; }
+.call-cell { font: 600 16px Consolas, monospace; letter-spacing: .08em; }
+.call-cell a { color: #ffffff; text-decoration: none; transition: color .2s ease; }
+.call-cell a:hover { color: var(--cyan); text-decoration: underline; }
+
+.freq-cell { font-family: Consolas, monospace; font-weight: 600; font-size: 16px; }
+.mode-pill { display: inline; padding: 0; border: none; background: transparent; font: 15px Consolas, monospace; text-align: left; }
+.rst { font: 15px Consolas, monospace; }
+
+.sent-date { font-weight: 500; }
+.received-date { font-weight: 500; }
+.empty-date { opacity: 0.5; } 
+
+.empty-state {
+  position: absolute;
+  inset: 53px 0 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  color: #9fc3d4;
+  background: rgba(2, 15, 29, 0.15);
+}
+.empty-state[hidden] { display: none; }
+.empty-state span { font-size: 36px; color: #6ff7ea; }
+.empty-state strong { margin-top: 8px; font-weight: 500; color: #eaf7ff; }
+.empty-state small { margin-top: 6px; color: #9fc3d4; }
+
+.panel-footer {
+  min-height: 54px;
+  padding: 8px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(109, 220, 255, 0.08);
+  background: rgba(10, 25, 45, 0.55); /* 与表格背景同步 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 0 0 8px 8px;
+  margin-top: 0;
+}
+.panel-footer p { color: #9fc3d4; font-size: 12px; }
+.panel-footer p strong { color: #eaf7ff; font: 500 12px Consolas, monospace; }
+
+.pagination { display: flex; align-items: center; gap: 8px; }
+.pagination button {
+  height: 32px;
+  min-width: 74px;
+  padding: 0 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(91, 205, 237, 0.12);
+  border-radius: 5px;
+  color: #9fc3d4;
+  background: rgba(30, 100, 128, 0.15);
+  font: 11px inherit;
+  cursor: pointer;
+  transition: .2s ease;
+}
+.pagination button:hover:not(:disabled) {
+  color: #eaf7ff;
+  border-color: rgba(77, 224, 255, 0.35);
+  background: rgba(39, 164, 202, 0.2);
+  box-shadow: 0 0 15px rgba(48, 199, 237, 0.06);
+}
+.pagination button:disabled { opacity: .3; cursor: not-allowed; }
+.pagination button svg { width: 13px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.pagination span {
+  min-width: 72px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(91, 219, 250, 0.15);
+  border-radius: 5px;
+  color: #eaf7ff;
+  background: rgba(41, 178, 216, 0.1);
+  font: 12px Consolas, monospace;
+  box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
+}
+
+/* QSL 卡片墙样式（同步磨砂浅色） */
+.wall-container {
+  margin-top: 4px;
+  padding: 8px 0;
+  background: rgba(10, 25, 45, 0.55); /* 调浅了透明度 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  min-height: 420px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.wall-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.wall-item {
+  border-radius: 6px;
+  overflow: hidden; 
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  padding: 0; 
+}
+.wall-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(85, 233, 255, 0.2);
+}
+.wall-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 3 / 2; 
+  object-fit: cover; 
+}
+
+/* ===== 底部页脚 ===== */
+.site-footer {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: grid;
+  place-items: center;
+}
+.site-footer .footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; 
+  color: var(--cyan); 
+  font-size: 14px;
+  letter-spacing: .05em;
+  text-shadow: 0 1px 3px rgba(0,0,0,.9);
+}
+
+.footer-line-1, .footer-line-2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-footer .footer-emoji { margin: 0; }
+
+.site-footer .footer-content .footer-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #31f2ba;
+  box-shadow: 0 0 10px #31f2ba;
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+  margin-left: 2px; 
+}
+.site-footer .footer-content a {
+  color: var(--cyan);
+  text-decoration: none;
+  transition: color .2s ease, text-shadow .2s ease;
+}
+.site-footer .footer-content a:hover {
+  color: #8ff4ff;
+  text-shadow: 0 0 12px rgba(85, 233, 255, 0.4);
+  text-decoration: underline;
+}
+.site-footer .footer-separator {
+  color: var(--cyan); 
+  margin: 0 10px;
+  opacity: 0.6; 
+}
+
+.pc-sep { display: inline-block; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* ===== 手机端适配 ===== */
+@media (max-width: 768px) {
+  html { min-width: auto; }
   
-  visibleLogs.forEach(log => {
-    const tr = document.createElement("tr");
-    const sentDisplay = formatDate(log.sent_date);
-    const receivedDisplay = formatDate(log.received_date);
-    
-    const sentHtml = sentDisplay !== '' 
-      ? `<span class="sent-date">${sentDisplay}</span>` 
-      : `<span class="empty-date"></span>`;
-    
-    const receivedHtml = receivedDisplay !== '' 
-      ? `<span class="received-date">${receivedDisplay}</span>` 
-      : `<span class="empty-date"></span>`;
+  .app-shell {
+    width: calc(100% - 20px);
+    padding: 16px 0 80px;
+  }
 
-    const freqDisplay = log.freq && log.freq.trim() !== '' ? log.freq : '';
-    const modeDisplay = log.mode && log.mode.trim() !== '' ? log.mode : '';
-    const rstDisplay = log.rst && log.rst.trim() !== '' ? log.rst : '';
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: auto;
+    padding: 16px 0;
+  }
 
-    tr.innerHTML = `
-      <td class="time-cell">${escapeHTML(log.time)}</td>
-      <td class="call-cell">
-        <a href="https://www.qrz.com/db/${escapeHTML(log.call)}" target="_blank" rel="noopener noreferrer">
-          ${escapeHTML(log.call)}
-        </a>
-      </td>
-      <td class="freq-cell">${escapeHTML(freqDisplay)}</td>
-      <td><span class="mode-pill">${escapeHTML(modeDisplay)}</span></td>
-      <td class="rst">${escapeHTML(rstDisplay)}</td>
-      <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth)}</td>
-      <td>${receivedHtml}</td>
-      <td>${sentHtml}</td>
-    `;
-    fragment.appendChild(tr);
-  });
+  .hero-title h1 {
+    font-size: 22px; 
+    flex-direction: column; 
+    gap: 8px; 
+  }
+  .hero-title h1 .crac-logo { 
+    height: 90px; 
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  .hero-title h1 .title-text small { font-size: 11px; letter-spacing: .15em; margin-right: -.15em; margin-top: 8px; }
 
-  logBody.innerHTML = "";
-  logBody.appendChild(fragment);
+  .panel-head {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .panel-head .title-row { padding-left: 0; gap: 8px; }
+  .panel-head .title-row .title-log { font-size: 12px; height: 30px; padding: 0 12px; flex: 1; }
 
-  emptyState.hidden = filteredLogs.length !== 0;
-  totalInfo.textContent = filteredLogs.length;
-  rangeInfo.textContent = filteredLogs.length ? `${start + 1}–${start + visibleLogs.length}` : "0–0";
-  pageInfo.textContent = `${String(currentPage).padStart(2, "0")} / ${String(totalPages).padStart(2, "0")}`;
-  prevBtn.disabled = currentPage === 1;
-  nextBtn.disabled = currentPage === totalPages || filteredLogs.length === 0;
+  .search-box { width: 100%; height: 34px; }
+
+  .table-frame { overflow-x: auto; padding: 4px 0; }
+  table { min-width: 820px; }
+  th { font-size: 14px; height: 44px; padding: 0 8px; }
+  th small { font-size: 9px; }
+  td { font-size: 13px; height: 36px; padding: 0 8px; }
+  
+  .time-cell { font-size: 12px; white-space: nowrap; overflow: visible; text-overflow: clip; }
+  .call-cell { font-size: 13px; }
+  .freq-cell { font-size: 13px; }
+  .mode-pill { font-size: 11px; }
+  .rst { font-size: 11px; }
+  .sent-date, .received-date, .empty-date { font-size: 12px; }
+
+  th:nth-child(1), td:nth-child(1) { width: 18%; }
+  th:nth-child(2), td:nth-child(2) { width: 13%; }
+  th:nth-child(3), td:nth-child(3) { width: 10%; }
+  th:nth-child(4), td:nth-child(4) { width: 9%; }
+  th:nth-child(5), td:nth-child(5) { width: 8%; }
+  th:nth-child(6), td:nth-child(6) { width: 12%; }
+  th:nth-child(7), td:nth-child(7) { width: 15%; }
+  th:nth-child(8), td:nth-child(8) { width: 15%; }
+
+  .wall-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .site-footer { height: 80px; padding: 0 12px; align-items: flex-start; }
+  .site-footer .footer-content { 
+    flex-direction: column; 
+    gap: 6px; 
+    width: 100%;
+  }
+  
+  .pc-sep { display: none; }
 }
-
-searchInput.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    searchInput.value = "";
-    filteredLogs = [...qsoLogs];
-    currentPage = 1;
-    renderLogs();
-    searchInput.blur();
-  }
-});
-
-searchInput.addEventListener("input", event => {
-  const keyword = event.target.value.trim().toUpperCase();
-  if (!keyword) {
-    filteredLogs = [...qsoLogs];
-  } else {
-    filteredLogs = qsoLogs.filter(log => {
-      const searchable = [
-        log.call, log.freq, log.mode, log.qth, 
-        log.sent_date, log.received_date, log.time
-      ].map(val => String(val || "")).join(" ").toUpperCase();
-      return searchable.includes(keyword);
-    });
-  }
-  currentPage = 1;
-  renderLogs();
-});
-
-prevBtn.addEventListener("click", () => {
-  if (currentPage > 1) { currentPage -= 1; renderLogs(); }
-});
-
-nextBtn.addEventListener("click", () => {
-  if (currentPage * pageSize < filteredLogs.length) { currentPage += 1; renderLogs(); }
-});
-
-renderLogs();
