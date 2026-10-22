@@ -11,7 +11,7 @@ html { min-width: 1100px; color-scheme: dark; height: 100%; }
 
 body {
   margin: 0;
-  min-height: 100%;
+  min-height: 100vh;
   overflow-x: auto;
   color: var(--ink);
   font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", Arial, sans-serif;
@@ -19,21 +19,22 @@ body {
   background-color: #020b17; 
 }
 
-/* 锁定背景，解决手机抽搐 */
+/* 优化手机端背景：加入 fixed 防止抖动 */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: -2;
-  background: url("https://bing.ee123.net/img/") center / cover no-repeat;
-  background-attachment: fixed;
+  background: url("https://bing.ee123.net/img/") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed; 
   pointer-events: none;
 }
 
 body::after {
   content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: -1;
   background: linear-gradient(180deg, rgba(1, 8, 19, .18), rgba(2, 11, 23, .08) 42%, rgba(1, 10, 21, .35));
   pointer-events: none;
@@ -69,14 +70,15 @@ body::after {
 }
 
 .hero-title { text-align: center; }
-/* ================= 修改了标题颜色 ================= */
+
+/* ================= 标题去掉了白光，很干净 ================= */
 .hero-title h1 {
   margin: 0;
   font-size: 42px; 
   font-weight: 700; 
   letter-spacing: .15em; 
-  color: #006db4; /* 这里的颜色改成了你要求的 #006db4 */
-  text-shadow: 0 0 4px rgba(255,255,255,.95), 0 0 12px rgba(255,255,255,.5);
+  color: #006db4; 
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,9 +105,8 @@ body::after {
   font-size: 18px; 
   font-weight: 700; 
   letter-spacing: .3em; 
-  color: inherit; /* 继承主标题颜色 */
+  color: inherit; 
   margin-top: 14px;
-  text-shadow: inherit; 
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif; 
   text-transform: uppercase; 
   margin-right: -.3em; 
@@ -200,7 +201,7 @@ body::after {
 .search-box input::placeholder { color: #6f97a8; }
 .search-box kbd { display: none; }
 
-/* 彻底放弃动画，用 display 切换，保证数据出来 */
+/* 使用 display 切换 */
 .hidden {
   display: none !important;
 }
@@ -221,7 +222,7 @@ body::after {
   min-height: 420px;
   position: relative;
   padding: 8px 0;
-  overflow-x: auto; /* 允许表格横向滑动 */
+  overflow-x: auto;
 }
 
 table {

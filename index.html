@@ -59,15 +59,12 @@
         </div>
       </div>
 
-      <!-- 回归最稳定的 display 切换 -->
       <div id="logContainer" class="log-container hidden">
         
-        <!-- QSL 卡片墙 -->
         <div id="qslContent" class="wall-container hidden">
           <div id="wallGrid" class="wall-grid"></div>
         </div>
 
-        <!-- QSO 收发记录 -->
         <div id="qsoContent" class="table-wrapper hidden">
           <div class="table-frame">
             <table>
@@ -166,7 +163,6 @@
     }
 
     function updateUI() {
-      // 使用最稳定的 block / none 显隐
       if (isExpanded) {
         logContainer.classList.remove("hidden");
       } else {
