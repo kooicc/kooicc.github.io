@@ -132,7 +132,7 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 42px; /* 稍微加高一点 */
+  height: 42px; 
   padding: 0 24px;
   border: 1px solid rgba(85, 233, 255, 0.2);
   border-radius: 6px;
@@ -154,12 +154,6 @@ body::before {
   border-color: rgba(85, 233, 255, 0.6);
   background: rgba(8, 45, 70, 0.9);
   box-shadow: 0 0 15px rgba(85, 233, 255, 0.15);
-}
-
-.btn-icon {
-  display: inline-block;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 11px;
 }
 
 .panel-head-actions {
@@ -214,22 +208,15 @@ body::before {
   letter-spacing: .12em;
 }
 
-/* 折叠动画 */
+/* 内容区 */
 .log-container {
-  overflow: hidden;
-  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
-  max-height: 2000px;
-  opacity: 1;
-}
-.log-container.collapsed {
-  max-height: 0;
-  opacity: 0;
+  display: block;
 }
 .hidden {
   display: none !important;
 }
 
-/* 表格样式（加深背景底色） */
+/* 表格样式 */
 .table-frame {
   min-height: 420px;
   position: relative;
@@ -301,7 +288,6 @@ tbody tr:hover td { color: #ffffff; }
 
 .time-cell { font-family: Consolas, monospace; font-size: 15px; }
 .call-cell { font: 600 16px Consolas, monospace; letter-spacing: .08em; }
-/* 呼号超链接样式 */
 .call-cell a { color: #ffffff; text-decoration: none; transition: color .2s ease; }
 .call-cell a:hover { color: var(--cyan); text-decoration: underline; }
 
@@ -402,7 +388,6 @@ tbody tr:hover td { color: #ffffff; }
   overflow: hidden; 
   box-shadow: 0 4px 15px rgba(0,0,0,.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* 去除内边距和背景色，不再有黑色小方块 */
   background: transparent;
   padding: 0; 
 }

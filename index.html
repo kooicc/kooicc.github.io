@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#031428">
   <title>BI4BOB业余无线电台</title>
   
-  <!-- 纯代码绘制的 CRAC 风格徽标图标 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ffffff'/><circle cx='50' cy='50' r='42' fill='none' stroke='%231e66d0' stroke-width='4'/><path d='M50 15 L25 75 L75 75 Z' fill='none' stroke='%231e66d0' stroke-width='4' stroke-linejoin='round'/><path d='M50 25 L50 40' stroke='%231e66d0' stroke-width='4'/><path d='M43 30 L57 30' stroke='%231e66d0' stroke-width='3'/><path d='M50 40 C 40 45, 60 55, 50 60' fill='none' stroke='%231e66d0' stroke-width='3'/><circle cx='50' cy='50' r='12' fill='%23ffffff' stroke='%231e66d0' stroke-width='3'/><path d='M40 52 Q 50 42 62 50' fill='none' stroke='%23e63946' stroke-width='3' stroke-linecap='round'/><rect x='32' y='60' width='36' height='10' rx='4' fill='%23ffffff' stroke='%231e66d0' stroke-width='2'/><text x='50' y='68' font-family='Arial, sans-serif' font-size='8' font-weight='bold' fill='%231e66d0' text-anchor='middle'>CRAC</text><path d='M40 75 L40 85 M50 75 L50 85 M60 75 L60 85' stroke='%231e66d0' stroke-width='3'/></svg>" type="image/svg+xml">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,17 +39,17 @@
       <div class="panel-head">
         <div class="panel-head-left">
           <div class="title-row">
-            <button id="tabQsl" class="title-log" type="button">
-              <span class="btn-icon" aria-hidden="true">▼</span>
+            <!-- 默认激活 QSL，即去掉 active 类由 JS 控制，这里先留着 -->
+            <button id="tabQsl" class="title-log active" type="button">
               🖼️ QSL
             </button>
             <button id="tabQso" class="title-log" type="button">
-              <span class="btn-icon" aria-hidden="true">▼</span>
               📋 QSO
             </button>
           </div>
         </div>
 
+        <!-- 搜索框容器，默认隐藏，切到 QSO 时显示 -->
         <div id="searchContainer" class="panel-head-actions hidden">
           <label class="search-box" for="callsignSearch">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
@@ -60,17 +59,17 @@
         </div>
       </div>
 
-      <!-- 折叠展开的容器 -->
-      <div id="logContainer" class="log-container collapsed">
+      <!-- 核心内容区（去掉了 log-container 和 collapsed，直接切换显隐） -->
+      <div class="log-container">
         
-        <!-- QSL 卡片墙 -->
-        <div id="qslContent" class="wall-container hidden">
+        <!-- QSL 卡片墙（默认显示） -->
+        <div id="qslContent" class="wall-container">
           <div id="wallGrid" class="wall-grid">
             <!-- 图片由 JS 自动渲染到这里 -->
           </div>
         </div>
 
-        <!-- QSL 收发记录 -->
+        <!-- QSO 收发记录（默认隐藏） -->
         <div id="qsoContent" class="table-wrapper hidden">
           <div class="table-frame">
             <table>
@@ -139,17 +138,11 @@
   <script>
     const tabQso = document.getElementById("tabQso");
     const tabQsl = document.getElementById("tabQsl");
-    const iconQso = tabQso.querySelector(".btn-icon");
-    const iconQsl = tabQsl.querySelector(".btn-icon");
     
     const qsoContent = document.getElementById("qsoContent"); 
     const qslContent = document.getElementById("qslContent"); 
-    const logContainer = document.getElementById("logContainer"); 
     const searchContainer = document.getElementById("searchContainer");
     const wallGrid = document.getElementById("wallGrid");
-
-    let isExpanded = false; 
-    let currentTab = ''; 
 
     // 你的 Cloudflare 图床链接
     const qslImages = [
@@ -161,6 +154,7 @@
       "https://img.244056614.xyz/BI4BRD.jpg",
     ];
 
+    // 渲染卡片墙
     function renderWall() {
       if (wallGrid.innerHTML !== "") return;
       qslImages.forEach(url => {
@@ -171,54 +165,27 @@
       });
     }
 
-    function updateUI() {
-      // 1. 处理折叠动画
-      if (isExpanded) {
-        logContainer.classList.remove("collapsed");
-      } else {
-        logContainer.classList.add("collapsed");
-      }
+    // 切换标签逻辑
+    tabQsl.addEventListener("click", () => {
+      tabQsl.classList.add("active");
+      tabQso.classList.remove("active");
+      
+      qslContent.classList.remove("hidden");
+      qsoContent.classList.add("hidden");
+      searchContainer.classList.add("hidden");
+    });
 
-      // 2. 处理箭头方向
-      if (isExpanded) {
-        if (currentTab === 'qso') iconQso.textContent = '▲';
-        if (currentTab === 'qsl') iconQsl.textContent = '▲';
-      } else {
-        if (currentTab === 'qso') iconQso.textContent = '▼';
-        if (currentTab === 'qsl') iconQsl.textContent = '▼';
-      }
+    tabQso.addEventListener("click", () => {
+      tabQso.classList.add("active");
+      tabQsl.classList.remove("active");
+      
+      qsoContent.classList.remove("hidden");
+      qslContent.classList.add("hidden");
+      searchContainer.classList.remove("hidden");
+    });
 
-      // 3. 处理按钮高亮
-      tabQso.classList.toggle("active", currentTab === 'qso' && isExpanded);
-      tabQsl.classList.toggle("active", currentTab === 'qsl' && isExpanded);
-
-      // 4. 处理面板显隐
-      if (isExpanded) {
-        if (currentTab === 'qso') {
-          qsoContent.classList.remove("hidden");
-          qslContent.classList.add("hidden");
-          searchContainer.classList.remove("hidden");
-        } else if (currentTab === 'qsl') {
-          qslContent.classList.remove("hidden");
-          qsoContent.classList.add("hidden");
-          searchContainer.classList.add("hidden");
-          renderWall();
-        }
-      }
-    }
-
-    function switchTab(tabName) {
-      if (currentTab === tabName) {
-        isExpanded = !isExpanded;
-      } else {
-        currentTab = tabName;
-        isExpanded = true;
-      }
-      updateUI();
-    }
-
-    tabQsl.addEventListener("click", () => switchTab('qsl'));
-    tabQso.addEventListener("click", () => switchTab('qso'));
+    // 页面加载完成后，直接渲染一次卡片墙
+    renderWall();
   </script>
 </body>
 </html>
