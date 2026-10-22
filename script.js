@@ -13,7 +13,6 @@ let qsoElements = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
   document.querySelector(".footer-line-1 span").textContent = `Copyright © 1996-${new Date().getFullYear()} `;
-  fetchBingWallpaperInfo();
 
   qsoElements = {
     tabQso: document.getElementById("tabQso"),
@@ -59,27 +58,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     qsoElements.logBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #ff6b6b; padding: 40px;">数据加载失败。</td></tr>`;
   }
 });
-
-async function fetchBingWallpaperInfo() {
-  try {
-    const res = await fetch('https://bing.img.newfuture.cc/api/v1/bing');
-    if (!res.ok) return;
-    const data = await res.json();
-    if (data && data.data && data.data.length > 0) {
-      const today = data.data[0];
-      const copyrightText = today.copyright || "";
-      const titleText = today.title || "";
-      
-      const bingInfoEl = document.getElementById("bingInfo");
-      if (bingInfoEl) {
-        bingInfoEl.innerHTML = `<span>📷 ${titleText} (${copyrightText})</span>`;
-        bingInfoEl.classList.remove("hidden");
-      }
-    }
-  } catch (e) {
-    console.log("必应壁纸信息获取失败", e);
-  }
-}
 
 function bindEvents() {
   qsoElements.tabQsl.addEventListener("click", () => toggleTab("qsl"));
@@ -162,17 +140,14 @@ function renderWall() {
   if (wallRendered) return;
   const fragment = document.createDocumentFragment();
 
-  // 1. 过滤出有 QSL 状态的记录
   const qslRecords = qsoLogs.filter(log => log.receivedDate || log.sentDate);
   
-  // 2. 按照 QSL 收到时间倒序（最新收到的排最前），若没有收到时间则按寄出时间
   qslRecords.sort((a, b) => {
     const dateA = a.receivedDate || a.sentDate || "";
     const dateB = b.receivedDate || b.sentDate || "";
     return dateB.localeCompare(dateA);
   });
 
-  // 3. 去重
   const qslCallsigns = [...new Set(qslRecords.map(log => log.call))];
 
   if (qslCallsigns.length === 0) {
@@ -182,7 +157,6 @@ function renderWall() {
   }
 
   qslCallsigns.forEach((call) => {
-    // 懒加载机制：只有呼号生成了图片 URL 才会创建节点
     if (!call) return;
 
     const url = `${QSL_IMAGE_BASE_URL}${call}.jpg`; 
@@ -196,7 +170,7 @@ function renderWall() {
     const image = document.createElement("img");
     image.src = url;
     image.alt = `${call} QSL 卡片`;
-    image.loading = "lazy"; // 浏览器原生懒加载
+    image.loading = "lazy"; 
     image.decoding = "async";
 
     item.addEventListener("click", () => {
@@ -211,7 +185,6 @@ function renderWall() {
       }
     });
 
-    // 图床没图直接隐藏卡片
     image.addEventListener("error", () => {
       item.style.display = 'none'; 
     }, { once: true });
