@@ -10,7 +10,6 @@
   <!-- 纯代码绘制的 CRAC 风格徽标图标 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ffffff'/><circle cx='50' cy='50' r='42' fill='none' stroke='%231e66d0' stroke-width='4'/><path d='M50 15 L25 75 L75 75 Z' fill='none' stroke='%231e66d0' stroke-width='4' stroke-linejoin='round'/><path d='M50 25 L50 40' stroke='%231e66d0' stroke-width='4'/><path d='M43 30 L57 30' stroke='%231e66d0' stroke-width='3'/><path d='M50 40 C 40 45, 60 55, 50 60' fill='none' stroke='%231e66d0' stroke-width='3'/><circle cx='50' cy='50' r='12' fill='%23ffffff' stroke='%231e66d0' stroke-width='3'/><path d='M40 52 Q 50 42 62 50' fill='none' stroke='%23e63946' stroke-width='3' stroke-linecap='round'/><rect x='32' y='60' width='36' height='10' rx='4' fill='%23ffffff' stroke='%231e66d0' stroke-width='2'/><text x='50' y='68' font-family='Arial, sans-serif' font-size='8' font-weight='bold' fill='%231e66d0' text-anchor='middle'>CRAC</text><path d='M40 75 L40 85 M50 75 L50 85 M60 75 L60 85' stroke='%231e66d0' stroke-width='3'/></svg>" type="image/svg+xml">
   
-  <!-- 引入网络字体（思源宋体 + Montserrat英文） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -68,8 +67,9 @@
                 <th>模式 <small>MODE</small></th>
                 <th>信号 <small>RST</small></th>
                 <th>位置 <small>QTH</small></th>
-                <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
+                <!-- 互换后的表头 -->
                 <th>QSL收到时间 <small>Roger BJT(UTC+8)</small></th>
+                <th>QSL寄出时间 <small>Sent BJT(UTC+8)</small></th>
               </tr>
             </thead>
             <tbody id="logBody"></tbody>
@@ -99,7 +99,6 @@
     </section>
   </main>
 
-  <!-- 底部页脚：重构 DOM 结构以完美支持手机端强制换行 -->
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-line-1">

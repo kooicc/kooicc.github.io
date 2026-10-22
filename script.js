@@ -85,7 +85,6 @@ function escapeHTML(value) {
   })[char]);
 }
 
-// 空数据不再显示 "/"，直接返回空字符串
 function formatDate(dateStr) {
   if (!dateStr || dateStr.trim() === '') return '';
   return dateStr;
@@ -97,7 +96,6 @@ function renderLogs() {
   const start = (currentPage - 1) * pageSize;
   const visibleLogs = filteredLogs.slice(start, start + pageSize);
 
-  // 性能优化：使用 DocumentFragment 批量渲染
   const fragment = document.createDocumentFragment();
   
   visibleLogs.forEach(log => {
@@ -105,7 +103,6 @@ function renderLogs() {
     const sentDisplay = formatDate(log.sent_date);
     const receivedDisplay = formatDate(log.received_date);
     
-    // 直接渲染内容，留空则由CSS控制样式
     const sentHtml = sentDisplay !== '' 
       ? `<span class="sent-date">${sentDisplay}</span>` 
       : `<span class="empty-date"></span>`;
@@ -125,8 +122,8 @@ function renderLogs() {
       <td><span class="mode-pill">${escapeHTML(modeDisplay)}</span></td>
       <td class="rst">${escapeHTML(rstDisplay)}</td>
       <td title="${escapeHTML(log.qth)}">${escapeHTML(log.qth)}</td>
-      <td>${sentHtml}</td>
-      <td>${receivedHtml}</td>
+      <td>${receivedHtml}</td> <!-- 互换后：先渲染收到时间 -->
+      <td>${sentHtml}</td>     <!-- 互换后：后渲染寄出时间 -->
     `;
     fragment.appendChild(tr);
   });
@@ -169,7 +166,6 @@ searchInput.addEventListener("focus", () => {
   }
 });
 
-// 增加 Esc 键快速清空与折叠
 searchInput.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     searchInput.value = "";
@@ -186,7 +182,6 @@ searchInput.addEventListener("input", event => {
     filteredLogs = [...qsoLogs];
   } else {
     filteredLogs = qsoLogs.filter(log => {
-      // 容错处理：防止 null 或 undefined 导致搜索卡死
       const searchable = [
         log.call, log.freq, log.mode, log.qth, 
         log.sent_date, log.received_date, log.time
