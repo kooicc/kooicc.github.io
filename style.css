@@ -143,11 +143,37 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
 .pagination button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .pagination span { min-width: 72px; min-height: 34px; display: grid; place-items: center; border: 1px solid rgba(91,219,250,.15); border-radius: 6px; color: #eaf7ff; background: rgba(41,178,216,.1); font: 12px Consolas, monospace; }
 
+/* ================= 修改了 QSL 卡片的样式 ================= */
 .wall-container { min-height: 260px; padding: 8px; }
 .wall-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 12px; }
-.wall-item { position: relative; margin: 0; min-width: 0; border: 1px solid rgba(85,233,255,.16); border-radius: 8px; overflow: hidden; background: rgba(1,12,24,.6); box-shadow: 0 4px 15px rgba(0,0,0,.3); transition: transform .25s ease, border-color .25s ease; }
-.wall-item:hover { transform: translateY(-3px); border-color: rgba(85,233,255,.5); }
-.wall-item img { width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: contain; background: rgba(0,0,0,.18); }
+
+/* 去掉边框和黑色背景 */
+.wall-item { 
+  position: relative; 
+  margin: 0; 
+  min-width: 0; 
+  border-radius: 8px; 
+  overflow: hidden; 
+  /* 移除了 border 和 background */
+  border: none;
+  background: transparent;
+  box-shadow: 0 4px 15px rgba(0,0,0,.3); /* 保留阴影作为浮雕效果 */
+  transition: transform .25s ease, box-shadow .25s ease; 
+}
+.wall-item:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 25px rgba(85,233,255,.2); /* 悬浮时阴影变亮 */
+}
+
+/* 图片去掉黑色填充 */
+.wall-item img { 
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  aspect-ratio: 3 / 2; 
+  object-fit: cover; /* 改为 cover 填满 */
+  background: transparent; /* 移除黑色填充 */
+}
 .wall-item img[hidden] { display: none; }
 .image-fallback { min-height: 150px; display: grid; place-items: center; padding: 16px; color: var(--muted); font-size: 13px; text-align: center; }
 
