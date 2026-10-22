@@ -9,10 +9,6 @@
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ffffff'/><circle cx='50' cy='50' r='42' fill='none' stroke='%231e66d0' stroke-width='4'/><path d='M50 15 L25 75 L75 75 Z' fill='none' stroke='%231e66d0' stroke-width='4' stroke-linejoin='round'/><path d='M50 25 L50 40' stroke='%231e66d0' stroke-width='4'/><path d='M43 30 L57 30' stroke='%231e66d0' stroke-width='3'/><path d='M50 40 C 40 45, 60 55, 50 60' fill='none' stroke='%231e66d0' stroke-width='3'/><circle cx='50' cy='50' r='12' fill='%23ffffff' stroke='%231e66d0' stroke-width='3'/><path d='M40 52 Q 50 42 62 50' fill='none' stroke='%23e63946' stroke-width='3' stroke-linecap='round'/><rect x='32' y='60' width='36' height='10' rx='4' fill='%23ffffff' stroke='%231e66d0' stroke-width='2'/><text x='50' y='68' font-family='Arial, sans-serif' font-size='8' font-weight='bold' fill='%231e66d0' text-anchor='middle'>CRAC</text><path d='M40 75 L40 85 M50 75 L50 85 M60 75 L60 85' stroke='%231e66d0' stroke-width='3'/></svg>" type="image/svg+xml">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -53,7 +49,7 @@
         <div id="searchContainer" class="panel-head-actions hidden">
           <label class="search-box" for="callsignSearch">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-            <input id="callsignSearch" type="search" placeholder="搜索呼号、频率、等" autocomplete="off" aria-label="搜索通联日志">
+            <input id="callsignSearch" type="search" placeholder="搜索呼号、频率等" autocomplete="off" aria-label="搜索通联日志">
             <button id="clearSearch" class="clear-search" type="button" aria-label="清空搜索" title="清空搜索" hidden>×</button>
           </label>
         </div>
@@ -116,7 +112,7 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-line-1">
-        <span>Copyright © 1996-2026 </span>
+        <span id="copyrightText">Copyright © 1996-2026 </span>
         <a href="https://github.com/kooicc/kooicc.github.io" target="_blank" rel="noopener noreferrer">BI4BOB</a>
         <span class="footer-emoji">🏃‍♂️</span>
       </div>
@@ -133,7 +129,7 @@
   </footer>
 
   <div id="imageModal" class="image-modal hidden">
-    <button class="modal-close" aria-label="关闭预览">&times;</button>
+    <button id="modalCloseBtn" class="modal-close" aria-label="关闭预览">&times;</button>
     <img id="modalImage" src="" alt="QSL 大图预览">
   </div>
 

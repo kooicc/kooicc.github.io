@@ -12,7 +12,11 @@ const QSL_IMAGE_BASE_URL = "https://img.244056614.xyz/";
 let qsoElements = {};
 
 document.addEventListener("DOMContentLoaded", async () => {
-  document.querySelector(".footer-line-1 span").textContent = `Copyright © 1996-${new Date().getFullYear()} `;
+  // 安全获取版权年份
+  const copyrightEl = document.getElementById("copyrightText");
+  if (copyrightEl) {
+    copyrightEl.textContent = `Copyright © 1996-${new Date().getFullYear()} `;
+  }
 
   qsoElements = {
     tabQso: document.getElementById("tabQso"),
@@ -33,18 +37,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     emptyState: document.getElementById("emptyState"),
     imageModal: document.getElementById("imageModal"),
     modalImage: document.getElementById("modalImage"),
-    modalClose: document.querySelector(".modal-close")
+    modalClose: document.getElementById("modalCloseBtn") // 改用 ID 获取
   };
+
+  // 初始化时隐藏清空按钮
+  if (qsoElements.clearSearch) {
+    qsoElements.clearSearch.hidden = true;
+  }
 
   bindEvents();
 
   try {
     const response = await fetch('./qso_data.json');
-    if (!response.ok) throw new Error("网络请求失败");
+    if (!response.ok) throw new Error("网络请求失败，请检查文件是否存在或大小写是否正确");
     const rawData = await response.json();
     
+    // 排序：有时间的在前，空时间在最后
     qsoLogs = rawData
-      .sort((a, b) => (b[0] || "").localeCompare(a[0] || ""))
+      .sort((a, b) => {
+        const timeA = a[0] || "";
+        const timeB = b[0] || "";
+        if (!timeA) return 1; 
+        if (!timeB) return -1; 
+        return timeB.localeCompare(timeA);
+      })
       .map(([time, call, freq, mode, rst, qth, received, sent]) => ({
         time, call, freq, mode, rst, qth, 
         receivedDate: received, 
@@ -55,7 +71,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderLogs();
   } catch (error) {
     console.error("获取数据失败:", error);
-    qsoElements.logBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #ff6b6b; padding: 40px;">数据加载失败。</td></tr>`;
+    // 防止极端情况下的空指针报错
+    if (qsoElements.logBody) {
+      qsoElements.logBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #ff6b6b; padding: 40px;">数据加载失败：${escapeHTML(error.message)}</td></tr>`;
+    }
   }
 });
 
@@ -103,8 +122,9 @@ function bindEvents() {
 }
 
 function closeModal() {
+  // 修复图片加载竞争：赋值为一个极小的 Base64 透明图，瞬间中断原有图片的网络请求
+  qsoElements.modalImage.src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
   qsoElements.imageModal.classList.add("hidden");
-  qsoElements.modalImage.src = "";
 }
 
 function updateUI() {
@@ -185,8 +205,9 @@ function renderWall() {
       }
     });
 
+    // 修复：图片加载失败时彻底移除节点，避免 Grid 空白占位
     image.addEventListener("error", () => {
-      item.style.display = 'none'; 
+      item.remove(); 
     }, { once: true });
 
     item.appendChild(image);
@@ -213,12 +234,13 @@ function renderLogs() {
   visibleLogs.forEach(log => {
     const tr = document.createElement("tr");
     
+    // 修复：增加了 title 属性，鼠标悬停能看到完整日期
     const received = log.receivedDate
-      ? `<span class="received-date">${escapeHTML(log.receivedDate)}</span>`
+      ? `<span class="received-date" title="${escapeHTML(log.receivedDate)}">${escapeHTML(log.receivedDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
       
     const sent = log.sentDate
-      ? `<span class="sent-date">${escapeHTML(log.sentDate)}</span>`
+      ? `<span class="sent-date" title="${escapeHTML(log.sentDate)}">${escapeHTML(log.sentDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
 
     tr.innerHTML = `
