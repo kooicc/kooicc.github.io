@@ -126,17 +126,20 @@ body::before {
   padding-left: 0;
 }
 
+/* 修复按钮看不清的问题：加深了底色 0.85，并加上了毛玻璃 */
 .panel-head .title-row .title-log {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 38px;
+  height: 42px; /* 稍微加高一点 */
   padding: 0 24px;
   border: 1px solid rgba(85, 233, 255, 0.2);
   border-radius: 6px;
   color: #9fc3d4;
-  background: rgba(2, 14, 29, 0.35);
+  background: rgba(4, 12, 24, 0.85); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font: 500 14px inherit;
   letter-spacing: .08em;
   cursor: pointer;
@@ -144,13 +147,13 @@ body::before {
   white-space: nowrap;
 }
 .panel-head .title-row .title-log:hover {
-  background: rgba(85, 233, 255, 0.1);
+  background: rgba(8, 45, 70, 0.85);
 }
 .panel-head .title-row .title-log.active {
   color: var(--cyan);
   border-color: rgba(85, 233, 255, 0.6);
-  background: rgba(85, 233, 255, 0.15);
-  box-shadow: 0 0 15px rgba(85, 233, 255, 0.1);
+  background: rgba(8, 45, 70, 0.9);
+  box-shadow: 0 0 15px rgba(85, 233, 255, 0.15);
 }
 
 .btn-icon {
@@ -168,13 +171,15 @@ body::before {
 
 .search-box {
   width: 320px;
-  height: 38px;
+  height: 42px;
   padding: 0 12px 0 14px;
   display: flex;
   align-items: center;
   border: 1px solid rgba(99, 218, 255, 0.15);
   border-radius: 6px;
-  background: rgba(2, 14, 29, 0.35);
+  background: rgba(4, 12, 24, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: .25s ease;
 }
 .search-box:focus-within {
@@ -224,7 +229,7 @@ body::before {
   display: none !important;
 }
 
-/* ===== 表格样式（加深背景底色） ===== */
+/* 表格样式（加深背景底色） */
 .table-frame {
   min-height: 420px;
   position: relative;
@@ -376,7 +381,7 @@ tbody tr:hover td { color: #ffffff; }
   box-shadow: inset 0 0 17px rgba(41, 190, 228, 0.03);
 }
 
-/* ===== QSL 卡片墙样式（去除了黑色方块） ===== */
+/* QSL 卡片墙样式 */
 .wall-container {
   margin-top: 4px;
   padding: 8px 0;
@@ -397,7 +402,7 @@ tbody tr:hover td { color: #ffffff; }
   overflow: hidden; 
   box-shadow: 0 4px 15px rgba(0,0,0,.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* 去除内边距和背景色 */
+  /* 去除内边距和背景色，不再有黑色小方块 */
   background: transparent;
   padding: 0; 
 }
