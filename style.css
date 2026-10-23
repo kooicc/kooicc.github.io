@@ -62,25 +62,39 @@ body::after {
 .app-shell { width: min(1300px, calc(100% - 40px)); margin: 0 auto; padding: 30px 0 100px; }
 .hero { min-height: 160px; display: flex; justify-content: center; align-items: center; position: relative; padding: 16px 0; }
 .hero-title { text-align: center; max-width: 100%; }
+
+/* 主标题 */
 .hero-title h1 {
-  margin: 0; font-size: clamp(25px, 3vw, 42px); font-weight: 700; letter-spacing: .1em; color: #4ab3ed;
-  text-shadow: 0 2px 8px rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center;
-  line-height: 1.25; font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+  margin: 0; 
+  font-size: clamp(25px, 3vw, 42px); 
+  font-weight: 700; 
+  letter-spacing: .1em; 
+  color: #4ab3ed;
+  text-shadow: 0 2px 8px rgba(0,0,0,.5); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  line-height: 1.25; 
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
 .hero-title h1 .crac-logo { height: clamp(78px, 11vw, 140px); width: auto; max-width: 28vw; object-fit: contain; flex-shrink: 0; margin-right: 8px; }
 .hero-title h1 .title-text { display: flex; flex-direction: column; align-items: center; }
 
-/* ====== 优化后的英文副标题 ====== */
+/* ====== 极致对齐的英文副标题 ====== */
 .hero-title h1 .title-text small {
   font-family: "Segoe UI", Arial, sans-serif; 
-  font-size: clamp(12px, 1.2vw, 15px); /* 字号放大到了 15px */
-  font-weight: 600; /* 字重稍微加粗一点点 */
-  letter-spacing: .25em; /* 字间距稍微收一点，配合大字更协调 */
-  margin-top: 12px; 
+  /* 电脑端最大 17px，手机端 11px，这里用 vw 动态微调保证视觉长度 */
+  font-size: clamp(11px, 1.4vw, 17px); 
+  font-weight: 500; 
+  /* 关键：大幅拉开字间距，让英文长度撑满中文 */
+  letter-spacing: .38em; 
+  margin-top: 14px; 
   text-transform: uppercase; 
-  color: rgba(255, 255, 255, 0.7); /* 稍微提亮了一点，保证清晰度 */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-  margin-right: -.25em; 
+  /* 银灰色、稍微调亮一点，保证阅读清晰 */
+  color: rgba(200, 230, 255, 0.85); 
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  /* 抵消最后多出来的字间距，保证绝对居中 */
+  margin-right: -.38em; 
 }
 
 .log-panel { margin-top: 20px; border: none; border-radius: 0; background: transparent; }
@@ -242,7 +256,15 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   .hero { min-height: auto; padding: 16px 0 22px; }
   .hero-title h1 { flex-direction: column; gap: 8px; font-size: clamp(20px, 5.5vw, 27px); letter-spacing: .05em; }
   .hero-title h1 .crac-logo { height: 76px; max-width: 100px; margin: 0; }
-  .hero-title h1 .title-text small { font-size: 9px; letter-spacing: .2em; margin-right: -.2em; margin-top: 6px; }
+  
+  /* 手机端英文副标题适配 */
+  .hero-title h1 .title-text small { 
+    font-size: 10px; 
+    letter-spacing: .25em; 
+    margin-right: -.25em; 
+    margin-top: 8px; 
+  }
+  
   .log-panel { margin-top: 8px; }
   .panel-head { padding: 8px 0 12px; gap: 10px; }
   .panel-head .title-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
