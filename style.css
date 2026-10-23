@@ -69,9 +69,18 @@ body::after {
 }
 .hero-title h1 .crac-logo { height: clamp(78px, 11vw, 140px); width: auto; max-width: 28vw; object-fit: contain; flex-shrink: 0; margin-right: 8px; }
 .hero-title h1 .title-text { display: flex; flex-direction: column; align-items: center; }
+
+/* ====== 优化后的英文副标题 ====== */
 .hero-title h1 .title-text small {
-  font-family: "Montserrat", "Segoe UI", Arial, sans-serif; font-size: clamp(10px, 1.25vw, 16px);
-  font-weight: 700; letter-spacing: .2em; margin-top: 12px; text-transform: uppercase; color: #8ed8f3;
+  font-family: "Segoe UI", Arial, sans-serif; 
+  font-size: clamp(10px, 1vw, 13px); /* 字号稍微缩小一点 */
+  font-weight: 500; 
+  letter-spacing: .35em; /* 大幅拉大字间距，让长度撑起来 */
+  margin-top: 12px; 
+  text-transform: uppercase; 
+  color: rgba(255, 255, 255, 0.65); /* 半透明白，不抢戏 */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  margin-right: -.35em; /* 抵消最后一个字母的右边距，让文字绝对居中 */
 }
 
 .log-panel { margin-top: 20px; border: none; border-radius: 0; background: transparent; }
@@ -162,7 +171,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
 .pagination button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 .pagination span { min-width: 72px; min-height: 34px; display: grid; place-items: center; border: 1px solid rgba(91,219,250,.15); border-radius: 6px; color: #eaf7ff; background: rgba(41,178,216,.1); font: 12px Consolas, monospace; }
 
-/* ================= 修改了 QSL 卡片的样式 ================= */
+/* ================= QSL 卡片墙 ================= */
 .wall-container { min-height: 260px; padding: 8px; }
 .wall-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 12px; }
 
@@ -233,7 +242,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   .hero { min-height: auto; padding: 16px 0 22px; }
   .hero-title h1 { flex-direction: column; gap: 8px; font-size: clamp(20px, 5.5vw, 27px); letter-spacing: .05em; }
   .hero-title h1 .crac-logo { height: 76px; max-width: 100px; margin: 0; }
-  .hero-title h1 .title-text small { font-size: 9px; line-height: 1.6; letter-spacing: .1em; margin-top: 8px; }
+  .hero-title h1 .title-text small { font-size: 9px; letter-spacing: .2em; margin-right: -.2em; margin-top: 6px; }
   .log-panel { margin-top: 8px; }
   .panel-head { padding: 8px 0 12px; gap: 10px; }
   .panel-head .title-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
