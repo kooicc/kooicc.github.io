@@ -14,6 +14,7 @@ html {
   min-height: 100%;
   color-scheme: dark;
   scroll-behavior: smooth;
+  overflow-y: scroll; /* 👈 新增这一行，强制保留滚动条占位 */
 }
 
 body {
