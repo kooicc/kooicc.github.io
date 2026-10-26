@@ -23,10 +23,10 @@ body {
   color: var(--ink);
   font-family: "Segoe UI", "Microsoft YaHei UI", "PingFang SC", Arial, sans-serif;
   letter-spacing: .02em;
-  background: #020b17;
+  background-color: #020b17; /* 兜底纯色 */
 }
 
-/* ====== 彻底锁死背景（防止展开表格/卡片时抽搐） ====== */
+/* ====== 纯静态视口背景，绝不干涉内部排版 ====== */
 body::before {
   content: "";
   position: fixed;
@@ -38,11 +38,8 @@ body::before {
   background:
     linear-gradient(180deg, rgba(1, 8, 19, .42), rgba(2, 11, 23, .45) 50%, rgba(1, 10, 21, .72)),
     url("https://bing.ee123.net/img/") center / cover no-repeat,
-    radial-gradient(ellipse at 20% 10%, #0a3157 0%, transparent 48%),
     #020b17;
   pointer-events: none;
-  transform: translateZ(0); /* 开启独立图层，死锁背景 */
-  will-change: transform;
 }
 
 body::after {
@@ -53,10 +50,10 @@ body::after {
   width: 100vw;
   height: 100vh;
   z-index: -2;
-  background: linear-gradient(180deg, rgba(1, 8, 19, .12), rgba(2, 11, 23, .18) 42%, rgba(1, 10, 21, .48));
+  background: radial-gradient(ellipse at 20% 10%, rgba(10, 49, 87, 0.6) 0%, transparent 48%);
   pointer-events: none;
-  transform: translateZ(0);
 }
+/* ========================================== */
 
 .scene { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 .aurora { position: absolute; width: 42vw; height: 42vw; border-radius: 50%; filter: blur(100px); opacity: .12; }
@@ -88,7 +85,7 @@ body::after {
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
 
-/* 图标放大 15% */
+/* 图标 */
 .hero-title h1 .crac-logo { 
   height: clamp(88px, 12vw, 160px); 
   width: auto; 
@@ -99,7 +96,7 @@ body::after {
 }
 .hero-title h1 .title-text { display: flex; flex-direction: column; align-items: center; }
 
-/* ====== 英文副标题间距稍微收紧 ====== */
+/* 英文副标题 */
 .hero-title h1 .title-text small {
   font-family: "Segoe UI", Arial, sans-serif; 
   font-size: clamp(11px, 1.4vw, 17px); 
@@ -272,7 +269,6 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   .hero-title h1 { flex-direction: column; gap: 8px; font-size: clamp(20px, 5.5vw, 27px); letter-spacing: .05em; }
   .hero-title h1 .crac-logo { height: 88px; max-width: 100px; margin: 0; }
   
-  /* 手机端英文副标题适配 */
   .hero-title h1 .title-text small { 
     font-size: 10px; 
     letter-spacing: .25em; 
