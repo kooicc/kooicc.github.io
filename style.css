@@ -26,10 +26,14 @@ body {
   background: #020b17;
 }
 
+/* ====== 彻底锁死背景（防止展开表格/卡片时抽搐） ====== */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -3;
   background:
     linear-gradient(180deg, rgba(1, 8, 19, .42), rgba(2, 11, 23, .45) 50%, rgba(1, 10, 21, .72)),
@@ -37,15 +41,21 @@ body::before {
     radial-gradient(ellipse at 20% 10%, #0a3157 0%, transparent 48%),
     #020b17;
   pointer-events: none;
+  transform: translateZ(0); /* 开启独立图层，死锁背景 */
+  will-change: transform;
 }
 
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -2;
   background: linear-gradient(180deg, rgba(1, 8, 19, .12), rgba(2, 11, 23, .18) 42%, rgba(1, 10, 21, .48));
   pointer-events: none;
+  transform: translateZ(0);
 }
 
 .scene { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
@@ -77,24 +87,29 @@ body::after {
   line-height: 1.25; 
   font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
 }
-.hero-title h1 .crac-logo { height: clamp(78px, 11vw, 140px); width: auto; max-width: 28vw; object-fit: contain; flex-shrink: 0; margin-right: 8px; }
+
+/* 图标放大 15% */
+.hero-title h1 .crac-logo { 
+  height: clamp(88px, 12vw, 160px); 
+  width: auto; 
+  max-width: 30vw; 
+  object-fit: contain; 
+  flex-shrink: 0; 
+  margin-right: 12px; 
+}
 .hero-title h1 .title-text { display: flex; flex-direction: column; align-items: center; }
 
-/* ====== 极致对齐的英文副标题 ====== */
+/* ====== 英文副标题间距稍微收紧 ====== */
 .hero-title h1 .title-text small {
   font-family: "Segoe UI", Arial, sans-serif; 
-  /* 电脑端最大 17px，手机端 11px，这里用 vw 动态微调保证视觉长度 */
   font-size: clamp(11px, 1.4vw, 17px); 
   font-weight: 500; 
-  /* 关键：大幅拉开字间距，让英文长度撑满中文 */
-  letter-spacing: .38em; 
+  letter-spacing: .32em; 
   margin-top: 14px; 
   text-transform: uppercase; 
-  /* 银灰色、稍微调亮一点，保证阅读清晰 */
   color: rgba(200, 230, 255, 0.85); 
   text-shadow: 0 1px 2px rgba(0,0,0,0.8);
-  /* 抵消最后多出来的字间距，保证绝对居中 */
-  margin-right: -.38em; 
+  margin-right: -.32em; 
 }
 
 .log-panel { margin-top: 20px; border: none; border-radius: 0; background: transparent; }
@@ -255,7 +270,7 @@ tbody tr:hover { background: rgba(111,247,234,.1); }
   .app-shell { width: calc(100% - 20px); padding: 12px 0 112px; }
   .hero { min-height: auto; padding: 16px 0 22px; }
   .hero-title h1 { flex-direction: column; gap: 8px; font-size: clamp(20px, 5.5vw, 27px); letter-spacing: .05em; }
-  .hero-title h1 .crac-logo { height: 76px; max-width: 100px; margin: 0; }
+  .hero-title h1 .crac-logo { height: 88px; max-width: 100px; margin: 0; }
   
   /* 手机端英文副标题适配 */
   .hero-title h1 .title-text small { 

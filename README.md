@@ -1,210 +1,66 @@
-<div align="center">
+# 个人业余无线电台 
 
-# 📡 BI4BOB 业余无线电台 · 通联日志站
+**纯静态网页，用来查询展示收到的 QSL 卡片及其通联记录。**
 
-**一个零依赖、零构建的个人业余无线电 QSO 日志与 QSL 卡片展示站**
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-1976D2?style=flat-square&logo=github&logoColor=white)]()
+[![Stars](https://img.shields.io/github/stars/kooicc/kooicc.github.io?style=flat-square&logo=github&logoColor=white)]()
+[![Forks](https://img.shields.io/github/forks/kooicc/kooicc.github.io?style=flat-square&logo=github&logoColor=white)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-3DA639?style=flat-square)](LICENSE)
 
-[![在线预览](https://img.shields.io/badge/Live%20Demo-kooicc.github.io-1976D2?style=flat-square&logo=github&logoColor=white)](https://kooicc.github.io/)
-[![零依赖](https://img.shields.io/badge/Dependencies-0-4CAF50?style=flat-square)](https://github.com/kooicc/kooicc.github.io)
-[![无需构建](https://img.shields.io/badge/Build-Not%20Required-E34F26?style=flat-square&logo=html5&logoColor=white)](https://github.com/kooicc/kooicc.github.io)
-[![最近更新](https://img.shields.io/badge/Updated-2026--10--22-55E9FF?style=flat-square)](https://github.com/kooicc/kooicc.github.io/commits)
+[功能一览](#功能一览) · [部署上线](#部署上线) · [维护通联记录](#维护通联记录) · [维护 QSL 卡片](#维护-qsl-卡片) · [常见定制项](#常见定制项)
 
-</div>
-
----
-
-## 目录
-
-- [项目简介](#项目简介)
-- [功能一览](#功能一览)
-- [快速开始](#快速开始)
-- [目录结构](#目录结构)
-- [维护通联日志](#维护通联日志)
-- [维护 QSL 卡片](#维护-qsl-卡片)
-- [个性化改动](#个性化改动)
-- [部署上线](#部署上线)
-- [常见问题](#常见问题)
-- [相关链接](#相关链接)
-
----
-
-## 项目简介
-
-把每次通联（QSO）的记录和收到的纸质 QSL 卡片搬到网页上，方便自己回看，也方便对方查证。
-
-整个站由 **HTML + CSS + 原生 JavaScript** 三个文件组成，没有框架、没有 npm、没有打包步骤 —— 改完保存、推送到 GitHub 就自动上线。所有日志数据独立放在 `qso_data.json`，日常更新只改这个文件，不用碰代码。
-
-> 💡 **适合谁**：想在 GitHub Pages 上搭一个属于自己的 QSL 查询页，又不想折腾构建工具的火腿（HAM）。
-
----
+![站点预览](https://s3.bmp.ovh/2026/10/26/RKrkEp1e.webp)
 
 ## 功能一览
 
-| 功能 | 说明 |
-| :--- | :--- |
-| 📋 **通联日志表** | 8 列完整呈现：时间、呼号、频率、模式、信号、位置、QSL 收/寄时间。**按时间自动倒序**，无需手动排序 |
-| 🔍 **全字段搜索** | 边输入边过滤，覆盖全部 8 个字段；自动忽略大小写（输入 `bi4ajf` 也能命中 `BI4AJF`） |
-| 🖼️ **QSL 卡片墙** | 自动把填了 QSL 日期的呼号拼成 `<呼号>.jpg` 地址铺成网格，点击查看大图；鼠标点击、键盘 <kbd>Enter</kbd> / <kbd>Space</kbd> 都能触发，<kbd>Esc</kbd> 或点击空白处关闭 |
-| 🔗 **一键查 QRZ** | 点击表格里的呼号，直接在新标签页打开对方在 QRZ.com 的主页 |
-| 📑 **分页浏览** | 每页 10 条，底部显示「当前区间 / 总数 / 页码」，按钮到头自动置灰 |
-| 🎴 **折叠式面板** | 「QSL」「QSO」两个标签默认收起，先看壁纸，点开再查数据；再点一次即收起 |
-| ⌨️ **键盘友好** | 搜索框内按 <kbd>Esc</kbd> 清空并失焦，大图按 <kbd>Esc</kbd> 关闭 |
-| 📱 **自适应布局** | 手机端表格横向滑动查看，导航与页脚自动换行重排 |
+- QSO 日志表：通联时间、呼号、频率、模式、信号、位置、QSL 收/寄时间，按时间自动倒序
+- 全字段搜索，边输入边过滤，忽略大小写
+- QSL 卡片墙，点击看大图，Esc 或点空白处关闭
+- 点击呼号跳转 QRZ 查询
+- 背景为每日必应，每天自动更新
 
----
-
-## 快速开始
-
-> ⚠️ **不要直接双击 `index.html` 打开。** 页面通过 `fetch()` 读取数据，`file://` 协议下会被浏览器同源策略拦截，表格会一直停在「正在加载日志数据...」。用任意一个本地服务器即可：
-
-```bash
-# 方式一：Python（系统自带，最省事）
-python -m http.server 8000
-
-# 方式二：Node
-npx serve .
-```
-
-然后浏览器访问 <http://localhost:8000>。
-
----
-
-## 目录结构
+## 文件结构
 
 ```
-kooicc.github.io/
-├── index.html          # 页面骨架：标题、标签、表格模板、大图弹层
-├── style.css           # 全部样式，配色集中在 :root 变量里
-├── script.js           # 数据加载、搜索、分页、卡片墙、弹窗逻辑
-├── qso_data.json       # 👈 通联日志数据，日常只改这个文件
-├── CRAC.png            # 站徽（透明背景，已压缩至约 109 KB）
-└── CRAC.webp           # 站徽的 WebP 版本（约 58 KB），可选替换以进一步减小体积
+index.html      页面结构
+style.css       全部样式（配色在文件顶部 :root 里）
+script.js       数据加载、搜索、分页、卡片墙、弹窗
+qso_data.json   通联数据，日常只改这个
+CRAC.webp       站徽，同时用作浏览器标签图标
 ```
-
----
-
-## 维护通联日志
-
-编辑 **`qso_data.json`**，它是一个 JSON 数组，每一项是一条长度固定的一维数组：
-
-```json
-[
-  ["2026-10-11 16:43", "BI4AJF", "145.775", "FM",  "58",  "上海-宝山", "2026-10-19", "2026-10-22"],
-  ["2026-08-27 14:13", "BD8ENX", "14.074",  "FT8", "-05", "四川-成都", "2026-09-02", "2026-09-03"],
-  ["",                 "BH4GDY", "14.074",  "FT8", "",    "上海-浦东", "",           "2026-08-22"]
-]
-```
-
-### 字段对照表
-
-| # | 字段 | 示例 | 说明 |
-| :-: | :--- | :--- | :--- |
-| 1 | 通联时间 | `2026-10-11 16:43` | 北京时间，参与排序，**必须补零**（见下方提醒） |
-| 2 | 呼号 | `BI4AJF` | 渲染成链接，点击直达 QRZ |
-| 3 | 频率 | `145.775` | 单位 MHz，写成字符串即可 |
-| 4 | 模式 | `FM` / `FT8` / `SSB` | 以圆角色块呈现 |
-| 5 | 信号报告 | `58` / `-05` | RST，数字模式建议保留负号与补零 |
-| 6 | 位置（QTH） | `上海-宝山` | 建议「地区-城市」格式 |
-| 7 | **QSL 收到时间** | `2026-10-19` | 对方卡片寄达我手的日期 |
-| 8 | **QSL 寄出时间** | `2026-10-22` | 我方卡片寄出的日期 |
-
-### 三条规则
-
-1. **没发生的填空字符串 `""`** —— 表格会自动显示灰色的 `—`，不要写 `/`、`N/A` 或 `null`。
-2. **追加到数组末尾即可，不用管顺序** —— 脚本加载时按第 1 个字段倒序重排，最新的永远在最顶上。
-3. **时间格式必须统一**：`YYYY-MM-DD HH:MM` 或 `YYYY-MM-DD`。排序用字符串比较，`2026-10-9` 会排到 `2026-10-11` 前面，务必写成 `2026-10-09`。
-
-改完建议先校验一遍再提交，避免 JSON 语法错导致整站白屏：
-
-```bash
-python -m json.tool qso_data.json > /dev/null && echo "JSON 合法"
-```
-
----
-
-## 维护 QSL 卡片
-
-卡片图片走外部图床（仓库里不含图片文件），**不需要手工登记清单** —— 页面会自动扫描日志里所有填了 QSL 收/寄日期的记录，按呼号拼出图片地址：
-
-```
-https://img.244056614.xyz/<呼号>.jpg
-```
-
-所以维护卡片只有两步：
-
-1. 把扫描件按 **`呼号.jpg`** 命名（如 `BI4AJF.jpg`），上传到图床同一目录。
-2. 在 `qso_data.json` 里给这条记录填上 QSL 收/寄日期，卡片墙就会出现它。
-
-想换图床或换扩展名，改 `script.js` 顶部一行即可：
-
-```js
-const QSL_IMAGE_BASE_URL = "https://img.244056614.xyz/";
-```
-
-**几点注意：**
-
-- **文件名必须与呼号完全一致**（大小写、扩展名），页面不会做任何猜测。
-- 只有图片链接不存在时，那一格会被自动移除；如果整面墙都空着，说明图床上没有对应文件。
-- 图床若开了防盗链，浏览器直连会被拒，需要在图床侧放行本页面域名。
-- 图片建议压到 300 KB 以内、长边 1000px 左右 —— 卡片墙展示宽度只有 250px 上下。
-
----
-
-## 个性化改动
-
-| 想改什么 | 去哪里改 |
-| :--- | :--- |
-| **主配色**（青色 / 藏青） | `style.css` → `:root` 里的 `--cyan`、`--ink`、`--panel-bg` 等变量，改一处全站生效 |
-| **每页条数** | `script.js` → 顶部 `const PAGE_SIZE = 10` |
-| **站徽** | 替换 `CRAC.png`；想省流量可把 `index.html` 里的 `<img src="CRAC.png">` 一并改成 `CRAC.webp` |
-| **标题 / 页脚** | `index.html` → `.hero-title`（大标题）、`.site-footer`（QRZ / QTH / APRS 链接） |
-| **背景壁纸** | `style.css` → `body::before` 里的 `url(...)`，换成任意图片直链即可；取不到图时会回落到深色渐变，不会开天窗 |
-
----
 
 ## 部署上线
 
-本项目托管在 **GitHub Pages**，无需任何付费服务。
+1. 文件推送到 GitHub 仓库
+2. Settings → Pages → Source 选 `Deploy from a branch`，分支 `main`、目录 `/ (root)`，保存
+3. 等 1–2 分钟，访问 `https://<用户名>.github.io/`
 
-1. 把代码推送到 GitHub 仓库（个人主页仓库名固定为 `<用户名>.github.io`）。
-2. 进入仓库 **Settings → Pages → Build and deployment**。
-3. **Source** 选 `Deploy from a branch`，**Branch** 选 `main`、目录选 `/ (root)`，保存。
-4. 等 1–2 分钟，访问 `https://<用户名>.github.io/` 即可。
+## 通联记录
 
-> 🔔 更新后页面没变化通常是 CDN 缓存，按 <kbd>Ctrl</kbd> + <kbd>F5</kbd> 硬刷新，或等几分钟再试。
+编辑 `qso_data.json`，每行 8 个字段，顺序固定：
 
-**自定义域名**：在仓库根目录放一个 `CNAME` 文件，内容只写域名一行（如 `example.com`，不带 `http://`、不带末尾斜杠），再到域名解析商处添加一条指向 `<用户名>.github.io` 的 CNAME 记录。
+```json
+["通联时间", "XX0ABC", "14.074", "FT8", "-05", "某省-某市", "QSL 收到时间", "QSL 寄出时间"]
+```
 
----
+改完先校验一次 JSON，语法错会让整页显示「数据加载失败」。
 
-## 常见问题
+## QSL 卡片
 
-| 现象 | 原因与解决办法 |
-| :--- | :--- |
-| 表格一直显示「正在加载日志数据...」 | 多数是直接双击用 `file://` 打开了。改用 `python -m http.server` 起本地服务器访问 |
-| 页面直接显示「数据加载失败」 | JSON 语法出错（常见于漏逗号、用了中文引号）。用 `python -m json.tool qso_data.json` 校验 |
-| 新加的记录没排在最上面 | 时间没有补零或格式不统一。写成 `2026-10-09` 而不是 `2026-10-9` |
-| 提交后线上还是旧数据 | CDN 缓存未过期，硬刷新或等待几分钟 |
-| QSL 卡片墙少了几张或整片空白 | 图床上没有对应的 `<呼号>.jpg`（文件名大小写、扩展名要对得上），也可能是防盗链拦截 |
-| 手机上表格要左右滑才看得全 | 刻意设计：8 列信息在窄屏放不下，横向滚动比挤成一团更好读 |
+图片放外部图床，仓库里不存图。页面会自动找出所有填了 QSL 日期的呼号，拼成地址：
 
----
+```
+<图床地址><呼号>.jpg
+```
 
-## 相关链接
+所以只要两步：扫描件按 `呼号.jpg` 命名上传图床，再在数据里给这条记录填上 QSL 日期。换图床改 `script.js` 顶部：
 
-| | |
-| :--- | :--- |
-| 🏠 本站 | <https://kooicc.github.io/> |
-| 📇 QRZ 主页 | <https://www.qrz.com/db/BI4BOB> |
-| 📍 QTH | <https://www.shanghai.gov.cn/nw2318/index.html> |
-| 🛰️ APRS 轨迹 | <https://aprs.fi/#!call=BI4BOB-10> |
+```js
+const QSL_IMAGE_BASE_URL = "https://<图床直链>/";
+```
 
----
+取不到的图会自动隐藏。建议压到长边 1000px、300 KB 以内。
 
-<div align="center">
+## 注意事项
 
-操作业余无线电台需取得相应操作证书（A / B / C 类）、电台执照与呼号，请合法合规通联。
-
-**73!** 📻
-
-</div>
+**必须取得业余无线电证书，代码可自由参考， QSL 图片通联记录请勿转载！**
