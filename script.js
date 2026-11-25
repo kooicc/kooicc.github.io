@@ -236,7 +236,7 @@ function renderWall() {
     item.className = "wall-item";
     item.setAttribute("role", "button");
     item.setAttribute("tabindex", "0");
-    item.title = `点击查看 ${displayName} 的大图`;
+    item.title = displayName;
 
     const image = document.createElement("img");
     image.src = url;
