@@ -1,5 +1,6 @@
 // 全局变量
 let qsoLogs = [];
+let qslExtraItems = [];   // 无通联记录的 QSL 卡片（纪念卡/明信片，呼号可选）
 let currentTab = "";
 let isExpanded = false;
 let currentPage = 1;
@@ -7,7 +8,7 @@ let filteredLogs = [];
 let wallRendered = false;
 const PAGE_SIZE = 10;
 
-const QSL_IMAGE_BASE_URL = "https://img.244056614.xyz/"; 
+const QSL_IMAGE_BASE_URL = "https://img.244056614.xyz/";
 
 let qsoElements = {};
 
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     emptyState: document.getElementById("emptyState"),
     imageModal: document.getElementById("imageModal"),
     modalImage: document.getElementById("modalImage"),
-    modalClose: document.getElementById("modalCloseBtn") // 改用 ID 获取
+    modalClose: document.getElementById("modalCloseBtn")
   };
 
   // 初始化时隐藏清空按钮
@@ -51,27 +52,58 @@ document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch('./qso_data.json');
     if (!response.ok) throw new Error("网络请求失败，请检查文件是否存在或大小写是否正确");
     const rawData = await response.json();
-    
+
     // 排序：有时间的在前，空时间在最后
     qsoLogs = rawData
       .sort((a, b) => {
         const timeA = a[0] || "";
         const timeB = b[0] || "";
-        if (!timeA) return 1; 
-        if (!timeB) return -1; 
+        if (!timeA) return 1;
+        if (!timeB) return -1;
         return timeB.localeCompare(timeA);
       })
       .map(([time, call, freq, mode, rst, qth, received, sent]) => ({
-        time, call, freq, mode, rst, qth, 
-        receivedDate: received, 
+        time, call, freq, mode, rst, qth,
+        receivedDate: received,
         sentDate: sent
       }));
 
     filteredLogs = [...qsoLogs];
     renderLogs();
+
+    // 加载无通联记录的 QSL 卡片（可选文件，失败不影响主流程）
+    try {
+      const extraResponse = await fetch('./qsl_extra.json');
+      if (extraResponse.ok) {
+        const extraData = await extraResponse.json();
+        if (Array.isArray(extraData)) {
+          qslExtraItems = extraData
+            .map(item => {
+              if (!item || !item.img) return null;
+              const url = String(item.img).trim();
+              if (!url) return null;
+
+              const call = item.call ? String(item.call).trim().toUpperCase() : "";
+              const title = item.title ? String(item.title).trim() : "";
+              const label = title || call;   // 展示名：title 优先，否则用 call
+              if (!label) return null;       // 既无 title 又无 call，跳过
+
+              // key：有 call 用 call（可与日志卡去重/覆盖）；无 call 用 title 保证唯一
+              // 有 call 且有 title 时拼上 title，允许同呼号挂多张纪念卡
+              const key = call
+                ? `CALL:${call}${title ? `::${title}` : ""}`
+                : `TITLE:${label}`;
+
+              return { key, call, title, label, url };
+            })
+            .filter(Boolean);
+        }
+      }
+    } catch (e) {
+      console.warn("未加载 qsl_extra.json，跳过纪念卡补充:", e);
+    }
   } catch (error) {
     console.error("获取数据失败:", error);
-    // 防止极端情况下的空指针报错
     if (qsoElements.logBody) {
       qsoElements.logBody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #ff6b6b; padding: 40px;">数据加载失败：${escapeHTML(error.message)}</td></tr>`;
     }
@@ -81,7 +113,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function bindEvents() {
   qsoElements.tabQsl.addEventListener("click", () => toggleTab("qsl"));
   qsoElements.tabQso.addEventListener("click", () => toggleTab("qso"));
-  
+
   qsoElements.searchInput.addEventListener("input", applyFilters);
   qsoElements.searchInput.addEventListener("keydown", event => {
     if (event.key === "Escape") {
@@ -122,14 +154,14 @@ function bindEvents() {
 }
 
 function closeModal() {
-  // 修复图片加载竞争：赋值为一个极小的 Base64 透明图，瞬间中断原有图片的网络请求
+  // 赋值为极小的 Base64 透明图，瞬间中断原有图片的网络请求
   qsoElements.modalImage.src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
   qsoElements.imageModal.classList.add("hidden");
 }
 
 function updateUI() {
   const { tabQso, tabQsl, qsoContent, qslContent, logContainer, searchContainer } = qsoElements;
-  
+
   logContainer.classList.toggle("hidden", !isExpanded);
   qsoContent.classList.toggle("hidden", !(isExpanded && currentTab === "qso"));
   qslContent.classList.toggle("hidden", !(isExpanded && currentTab === "qsl"));
@@ -161,53 +193,73 @@ function renderWall() {
   const fragment = document.createDocumentFragment();
 
   const qslRecords = qsoLogs.filter(log => log.receivedDate || log.sentDate);
-  
+
   qslRecords.sort((a, b) => {
     const dateA = a.receivedDate || a.sentDate || "";
     const dateB = b.receivedDate || b.sentDate || "";
     return dateB.localeCompare(dateA);
   });
 
-  const qslCallsigns = [...new Set(qslRecords.map(log => log.call))];
+  // 1) 日志卡：key = CALL:呼号
+  const logItems = [...new Set(qslRecords.map(log => log.call))]
+    .filter(Boolean)
+    .map(call => {
+      const upper = String(call).trim().toUpperCase();
+      return upper
+        ? {
+            key: `CALL:${upper}`,
+            call: upper,
+            title: "",
+            label: upper,
+            url: `${QSL_IMAGE_BASE_URL}${encodeURIComponent(upper)}.jpg`
+          }
+        : null;
+    })
+    .filter(Boolean);
 
-  if (qslCallsigns.length === 0) {
+  // 2) 合并：同 key 纪念卡覆盖日志卡；无呼号纪念卡用 TITLE: 独立 key，不会误覆盖
+  const merged = new Map();
+  logItems.forEach(it => merged.set(it.key, it));
+  qslExtraItems.forEach(it => merged.set(it.key, it));
+  const items = [...merged.values()];
+
+  if (items.length === 0) {
     qsoElements.wallGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--muted);">暂无 QSL 记录</div>';
     wallRendered = true;
     return;
   }
 
-  qslCallsigns.forEach((call) => {
-    if (!call) return;
+  items.forEach(({ call, title, label, url }) => {
+    const displayName = title || label || call || "QSL 卡片";
 
-    const url = `${QSL_IMAGE_BASE_URL}${call}.jpg`; 
-    
     const item = document.createElement("figure");
     item.className = "wall-item";
     item.setAttribute("role", "button");
     item.setAttribute("tabindex", "0");
-    item.title = `点击查看 ${call} 的大图`;
+    item.title = `点击查看 ${displayName} 的大图`;
 
     const image = document.createElement("img");
     image.src = url;
-    image.alt = `${call} QSL 卡片`;
-    image.loading = "lazy"; 
+    image.alt = `${displayName} QSL 卡片`;
+    image.loading = "lazy";
     image.decoding = "async";
 
-    item.addEventListener("click", () => {
+    const openModal = () => {
       qsoElements.modalImage.src = url;
       qsoElements.imageModal.classList.remove("hidden");
-    });
+    };
+
+    item.addEventListener("click", openModal);
     item.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        qsoElements.modalImage.src = url;
-        qsoElements.imageModal.classList.remove("hidden");
+        openModal();
       }
     });
 
-    // 修复：图片加载失败时彻底移除节点，避免 Grid 空白占位
+    // 图片加载失败时彻底移除节点，避免 Grid 空白占位
     image.addEventListener("error", () => {
-      item.remove(); 
+      item.remove();
     }, { once: true });
 
     item.appendChild(image);
@@ -233,12 +285,11 @@ function renderLogs() {
 
   visibleLogs.forEach(log => {
     const tr = document.createElement("tr");
-    
-    // 修复：增加了 title 属性，鼠标悬停能看到完整日期
+
     const received = log.receivedDate
       ? `<span class="received-date" title="${escapeHTML(log.receivedDate)}">${escapeHTML(log.receivedDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
-      
+
     const sent = log.sentDate
       ? `<span class="sent-date" title="${escapeHTML(log.sentDate)}">${escapeHTML(log.sentDate)}</span>`
       : '<span class="empty-date" aria-label="暂无日期">—</span>';
